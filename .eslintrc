@@ -60,6 +60,7 @@
 		"spaced-comment": ["error", "always", { "line": { "exceptions": ["-"] }, "block": { "balanced": true } }],
 		"switch-colon-spacing": "error",
 		"no-jquery/no-global-selector": "off",
+		"no-jquery/no-fade": "off",
         "jsdoc/check-tag-names": 0,
         "max-len": "off"
 	},
