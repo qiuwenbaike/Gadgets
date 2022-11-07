@@ -1,8 +1,8 @@
-/* SPDX-License-Identifier: CC-BY-SA-3.0 */
+/* SPDX-License-Identifier: CC-BY-SA-4.0 */
 /**
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.js
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.js
- * @license <https://creativecommons.org/licenses/by-sa/3.0/>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 window.simplifyRefNotesTag = function () {
 
