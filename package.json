@@ -6,6 +6,7 @@
 		"url": "https://git.qiuwen.wiki/qiuwen/Qiuwen-Gadgets"
 	},
 	"scripts": {
+		"test": "grunt test",
 		"eslint": "eslint src/**/*.js",
 		"eslint:fix": "eslint src/**/*.js --fix",
 		"stylelint": "stylelint src/**/*.css",
@@ -13,11 +14,10 @@
 		"deploy": "node scripts/deploy.js"
 	},
 	"devDependencies": {
-		"eslint": "^7.32.0",
-		"eslint-plugin-es5": "^1.5.0",
 		"eslint-config-wikimedia": "0.23.0",
-        "stylelint": "^14.14.0",
-        "stylelint-config-standard": "^29.0.0",
-		"stylelint-config-wikimedia": "0.13.1"
+		"stylelint-config-wikimedia": "0.13.1",
+		"grunt": "1.5.3",
+		"grunt-eslint": "24.0.0",
+		"grunt-stylelint": "0.17.0"
 	}
 }

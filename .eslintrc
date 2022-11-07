@@ -1,11 +1,6 @@
 {
-    "env": {
-        "es5": true
-    },
-    "plugins": [ "es5" ],
     "extends": [
         "eslint:recommended",
-        "plugin:es5/no-es2015",
 		"wikimedia/client-es5",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
