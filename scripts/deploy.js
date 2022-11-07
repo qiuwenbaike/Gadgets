@@ -70,6 +70,14 @@ const deployTargets = [{
 	{
 		file: 'src/NoteTA/NoteTA.js',
 		target: 'MediaWiki:Gadget-NoteTA.js'
+	},
+	{
+		file: 'src/NoteTA-Vector/NoteTA-Vector.js',
+		target: 'MediaWiki:Gadget-NoteTA.js'
+	},
+	{
+		file: 'src/NoteTA-Vector/NoteTA-Vector.js',
+		target: 'MediaWiki:Gadget-NoteTA-Vector.js'
 	}
 ];
 

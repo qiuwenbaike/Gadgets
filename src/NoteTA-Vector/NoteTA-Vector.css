@@ -1,0 +1,18 @@
+/* SPDX-License-Identifier: CC-BY-SA-4.0 */
+/**
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-NoteTAvector.css
+ * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-noteTAvector.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+.noteTA-topicon {
+	padding-left: 0;
+}
+
+.noteTA-topicon ul li.icon span a {
+	background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAIAAAC0Ujn1AAAABmJLR0QA/wD/AP+gvaeTAAADV0lEQVRIidWWa1BMYRjH/6+lNSrEElI2STRFWiYpldK06GTGqlFuM2r6UMqMWzJTtGR0cV+X7ORSGWRMmdhJUc20KBSZXCbWptKVrtpL2y4f1uw021lTY/ZDz8f/839/5znP+77POUTS+RvGiXFG4hoXPZ5WTT92+FdfL8UL5bh5/Hv9gFJpwmTSpuir3h4R/Sg/N2Sd5+kTCf/g9vX2BK/zOHvyCG2WGNrGmxnn+fF7zCdPuSsqzxIK2lq+W8620vNIJXWV4jIA4VF7Dx8/NVJ0T3dXUlyMC8fNyobtx6XuZAmpTVtMzcyHes6lHD2fkjTJ1Ky0+gtrhqUeQb8hjd+kzU0NAKZMtTidkROyI+J1hRiArd3CqspneuaqimcAVrivHs6lQf/WaCjvZWs4C4oe5gHIu5PlwnEDYO/gWFosGuqUyfq1D/PwWUv73vpoG1u75LNXG6SS3btCmpsasoQCzzX+AKaxZryvqVYNDOic4pIihUJOCOFSvBGhAXApnpMLh8WaKS4rtpw1R9dfB0fnwoL7OlvB/dsAlq/0tLKeN1I0gPynr8S1jbnZmb5cSid6+QZcSOWr1WoAHe2tRaJ8AFt2RtISDKIJIdUvn7959cI3IFAn+viv//mj/V5OJoBsoWBQpWLb2VO8UENo+tsIQChIX7jYaa4NW6dMMDGheKEnEvYvclp6/co5ADEHEhkMxuiqlnz+VFJY4O3H1dPDo/YqlYqwQB9Z/y8vP+7G4K2GuPRo0YN7/LhYjUbj4Oisl7Jmzw/aHKZUKhgMBj/9EiFkdGgHR+emxnoAw29254+OivJSAGq1mn8oVi6XjQ5tZ7/I08cfwNuqyqG6XC6L2sn72dG+LTyKEFLy+GFwwCqppG4UaABM5kQARY/ydIpCIY8MC6qXfM7Of5KUdjH24BEAH2trgrxdhYL0QZVqpOjenm4A0i9/K2pr+R66wdvUzFwkfqed4DEHE7UnWibrP5l4wH/l4uEThv7wdbS3ArCYzgLwtLDg1rXL+xKStV3SBiEk+UwGe/6CNH48x80j9eIN63m2ehD6oVpRXpqbk7k9IprJnNjT3eXu5UtbAQBxWbHTEtep06YPTxmc1/8fxvzsfvjaZyQ04US+NhJ6bP7ijE30H38pO1aNeXkDAAAAAElFTkSuQmCC );
+	width: 30px;
+	height: 0;
+	overflow: hidden;
+	padding: 3.1em 0 0;
+	background-position: 5px 75%;
+}
