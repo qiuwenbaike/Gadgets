@@ -86,7 +86,11 @@ const deployTargets = [{
 	{
 		file: 'src/OneSideMenu/OneSideMenu.css',
 		target: 'MediaWiki:Gadget-OneSideMenu.css'
-	}
+	},
+	{
+		file: 'src/HideConversionTab/HideConversionTab.css',
+		target: 'MediaWiki:Gadget-HideConversionTab.css'
+	},
 ];
 
 class Deploy {
