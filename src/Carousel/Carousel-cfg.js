@@ -6,7 +6,7 @@
  */
 /**
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Carousel-cfg.js
- * @source https://zh.wikivoyage.org/wiki/MediaWiki:Common.js
+ * @source zh.wikivoyage.org/wiki/MediaWiki:Common.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 
