@@ -1,3 +1,7 @@
+/**
+ * @source https://github.com/wikimedia-gadgets/xfdcloser/blob/master/bin/deploy.js
+ * @license MIT
+ */
 // Adapted from https://github.com/wikimedia-gadgets/xfdcloser/blob/master/bin/deploy.js
 // (MIT License)
 /**
