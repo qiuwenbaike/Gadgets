@@ -9,7 +9,8 @@
         "dist/"
     ],
 	"rules": {
-		"no-jquery/no-global-selector": "off"
+		"no-jquery/no-global-selector": "off",
+        "jsdoc/check-tag-names": 0
 	},
     "globals": {
         "mw": "readonly",
