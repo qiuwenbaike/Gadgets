@@ -72,8 +72,8 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-NoteTA.js'
 	},
 	{
-		file: 'src/NoteTA-Vector/NoteTA-Vector.js',
-		target: 'MediaWiki:Gadget-NoteTA.js'
+		file: 'src/NoteTA-Vector/NoteTA-Vector.css',
+		target: 'MediaWiki:Gadget-NoteTA-Vector.css'
 	},
 	{
 		file: 'src/NoteTA-Vector/NoteTA-Vector.js',
