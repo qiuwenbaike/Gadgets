@@ -173,7 +173,7 @@ class Deploy {
 	}
 
 	async makeEditSummary() {
-		const sha = execSync('git rev-parse --short HEAD').toString('utf8').trim();
+		this.sha = execSync('git rev-parse --short HEAD').toString('utf8').trim();
 		const message = await input('> Edit summary message (optional): ');
 		this.editSummary = `Git 版本 ${sha}: ${message || '代码仓库同步更新'}`;
 		console.log(`Edit summary is: "${this.editSummary}"`);
@@ -193,7 +193,7 @@ class Deploy {
 			target
 		} of deployTargets) {
 			let fileText = await this.readFile(file);
-			fileText = `/* _addText: '{{Gadget Header|${this.editSummary}}}' */` + '\n' + fileText;
+			fileText = `/* _addText: '{{Gadget Header|${this.sha}}}' */` + '\n' + fileText;
 			try {
 				const response = await this.api.save(target, fileText, this.editSummary);
 				if (response && response.nochange) {
