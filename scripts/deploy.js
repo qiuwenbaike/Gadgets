@@ -92,7 +92,7 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-HideConversionTab.css'
 	},
 	{
-		file: 'src/HideConversionTab/DisambigLinks.css',
+		file: 'src/DisambigLinks/DisambigLinks.css',
 		target: 'MediaWiki:Gadget-DisambigLinks.css'
 	},
 	{
