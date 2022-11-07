@@ -2,8 +2,7 @@
 /**
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.js
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.js
- * @license CC-BY-SA-3.0
- * @license-url https://creativecommons.org/licenses/by-sa/3.0/
+ * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  */
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
