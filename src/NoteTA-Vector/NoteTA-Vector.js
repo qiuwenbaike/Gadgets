@@ -1,5 +1,5 @@
 /**
- * SPDX-License-Identifier: CC-BY-SA-4.0 
+ * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{CC-BY-SA-4.0}}'
  */
 /**
@@ -23,7 +23,9 @@ mw.hook('wikipage.content').add(function () {
 				.css('float', 'left')
 				.empty()
 				.each(function () {
-					$('<a href="#"><span style="padding:1px 3px; background: #d3e3f4; color:#000; height:85%;">汉</span><span style="padding:1px 3px; background: #e9e9e9; color:#434343; height:85%;">漢</span></a>')
+					$('<a>').attr('href', '#')
+						.append($('<span>').text('汉').style({ padding: '1px 3px', background: '#d3e3f4', color: '#000', height: '85%' }))
+						.append($('<span>').text('漢').style({ padding: '1px 3px', background: '#e9e9e9', color: '#434343', height: '85%' }))
 						.on('click', function (e) {
 							e.preventDefault();
 						})
