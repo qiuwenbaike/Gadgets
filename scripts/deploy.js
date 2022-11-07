@@ -96,8 +96,16 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-DisambigLinks.css'
 	},
 	{
-		file: 'src/ScrollUpButton/ScrollUpButton.js',
-		target: 'MediaWiki:Gadget-ScrollUpButton.js'
+		file: 'src/Carousel/Carousel.js',
+		target: 'MediaWiki:Gadget-Carousel.js'
+	},
+	{
+		file: 'src/Carousel/Carousel-cfg.js',
+		target: 'MediaWiki:Gadget-Carousel-cfg.js'
+	},
+	{
+		file: 'src/Carousel/Carousel.css',
+		target: 'MediaWiki:Gadget-Carousel.css'
 	},
 ];
 

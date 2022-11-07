@@ -13,7 +13,9 @@
 		"jquery": true
 	},
     "ignorePatterns": [
-        "dist/"
+        "dist/",
+		"src/Carousel/Carousel.js",
+		"src/Carousel/Carousel-cfg.js"
     ],
 	"rules": {
 		"no-console": "error",
