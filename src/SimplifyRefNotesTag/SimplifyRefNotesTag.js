@@ -1,6 +1,6 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0 
- * _addText: {{CC-BY-SA-4.0}}
+ * _addText: '{{CC-BY-SA-4.0}}'
  */
 /**
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.js
