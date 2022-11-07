@@ -6,10 +6,10 @@
 		"url": "https://git.qiuwen.wiki/qiuwen/Qiuwen-Gadgets"
 	},
 	"scripts": {
-		"eslint": "eslint .",
-		"eslint:fix": "eslint . --fix",
-		"stylelint": "stylelint .",
-		"stylelint:fix": "stylelint . --fix",
+		"eslint": "eslint src/**/*.js",
+		"eslint:fix": "eslint src/**/*.js --fix",
+		"stylelint": "stylelint src/**/*.css",
+		"stylelint:fix": "stylelint src/**/*.css --fix",
 		"deploy": "node scripts/deploy.js"
 	},
 	"devDependencies": {
