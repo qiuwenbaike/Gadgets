@@ -82,6 +82,10 @@ const deployTargets = [{
 	{
 		file: 'src/CollapsibleSidebar/CollapsibleSidebar.js',
 		target: 'MediaWiki:Gadget-CollapsibleSidebar.js'
+	},
+	{
+		file: 'src/OneSideMenu/OneSideMenu.css',
+		target: 'MediaWiki:Gadget-OneSideMenu.css'
 	}
 ];
 
