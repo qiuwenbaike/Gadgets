@@ -10,7 +10,8 @@
     ],
 	"rules": {
 		"no-jquery/no-global-selector": "off",
-        "jsdoc/check-tag-names": 0
+        "jsdoc/check-tag-names": 0,
+        "max-len": "off"
 	},
     "globals": {
         "mw": "readonly",
