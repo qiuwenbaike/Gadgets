@@ -17,7 +17,7 @@
  * [zhwiki] Add a timer to autohide button, check more gadgets. Add scrollDownButton
  *   @from https://ko.wikipedia.org/?oldid=25440719 CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
  *   @maintainer 安忆 (https://zh.wikipedia.org/wiki/User:安忆)
- * [qwwiki] subsititute the icon
+ * [qiuwen] subsititute the icon
  *  scrollButtonIcon from https://www.qiuwenbaike.cn/wiki/File:Up_Arrow_(Blue,_White_BG).svg
  */
 $(function () {
