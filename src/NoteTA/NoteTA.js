@@ -6,6 +6,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-NoteTA.js
  * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-noteTA.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ * @dependency ext.gadget.SiteCommonJs, jquery.makeCollapsible, jquery.ui, mediawiki.api
  */
 // <nowiki>
 mw.hook('wikipage.content').add(function () {
