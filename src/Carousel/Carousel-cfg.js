@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{CC-BY-SA-4.0}}'
@@ -9,6 +7,7 @@
  * @source zh.wikivoyage.org/wiki/MediaWiki:Common.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+'use strict';
 
 // BEGIN Carousel configuration code
 
