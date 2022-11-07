@@ -2,7 +2,7 @@
 /**
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-NoteTA.js
  * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-noteTA.js
- * Original License: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
+ * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  */
 // <nowiki>
 mw.hook('wikipage.content').add(function () {
