@@ -78,6 +78,10 @@ const deployTargets = [{
 	{
 		file: 'src/NoteTA-Vector/NoteTA-Vector.js',
 		target: 'MediaWiki:Gadget-NoteTA-Vector.js'
+	},
+	{
+		file: 'src/CollapsibleSidebar/CollapsibleSidebar.js',
+		target: 'MediaWiki:Gadget-CollapsibleSidebar.js'
 	}
 ];
 
