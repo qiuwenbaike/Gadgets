@@ -1,6 +1,6 @@
 {
-    "extends": [
-        "eslint:recommended",
+	"root": true,
+	"extends": [
 		"wikimedia/client-es5",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
@@ -8,6 +8,9 @@
     "ignorePatterns": [
         "dist/"
     ],
+	"rules": {
+		"no-jquery/no-global-selector": "off"
+	},
     "globals": {
         "mw": "readonly",
         "mediaWiki": "readonly",
