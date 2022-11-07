@@ -52,76 +52,16 @@ const minimist = require('minimist');
 // All file paths are with respect to repository root
 // Remove twinkle-pagestyles.css if deploying as user script
 const deployTargets = [{
-		file: 'modules/friendlytag.js',
-		target: 'MediaWiki:Gadget-friendlytag.js'
+		file: 'src/HanSect/HanSect.css',
+		target: 'MediaWiki:Gadget-HanSect.css'
 	},
 	{
-		file: 'modules/friendlytalkback.js',
-		target: 'MediaWiki:Gadget-friendlytalkback.js'
+		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.js',
+		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.js'
 	},
 	{
-		file: 'modules/twinklearv.js',
-		target: 'MediaWiki:Gadget-twinklearv.js'
-	},
-	{
-		file: 'modules/twinklebatchdelete.js',
-		target: 'MediaWiki:Gadget-twinklebatchdelete.js'
-	},
-	{
-		file: 'modules/twinklebatchundelete.js',
-		target: 'MediaWiki:Gadget-twinklebatchundelete.js'
-	},
-	{
-		file: 'modules/twinkleblock.js',
-		target: 'MediaWiki:Gadget-twinkleblock.js'
-	},
-	{
-		file: 'modules/twinkleclose.js',
-		target: 'MediaWiki:Gadget-twinkleclose.js'
-	},
-	{
-		file: 'modules/twinkleconfig.js',
-		target: 'MediaWiki:Gadget-twinkleconfig.js'
-	},
-	{
-		file: 'modules/twinklecopyvio.js',
-		target: 'MediaWiki:Gadget-twinklecopyvio.js'
-	},
-	{
-		file: 'modules/twinklediff.js',
-		target: 'MediaWiki:Gadget-twinklediff.js'
-	},
-	{
-		file: 'modules/twinklefluff.js',
-		target: 'MediaWiki:Gadget-twinklefluff.js'
-	},
-	{
-		file: 'modules/twinkleimage.js',
-		target: 'MediaWiki:Gadget-twinkleimage.js'
-	},
-	{
-		file: 'modules/twinkleprotect.js',
-		target: 'MediaWiki:Gadget-twinkleprotect.js'
-	},
-	{
-		file: 'modules/twinklespeedy.js',
-		target: 'MediaWiki:Gadget-twinklespeedy.js'
-	},
-	{
-		file: 'modules/twinklestub.js',
-		target: 'MediaWiki:Gadget-twinklestub.js'
-	},
-	{
-		file: 'modules/twinkleunlink.js',
-		target: 'MediaWiki:Gadget-twinkleunlink.js'
-	},
-	{
-		file: 'modules/twinklewarn.js',
-		target: 'MediaWiki:Gadget-twinklewarn.js'
-	},
-	{
-		file: 'modules/twinklexfd.js',
-		target: 'MediaWiki:Gadget-twinklexfd.js'
+		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.css',
+		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.css'
 	}
 ];
 
