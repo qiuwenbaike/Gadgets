@@ -62,6 +62,14 @@ const deployTargets = [{
 	{
 		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.css',
 		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.css'
+	},
+	{
+		file: 'src/NoteTA/NoteTA.css',
+		target: 'MediaWiki:Gadget-NoteTA.css'
+	},
+	{
+		file: 'src/NoteTA/NoteTA.js',
+		target: 'MediaWiki:Gadget-NoteTA.js'
 	}
 ];
 
