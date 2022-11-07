@@ -1,0 +1,11 @@
+/* SPDX-License-Identifier: CC-BY-SA-3.0 */
+/**
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.css
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-SimplifyRefNotesTag.css
+ * @license CC BY-SA 3.0
+ * @license-url https://creativecommons.org/licenses/by-sa/3.0/
+ */
+.referencesNoteFoot #info-references-RefNote {
+	display: none;
+	speak: none;
+}
