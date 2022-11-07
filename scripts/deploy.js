@@ -111,6 +111,18 @@ const deployTargets = [{
 		file: 'src/Carousel/Carousel.css',
 		target: 'MediaWiki:Gadget-Carousel.css'
 	},
+	{
+		file: 'src/Wikiplus/Wikiplus.js',
+		target: 'MediaWiki:Gadget-Wikiplus.js'
+	},
+	{
+		file: 'src/Wikiplus/Wikiplus-load.js',
+		target: 'MediaWiki:Gadget-Wikiplus-load.js'
+	},
+	{
+		file: 'src/Wikiplus/Wikiplus-highlight.js',
+		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
+	},
 ];
 
 class Deploy {

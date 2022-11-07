@@ -15,7 +15,9 @@
     "ignorePatterns": [
         "dist/",
 		"src/Carousel/Carousel.js",
-		"src/Carousel/Carousel-cfg.js"
+		"src/Carousel/Carousel-cfg.js",
+		"src/Wikiplus/Wikiplus.js",
+		"src/Wikiplus/Wikiplus-highlight.js"
     ],
 	"rules": {
 		"no-console": "error",
