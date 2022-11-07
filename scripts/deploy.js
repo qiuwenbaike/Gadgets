@@ -205,7 +205,7 @@ class Deploy {
 			target
 		} of deployTargets) {
 			let fileText = await this.readFile(file);
-			fileText = `/* _addText: '{{Gadget Header|${this.sha}}}' */` + '\n' + fileText;
+			// fileText = `/* _addText: '{{Gadget Header|${this.sha}}}' */` + '\n' + fileText;
 			try {
 				const response = await this.api.save(target, fileText, this.editSummary);
 				if (response && response.nochange) {

@@ -1,8 +1,8 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{CC-BY-SA-4.0}}'
- */
-/**
+ * _addText: '{{Gadget Header}}'
+ *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Carousel-cfg.js
  * @source zh.wikivoyage.org/wiki/MediaWiki:Common.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>

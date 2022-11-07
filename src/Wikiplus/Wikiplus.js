@@ -1,8 +1,8 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{CC-BY-SA-3.0}}'
- */
-/**
+ * _addText: '{{Gadget Header}}'
+ *
  * @url https://cdn.jsdelivr.net/npm/wikiplus-core@latest/dist/Main.js
  * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  */
