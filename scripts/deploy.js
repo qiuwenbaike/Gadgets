@@ -91,6 +91,14 @@ const deployTargets = [{
 		file: 'src/HideConversionTab/HideConversionTab.css',
 		target: 'MediaWiki:Gadget-HideConversionTab.css'
 	},
+	{
+		file: 'src/HideConversionTab/DisambigLinks.css',
+		target: 'MediaWiki:Gadget-DisambigLinks.css'
+	},
+	{
+		file: 'src/ScrollUpButton/ScrollUpButton.js',
+		target: 'MediaWiki:Gadget-ScrollUpButton.js'
+	},
 ];
 
 class Deploy {

@@ -1,0 +1,24 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{CC-BY-SA-4.0}}'
+ */
+/**
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-DisambigLinks.css
+ * @author Kaldari, Cyberpower678, Alexander Misel, Artoria2e5, WaitSpring and other Qiuwen Baike Contributors.
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+a.mw-disambig {
+	color: #f17600;
+}
+
+a.mw-disambig.mw-disambig:visited {
+	color: #d2711b;
+}
+
+a.mw-redirect.mw-disambig {
+	color: #ff6421;
+}
+
+a.mw-redirect.mw-disambig:visited {
+	color: #d2521b;
+}
