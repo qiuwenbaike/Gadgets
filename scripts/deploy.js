@@ -139,6 +139,10 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-SiteCommon.js'
 	},
 	{
+		file: 'src/SpecialWikitext/SpecialWikitext.js',
+		target: 'MediaWiki:Gadget-SpecialWikitext.js'
+	},
+	{
 		file: 'src/NavFrame/NavFrame.css',
 		target: 'MediaWiki:Gadget-NavFrame.css'
 	},
