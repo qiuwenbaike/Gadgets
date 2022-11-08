@@ -1,0 +1,347 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{CC-BY-SA-4.0}}'
+ * _addText: '{{Gadget Header}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Mbox.css
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Common.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* Styles for all mboxes */
+
+.mbox {						/* Common styles for all mboxes */
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5em auto;
+	max-width: 95%;
+	border-style: solid;
+	border-collapse: inherit;
+	border-width: 0 0 0 5px;
+	border-radius: 5px;
+	border-left-color: #36c;
+	background: #def;
+}
+
+.mbox-body {
+	display: flex;
+	flex-flow: row nowrap;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.mbox-above,
+.mbox-below {
+	margin: auto;
+}
+
+.mbox-above {
+	padding: 0.5em 0.9em 0;
+}
+
+.mbox-below {
+	padding: 0 0.9em 0.5em;
+}
+
+/* Cell sizes for tmbox/fmbox message boxes */
+.mbox-text {                 /* The message body cell(s) */
+	border: 0;
+	padding: 0.25em 0.9em;		/* 0.9em left/right */
+	width: 95%;				    /* Make all mboxes the same width regardless of text length */
+	flex: 1 1 95%;
+}
+
+.mbox-image,
+.mbox-imageright {
+	border: 0;
+	text-align: center;
+	flex: 1 0 40px;
+}
+
+.mbox-image {				  /* The left image cell */
+	padding: 2px 0 2px 0.9em;	  /* 0.9em left, 0px right */
+}
+
+.mbox-imageright {			/* The right image cell */
+	padding: 2px 0.9em 2px 0;	/* 0px left, 0.9em right */
+}
+
+.mbox-empty-cell {			/* An empty narrow cell */
+	border: 0;
+	padding: 0;
+	width: 1px;
+}
+
+.mbox-image a > img,
+.mbox-imageright a > img {
+	max-width: unset !important;
+}
+
+/* Styles per type */
+.mbox-notice {
+	border-left-color: #36c;
+	background: #def;
+}
+
+.mbox-speedy,
+.mbox.alert,
+.mbox.red {
+	border-left-color: #b22;	/* Red */
+	background: #fee;			/* Pink */
+}
+
+.mbox-delete,
+.mbox.tawny {
+	border-left-color: #a97;	/* tawny */
+	background: #f0f0d8;		/* light tawny */
+}
+
+.mbox-content,
+.mbox.orange {
+	border-left-color: #f28500;	/* Orange */
+	background: #fed;			/* Light Orange */
+}
+
+.mbox-style,
+.mbox-rule,
+.mbox.rule,
+.mbox.yellow {
+	border-left-color: #fc3;	/* Yellow */
+	background: #ffc;			/* Light yellow */
+}
+
+.mbox-move,
+.mbox.violet,
+.mbox.purple {
+	border-left-color: #93c;	/* Purple */
+	background: #fef;			/* Light purple */
+}
+
+.mbox-protection,
+.mbox-draft,
+.mbox.gray,
+.mbox.grey {
+	border-left-color: #606060;	/* Dark gray */
+	background: #eee;			/* Light gray */
+}
+
+.mbox-featured,
+.mbox.brown {
+	border-left-color: #cba135;	/* Brown-gold */
+	background: #fec;			/* light brown */
+}
+
+.mbox-policy,
+.mbox.green {
+	border-left-color: #181;	/* Green */
+	background: #cfc;			/* Light green  */
+}
+
+.mbox-guideline,
+.mbox.blue {
+	border-left-color: #36c;
+	background: #def;
+}
+
+.mbox-license {
+	border-width: 2px;
+	border-color: #999;
+}
+
+.mbox-license,
+.mbox.license-pd {
+	background: #f7f8ff;		/* Very light gray */
+}
+
+.mbox.license-cc {
+	background: #f9f9f9;		/* Very light gray */
+}
+
+.mbox.license-other {
+	background: #ffe;		/* Very light gray */
+}
+
+.mbox.license-free {
+	background: #f3ffee;		/* Very light green */
+}
+
+.mbox.license-nonfree {
+	background: #fff9f9;		/* Very light red */
+}
+
+.mbox.license-self {
+	background: #f8f9fa;		/* Very light gray */
+}
+
+.mbox .mbox-text .mbox {		/* For mboxes inside mbox-text cells. */
+	border-radius: 0;
+}
+
+.mbox.license-self .mbox-text .mbox {		/* For mboxes inside mbox-text cells of mbox.license-self. */
+	border-width: 1px;
+}
+
+.mbox-inside .mbox {			/* For mboxes inside other templates. */
+	margin: 4px;
+}
+
+/* Code for compact mbox */
+/* Remove borders, backgrounds, padding, etc. */
+.compact-mbox .mbox {
+	border-radius: 0.2em;
+	border-collapse: collapse;
+	background: transparent;
+	margin: 0 0 0 1.6em !important;
+	padding: 0 !important;
+	width: auto;
+	display: block;
+}
+
+.compact-mbox .mw-collapsible-content .mbox {
+	border-left: 0;
+	margin-left: 1em !important;
+	display: list-item;
+	line-height: 1.5em;
+	list-style-type: disc;
+}
+
+body.mediawiki .compact-mbox .mbox-small-left {
+	clear: both;
+	font-size: 100%;
+	width: auto;
+	margin: 0;
+}
+
+/* Style the text cell as a list item and remove its margin */
+.compact-mbox div .mbox-text {
+	margin: 0 !important;
+}
+
+/* Style for compact mbox */
+/* Hide the images */
+.compact-mbox .mbox-text .mbox-image,
+.compact-mbox .mbox-text .mbox-imageright,
+.compact-mbox .mbox-text .mbox-empty-cell {
+	display: none;
+}
+
+/* Talk page message box styles */
+.tmbox {
+	background: #f8eaba;
+}
+
+.mbox-inside .tmbox.mbox-small {/* "small" tmboxes should not be small when  */
+	line-height: 1.5em;			/* also "nested", so reset styles that are   */
+	font-size: 100%;			/* set in "mbox-small" above.				*/
+}
+
+.mediawiki .mbox-inside .tmbox {/* For tmboxes inside other templates. The "mediawiki" */
+	margin: 2px 0;				/* class ensures that this declaration overrides other */
+	width: 100%;				/* For Safari and Opera */
+}
+
+/* Disambig and set index box styles */
+.mbox-disambig,
+.mbox-setindex {
+	border-width: 1px 1px 1px 5px !important;
+	border-color: #ccc;
+	background: #fefefe;
+}
+
+/* Footer and header message box styles */
+.fmbox {
+	clear: both;
+	margin: 0.2em 0;
+	border: 1px solid #a2a9b1;
+	background: #f8f9fa;		/* Default "system" gray */
+}
+
+.fmbox-system {
+	background: #f8f9fa;
+}
+
+.fmbox-warning {
+	border: 1px solid #bb7070;	/* Dark pink */
+	background: #ffdbdb;		/* Pink */
+}
+
+.fmbox-editnotice {
+	background: transparent;
+}
+
+/* Div based "warning" style fmbox messages. */
+.mw-warning-with-logexcerpt,
+.mw-lag-warn-high,
+.mw-cascadeprotectedwarning,
+#mw-protect-cascadeon {
+	clear: both;
+	margin: 0.2em 0;
+	border: 1px solid #bb7070;
+	background: #ffdbdb;
+	padding: 0.25em 0.9em;
+}
+
+/* Div based "system" style fmbox messages. */
+.fmbox-system {
+	clear: both;
+	margin: 0.2em 0;
+	border: 1px solid #a2a9b1;
+	background: #f8f9fa;
+	padding: 0.25em 0;
+}
+
+/* These mbox-small classes must be placed after all other
+   tmbox etc classes. "body.mediawiki" is so. */
+body.mediawiki .mbox-small {
+	/* For the "small=yes" option. */
+	clear: both;
+	float: right;
+	margin: 4px 0 4px 1em !important;
+	max-width: 320px;
+	font-size: 88%;
+	line-height: 1.25em;
+}
+
+body.mediawiki .mbox-small-left {
+	/* For the "small=left" option. */
+	margin: 4px 1em 4px 0 !important;
+	width: 240px;
+	border-collapse: collapse;
+	font-size: 88%;
+	line-height: 1.25em;
+}
+
+/* Style for mboxes on small-screen pages */
+@media screen and ( max-width: 768px ) {
+	.mbox,
+	.mbox-small {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.mbox-image,
+	.mbox-imageright {
+		display: none;
+	}
+}
+
+@media screen and ( max-width: 480px ) {
+	.mbox-small {
+		width: 100%;
+		float: none;
+		margin: 4px auto !important;
+	}
+}
+
+/* For permissionerror area */
+.permissions-errors {
+	border: 1px solid #a2a9b1;
+}
+
+.permissions-errors .fmbox {
+	border: 0;
+}

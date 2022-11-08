@@ -1,0 +1,308 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{CC-BY-SA-4.0}}'
+ * _addText: '{{Gadget Header}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Navbox.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 本样式表用于[[Module:Navbox]]。 */
+/* 除变量之外的其他部分 */
+.navbox {
+	display: grid;
+	background: #fdfdfd;
+	margin: 1em 0;
+	padding: 3px;
+	border: 1px solid #a2a9b1; /* not subgroup */
+	font-size: 95%; /* not subgroup */
+	text-align: start;
+	box-sizing: border-box;
+	grid-gap: 3px;
+	grid-template-columns: auto 1fr;
+	overflow-x: auto;
+	clear: both;
+}
+
+/* navbox相接有关功能 */
+.navbox-wrapper + .navbox-wrapper > .navbox,
+.navbox-wrapper + .navbox-wrapper > .content-table > .navbox,
+.navbox + .navbox {  /* Single pixel border between adjacent navboxes */
+	margin-top: calc( -1px - 1em );          /* (doesn't work for IE6, but that's okay)       */
+	/* 优先级低于 .navbox-list.navbox 的 margin:0 */
+}
+
+/* 整个navbox中的所有单元格，包括title、group、list等。 */
+.navbox-cell {
+	padding: 0.0875em 1em;
+}
+
+/* 针对{{navboxes}}的修正 */
+.navboxes > .navbox,
+.navboxes > .navbox-wrapper > .navbox,
+.navboxes > .navbox-wrapper > .content-table > .navbox {
+	padding: 0.625em 0;
+}
+
+.navbox-sole-row {
+	text-align: center;
+	grid-column: 1 / 3;
+}
+
+.navbox-group {
+	font-weight: bold;
+	/* max-width: 9em; */
+	vertical-align: middle;
+	text-align: end;
+	grid-column: 1 / 2;
+	justify-content: flex-end;
+	display: grid;
+	align-items: center;
+}
+
+.navbox-list {
+	display: grid;
+	align-items: center;
+}
+
+.navbox-title {
+	font-weight: bolder;
+	background-color: hsl( 100, 45%, 80% );
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+}
+
+.navbox-title > .navbar,
+.navbox-title-inner > .navbar {
+	justify-self: start;
+	grid-column: 1/span 1;
+}
+
+.navbox-title > .navbox-title-content,
+.navbox-title-inner > .navbox-title-content {
+	justify-self: center;
+	grid-column: 2/span 1;
+}
+
+.navbox-title > .collapsetoggle,
+.navbox-title > .mw-collapsible-toggle,
+.navbox-title-inner > .mw-collapsible-toggle {
+	justify-self: end;
+	grid-column: 3/span 1;
+	font-weight: normal;
+}
+
+/* .navbox-title > .mw-collapsible-toggle { */
+/*	margin-left: -100%; */
+/*	margin-right: 0; */
+/* } */
+/* .mw-content-rtl .navbox-title > .mw-collapsible-toggle, */
+/* .mw-content-rtl .mw-parser-output .navbox-title > .mw-collapsible-toggle { */
+/*	margin-right: -100%; */
+/*	margin-left: 0; */
+/* } */
+
+/* navbox各单元格的着色，注意这些属性只是用作“后备”的，会被最后面的变量部分
+报错。因此，这段内容并不会被使用，除非浏览器版本过旧不支持CSS变量。 */
+
+.navbox-group,
+.navbox-above,
+.navbox-below,
+.navbox .navbox .navbox-title {
+	background-color: hsl( 100, 45%, 85% );
+}
+
+.navbox .navbox .navbox-group,
+.navbox .navbox .navbox-above,
+.navbox .navbox .navbox-below,
+.navbox .navbox .navbox .navbox-title {
+	background-color: hsl( 100, 45%, 90% );
+}
+
+.navbox .navbox .navbox .navbox-group,
+.navbox .navbox .navbox .navbox-above,
+.navbox .navbox .navbox .navbox-below,
+.navbox .navbox .navbox .navbox .navbox-title {
+	background-color: hsl( 100, 45%, 95% );
+}
+
+.navbox-odd {
+	background: transparent;
+}
+
+.navbox-even {
+	background: #f7f7f7;
+}
+
+/* navbar有关功能 */
+.navbar {
+	display: inline;
+	font-weight: normal;
+}
+
+.navbar ul {
+	display: inline;
+	/* white-space: nowrap; */
+}
+
+.navbar li {
+	word-spacing: -0.125em;
+}
+
+.navbar-mini li abbr[ title ] {
+	font-variant: small-caps;
+	border-bottom: 0;
+	text-decoration: none;
+	cursor: inherit;
+}
+
+/* 子导航框有关功能 */
+.navbox-list.navbox,
+.navbox-list > span > .navbox,
+.navbox-list > span > span > .navbox,
+.navbox-list > .navbox {
+	padding: 0;
+	border: 0;
+	font-size: inherit;
+	margin: 0;
+	align-items: stretch;
+	align-self: stretch;
+}
+
+.navbox-list > .navbox,
+.navbox-list > span > .navbox,
+.navbox-list > span > span > .navbox {
+	margin: -0.0875em -1em;
+}
+
+.navbox-list > .navbox:not( .navbox-level-0 ) {
+	margin: 0;
+}
+
+/* navbox-plain和vertical有关功能 */
+
+.plainbox > .navbox-group {
+	text-align: center;
+	justify-content: center;
+	max-width: none;
+}
+
+.plainbox > .navbox-group,
+.plainbox > .navbox-list {
+	grid-column: 1 / 3;
+}
+
+.navbox.vertical > .navbox-group,
+.navbox-group.vertical {
+	writing-mode: vertical-rl;
+	text-align: center;
+	justify-content: center;
+}
+
+.plainbox.vertical > .navbox-group .plainbox > .navbox-group.vertical {
+	writing-mode: inherit;
+	text-align: end;
+	justify-content: flex-end;
+}
+
+@media screen and ( max-width: 850px ) {
+	.mobileplainbox > .navbox-group {
+		text-align: center;
+		justify-content: center;
+		max-width: none;
+	}
+
+	.mobileplainbox > .navbox-group,
+	.mobileplainbox > .navbox-list {
+		grid-column: 1 / 3;
+	}
+
+	.navbox.mobilevertical > .navbox-group,
+	.navbox-group.mobilevertical {
+		writing-mode: vertical-rl;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.mobileplainbox.vertical > .navbox-group,
+	.mobileplainbox > .navbox-group.vertical {
+		writing-mode: inherit;
+		text-align: center;
+		justify-content: center;
+	}
+}
+
+/* Style for horizontal lists (separator following item) */
+
+.navbox .hlist td dl,
+.navbox .hlist td ol,
+.navbox .hlist td ul,
+.navbox td.hlist dl,
+.navbox td.hlist ol,
+.navbox td.hlist ul {
+	padding: 0.125em 0;       /* Adjust hlist padding in navboxes */
+}
+
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li {
+	/* white-space: nowrap; */
+	/* Nowrap list items in navboxes */
+}
+
+.navbox .hlist dd dl,
+.navbox .hlist dt dl,
+.navbox .hlist li ol,
+.navbox .hlist li ul {
+	white-space: normal;      /* But allow parent list items to be wrapped */
+}
+
+.navbox .hlist ul ul {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+/* 适配手机版hlist显示 */
+.skin-minerva .content ul.hlist,
+.skin-minerva .content ol.hlist,
+.skin-minerva .content .hlist ul,
+.skin-minerva .content .hlist ol {
+	padding-left: unset;
+}
+
+/* 变量部分，请忽略下方所有的编辑器报错 */
+:root {
+	--navbox-hue: 160;
+	--navbox-saturation: 45%;
+}
+
+.navbox {
+	--navbox-title-color: hsl( var( --navbox-hue ), var( --navbox-saturation ), 72% );
+	--navbox-group-color: hsl( var( --navbox-hue ), var( --navbox-saturation ), 80% );
+	--navbox-subgroup-color: hsl( var( --navbox-hue ), var( --navbox-saturation ), 86% );
+	--navbox-sub-subgroup-color: hsl( var( --navbox-hue ), var( --navbox-saturation ), 90% );
+}
+
+.navbox-title {
+	background-color: var( --navbox-title-color );
+}
+
+.navbox-group,
+.navbox-above,
+.navbox-below,
+.navbox .navbox .navbox-title {
+	background-color: var( --navbox-group-color );
+}
+
+.navbox .navbox .navbox-group,
+.navbox .navbox .navbox-above,
+.navbox .navbox .navbox-below,
+.navbox .navbox .navbox .navbox-title {
+	background-color: var( --navbox-subgroup-color );
+}
+
+.navbox .navbox .navbox .navbox-group,
+.navbox .navbox .navbox .navbox-above,
+.navbox .navbox .navbox .navbox-below,
+.navbox .navbox .navbox .navbox .navbox-title {
+	background-color: var( --navbox-sub-subgroup-color );
+}
