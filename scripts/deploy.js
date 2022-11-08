@@ -122,6 +122,14 @@ const deployTargets = [{
 		file: 'src/Wikiplus/Wikiplus-highlight.js',
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
+	{
+		file: 'src/History-disclaimer/History-disclaimer.js',
+		target: 'MediaWiki:Gadget-History-disclaimer.js'
+	},
+	{
+		file: 'src/Report/Report.js',
+		target: 'MediaWiki:Gadget-Report.js'
+	},
 ];
 
 class Deploy {
