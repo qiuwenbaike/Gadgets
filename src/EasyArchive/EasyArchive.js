@@ -7,6 +7,8 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-easy-archive.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+'use strict';
+
 if (!('bluedeck' in window)) {
 	window.bluedeck = {};
 }

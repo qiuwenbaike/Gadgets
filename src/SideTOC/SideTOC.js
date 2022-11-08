@@ -6,6 +6,7 @@
  * @license GPL-3.0
  */
 'use strict';
+
 /* 仅保留平滑滚动部分；核心部分已移动至主题内部 */
 $(function () {
 	window.setTimeout(function () {
