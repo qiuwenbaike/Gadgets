@@ -91,7 +91,7 @@ mw.hook('wikipage.content').add(function () {
 												continue;
 											}
 											var variants = textVariant[text];
-											variants.forEach(variants, function () {
+											variants.forEach(function () {
 												variantText[this] = null;
 											});
 											var variantsName = variants.map(function (variantName) {
