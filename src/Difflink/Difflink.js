@@ -16,9 +16,9 @@
  * This source code is licensed under the GPL v3 license.
  */
 /* 如想自定义复制结果中的文本可通过向自己的common.js中加入以下内容：
-window.difflink = ['版本差异', '固定版本'];
-  如想使用默认值1，但自定值2，请将值1留空，如下例：
-window.difflink = ['', '固定版本'];
+ *   window.difflink = ['版本差异', '固定版本'];
+ * 如想使用默认值1，但自定值2，请将值1留空，如下例：
+ *   window.difflink = ['', '固定版本'];
 */
 $(function () {
 	var $nav = $('#contentSub').find('#mw-revision-nav').length === 1 || $('main#content>.pre-content #mw-revision-nav').length === 1;
