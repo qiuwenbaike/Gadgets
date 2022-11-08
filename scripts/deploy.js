@@ -123,8 +123,8 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
-		file: 'src/ShortURL/ShortURL.css',
-		target: 'MediaWiki:Gadget-ShortURL.css'
+		file: 'src/ShortURL/ShortURL.js',
+		target: 'MediaWiki:Gadget-ShortURL.js'
 	},
 	{
 		file: 'src/NavboxCSS/Navbox.css',
