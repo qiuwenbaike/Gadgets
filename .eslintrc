@@ -14,6 +14,7 @@
 	},
     "ignorePatterns": [
         "dist/",
+		"scripts/",
 		"src/Carousel/Carousel.js",
 		"src/Carousel/Carousel-cfg.js",
 		"src/Wikiplus/Wikiplus.js",
