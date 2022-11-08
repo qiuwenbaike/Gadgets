@@ -127,7 +127,6 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Difflink.js'
 	},
 	{
-	{
 		file: 'src/ShortURL/ShortURL.js',
 		target: 'MediaWiki:Gadget-ShortURL.js'
 	},
