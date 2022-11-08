@@ -131,6 +131,14 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-EasyArchive-main.js'
 	},
 	{
+		file: 'src/RRD/RRD.js',
+		target: 'MediaWiki:Gadget-RRD.js'
+	},
+	{
+		file: 'src/RRD/RRD-main.js',
+		target: 'MediaWiki:Gadget-RRD-main.js'
+	},
+	{
 		file: 'src/Edit-count/Edit-count.js',
 		target: 'MediaWiki:Gadget-Edit-count.js'
 	},

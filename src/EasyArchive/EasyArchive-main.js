@@ -76,13 +76,13 @@ if(!window.bluedeck.easy_archive) {
             try
             {
                 if("// testing whether browser has full ES6 support by checking arrow function, default parameter and rest parameter.") {
-                    new Function("(t, x=9, ...a) => [t, x, ...a];");
+                    new Function("(t, x=9, Object.assign({}, a)) => [t, x, Object.assign({}, a];");
                     if(!Promise) throw 0;
                 }
                 Go = (function(){
-                    var Go = function(...fns){this.task = new Promise(resolve => resolve());this.chain(...fns);};
+                    var Go = function(Object.assign({}, fns)){this.task = new Promise(resolve => resolve());this.chain(Object.assign({}, fns));};
                     var chain = function(go, fn){var f2 = x => 0;var promise = new Promise((reso, reje) => {f2 = x => fn(reso, reje)});go.task.then(f2);go.task = promise;};
-                    Go.prototype.chain = function(...fns){for(var i=0; i<fns.length; i++){if(typeof fns[i] === "function") chain(this, fns[i]); else if(typeof fns[i] === "object" && fns[i] !== null && fns[i].constructor === Array) this.chain(...fns[i]); else throw new TypeError("Cannot chain non-function and non-arrays to a Go instance.");}return this;};
+                    Go.prototype.chain = function(Object.assign({}, fns)){for(var i=0; i<fns.length; i++){if(typeof fns[i] === "function") chain(this, fns[i]); else if(typeof fns[i] === "object" && fns[i] !== null && fns[i].constructor === Array) this.chain(Object.assign({}, fns)[i]); else throw new TypeError("Cannot chain non-function and non-arrays to a Go instance.");}return this;};
                     return Go;
                 })();
             }
