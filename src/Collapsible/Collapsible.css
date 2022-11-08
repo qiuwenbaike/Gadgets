@@ -1,0 +1,23 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{CC-BY-SA-4.0}}'
+ * _addText: '{{Gadget Header}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Collapsible.css
+ * @source: https://rs.miraheze.org/wiki/MediaWiki:Gadget-collapsible.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+.collapsetoggle {
+	font-weight: normal;
+	user-select: none;
+}
+
+.mw-content-ltr .collapsetoggle {
+	margin-left: 0.5em;
+	margin-right: 0;
+}
+
+.mw-content-rtl .collapsetoggle {
+	margin-left: 0;
+	margin-right: 0.5em;
+}

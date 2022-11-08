@@ -18,7 +18,8 @@
 		"src/Carousel/Carousel.js",
 		"src/Carousel/Carousel-cfg.js",
 		"src/Wikiplus/Wikiplus.js",
-		"src/Wikiplus/Wikiplus-highlight.js"
+		"src/Wikiplus/Wikiplus-highlight.js",
+		"src/Collapsible/Collapsible.js"
     ],
 	"rules": {
 		"no-console": "error",
@@ -66,6 +67,8 @@
 		"switch-colon-spacing": "error",
 		"no-jquery/no-global-selector": "off",
 		"no-jquery/no-fade": "off",
+		"no-jquery/no-slide": "off",
+		"no-jquery/variable-pattern": "off",
         "jsdoc/check-tag-names": 0,
 		"jsdoc/require-param": 0,
 		"jsdoc/require-param-type": 0,

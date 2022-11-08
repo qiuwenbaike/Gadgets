@@ -59,12 +59,12 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-HanSect.css'
 	},
 	{
-		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.js',
-		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.js'
-	},
-	{
 		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.css',
 		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.css'
+	},
+	{
+		file: 'src/SimplifyRefNotesTag/SimplifyRefNotesTag.js',
+		target: 'MediaWiki:Gadget-SimplifyRefNotesTag.js'
 	},
 	{
 		file: 'src/NoteTA/NoteTA.css',
@@ -99,6 +99,10 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-DisambigLinks.css'
 	},
 	{
+		file: 'src/Wikiplus/Wikiplus.js',
+		target: 'MediaWiki:Gadget-Wikiplus.js'
+	},
+	{
 		file: 'src/Carousel/Carousel.js',
 		target: 'MediaWiki:Gadget-Carousel.js'
 	},
@@ -111,10 +115,6 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Carousel.css'
 	},
 	{
-		file: 'src/Wikiplus/Wikiplus.js',
-		target: 'MediaWiki:Gadget-Wikiplus.js'
-	},
-	{
 		file: 'src/Wikiplus/Wikiplus-load.js',
 		target: 'MediaWiki:Gadget-Wikiplus-load.js'
 	},
@@ -123,12 +123,24 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
+		file: 'src/Collapsible/Collapsible.css',
+		target: 'MediaWiki:Gadget-Collapsible.css'
+	},
+	{
+		file: 'src/Collapsible/Collapsible.js',
+		target: 'MediaWiki:Gadget-Collapsible.js'
+	},
+	{
 		file: 'src/History-disclaimer/History-disclaimer.js',
 		target: 'MediaWiki:Gadget-History-disclaimer.js'
 	},
 	{
 		file: 'src/Report/Report.js',
 		target: 'MediaWiki:Gadget-Report.js'
+	},
+	{
+		file: 'src/SideTOC/SideTOC.js',
+		target: 'MediaWiki:Gadget-SideTOC.js'
 	},
 ];
 
