@@ -72,6 +72,7 @@
         "jsdoc/check-tag-names": 0,
 		"jsdoc/require-param": 0,
 		"jsdoc/require-param-type": 0,
+		"jsdoc/require-returns": 0,
         "max-len": "off"
 	},
     "globals": {
