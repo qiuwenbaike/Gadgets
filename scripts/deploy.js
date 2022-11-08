@@ -135,6 +135,10 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Edit-count.js'
 	},
 	{
+		file: 'src/Rollback-summary/Rollback-summary.js',
+		target: 'MediaWiki:Gadget-Rollback-summary.js'
+	},
+	{
 		file: 'src/Difflink/Difflink.js',
 		target: 'MediaWiki:Gadget-Difflink.js'
 	},

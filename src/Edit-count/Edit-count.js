@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
  *
- * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Editform.js
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Edit-count.js
  * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  */
 /* 原作者：安忆； CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/> */
