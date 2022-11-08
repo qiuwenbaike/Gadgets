@@ -124,6 +124,10 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
+		file: 'src/Fullwidth-search-fix/Fullwidth-search-fix.js',
+		target: 'MediaWiki:Gadget-Fullwidth-search-fix.js'
+	},
+	{
 		file: 'src/Did-you-mean/Did-you-mean.js',
 		target: 'MediaWiki:Gadget-Did-you-mean.js'
 	},
