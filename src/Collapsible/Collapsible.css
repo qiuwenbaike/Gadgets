@@ -9,6 +9,7 @@
  */
 .collapsetoggle {
 	font-weight: normal;
+	-webkit-user-select: none;
 	user-select: none;
 }
 
