@@ -123,6 +123,14 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
+		file: 'src/EasyArchive/EasyArchive.js',
+		target: 'MediaWiki:Gadget-EasyArchive.js'
+	},
+	{
+		file: 'src/EasyArchive/EasyArchive-main.js',
+		target: 'MediaWiki:Gadget-EasyArchive-main.js'
+	},
+	{
 		file: 'src/Difflink/Difflink.js',
 		target: 'MediaWiki:Gadget-Difflink.js'
 	},
