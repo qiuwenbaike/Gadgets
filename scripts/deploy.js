@@ -54,7 +54,6 @@ const minimist = require('minimist');
 
 // Adjust target file names if necessary
 // All file paths are with respect to repository root
-// Remove twinkle-pagestyles.css if deploying as user script
 const deployTargets = [{
 		file: 'src/HanSect/HanSect.css',
 		target: 'MediaWiki:Gadget-HanSect.css'
@@ -122,14 +121,6 @@ const deployTargets = [{
 	{
 		file: 'src/Wikiplus/Wikiplus-highlight.js',
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
-	},
-	{
-		file: 'src/Fullwidth-search-fix/Fullwidth-search-fix.js',
-		target: 'MediaWiki:Gadget-Fullwidth-search-fix.js'
-	},
-	{
-		file: 'src/Did-you-mean/Did-you-mean.js',
-		target: 'MediaWiki:Gadget-Did-you-mean.js'
 	},
 ];
 
