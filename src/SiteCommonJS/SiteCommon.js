@@ -6,7 +6,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-SiteCommon.js
  * @source: https://zh.wikipedia.org/wiki/MediaWiki:Common.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
- * @dependency mediawiki.storage
+ * @dependency mediawiki.util
  */
 
 'use strict';
