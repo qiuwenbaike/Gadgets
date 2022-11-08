@@ -123,16 +123,20 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
-		file: 'src/Navbox/Navbox.css',
+		file: 'src/NavboxCSS/Navbox.css',
 		target: 'MediaWiki:Gadget-Navbox.css'
 	},
 	{
-		file: 'src/Infobox/Infobox.css',
+		file: 'src/InfoboxCSS/Infobox.css',
 		target: 'MediaWiki:Gadget-Infobox.css'
 	},
 	{
-		file: 'src/Mbox/Mbox.css',
+		file: 'src/MboxCSS/Mbox.css',
 		target: 'MediaWiki:Gadget-Mbox.css'
+	},
+	{
+		file: 'src/SiteCommonJS/SiteCommon.js',
+		target: 'MediaWiki:Gadget-SiteCommon.js'
 	},
 	{
 		file: 'src/NavFrame/NavFrame.css',
