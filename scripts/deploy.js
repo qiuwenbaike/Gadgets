@@ -171,8 +171,8 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-SideTOC.js'
 	},
 	{
-		file: 'src/EditFormJS/EditForm.js',
-		target: 'MediaWiki:Gadget-EditForm.js'
+		file: 'src/EditFormJS/Editform.js',
+		target: 'MediaWiki:Gadget-Editform.js'
 	},
 ];
 
