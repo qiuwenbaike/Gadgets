@@ -5,7 +5,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Rollback-summary.js
  * @source https://zh.wikipedia.org/w/index.php?title=MediaWiki:Gadget-rollback-summary.js
  * @license <https://creativecommons.org/licenses/by-sa/3.0/>
- * @dependency ext.gadget.SiteCommonJs, mediawiki.util
+ * @dependency ext.gadget.SiteCommonJs, mediawiki.util, oojs-ui, oojs-ui.styles.icons-interactions
  */
 (function ($, mw) {
 mw.loader.using([ 'ext.gadget.SiteCommonJs', 'mediawiki.util' ]).then(function () {
