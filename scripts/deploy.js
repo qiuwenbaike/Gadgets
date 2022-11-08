@@ -131,6 +131,10 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-EasyArchive-main.js'
 	},
 	{
+		file: 'src/Edit-count/Edit-count.js',
+		target: 'MediaWiki:Gadget-Edit-count.js'
+	},
+	{
 		file: 'src/Difflink/Difflink.js',
 		target: 'MediaWiki:Gadget-Difflink.js'
 	},

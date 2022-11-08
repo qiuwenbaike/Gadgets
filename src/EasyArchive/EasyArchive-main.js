@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-EasyArchive.js
  * @source https://meta.wikimedia.org/w/index.php?title=user:bluedeck/source/easy-archive.js
- * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  */
 // Out-of-the-box language support: English(US), Japanese, Chinese(Chinese Mainland, Hong Kong, Taiwan) and Classical Chinese.
 // It will adapt the language of the interface to the best of its ability to the MediaWiki interface language and the user's browser interface with zero config.
