@@ -1,7 +1,6 @@
 /**
  * SPDX-License-Identifier: GPL-3.0
- * _addText: '{{GPL-3.0}}'
- * _addText: '{{Gadget Header}}'
+ * _addText: '{{Gadget Header|license=GPL-3.0}}'
  *
  * @url https://github.com/bhsd-harry/Wikiplus-highlight
  * @license GPL-3.0

@@ -1,8 +1,7 @@
 /* eslint-disable no-jquery/no-class-state */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
- * _addText: '{{CC-BY-SA-4.0}}'
- * _addText: '{{Gadget Header}}'
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-NavFrame.js
  * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-NavFrame.js
