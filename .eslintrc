@@ -66,9 +66,13 @@
 		"no-jquery/no-global-selector": "off",
 		"no-jquery/no-fade": "off",
         "jsdoc/check-tag-names": 0,
+		"jsdoc/require-param": 0,
+		"jsdoc/require-param-type": 0,
         "max-len": "off"
 	},
     "globals": {
+		"$": "readonly",
+		"jQuery": "readonly",
         "mw": "readonly",
         "mediaWiki": "readonly",
         "OO": "readonly",

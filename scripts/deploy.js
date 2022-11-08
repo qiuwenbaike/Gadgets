@@ -123,6 +123,10 @@ const deployTargets = [{
 		file: 'src/Wikiplus/Wikiplus-highlight.js',
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
+	{
+		file: 'src/Did-you-mean/Did-you-mean.js',
+		target: 'MediaWiki:Gadget-Did-you-mean.js'
+	},
 ];
 
 class Deploy {
