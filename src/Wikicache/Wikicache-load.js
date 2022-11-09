@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache-load.js
  * @source: https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/load.js
- * @license <https://creativecommons.org/licenses/by-sa/3.0/>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */
 'use strict';
