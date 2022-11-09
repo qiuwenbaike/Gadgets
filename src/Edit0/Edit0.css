@@ -1,0 +1,37 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Edit0.css
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-edit0.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+
+/* @noflip */
+body.ltr h1.firstHeading .mw-editsection-bracket:first-of-type,
+body.rtl h1.firstHeading .mw-editsection-bracket:not( :first-of-type ) {
+	margin-right: 0.25em;
+	color: #555;
+}
+
+/* @noflip */
+body.rtl h1.firstHeading .mw-editsection-bracket:first-of-type,
+body.ltr h1.firstHeading .mw-editsection-bracket:not( :first-of-type ) {
+	margin-left: 0.25em;
+	color: #555;
+}
+
+/* For desktop Minerva skin T190989 */
+.page-heading .mw-editsection a {
+	display: inline-block;
+	font-size: 1em;
+	vertical-align: middle;
+}
+
+#firstHeading span.mw-editsection a:after {
+	content: ' (首段)';
+}
+
+#firstHeading span.mw-editsection a:lang( en ):after {
+	content: ' (lead section)';
+}

@@ -142,6 +142,14 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Rollback-summary.js'
 	},
 	{
+		file: 'src/Edit0/Edit0.css',
+		target: 'MediaWiki:Gadget-Edit0.css'
+	},
+	{
+		file: 'src/Edit0/Edit0.js',
+		target: 'MediaWiki:Gadget-Edit0.js'
+	},
+	{
 		file: 'src/Banimage/Banimage.js',
 		target: 'MediaWiki:Gadget-Banimage.js'
 	},
