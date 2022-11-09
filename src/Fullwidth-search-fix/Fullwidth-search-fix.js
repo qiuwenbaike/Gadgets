@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -9,6 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs, mediawiki.util
  */
+'use strict';
+
 (function ($, mw) {
 // don't be too aggresive. just fix some obvious typos
 var searchTerm = mw.util.getParamValue('search');

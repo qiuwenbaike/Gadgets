@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -8,6 +6,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */
+'use strict';
+
 $(function () {
 	if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle') && mw.config.get('wgCurRevisionId') !== 0 && mw.config.get('wgRevisionId') !== 0 && mw.config.get('wgCurRevisionId') === mw.config.get('wgRevisionId')) {
 		mw.loader.using([ 'ext.gadget.ding', 'mediawiki.api', 'mediawiki.util' ]).then(function () {

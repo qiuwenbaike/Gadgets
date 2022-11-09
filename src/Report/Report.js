@@ -8,7 +8,7 @@
  */
 'use strict';
 
-/* 报告不良信息 */
+// 报告不良信息
 (function ($, mw) {
 var url = mw.config.get('wgServer') + '/wiki/Special:联系/Report?report_title=' + mw.util.rawurlencode(mw.config.get('wgPageName')) + '&report_revision=' + mw.util.rawurlencode(mw.config.get('wgRevisionId')),
 	getURLParameter = function getURLParameter(name) {

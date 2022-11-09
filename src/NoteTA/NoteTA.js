@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -9,6 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs, jquery.makeCollapsible, jquery.ui, mediawiki.api
  */
+'use strict';
+
 // <nowiki>
 mw.hook('wikipage.content').add(function () {
 	setTimeout(function () {

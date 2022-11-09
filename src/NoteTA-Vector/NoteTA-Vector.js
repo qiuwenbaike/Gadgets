@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -8,6 +6,8 @@
  * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-noteTAvector.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+'use strict';
+
 mw.hook('wikipage.content').add(function () {
 	// Will blink duing load preview,
 	// but this will avoid the icon won't removed

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -7,6 +5,8 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikiplus.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+'use strict';
+
 if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle')) {
 	mw.loader.load('/index.php?title=MediaWiki:Gadget-Wikiplus.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
 	if (!('ontouchstart' in document)) {

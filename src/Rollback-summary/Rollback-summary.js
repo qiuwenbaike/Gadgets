@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
@@ -9,6 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/3.0/>
  * @dependency ext.gadget.SiteCommonJs, mediawiki.util, oojs-ui, oojs-ui.styles.icons-interactions
  */
+'use strict';
+
 (function ($, mw) {
 mw.loader.using([ 'ext.gadget.SiteCommonJs', 'mediawiki.util' ]).then(function () {
 	mw.messages.set({

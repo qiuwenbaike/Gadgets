@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -8,6 +6,8 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-scrollUpButton.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+'use strict';
+
 /* scrollUpButton
  * Add a button to scroll up to the top of the current page.
  * @rev 3 (2019-28-07)
