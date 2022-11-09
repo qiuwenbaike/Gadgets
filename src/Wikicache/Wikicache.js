@@ -1,10 +1,10 @@
 /**
- * SPDX-License-Identifier: CC-BY-SA-3.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache.js
  * @source https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/wikicache.js
- * @license <https://creativecommons.org/licenses/by-sa/3.0>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
 
@@ -85,7 +85,7 @@ window.wikiCache = {
                 color: #0B0080;\
             }\
             .wikicache-error-message {\
-                background: url("https://upload-mirror.qiuwenbaike.cn/wikipedia/commons/thumb/7/7f/Dialog-error.svg/48px-Dialog-error.svg.png") no-repeat left center;\
+                background: url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_%28Red%29.svg/48px-Cross_Mark_%28Red%29.svg.png") no-repeat left center;\
                 padding-left: 60px;\
                 min-height: 48px;\
             }\
