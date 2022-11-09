@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: GPL-3.0
  * _addText: '{{Gadget Header|license=GPL-3.0}}'
@@ -16,6 +14,8 @@
  *
  * This source code is licensed under the GPL v3 license.
  */
+'use strict';
+
 (function ($, mw) {
 var confirmLogout = function () {
 	var dom = document.querySelector('#ca-cb-logout>a') || document.querySelector('.menu__item--logout') || document.querySelector('#pt-logout>a');

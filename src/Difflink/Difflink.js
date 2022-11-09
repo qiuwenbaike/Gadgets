@@ -1,5 +1,3 @@
-'use strict';
-
 /* eslint-disable no-jquery/no-class-state */
 /**
  * SPDX-License-Identifier: GPL-3.0
@@ -22,6 +20,8 @@
  * 如想使用默认值1，但自定值2，请将值1留空，如下例：
  *   window.difflink = ['', '固定版本'];
 */
+'use strict';
+
 $(function () {
 	var $nav = $('#contentSub').find('#mw-revision-nav').length === 1 || $('main#content>.pre-content #mw-revision-nav').length === 1;
 	if (!($nav || $('table').hasClass('diff'))) {
