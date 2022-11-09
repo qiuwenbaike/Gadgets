@@ -54,7 +54,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 				action: 'edit',
 				title: RRDPage,
 				section: 'new',
-				sectiontitle: '版本删除提报（{{subst:#time:Y-m-d H:i:s|+8 hours}}）',
+				sectiontitle: '版本删除提报（{{' + 'subst:#time:Y-m-d H:i:s|+8 hours}}）',
 				summary: msg.edit_summary,
 				text: rrdArr.join('\n'),
 				token: mw.user.tokens.get('csrfToken'),
@@ -213,7 +213,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 			case 'zh-mo':
 			case 'zh-tw':
 				msg = {
-					edit_summary: '[[MediaWiki:Gadget-rrd.js|半自動提報]]修訂版本刪除',
+					edit_summary: '[[MediaWiki:Gadget-RRD-main.js|半自動提報]]修訂版本刪除',
 					err_no_revision_provided: '您沒有選擇需隱藏的版本！',
 					err_no_item_provided: '您沒有選擇需隱藏的項目！',
 					warn_no_reason_provided: '您沒有輸入任何理由！確定要繼續嗎？',
@@ -240,7 +240,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 				break;
 			default:
 				msg = {
-					edit_summary: '[[MediaWiki:Gadget-rrd.js|半自动提报]]修订版本删除',
+					edit_summary: '[[MediaWiki:Gadget-RRD-main.js|半自动提报]]修订版本删除',
 					err_no_revision_provided: '您没有选择需隐藏的版本！',
 					err_no_item_provided: '您没有选择需隐藏的项目！',
 					warn_no_reason_provided: '您没有输入任何理由！确定要继续吗？',
