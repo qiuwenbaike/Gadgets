@@ -54,7 +54,9 @@ const minimist = require('minimist');
 
 // Adjust target file names if necessary
 // All file paths are with respect to repository root
-const deployTargets = [{
+const deployTargets = [
+	/* appear */
+	{
 		file: 'src/HanSect/HanSect.css',
 		target: 'MediaWiki:Gadget-HanSect.css'
 	},
@@ -114,6 +116,7 @@ const deployTargets = [{
 		file: 'src/Carousel/Carousel.css',
 		target: 'MediaWiki:Gadget-Carousel.css'
 	},
+	/* edit */
 	{
 		file: 'src/Wikiplus/Wikiplus-load.js',
 		target: 'MediaWiki:Gadget-Wikiplus-load.js'
@@ -131,14 +134,6 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-EasyArchive-main.js'
 	},
 	{
-		file: 'src/RRD/RRD.js',
-		target: 'MediaWiki:Gadget-RRD.js'
-	},
-	{
-		file: 'src/RRD/RRD-main.js',
-		target: 'MediaWiki:Gadget-RRD-main.js'
-	},
-	{
 		file: 'src/Edit-count/Edit-count.js',
 		target: 'MediaWiki:Gadget-Edit-count.js'
 	},
@@ -146,6 +141,16 @@ const deployTargets = [{
 		file: 'src/Rollback-summary/Rollback-summary.js',
 		target: 'MediaWiki:Gadget-Rollback-summary.js'
 	},
+	/* sysop */
+	{
+		file: 'src/RRD/RRD.js',
+		target: 'MediaWiki:Gadget-RRD.js'
+	},
+	{
+		file: 'src/RRD/RRD-main.js',
+		target: 'MediaWiki:Gadget-RRD-main.js'
+	},
+	/* browser */
 	{
 		file: 'src/ConfirmLogout/ConfirmLogout.js',
 		target: 'MediaWiki:Gadget-ConfirmLogout.js'
@@ -162,6 +167,7 @@ const deployTargets = [{
 		file: 'src/ShortURL/ShortURL.js',
 		target: 'MediaWiki:Gadget-ShortURL.js'
 	},
+	/* compatibility */
 	{
 		file: 'src/NavboxCSS/Navbox.css',
 		target: 'MediaWiki:Gadget-Navbox.css'
