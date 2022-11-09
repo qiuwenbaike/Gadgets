@@ -20,7 +20,7 @@ var confirmLogout = function () {
 	if (dom && mw.config.get('wgUserName')) {
 		var newDom = document.createElement('a');
 		if (dom.className) {
-			// eslint-disable-next-line mediawiki/class-doc
+
 			newDom.className = dom.className;
 		}
 		newDom.href = dom.href;
