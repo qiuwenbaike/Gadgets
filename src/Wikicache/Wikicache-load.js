@@ -17,7 +17,7 @@ jQuery(function () {
 	}
 
 	function autoload() {
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-jQuery.storage.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400').then(
+		mw.loader.getScript('/index.php?title=MediaWiki:Gadget-jQuery.storage.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400').then(
 			function () {
 				mw.loader.load('/index.php?title=MediaWiki:Gadget-Wikicache.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
 			});
