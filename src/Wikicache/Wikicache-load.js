@@ -9,7 +9,7 @@
  */
 'use strict';
 
-jQuery(function () {
+$(function () {
 	if (window.JSON === undefined) {
 		mw.loader.load('/index.php?title=MediaWiki:Gadget-JSON2.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400', autoload);
 	} else {
