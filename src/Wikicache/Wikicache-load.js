@@ -1,6 +1,6 @@
 /**
- * SPDX-License-Identifier: CC-BY-SA-3.0
- * _addText: '{{Gadget Header|license=PD-self}}'
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache-load.js
  * @source: https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/load.js
