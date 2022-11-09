@@ -6,7 +6,6 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */
-/* <nowiki> */
 
 function get(obj, attr, defret) {
 	return obj.hasAttribute(attr) ? obj.getAttribute(attr) : defret;
@@ -34,7 +33,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 	}
 
 	function submit(toHide, reason, otherReasons) {
-		ids = [].concat(new Set(ids));  // remove duplicate
+		ids = [ ...new Set(ids) ];  // remove duplicate
 		var rrdArr = [
 			'{{Revdel',
 			'|status = ',
@@ -214,7 +213,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 			case 'zh-mo':
 			case 'zh-tw':
 				msg = {
-					edit_summary: '[[MediaWiki:Gadget-RRD-main.js|半自動提報]]修訂版本刪除',
+					edit_summary: '[[MediaWiki:Gadget-rrd.js|半自動提報]]修訂版本刪除',
 					err_no_revision_provided: '您沒有選擇需隱藏的版本！',
 					err_no_item_provided: '您沒有選擇需隱藏的項目！',
 					warn_no_reason_provided: '您沒有輸入任何理由！確定要繼續嗎？',
@@ -241,7 +240,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 				break;
 			default:
 				msg = {
-					edit_summary: '[[MediaWiki:Gadget-RRD-main.js|半自动提报]]修订版本删除',
+					edit_summary: '[[MediaWiki:Gadget-rrd.js|半自动提报]]修订版本删除',
 					err_no_revision_provided: '您没有选择需隐藏的版本！',
 					err_no_item_provided: '您没有选择需隐藏的项目！',
 					warn_no_reason_provided: '您没有输入任何理由！确定要继续吗？',
@@ -268,4 +267,3 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 		}
 	}
 });
-/* </nowiki> */

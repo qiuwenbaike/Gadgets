@@ -14,7 +14,6 @@
 	},
 	"extends": [
         "eslint:recommended",
-        "plugin:es5/no-es2015",
 		"plugin:compat/recommended",
 		"wikimedia/client-es5",
 		"wikimedia/jquery",
