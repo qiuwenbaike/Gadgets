@@ -13,7 +13,7 @@
 $(function () {
 	$('.jcarousel').on('jcarousel:create jcarousel:reload', function () {
 		$(this).find('.jcarousel-list').css('width', '20000em');
-		width = $(this).innerWidth();
+		var width = $(this).innerWidth();
 		// This shows 1 item at a time.
 		// Divide `width` to the number of items you want to display,
 		// eg. `width = width / 3` to display 3 items at a time.

@@ -85,6 +85,7 @@
 		"no-jquery/no-fade": "off",
 		"no-jquery/no-slide": "off",
 		"no-jquery/variable-pattern": "off",
+		"no-jquery/no-class-state": off,
         "jsdoc/check-tag-names": 0,
 		"jsdoc/require-param": 0,
 		"jsdoc/require-param-type": 0,
