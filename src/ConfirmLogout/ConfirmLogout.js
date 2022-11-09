@@ -17,7 +17,7 @@
 'use strict';
 
 (function ($, mw) {
-var confirmLogout = function () {
+var confirmLogout = function confirmLogout() {
 	var dom = document.querySelector('#ca-cb-logout>a') || document.querySelector('.menu__item--logout') || document.querySelector('#pt-logout>a');
 	if (dom && mw.config.get('wgUserName')) {
 		var newDom = document.createElement('a');

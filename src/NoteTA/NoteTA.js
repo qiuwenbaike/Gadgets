@@ -14,12 +14,12 @@ mw.hook('wikipage.content').add(function () {
 	setTimeout(function () {
 		$(function () {
 			var api = null;
-			var run = function ($dialog, hash) {
+			var run = function run($dialog, hash) {
 					var wikitext = '';
 					var $dom = $('#noteTA-' + hash);
 					var collapse = true;
 					var actualTitle = mw.config.get('wgPageName').replace(/_/g, ' ');
-					var parse = function () {
+					var parse = function parse() {
 							api.post({
 								action: 'parse',
 								title: 'Template:CGroup/-',
@@ -44,7 +44,7 @@ mw.hook('wikipage.content').add(function () {
 								$dialog.dialog('option', 'position', 'center');
 							}).fail(parse);
 						},
-						maybeTitle = parse;
+						_maybeTitle = parse;
 					var $noteTAtitle = $dom.find('.noteTA-title');
 					if ($noteTAtitle.length) {
 						var titleConv = $noteTAtitle.attr('data-noteta-code');
@@ -59,7 +59,7 @@ mw.hook('wikipage.content').add(function () {
 						wikitext += '* 转换标题为：-{D|' + titleConv + '}-' + titleDesc + '\n';
 						wikitext += '* 实际标题为：-{R|' + actualTitle + '}-；当前显示为：-{|' + titleConv + '}-\n';
 					} else {
-						maybeTitle = function () {
+						_maybeTitle = function maybeTitle() {
 							api.post({
 								action: 'parse',
 								title: actualTitle,
@@ -108,7 +108,7 @@ mw.hook('wikipage.content').add(function () {
 									wikitext = multititleText + wikitext;
 								}
 								parse();
-							}).fail(maybeTitle);
+							}).fail(_maybeTitle);
 						};
 					}
 					var $noteTAgroups = $dom.find('.noteTA-group > *[data-noteta-group]');
@@ -151,9 +151,9 @@ mw.hook('wikipage.content').add(function () {
 						});
 					}
 					wikitext += '{{noteTA/footer}}\n';
-					maybeTitle();
+					_maybeTitle();
 				},
-				init = function (hash) {
+				init = function init(hash) {
 					var $dialog = $('<div>').attr({
 							class: 'noteTA-dialog'
 						}),

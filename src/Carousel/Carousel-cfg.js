@@ -9,7 +9,6 @@
 'use strict';
 
 // BEGIN Carousel configuration code
-
 $(function () {
 	$('.jcarousel').on('jcarousel:create jcarousel:reload', function () {
 		$(this).find('.jcarousel-list').css('width', '20000em');
@@ -28,7 +27,6 @@ $(function () {
 		target: '+=1',
 		autostart: true
 	});
-
 	$('.jcarousel-control-prev').on('jcarouselcontrol:active', function () {
 		$(this).removeClass('inactive');
 	}).on('jcarouselcontrol:inactive', function () {
@@ -36,7 +34,6 @@ $(function () {
 	}).jcarouselControl({
 		target: '-=1'
 	});
-
 	$('.jcarousel-control-next').on('jcarouselcontrol:active', function () {
 		$(this).removeClass('inactive');
 	}).on('jcarouselcontrol:inactive', function () {
@@ -44,7 +41,6 @@ $(function () {
 	}).jcarouselControl({
 		target: '+=1'
 	});
-
 	$('.jcarousel-pagination').on('jcarouselpagination:active', 'a', function () {
 		$(this).addClass('active');
 	}).on('jcarouselpagination:inactive', 'a', function () {

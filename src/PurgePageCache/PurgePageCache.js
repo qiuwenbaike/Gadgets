@@ -23,7 +23,7 @@ $(function () {
 				pos = 'p-cactions';
 			}
 			var dom = mw.util.addPortletLink(pos, '#', wgULS('清除缓存', '清除快取'), 'ca-purge', wgULS('更新服务器缓存', '更新伺服器快取'));
-			var fn = function (e, pageTitle) {
+			var fn = function fn(e, pageTitle) {
 				e.preventDefault();
 				window.bldkDingExposedInterface('正在清除…', 'default', 'long');
 				new mw.Api().post({

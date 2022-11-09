@@ -10,17 +10,14 @@
 'use strict';
 
 // <nowiki>
-
 mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	'use strict';
 
 	var prefixReg = /[學学]名\s*：?\s*$/,
 		colonReg = /^\s*[:：]?\s*$/,
 		tr = mw.toolsRedirect;
-
 	tr.findRedirectCallback(function (pagename, $content) {
 		var retTitles = [];
-
 		$content.find('> p > [lang="la"], > p > i').each(function () {
 			var title,
 				prevNode = this.previousSibling;
@@ -34,7 +31,6 @@ mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 				tr.setRedirectTextSuffix(title, '\n{{学名重定向}}');
 			}
 		});
-
 		return jQuery.uniqueSort(retTitles);
 	});
 });

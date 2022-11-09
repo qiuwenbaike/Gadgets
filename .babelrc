@@ -19,7 +19,7 @@
 	],
 	"targets": {
 		"browsers": [
-			"defaults, Chrome >= 70, Firefox ESR, not dead"
+			"defaults, cover 99%, Chrome >= 70, Firefox ESR, not dead"
 		]
 	}
 }

@@ -58,7 +58,7 @@ $(function () {
 
 	// 快速选择常见编辑摘要
 	// 摘要内容请到[[MediaWiki:Summary]]及相关中文变体页面维护。
-	var insertSummary = function ($this, $summary) {
+	var insertSummary = function insertSummary($this, $summary) {
 		var summary = $summary.val();
 		var $item = $this.parent('.mw-summary-preset-item');
 		summary = summary.replace(/\s+$/g, '');

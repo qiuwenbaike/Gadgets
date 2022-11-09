@@ -7,6 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
+
 /* eslint-disable guard-for-in */
 /* eslint-disable no-jquery/no-sizzle */
 /* eslint-disable no-shadow */
@@ -14,10 +15,9 @@
 /* eslint-disable no-jquery/no-parse-html-literal */
 /* eslint-disable camelcase */
 /* eslint-disable no-jquery/no-map-util */
-/* eslint-disable no-underscore-dangle */
+
 /* vim:set noexpandtab ft=javascript ts=4 sw=4: */
 // <nowiki>
-
 (function ($, mw) {
 var _TR,
 	origPageName = mw.config.get('wgPageName'),
@@ -35,13 +35,11 @@ var _TR,
 		return nsid === nsNumber ? text : null;
 	}).join('|');
 _nsPrefixPattern = new RegExp('^(' + _nsPrefixPattern + '):', 'i');
-
 if (nsNumber === 0) {
 	// articles
 	_nsCanonPrefix = '';
 	_nsPrefixPattern = /^/;
 }
-
 function fixNamespace(title) {
 	if (nsNumber === 0) {
 		// do nothing if it's articles
@@ -52,21 +50,17 @@ function fixNamespace(title) {
 	}
 	// don't have a namespace
 	return _nsCanonPrefix + title;
-
 }
-
 mw.toolsRedirect = {
-
 	SUFFIX_APPEND: SUFFIX_APPEND,
 	SUFFIX_REPLACE: SUFFIX_REPLACE,
 	SUFFIX_SETDEFAULT: SUFFIX_SETDEFAULT,
-
 	findRedirectCallback: function findRedirectCallback(callback) {
 		/* Add new custom callback for finding new
-	* potential redirect titles.
-	*
-	* @param {function} callback( pagename, $content, titles ) -> title list
-	*/
+          * potential redirect titles.
+          *
+          * @param {function} callback( pagename, $content, titles ) -> title list
+          */
 		if (arguments.length === 1) {
 			_findRedirectCallbacks.push(callback);
 		} else {
@@ -74,13 +68,12 @@ mw.toolsRedirect = {
 		}
 		return this;
 	},
-
 	findRedirectBySelector: function findRedirectBySelector(selector) {
 		/* A shortcut to add CSS selectors as rule to find new potential
-	* redirect titles.
-	*
-	* @param {string} selector
-	*/
+          * redirect titles.
+          *
+          * @param {string} selector
+          */
 		_findRedirectCallbacks.push(function () {
 			return $(selector).map(function () {
 				var title = $(this).text();
@@ -89,7 +82,6 @@ mw.toolsRedirect = {
 		});
 		return this;
 	},
-
 	setRedirectTextSuffix: function setRedirectTextSuffix(title, suffix, flag) {
 		var flag_set = false,
 			flag_append = false;
@@ -102,16 +94,13 @@ mw.toolsRedirect = {
 			// if not exist, every flag can set
 			flag_set = true;
 		}
-
 		if (flag_set) {
 			_pageWithRedirectTextSuffix[title] = suffix;
 		} else if (flag_append) {
 			_pageWithRedirectTextSuffix[title] = _pageWithRedirectTextSuffix[title] + suffix;
 		}
 	}
-
 };
-
 _TR = {
 	msg: null,
 	tabselem: null,
@@ -131,7 +120,12 @@ _TR = {
 	},
 	dialog: function dialog() {
 		var dlg = $('<div class="dialog-redirect" title="' + this.msg.dlgtitle + '">').dialog({
-			bgiframe: true, resizable: false, modal: true, width: Math.round($(window).width() * 0.8), position: 'center' });
+			bgiframe: true,
+			resizable: false,
+			modal: true,
+			width: Math.round($(window).width() * 0.8),
+			position: 'center'
+		});
 		dlg.css('max-height', Math.round($(window).height() * 0.8) + 'px');
 		this.tabselem = $('<div class="tab-redirect">').appendTo(dlg);
 		this.tagselem = $('<ul>').appendTo(this.tabselem);
@@ -157,7 +151,11 @@ _TR = {
 		$('a', tag).on('click', function () {
 			onClick.call(self);
 		});
-		return { tag: tag, cont: cont, loaded: false };
+		return {
+			tag: tag,
+			cont: cont,
+			loaded: false
+		};
 	},
 	_initTabView: function _initTabView() {
 		return this.createTab('view', this.msg.tabviewtitle, this.loadView);
@@ -208,8 +206,12 @@ _TR = {
 			return arr.indexOf(v) === i;
 		});
 		titles = titles.join('|');
-
-		return $.ajax(this.buildQuery({ action: 'query', prop: 'info', titles: titles, meta: 'tokens' })).then(function (data) {
+		return $.ajax(this.buildQuery({
+			action: 'query',
+			prop: 'info',
+			titles: titles,
+			meta: 'tokens'
+		})).then(function (data) {
 			var deferreds = [];
 			$.each(data.query.pages, function (idx, page) {
 				deferreds.push($.ajax(self.buildQuery({
@@ -300,15 +302,12 @@ _TR = {
 	addMethods: function addMethods($parent, methods) {
 		var self = this,
 			$container = $parent.find('> .tools-redirect_methods');
-
 		function methodExist(method) {
 			return $container.find('a[href=' + JSON.stringify(method.href) + ']').length > 0;
 		}
-
 		if ($container.length === 0) {
 			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
 		}
-
 		$.each(methods, function (idx, method) {
 			if (!methodExist(method)) {
 				self.buildLink(method).appendTo($container);
@@ -342,25 +341,26 @@ _TR = {
 		var self = this,
 			deferObj = $.Deferred(),
 			top = deep ? $('<dl>').appendTo(container) : container;
-
 		if (!loaded) {
 			loaded = {};
 			loaded[pagename] = true;
 		}
-
 		function onClickFix(evt) {
 			/* jshint validthis: true */
 			var entry = $(this).parents('dd, p').first();
 			evt.preventDefault();
 			self.clickAction(entry, self.fix);
 		}
-
-		$.ajax(this.buildQuery({ action: 'query', prop: 'redirects', titles: pagename, rdlimit: 'max' })).done(function (data) {
+		$.ajax(this.buildQuery({
+			action: 'query',
+			prop: 'redirects',
+			titles: pagename,
+			rdlimit: 'max'
+		})).done(function (data) {
 			self.loaded(container);
 			var has_redirect = false,
 				desc = $('p.desc', self.tabs.view.cont),
 				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10);
-
 			$.each(data.query.pages, function (_, page) {
 				if (!('redirects' in page)) {
 					return;
@@ -385,7 +385,10 @@ _TR = {
 							click: onClickFix
 						});
 					}
-					$container = self.buildSelection({ href: baseuri + '&redirect=no', title: rdtitle }, methods, ultitle, !deep).appendTo(entry);
+					$container = self.buildSelection({
+						href: baseuri + '&redirect=no',
+						title: rdtitle
+					}, methods, ultitle, !deep).appendTo(entry);
 					if (isCycleRedirect) {
 						$container.append('<span class="error">' + self.msg.errcycleredirect + '</span>');
 					} else if (deep < maximumRedirectDepth) {
@@ -396,7 +399,6 @@ _TR = {
 					has_redirect = true;
 				});
 			});
-
 			if (has_redirect && deep === 1) {
 				self.addMethods(desc, [ {
 					href: '#select-all',
@@ -421,14 +423,12 @@ _TR = {
 					}
 				} ]);
 			}
-
 			if (has_redirect) {
 				deferObj.resolveWith(self);
 			} else {
 				deferObj.rejectWith(self);
 			}
 		});
-
 		return deferObj.promise();
 	},
 	findVariants: function findVariants(pagename, titles) {
@@ -436,7 +436,10 @@ _TR = {
 			suffixReg = /^.+?((（|[_ ]\().+?(）|\)))$/,
 			retTitles = [],
 			deferreds = [],
-			simpAndTrad = { 'zh-hans': true, 'zh-hant': true };
+			simpAndTrad = {
+				'zh-hans': true,
+				'zh-hant': true
+			};
 		$.each(this.variants, function (_, variant) {
 			var xhr = $.ajax(self.buildQuery({
 				action: 'parse',
@@ -471,7 +474,6 @@ _TR = {
 		});
 		return $.when.apply($, deferreds).then(function () {
 			var suffixes = [];
-
 			$.each(arguments, function () {
 				var suffix,
 					title = this;
@@ -484,7 +486,6 @@ _TR = {
 				} else {
 					suffix = '';
 				}
-
 				retTitles.push(title);
 				suffixes.push(suffix);
 			});
@@ -496,22 +497,23 @@ _TR = {
 					return suffixReg.test(title) ? title : title + suffix;
 				}));
 			});
-
 			return self.findNotExists($.uniqueSort(retTitles));
 		});
 	},
-
 	findNotExists: function findNotExists(titles) {
 		var self = this,
 			deferreds = [],
 			alltitles = [],
 			excludes = [ '用字模式' ];
 		titles = titles.join('|');
-
 		$.each([ 'zh-hans', 'zh-hant' ], function (idx, variant) {
-			deferreds.push($.ajax(self.buildQuery({ action: 'parse', text: titles, prop: 'text', variant: variant })));
+			deferreds.push($.ajax(self.buildQuery({
+				action: 'parse',
+				text: titles,
+				prop: 'text',
+				variant: variant
+			})));
 		});
-
 		return $.when.apply($, deferreds).then(function () {
 			$.each(arguments, function () {
 				alltitles = alltitles.concat($(this[0].parse.text['*']).text().replace(/(^\s*|\s*$)/g, '').split('|'));
@@ -529,14 +531,11 @@ _TR = {
 				$.each(data.query.pages, function (pageid, page) {
 					var title = page.title;
 					if (pageid < 0 && excludes.indexOf(title) === -1) {
-
 						if (title in _redirectExcludes) {
 							// exclude special titles
 							return;
 						}
-
 						titles.push(title);
-
 						if (isCategory) {
 							var target = origPageName.replace(/^Category:/, '');
 							mw.toolsRedirect.setRedirectTextSuffix(title, '\n{{分类重定向|$1}}'.replace('$1', target));
@@ -550,7 +549,6 @@ _TR = {
 			});
 		});
 	},
-
 	findRedirect: function findRedirect(pagename) {
 		var self = this,
 			titles = [],
@@ -559,7 +557,6 @@ _TR = {
 			$content = $('#mw-content-text > div.mw-parser-output'),
 			deferObj = $.Deferred();
 		this.loading(container);
-
 		$.each(_findRedirectCallbacks, function (_, callback) {
 			var ret = callback(pagename, $content, titles);
 			if (typeof ret === 'string') {
@@ -576,7 +573,6 @@ _TR = {
 		titles = $.map(titles, function (title) {
 			return title || null;
 		});
-
 		function onClickCreate(evt) {
 			/* jshint validthis: true */
 			var entry = $(this).parents('p:first');
@@ -640,17 +636,19 @@ _TR = {
 				deferObj.rejectWith(self, [ titles ]);
 			}
 		});
-
 		return deferObj.promise();
 	},
 	buildQuery: function buildQuery(data) {
-		var query = { url: scriptPath + '/api.php', dataType: 'json', type: 'POST' };
+		var query = {
+			url: scriptPath + '/api.php',
+			dataType: 'json',
+			type: 'POST'
+		};
 		query.data = data;
 		query.data.format = 'json';
 		return query;
 	}
 };
-
 $.when(mw.loader.getScript('/index.php?title=MediaWiki:Gadget-ToolsRedirect-msg-' + wgUVS('zh-hans', 'zh-hant') + '.js&action=raw&ctype=text/javascript'), $.ready).done(function () {
 	_TR.msg = window.tools_redirect_msg;
 	_TR.init();

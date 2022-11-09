@@ -15,7 +15,7 @@ mw.loader.using([ 'ext.gadget.SiteCommonJs', 'mediawiki.util' ]).then(function (
 		'rollback-summary-custom': '回退[[Special:Contributions/$1|$1]]（[[User talk:$1|' + wgULS('对话', '對話') + ']]）' + wgULS('的编辑：', '的編輯：'),
 		'rollback-summary-nouser': wgULS('回退已隐藏用户的编辑：', '回退已隱藏使用者的編輯：')
 	});
-	var updateLinks = function () {
+	var updateLinks = function updateLinks() {
 		$('.mw-rollback-link a').off('click');
 		$('.mw-rollback-link a').on('click', function (e) {
 			e.preventDefault();

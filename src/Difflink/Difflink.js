@@ -44,7 +44,7 @@ $(function () {
 		} else if (isMinerva) {
 			pos = 'p-tb';
 		}
-		var ins = function (tex, dec, link, id, perma) {
+		var ins = function ins(tex, dec, link, id, perma) {
 			var linkDom = document.getElementById('t-difflink');
 			if (linkDom === null) {
 				linkDom = mw.util.addPortletLink(pos, '#', tex, 't-difflink', dec);
@@ -81,9 +81,9 @@ $(function () {
 				}
 			};
 		};
-		var init = function (diffId, oldId, revisionId) {
+		var init = function init(diffId, oldId, revisionId) {
 			if (diffId) {
-				var buildLink = function (_oldId) {
+				var buildLink = function buildLink(_oldId) {
 					var link = 'Special:Diff/';
 					if (_oldId) {
 						link += _oldId + '/';
