@@ -57,10 +57,10 @@ mw.toolsRedirect = {
 	SUFFIX_SETDEFAULT: SUFFIX_SETDEFAULT,
 	findRedirectCallback: function findRedirectCallback(callback) {
 		/* Add new custom callback for finding new
-             * potential redirect titles.
-             *
-             * @param {function} callback( pagename, $content, titles ) -> title list
-             */
+                 * potential redirect titles.
+                 *
+                 * @param {function} callback( pagename, $content, titles ) -> title list
+                 */
 		if (arguments.length === 1) {
 			_findRedirectCallbacks.push(callback);
 		} else {
@@ -70,10 +70,10 @@ mw.toolsRedirect = {
 	},
 	findRedirectBySelector: function findRedirectBySelector(selector) {
 		/* A shortcut to add CSS selectors as rule to find new potential
-             * redirect titles.
-             *
-             * @param {string} selector
-             */
+                 * redirect titles.
+                 *
+                 * @param {string} selector
+                 */
 		_findRedirectCallbacks.push(function () {
 			return $(selector).map(function () {
 				var title = $(this).text();

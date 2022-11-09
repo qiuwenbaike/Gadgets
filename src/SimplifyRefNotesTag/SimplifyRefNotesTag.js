@@ -11,7 +11,6 @@
 // Polyfill
 // eslint-disable-next-line no-implicit-globals
 function _typeof(obj) {
-
 	'@babel/helpers - typeof';
 
 	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef, no-shadow
@@ -24,7 +23,6 @@ function _typeof(obj) {
 		// eslint-disable-next-line no-sequences
 	}, _typeof(obj);
 }
-
 window.simplifyRefNotesTag = function () {
 	var i, j;
 	function num2alp(n) {

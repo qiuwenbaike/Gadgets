@@ -1,3 +1,6 @@
+/* eslint-disable no-implicit-globals */
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -68,6 +71,19 @@
  *   繁简转换，但是其默认值是可以正常根据界面语言繁简转换的。
  */
 
+// Polyfill
+// eslint-disable-next-line es-x/no-string-prototype-startswith
+if (!String.prototype.startsWith) {
+	// eslint-disable-next-line no-extend-native
+	Object.defineProperty(String.prototype, 'startsWith', {
+		value: function (search, pos) {
+			pos = !pos || pos < 0 ? 0 : Number(pos);
+			// eslint-disable-next-line unicorn/prefer-string-slice
+			return this.substring(pos, pos + search.length) === search;
+		}
+	});
+}
+
 var i18n = {
 	// Collapsible elements and page loader
 	hideText: wgULS('折叠', '折疊'),
@@ -101,12 +117,12 @@ function appendToggle($collapsible, $toggle) {
 	} else {
 		// 尝试查找带有 collapsible-always-show 类的子元素，如果存在则将折叠按钮添加至其中。
 		// 否则，添加至整个可折叠元素的最前面。
-		var $to_toggle = $collapsible.children('.collapsible-always-show');
-		if (!$to_toggle.length) {
+		var $toToggle = $collapsible.children('.collapsible-always-show');
+		if (!$toToggle.length) {
 			$collapsible.prepend($toggle);
 			$toggle.addClass('collapsible-always-show');
 		} else {
-			$to_toggle.first().append($toggle);
+			$toToggle.first().append($toggle);
 		}
 	}
 }
@@ -115,22 +131,22 @@ function appendToggle($collapsible, $toggle) {
 function hide($collapsible, time) {
 	var usesSlide = $collapsible.hasClass('collapsible-using-slide');
 	if ($collapsible.hasClass('collapsible-next')) {
-		var $element = $collapsible.next();
+		var $element1 = $collapsible.next();
 		if (usesSlide) {
-			$element.slideUp(time);
+			$element1.slideUp(time);
 		} else {
-			$element.fadeOut(time);
+			$element1.fadeOut(time);
 		}
 	} else {
 		($collapsible.is('table') ? $collapsible.children().children('tr') : $collapsible.contents()).each(function (_index, element) {
-			var $element = $(element);
-			if ($element.hasClass('collapsible-cascade')) {
-				hide($element, time);
-			} else if (!$element.hasClass('collapsible-always-show')) {
+			var $element2 = $(element);
+			if ($element2.hasClass('collapsible-cascade')) {
+				hide($element2, time);
+			} else if (!$element2.hasClass('collapsible-always-show')) {
 				if (usesSlide) {
-					$element.slideUp(time);
+					$element2.slideUp(time);
 				} else {
-					$element.fadeOut(time);
+					$element2.fadeOut(time);
 				}
 			}
 		});
@@ -149,20 +165,19 @@ function show($collapsible, time) {
 		}
 	} else {
 		($collapsible.is('table') ? $collapsible.children().children('tr') : $collapsible.contents()).each(function (_index, element) {
-			var $element = $(element);
-			if ($element.hasClass('collapsible-cascade')) {
-				show($element, time);
-			} else if (!$element.hasClass('collapsible-always-show')) {
+			var $element3 = $(element);
+			if ($element3.hasClass('collapsible-cascade')) {
+				show($element3, time);
+			} else if (!$element3.hasClass('collapsible-always-show')) {
 				if (usesSlide) {
-					$element.slideDown(time);
+					$element3.slideDown(time);
 				} else {
-					$element.fadeIn(time);
+					$element3.fadeIn(time);
 				}
 			}
 		});
 	}
 }
-
 function toggle($collapsible) {
 	var collapsed = $collapsible.hasClass('collapsed');
 	var duration = parseInt($collapsible.data('collapse-duration')) || 200;
@@ -174,31 +189,27 @@ function toggle($collapsible) {
 		$collapsible.addClass('collapsed');
 	}
 }
-
 function hook1($wikipageContent) {
 	$wikipageContent.find('.parent-collapsible, .parent-collapsible-using-slide, .parent-collapsible-next').each(function (_index, element) {
-		var $element = $(element);
-		$parent = $element.parent();
-		element.classList.forEach(function (value, _index) {
+		var $element = $(element),
+			$parent = $element.parent();
+		element.classList.forEach(function (value) {
+			// eslint-disable-next-line es-x/no-string-prototype-startswith
 			if (value.startsWith('parent-collapsible')) {
 				$parent.addClass(value.replace(/^parent-/, ''));
 			}
 		});
 	});
-
 	$wikipageContent.find('.collapsible-using-slide, .collapsible-next').addClass('collapsible');
-
 	var $collapsibles = $wikipageContent.find('.collapsible');
 	if (!$collapsibles.length) {
 		return;
 	}
-
 	$collapsibles.each(function () {
 		var $collapsible = $(this);
 		if ($collapsible.data('made-collapsible')) {
 			return true;
 		}
-
 		var showText = $collapsible.data('expandtext') || i18n.showText;
 		var hideText = $collapsible.data('collapsetext') || i18n.hideText;
 		var $toggleLink = $('<a>').addClass('jsLink');
@@ -210,14 +221,12 @@ function hook1($wikipageContent) {
 		} else {
 			$toggleLink.text(showText);
 		}
-
 		appendToggle($collapsible, $toggle);
 
 		// 初始化隐藏所有元素，该过程没有动画。
 		if ($collapsible.hasClass('collapsed')) {
 			hide($collapsible, 0);
 		}
-
 		$toggle.on('click', function () {
 			toggle($collapsible);
 			if (!$collapsible.hasClass('collapsed')) {
@@ -226,9 +235,7 @@ function hook1($wikipageContent) {
 				$toggleLink.text(showText);
 			}
 		});
-
 		$collapsible.data('made-collapsible', true);
 	});
 }
-
 mw.hook('wikipage.content').add(hook1);
