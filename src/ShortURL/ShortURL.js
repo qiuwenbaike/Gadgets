@@ -21,6 +21,7 @@
 (function ($, mw) {
 if (mw.config.get('wgNamespaceNumber') !== -1 && /* 不为特殊页面生成短链接 */
   $('.noarticletext').length === 0 && (/* 不为不存在的页面生成短链接 */
+	// eslint-disable-next-line no-mixed-operators
 	mw.config.get('wgDiffOldId') && mw.config.get('wgDiffNewId') || $('.mw-revision.warningbox').length !== 0 || mw.config.get('wgArticleId') !== 0) /* 不为不存在的页面版本生成短链接 */) {
 	mw.loader.using([ 'mediawiki.api', 'mediawiki.util', 'mediawiki.widgets', 'oojs-ui-windows' ]).then(function () {
 		var sidebarTitle = wgULS('短链接', '短網址'),
