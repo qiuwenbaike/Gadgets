@@ -116,7 +116,7 @@ if (window.localStorage || window.globalStorage) {
 		delete index[key];
 		jQuery.storage.setIndex(index);
 	};
-// eslint-disable-next-line no-jquery/no-browser
+	// eslint-disable-next-line no-jquery/no-browser
 } else if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
 	// use userData
 	// eslint-disable-next-line no-jquery/no-parse-html-literal

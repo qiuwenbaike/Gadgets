@@ -9,8 +9,6 @@
 		"scripts/",
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
-		"src/Wikiplus/Wikiplus-highlight.js",
-		"src/EasyArchive/EasyArchive-main.js",
-		"src/RRD/RRD-main.js"
+		"src/Wikiplus/Wikiplus-highlight.js"
 	]
 }
