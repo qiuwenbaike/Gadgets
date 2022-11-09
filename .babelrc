@@ -3,5 +3,10 @@
 		"@babel/preset-env",
 		"@babel/preset-react"
 	],
-	"plugins": []
+	"plugins": [],
+	"ignore": [
+		"src/Carousel/Carousel.js",
+		"src/Wikiplus/Wikiplus.js",
+		"src/Wikiplus/Wikiplus-highlight.js"
+	]
 }
