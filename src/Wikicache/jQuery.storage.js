@@ -1,3 +1,6 @@
+/* eslint-disable block-scoped-var */
+/* eslint-disable no-redeclare */
+/* eslint-disable guard-for-in */
 /* !
  * SPDX-License-Identifier: MIT
  * SPDX-License-Identifier: GPLv2+
@@ -32,6 +35,7 @@
  *
  * Author: Philip Tzou
  */
+'use strict';
 
 jQuery.storage = function (key, val) {
 	if (key instanceof Object) {
@@ -46,20 +50,14 @@ jQuery.storage = function (key, val) {
 		jQuery.storage.success = jQuery.storage.set(key, val);
 		return jQuery;
 	}
-
 	return jQuery.storage.get(key);
-
 };
-
 jQuery.storageIndex = function (key) {
 	if (key) {
 		return jQuery.storage.getIndex()[key];
 	}
-
 	return jQuery.storage.getIndex();
-
 };
-
 jQuery.storageUsedSpace = function () {
 	var index = jQuery.storage.getIndex();
 	var size = 0;
@@ -68,12 +66,11 @@ jQuery.storageUsedSpace = function () {
 	}
 	return size;
 };
-
 jQuery.storage.notsupport = false;
 jQuery.storage.nopermission = false;
 jQuery.storage.success = false;
-
-if (window.localStorage || window.globalStorage) { // use localStorage or globalStorage
+if (window.localStorage || window.globalStorage) {
+	// use localStorage or globalStorage
 	try {
 		if (window.localStorage) {
 			jQuery.storage._storage = window.localStorage;
@@ -119,12 +116,15 @@ if (window.localStorage || window.globalStorage) { // use localStorage or global
 		delete index[key];
 		jQuery.storage.setIndex(index);
 	};
-} else if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) { // use userData
-	jQuery.storage._userData = jQuery('<input type="hidden" id="jquery-user-data">')
-		.css('behavior', "url('#default#userData')")
-		.appendTo(jQuery('body')).get(0);
+// eslint-disable-next-line no-jquery/no-browser
+} else if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
+	// use userData
+	// eslint-disable-next-line no-jquery/no-parse-html-literal
+	jQuery.storage._userData = jQuery('<input type="hidden" id="jquery-user-data">').css('behavior', "url('#default#userData')").appendTo(jQuery('body')).get(0);
 	try {
+		// eslint-disable-next-line no-undef
 		ud.load('jQueryStorageIndex');
+		// eslint-disable-next-line no-undef
 		ud.getAttribute('_uindex');
 	} catch (e) {
 		jQuery.storage.nopermission = true;
@@ -159,7 +159,8 @@ if (window.localStorage || window.globalStorage) { // use localStorage or global
 				ud.save(xml);
 			}
 			ud.expires = new Date(315532799000).toUTCString();
-			do { // remove the ramain part
+			do {
+				// remove the ramain part
 				var xml = 'jQueryStorage_' + keyenc + '_' + count++;
 				ud.load(xml);
 				var part = ud.getAttribute('_udata');

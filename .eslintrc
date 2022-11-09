@@ -29,9 +29,6 @@
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
-		"src/Wikicache/Wikicache.js",
-		"src/Wikicache/JSON2.js",
-		"src/Wikicache/jQuery.storage.js",
 		"src/EasyArchive/EasyArchive-main.js",
 		"src/RRD/RRD-main.js"
     ],

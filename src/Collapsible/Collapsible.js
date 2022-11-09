@@ -77,14 +77,13 @@
 if (!String.prototype.startsWith) {
 	// eslint-disable-next-line no-extend-native
 	Object.defineProperty(String.prototype, 'startsWith', {
-		value: function (search, pos) {
+		value: function value(search, pos) {
 			pos = !pos || pos < 0 ? 0 : Number(pos);
 			// eslint-disable-next-line unicorn/prefer-string-slice
 			return this.substring(pos, pos + search.length) === search;
 		}
 	});
 }
-
 var i18n = {
 	// Collapsible elements and page loader
 	hideText: wgULS('折叠', '折疊'),
