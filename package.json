@@ -26,8 +26,5 @@
 		"mwn": "^0.11.2",
 		"prompts": "^2.4.2",
 		"stylelint-config-wikimedia": "0.13.1"
-	},
-	"browserslist": [
-		"defaults, Chrome >= 70, Firefox ESR, not dead"
-	]
+	}
 }
