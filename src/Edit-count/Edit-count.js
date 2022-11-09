@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'

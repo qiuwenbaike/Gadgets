@@ -1,3 +1,5 @@
+'use strict';
+
 /* eslint-disable no-jquery/no-class-state */
 /**
  * SPDX-License-Identifier: GPL-3.0
@@ -65,12 +67,17 @@ $(function () {
 				var $dom = $('<div>'),
 					hash = perma ? decodeURIComponent(window.location.hash) : '';
 				[ link, '[[' + link + hash + ']]', '[[' + link + hash + '|' + defaultTex[id] + ']]' ].forEach(function (v) {
-					$dom.append(new mw.widgets.CopyTextLayout({ align: 'top', copyText: v }).$element);
+					$dom.append(new mw.widgets.CopyTextLayout({
+						align: 'top',
+						copyText: v
+					}).$element);
 				});
 				if (/(?:Android|iPhone|Mobile)/i.test(navigator.userAgent)) {
 					OO.ui.alert($dom);
 				} else {
-					OO.ui.alert($dom, { size: 'medium' });
+					OO.ui.alert($dom, {
+						size: 'medium'
+					});
 				}
 			};
 		};

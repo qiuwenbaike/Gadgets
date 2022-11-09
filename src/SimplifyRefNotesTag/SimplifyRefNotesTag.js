@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -7,23 +9,19 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 window.simplifyRefNotesTag = function () {
-
 	var i, j;
-
-	function num2alp(n) { // 本功能將數字按順序轉為英文字母;
+	function num2alp(n) {
+		// 本功能將數字按順序轉為英文字母;
 		var chk = parseInt(n);
 		if (isNaN(chk)) {
 			return null;
 		}
-
 		var digit = [];
 		var result = '';
-
 		while (chk > 0) {
 			digit.unshift(chk % 26);
 			chk = Math.floor(chk / 26);
 		}
-
 		for (j = digit.length; j-- > 0;) {
 			if (digit[j] <= 0) {
 				if (j > 0) {
@@ -33,19 +31,15 @@ window.simplifyRefNotesTag = function () {
 					break;
 				}
 			}
-
 			result = String.fromCharCode('a'.charCodeAt(0) + (digit[j] - 1)) + result;
 		}
-
 		return result;
 	} // 功能結束;
 
 	// 將各上標簡化開始;
 	var sups = document.getElementsByTagName('sup');
 	var supTextNode;
-
 	var temp, num;
-
 	for (i = sups.length; i-- > 0;) {
 		if (sups[i].className === 'reference' && String(sups[i].id).indexOf('cite_ref') === 0) {
 			if (sups[i].childNodes.length === 1) {
@@ -55,21 +49,17 @@ window.simplifyRefNotesTag = function () {
 							if (sups[i].childNodes[0].childNodes[0].nodeValue.indexOf('[') === 0 || !isNaN(sups[i].childNodes[0].childNodes[0].nodeValue.charAt(0))) {
 								if ((sups[i].childNodes[0].childNodes[0].nodeValue + sups[i].group_name).match(/[參参註注]/g)) {
 									supTextNode = sups[i].childNodes[0].childNodes[0];
-
 									if (sups[i].parentNode.id === 'refTag-cite_ref-sup') {
 										temp = supTextNode.nodeValue.split(/[參参] /g);
 										supTextNode.nodeValue = temp.join('');
 									} else if (sups[i].parentNode.id === 'noteTag-cite_ref-sup') {
 										temp = supTextNode.nodeValue.split(/[註注] /g);
-
 										for (j = temp[temp.length - 1].length; j-- > 0;) {
 											if (!isNaN(temp[temp.length - 1].charAt(j))) {
 												break;
 											}
 										}
-
 										num = parseInt(temp[temp.length - 1].slice(0, Math.max(0, j + 1)));
-
 										temp[temp.length - 1] = num2alp(num) + temp[temp.length - 1].slice(Math.max(0, j + 1));
 										supTextNode.nodeValue = temp.join('');
 									}
@@ -92,10 +82,8 @@ window.simplifyRefNotesTag = function () {
 			}
 		}
 	}
-
 	window.simplifyRefNotesTag = function () {};
 };
-
 window.loadMergeSimplify = function () {
 	if (String(typeof window.mergeRefBracket).toLowerCase() === 'function') {
 		window.mergeRefBracket();
@@ -103,10 +91,8 @@ window.loadMergeSimplify = function () {
 	if (String(typeof window.simplifyRefNotesTag).toLowerCase() === 'function') {
 		window.simplifyRefNotesTag();
 	}
-
 	window.loadMergeSimplify = function () {};
 };
-
 $(function () {
 	window.loadMergeSimplify();
 });

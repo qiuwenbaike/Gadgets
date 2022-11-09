@@ -15,7 +15,6 @@ if (mw.SiteCommonJS) {
 	return;
 }
 mw.SiteCommonJS = true;
-
 window.wgUXS = function (wg, hans, hant, cn, tw, hk, sg, zh, mo, my, en) {
 	var ref, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10, ref11, ref12, ref13, ref14, ref15, ref16, ref17, ref18, ref19, ref20, ref21, ref22, ref23, ref24, ref25, ref26, ref27, ref28, ref29, ref30, ref31, ref32, ref33, ref34, ref35, ref36, ref37, ref38, ref39, ret$wg;
 	var ret = {
@@ -62,7 +61,6 @@ mw.log.deprecate(window, 'hasClass', function (element, className) {
 	// eslint-disable-next-line no-jquery/no-class-state
 	return $(element).hasClass(className);
 }, 'Use jQuery.hasClass() instead');
-
 $(function () {
 	$('a.external').filter(function () {
 		var h = String($(this).attr('href')).split('/');

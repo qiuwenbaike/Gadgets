@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: GPL-3.0
  * _addText: '{{Gadget Header|license=GPL-3.0}}'
@@ -20,7 +22,6 @@ var confirmLogout = function () {
 	if (dom && mw.config.get('wgUserName')) {
 		var newDom = document.createElement('a');
 		if (dom.className) {
-
 			newDom.className = dom.className;
 		}
 		newDom.href = dom.href;

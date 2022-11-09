@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -10,11 +12,10 @@
 // <nowiki>
 (function ($, mw) {
 /* =======================================
-	* 跟[[Module:Special wikitext]]保持一致的段落。
-	* ======================================= */
+  	* 跟[[Module:Special wikitext]]保持一致的段落。
+  	* ======================================= */
 
 var wikiTextKey = '_addText';
-
 function luaCheck(inputString, contentModel) {
 	// 使用頁面內容模型來判斷格式
 	var modelName = (contentModel || mw.config.get('wgPageContentModel')).toString().toLowerCase();
@@ -30,7 +31,8 @@ function luaCheck(inputString, contentModel) {
 		case 'sanitized-css':
 			return luaGetCSSwikitext(inputString);
 		default:
-			return ''; // 若不是json、js、css則返回空字串
+			return '';
+      // 若不是json、js、css則返回空字串
 	}
 }
 // 合併多個wikitext字串，並以換行分隔
@@ -44,8 +46,7 @@ function luaAddText(inputStr, newStr, _escape) {
 		if (_escape) {
 			var escapeStr = JSON.parse('[' + JSON.stringify(
 				// Lua不支援\u、\x的跳脫符號；排除相關轉換
-				newStr.toString().replace(/\\([ux])/ig, '$1')
-			).replace(/\\\\/g, '\\') + ']')[0];
+				newStr.toString().replace(/\\([ux])/ig, '$1')).replace(/\\\\/g, '\\') + ']')[0];
 			text = escapeStr;
 		}
 		inputString += text;
@@ -73,9 +74,7 @@ function luaGetContentText(str) {
 	var wikitext = '';
 	try {
 		str.replace(new RegExp(wikiTextKey + '\\s*\\{[^c\\}]*content\\s*:\\s*[^\n]*', 'g'), function (text) {
-			var tempText = (/content\s*:\s*[^\n]*/.exec(text) || [ 'content:' ])[0]
-				.replace(/^[\s\uFEFF\xA0\t\r\n\f ;}]+|[\s\uFEFF\xA0\t\r\n\f ;}]+$/g, '')
-				.replace(/\s*content\s*:\s*/, '');
+			var tempText = (/content\s*:\s*[^\n]*/.exec(text) || [ 'content:' ])[0].replace(/^[\s\uFEFF\xA0\t\r\n\f ;}]+|[\s\uFEFF\xA0\t\r\n\f ;}]+$/g, '').replace(/\s*content\s*:\s*/, '');
 			if (wikitext !== '') {
 				wikitext += '\n';
 			}
@@ -92,8 +91,7 @@ function luaGetObjText(str) {
 	var wikitext = '';
 	try {
 		str.replace(new RegExp(wikiTextKey + '\\s*[\\=:]\\s*[^\n]*', 'g'), function (text) {
-			var tempText = text.replace(/^[\s\uFEFF\xA0\t\r\n\f ;}]+|[\s\uFEFF\xA0\t\r\n\f ;}]+$/g, '')
-				.replace(new RegExp(wikiTextKey + '\\s*[\\=:]\\s*'), '');
+			var tempText = text.replace(/^[\s\uFEFF\xA0\t\r\n\f ;}]+|[\s\uFEFF\xA0\t\r\n\f ;}]+$/g, '').replace(new RegExp(wikiTextKey + '\\s*[\\=:]\\s*'), '');
 			if (wikitext !== '') {
 				wikitext += '\n';
 			}
@@ -139,7 +137,8 @@ function LuaGetJSONWikitext(inputString) {
 		var JSONData = JSON.parse(jsonText);
 		// eslint-disable-next-line es-x/no-array-prototype-keys
 		Object.keys(JSONData).forEach(function (key) {
-			var k = key, v = JSONData[key];
+			var k = key,
+				v = JSONData[key];
 			if (new RegExp(wikiTextKey).exec(k) && typeof v === typeof '') {
 				wikitext = luaAddText(wikitext, v);
 			}
@@ -147,7 +146,8 @@ function LuaGetJSONWikitext(inputString) {
 			if (typeof v !== typeof '') {
 				for (var prop in v) {
 					if (Object.hasOwnProperty.call(v, prop)) {
-						var testArrK = prop, testArrV = v[prop];
+						var testArrK = prop,
+							testArrV = v[prop];
 						if (new RegExp(wikiTextKey).exec(testArrK) && typeof testArrV === typeof '') {
 							wikitext = luaAddText(wikitext, testArrV);
 						}
@@ -163,12 +163,17 @@ function LuaGetJSONWikitext(inputString) {
 // 本行以上的算法請跟[[Module:Special wikitext]]保持一致。
 
 /* =======================================
-	* 程式主要部分
-	* ======================================= */
+  	* 程式主要部分
+  	* ======================================= */
 function previewTool() {
 	// 各類提示文字
-	var mwapi = new mw.Api({ ajax: { headers: { 'Api-User-Agent': 'SpecialWikitext/1.0 (' + mw.config.get('wgWikiID') + ')' } } });
-
+	var mwapi = new mw.Api({
+		ajax: {
+			headers: {
+				'Api-User-Agent': 'SpecialWikitext/1.0 (' + mw.config.get('wgWikiID') + ')'
+			}
+		}
+	});
 	var $addTextNotice = '{{Special_wikitext/notice}}';
 	// {{Quote box |quote  = -{zh-hans:预览加载中;zh-hant:預覽載入中;}-... |width  = 50% |align  = center}}
 	var $LoadingNotice = '<div id="mw-_addText-preview-loading"><div class="quotebox" style="margin: auto; width: 50%; padding: 6px; border: 1px solid #aaa; font-size: 88%; background-color: #F9F9F9;"><div id="mw-_addText-preview-loading-content" style="background-color: #F9F9F9; color: black; text-align: center; font-size: larger;"><img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" decoding="async" data-file-width="32" data-file-height="32" width="32" height="32"> ' + wgULS('预览加载中...', '預覽載入中...') + ' </div></div></div>';
@@ -188,7 +193,7 @@ function previewTool() {
 	// 檢查mediaWiki的設置
 	function checkMwConfig(checkTarget, mwConfigs) {
 		var mwConfigData = mw.config.get(checkTarget);
-		if (!mwConfigData || (mwConfigData.toString().trim() === '')) {
+		if (!mwConfigData || mwConfigData.toString().trim() === '') {
 			return false;
 		}
 		mwConfigData = mwConfigData.toString().toLowerCase();
@@ -280,7 +285,8 @@ function previewTool() {
 	function mwAddLuaText(wikiText, pagename, isPreview, callback) {
 		var tempModuleName = 'AddText/Temp/Module/Data.lua';
 		var moduleCall = {
-			wikitext: '#invoke:', // 分開來，避免被分到[[:Category:有脚本错误的页面]]
+			wikitext: '#invoke:',
+			// 分開來，避免被分到[[:Category:有脚本错误的页面]]
 			pagename: 'Module:'
 		};
 		if (wikiText.toString().trim() !== '') {
@@ -331,18 +337,20 @@ function previewTool() {
 	}
 	// 從頁面當前歷史版本取出 _addText
 	function mwApplyRevision(revisionId, currentPageName) {
-		mwapi.get({ // 本請求URL不太可能有長度超長的風險
-			action: 'parse', // get the original wikitext content of a page
+		mwapi.get({
+			// 本請求URL不太可能有長度超長的風險
+			action: 'parse',
+			// get the original wikitext content of a page
 			oldid: mw.config.get('wgRevisionId'),
 			prop: 'wikitext',
 			format: 'json'
-		}).done(function (data) { // 若取得 _addText 則顯示預覽
+		}).done(function (data) {
+			// 若取得 _addText 則顯示預覽
 			if (!data || !data.parse || !data.parse.wikitext || !data.parse.wikitext['*']) {
 				return;
 			}
 			var pageContent = luaCheck((data.parse.wikitext['*'] || '').toString().trim());
-			pageContent = ($elementExist('#mw-clearyourcache') ? '{{#invoke:Special wikitext/Template|int|clearyourcache}}' : '') +
-					pageContent.toString();
+			pageContent = ($elementExist('#mw-clearyourcache') ? '{{#invoke:Special wikitext/Template|int|clearyourcache}}' : '') + pageContent.toString();
 			if (pageContent.toString().trim() !== '') {
 				mwAddWikiText(pageContent, currentPageName, true);
 			} else {
@@ -355,7 +363,8 @@ function previewTool() {
 	// 加入編輯提示 (如果存在)
 	function mwApplyNotice(currentPageName, pagesubname) {
 		mwapi.post({
-			action: 'parse', // get the original wikitext content of a page
+			action: 'parse',
+			// get the original wikitext content of a page
 			uselang: getLanguage(),
 			useskin: mw.config.get('skin'),
 			title: currentPageName + pagesubname,
@@ -374,8 +383,8 @@ function previewTool() {
 	}
 
 	/* =======================================
-		* 測試樣例
-		* ======================================= */
+    	* 測試樣例
+    	* ======================================= */
 	// 本腳本的Testcase模式
 	function wikitextPreviewTestcase(isPreview) {
 		if (!$needPreview()) {
@@ -387,7 +396,9 @@ function previewTool() {
 			return;
 		}
 		// 收集位於頁面中的Testcase預覽元素
-		var testcaseDataList = [], i, testcaseIT;
+		var testcaseDataList = [],
+			i,
+			testcaseIT;
 		for (i = 0; i < $testcaseList.length; ++i) {
 			testcaseIT = $testcaseList[i];
 			var codeIT = $(testcaseIT).find('.mw-highlight');
@@ -410,7 +421,8 @@ function previewTool() {
 				if (testcaseIT.code.trim() !== '') {
 					if ([ 'javascript', 'js', 'css', 'json', 'text' ].indexOf(testcaseIT.lang.toLowerCase()) > -1) {
 						var addWiki = luaCheck(testcaseIT.code, testcaseIT.lang);
-						if (addWiki.toString().trim() !== '') { // 如果解析結果非空才放置預覽
+						if (addWiki.toString().trim() !== '') {
+							// 如果解析結果非空才放置預覽
 							$(testcaseIT.element).prepend($LoadingNotice);
 							packageWikitext += '<div class="special-wikitext-preview-testcase-' + i + '">\n' + addWiki + '\n</div>';
 						}
@@ -462,51 +474,60 @@ function previewTool() {
 	}
 
 	/* =======================================
-		* 程式進入點
-		* ======================================= */
+    	* 程式進入點
+    	* ======================================= */
 	// 給頁面添加預覽
 	function mwAddPreview() {
 		var currentPageName = mw.config.get('wgPageName');
 		// 預覽模式只適用於以下頁面內容模型
 		if (checkMwConfig('wgPageContentModel', [ 'javascript', 'js', 'json', 'text', 'css', 'sanitized-css' ])) {
 			// 模式1 : 頁面預覽
-			if ($elementExist('.previewnote')) { // 檢查是否為預覽模式
+			if ($elementExist('.previewnote')) {
+				// 檢查是否為預覽模式
 				// 預覽有可能是在預覽其他條目
 				var $previewSelector = $('.previewnote .warningbox > p > b a');
 				if ($previewSelector.length > 0) {
-					var pathPath = decodeURI($previewSelector.attr('href') || ('/wiki/' + currentPageName)).replace(/^\/?wiki\//, '');
+					var pathPath = decodeURI($previewSelector.attr('href') || '/wiki/' + currentPageName).replace(/^\/?wiki\//, '');
 					// 如果預覽的頁面並非本身，則不顯示預覽
 					if (pathPath !== currentPageName) {
 						return;
 					}
 				}
 				var addWiki = luaCheck();
-				if (addWiki.toString().trim() !== '') { // 如果解析結果非空才放置預覽
-					$addLoadingNotice();// 放置提示，提示使用者等待AJAX
-					mwAddWikiText(addWiki, currentPageName, true);// 若取得 _addText 則顯示預覽
+				if (addWiki.toString().trim() !== '') {
+					// 如果解析結果非空才放置預覽
+					$addLoadingNotice(); // 放置提示，提示使用者等待AJAX
+					mwAddWikiText(addWiki, currentPageName, true); // 若取得 _addText 則顯示預覽
 				}
-			} else if (!$elementExist('.mw-_addText-content') && checkMwConfig('wgAction', 'view')) { // 模式2 : 不支援顯示的特殊頁面
+			} else if (!$elementExist('.mw-_addText-content') && checkMwConfig('wgAction', 'view')) {
+				// 模式2 : 不支援顯示的特殊頁面
 				// 經查，不止是模板樣式，所有未嵌入'#mw-clearyourcache'的頁面皆無法正常顯示
 				if (!$needPreview()) {
 					return; // 沒有預覽必要時，直接停止程式，不繼續判斷，以節省效能
 				}
-				if ($elementExist('#mw-clearyourcache')) { // 如果已有#mw-clearyourcache則先清掉，否則會出現兩個MediaWiki:Clearyourcache
+
+				if ($elementExist('#mw-clearyourcache')) {
+					// 如果已有#mw-clearyourcache則先清掉，否則會出現兩個MediaWiki:Clearyourcache
 					$('#mw-clearyourcache').html('');
 				}
-				if (!$elementExist('#wpTextbox1')) { // 非編輯模式才執行 (預覽使用上方的if區塊)
-					$addLoadingNotice();// 放置提示，提示使用者等待AJAX
-					mwApplyRevision(mw.config.get('wgRevisionId'), currentPageName);// 為了讓歷史版本正常顯示，使用wgRevisionId取得內容
+				if (!$elementExist('#wpTextbox1')) {
+					// 非編輯模式才執行 (預覽使用上方的if區塊)
+					$addLoadingNotice(); // 放置提示，提示使用者等待AJAX
+					mwApplyRevision(mw.config.get('wgRevisionId'), currentPageName); // 為了讓歷史版本正常顯示，使用wgRevisionId取得內容
 				}
-			} else if ($elementExist('#mw-revision-info') && checkMwConfig('wgAction', 'view')) { // 模式3 : 頁面歷史版本檢視 : 如需複查的項目為頁面歷史版本，本工具提供頁面歷史版本內容顯示支援
+			} else if ($elementExist('#mw-revision-info') && checkMwConfig('wgAction', 'view')) {
+				// 模式3 : 頁面歷史版本檢視 : 如需複查的項目為頁面歷史版本，本工具提供頁面歷史版本內容顯示支援
 				// 有嵌入'#mw-clearyourcache'的頁面的歷史版本會只能顯示最新版的 _addText 因此執行修正
-				if (!$elementExist('#wpTextbox1')) { // 非編輯模式才執行 (預覽使用上方的if區塊)
-					$('#mw-clearyourcache').html($LoadingNotice);// 差異模式(含檢閱修訂版本刪除)的插入點不同
-					mwApplyRevision(mw.config.get('wgRevisionId'), currentPageName);// 為了讓特定版本正常顯示，使用wgRevisionId取得內容
+				if (!$elementExist('#wpTextbox1')) {
+					// 非編輯模式才執行 (預覽使用上方的if區塊)
+					$('#mw-clearyourcache').html($LoadingNotice); // 差異模式(含檢閱修訂版本刪除)的插入點不同
+					mwApplyRevision(mw.config.get('wgRevisionId'), currentPageName); // 為了讓特定版本正常顯示，使用wgRevisionId取得內容
 				}
 			} else {
 				$removeLoadingNotice();
 			}
-		} else if (checkMwConfig('wgPageContentModel', [ 'scribunto', 'lua' ])) { // 模組預覽功能
+		} else if (checkMwConfig('wgPageContentModel', [ 'scribunto', 'lua' ])) {
+			// 模組預覽功能
 			if (!$needPreview()) {
 				return;
 			} // 沒有預覽必要時，直接停止程式，不繼續判斷，以節省效能
@@ -514,18 +535,22 @@ function previewTool() {
 				$($LoadingNotice).insertAfter('#wikiDiff');
 				mwAddLuaText($('#wpTextbox1').val(), currentPageName, true);
 			}
-		} else if ($elementExist('#mw-undelete-revision')) { // 模式4 : 已刪頁面預覽
+		} else if ($elementExist('#mw-undelete-revision')) {
+			// 模式4 : 已刪頁面預覽
 			// 已刪內容頁面是特殊頁面，無法用常規方式判斷頁面內容模型
 			if (!$needPreview()) {
 				return; // 沒有預覽必要時，直接停止程式，不繼續判斷，以節省效能
 			}
-			if ($elementExist([ '.mw-highlight', 'pre', '.mw-json' ])) { // 確認正在預覽已刪內容
-				var $tryGetWiki = $('textarea').val();// 嘗試取得已刪內容原始碼
+
+			if ($elementExist([ '.mw-highlight', 'pre', '.mw-json' ])) {
+				// 確認正在預覽已刪內容
+				var $tryGetWiki = $('textarea').val(); // 嘗試取得已刪內容原始碼
 				var tryAddWiki = LuaGetJSONWikitext($tryGetWiki);
 				if (tryAddWiki.trim() === '') {
 					tryAddWiki = luaGetCSSwikitext($tryGetWiki);
 				}
-				if (tryAddWiki.trim() !== '') { // 若取得 _addText 則顯示預覽
+				if (tryAddWiki.trim() !== '') {
+					// 若取得 _addText 則顯示預覽
 					$addLoadingNotice();
 					mwAddWikiText(tryAddWiki, mw.config.get('wgRelevantPageName'), true);
 				} else if (/Module[_ ]wikitext.*_addText/i.exec($('.mw-parser-output').text())) { // 嘗試Lua解析
@@ -534,18 +559,21 @@ function previewTool() {
 					// mwAddLuaText($tryGetWiki, mw.config.get("wgRelevantPageName"), true);
 				}
 			}
-		} else if (!$elementExist('.mw-editnotice') && checkMwConfig('wgCanonicalNamespace', 'special')) { // 如果特殊頁面缺乏編輯提示，則補上編輯提示 (如果存在)
+		} else if (!$elementExist('.mw-editnotice') && checkMwConfig('wgCanonicalNamespace', 'special')) {
+			// 如果特殊頁面缺乏編輯提示，則補上編輯提示 (如果存在)
 			var pagename = mw.config.get('wgCanonicalSpecialPageName');
 			var pagesubname = mw.config.get('wgPageName').replace(/special:[^/]+/i, '');
 			if (pagename !== false && pagename !== null && pagename.toString().trim() !== '') {
 				var fullpagename = mw.config.get('wgCanonicalNamespace') + ':' + pagename;
 				mwApplyNotice(fullpagename, pagesubname);
 			}
-		} else { // 都不是的情況則不顯示預覽
+		} else {
+			// 都不是的情況則不顯示預覽
 			$removeLoadingNotice();
 		}
 	}
-	if (mw.config.get('wgIsSpecialWikitextPreview') !== true) { // 一頁只跑一次預覽 避免小工具重複安裝冒出一大堆預覽
+	if (mw.config.get('wgIsSpecialWikitextPreview') !== true) {
+		// 一頁只跑一次預覽 避免小工具重複安裝冒出一大堆預覽
 		mw.config.set('wgIsSpecialWikitextPreview', true); // 標記預覽已跑過
 		mwAddPreview(); // 執行預覽
 		wikitextPreviewTestcase(true); // 檢查測試樣例

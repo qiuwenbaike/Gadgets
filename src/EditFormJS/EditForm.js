@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -49,12 +51,8 @@ $(function () {
 	}
 
 	// 視覺化編輯器 / 新 wikitext 模式
-	var noSectionTitlePages = [
-		'Qiuwen:过滤器处理/报告',
-		'Qiuwen:字词转换处理/地区词候选'
-	];
-	if (noSectionTitlePages.indexOf(mw.config.get('wgPageName')) !== -1 &&
-		mw.util.getParamValue('section') === 'new') {
+	var noSectionTitlePages = [ 'Qiuwen:过滤器处理/报告', 'Qiuwen:字词转换处理/地区词候选' ];
+	if (noSectionTitlePages.indexOf(mw.config.get('wgPageName')) !== -1 && mw.util.getParamValue('section') === 'new') {
 		mw.util.addCSS('h2.ve-ui-init-desktopArticleTarget-sectionTitle { display: none; }');
 	}
 
@@ -83,12 +81,10 @@ $(function () {
 	mw.hook('ve.saveDialog.stateChanged').add(function () {
 		// 编辑摘要链接在第一次点击“发布更改”按钮之后才会加载，因此需要额外判断
 		if (!isInitSummary) {
-			$('div.ve-ui-mwSaveDialog-summaryLabel span.mw-summary-preset-item > a')
-				.removeAttr('target')
-				.on('click', function (e) {
-					e.preventDefault();
-					insertSummary($(this), $('div.ve-ui-mwSaveDialog-summary > textarea'));
-				});
+			$('div.ve-ui-mwSaveDialog-summaryLabel span.mw-summary-preset-item > a').removeAttr('target').on('click', function (e) {
+				e.preventDefault();
+				insertSummary($(this), $('div.ve-ui-mwSaveDialog-summary > textarea'));
+			});
 			isInitSummary = true;
 		}
 	});
@@ -121,12 +117,9 @@ $(function () {
 
 (function () {
 var permittedGroups = [ 'confirmed', 'autoconfirmed' ];
-if (
-	mw.config.get('wgAction') !== 'edit' ||
-		permittedGroups.some(function (val) {
-			return mw.config.get('wgUserGroups').indexOf(val) > -1;
-		})
-) {
+if (mw.config.get('wgAction') !== 'edit' || permittedGroups.some(function (val) {
+	return mw.config.get('wgUserGroups').indexOf(val) > -1;
+})) {
 	return;
 }
 mw.loader.using('oojs-ui-core', function () {

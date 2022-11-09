@@ -43,7 +43,6 @@ $(function () {
 	var gadgetName = 'ext.gadget.CollapsibleSidebar';
 	var sidebarHidden = false;
 	var sidebarGadgetLoaded = false;
-
 	function hideSidebar() {
 		sidebarHidden = true;
 		$('#sidebarCollapse').attr('src', img.next);
@@ -55,7 +54,6 @@ $(function () {
 		$('#sliderCollapseLogo').show();
 		mw.storage.set(gadgetName, 'hide');
 	}
-
 	function showSidebar() {
 		sidebarHidden = false;
 		$('#sidebarCollapse').attr('src', img.prev);
@@ -67,7 +65,6 @@ $(function () {
 		$('#sliderCollapseLogo').hide();
 		mw.storage.set(gadgetName, 'show');
 	}
-
 	function updatePosHelper(arr) {
 		var divList = [ '#sidebarCollapse', '#sliderCollapseLogo' ];
 		for (var i = 0; i < arr.length; i++) {
@@ -82,7 +79,6 @@ $(function () {
 			}
 		}
 	}
-
 	function updatePos() {
 		var bWidth = 0;
 		if (isMobile) {
@@ -96,10 +92,8 @@ $(function () {
 			updatePosHelper(sidebarHidden ? [ '0.3em', '2.5em' ] : [ '9.3em', null ]);
 		}
 	}
-
 	function sidebarHiddenProc() {
 		sidebarGadgetLoaded = true;
-
 		var $sidebarCollapse = $('<img>').attr({
 			id: 'sidebarCollapse',
 			src: img.prev,
@@ -115,15 +109,12 @@ $(function () {
 			'border': '1px solid #a7d7f9',
 			'background': '#fff'
 		});
-
 		var $mwLogo = $('.mw-wiki-logo');
 		var $newLink = $mwLogo.clone(false).empty().removeAttr('class').attr({
 			id: 'sidebarCollapseLink',
 			title: $mwLogo.attr('title')
 		});
-
 		var imgLogo = img.logo;
-
 		$('<img>').attr({
 			id: 'sliderCollapseLogo',
 			src: imgLogo
@@ -134,19 +125,15 @@ $(function () {
 			cursor: 'pointer',
 			width: '7em'
 		}).appendTo($newLink);
-
 		$sidebarCollapse.appendTo('#mw-navigation');
 		$newLink.appendTo('#mw-navigation');
-
 		if (mw.storage.get(gadgetName) === 'hide') {
 			hideSidebar();
 		}
 		updatePos();
-
 		$(window).on('resize', function () {
 			updatePos();
 		});
-
 		$('#sidebarCollapse').on('mouseover', function () {
 			$(this).css('background', 'rgb(223, 245, 255)');
 		}).on('mouseout', function () {
@@ -159,7 +146,6 @@ $(function () {
 			}
 		});
 	}
-
 	function sidebarHiddenInit() {
 		if ($('body.skin-vector-legacy').length === 0) {
 			return;

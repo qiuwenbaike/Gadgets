@@ -15,7 +15,6 @@
 'use strict';
 
 mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
-
 	window.banImage = function banImage() {
 		Wikiplus.kotori.redirectTo('File:Banned Images.svg', Wikiplus.kotori.pageName, {
 			success: function success() {
@@ -27,7 +26,6 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
 			}
 		});
 	};
-
 	window.banArticle = function banArticle() {
 		Wikiplus.kotori.redirectTo('Qiuwen:首页', Wikiplus.kotori.pageName, {
 			success: function success() {
@@ -39,7 +37,6 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
 			}
 		});
 	};
-
 	window.banTemplate = function banTemplate() {
 		Wikiplus.kotori.redirectTo('Template:Void', Wikiplus.kotori.pageName, {
 			success: function success() {
@@ -51,7 +48,6 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
 			}
 		});
 	};
-
 	$(function () {
 		if (mw.config.get('wgNamespaceNumber') === 0) {
 			mw.util.addPortletLink('p-cactions', 'javascript:window.banArticle();', '禁用此页面');
@@ -63,5 +59,4 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
 			mw.util.addPortletLink('p-cactions', 'javascript:window.banTemplate();', '禁用此模板');
 		}
 	});
-
 });

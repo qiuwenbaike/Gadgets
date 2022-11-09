@@ -18,19 +18,16 @@
 'use strict';
 
 /* 生成短链接 */
-
 (function ($, mw) {
 if (mw.config.get('wgNamespaceNumber') !== -1 && /* 不为特殊页面生成短链接 */
-	$('.noarticletext').length === 0 && /* 不为不存在的页面生成短链接 */
-	((mw.config.get('wgDiffOldId') && mw.config.get('wgDiffNewId')) || $('.mw-revision.warningbox').length !== 0 || mw.config.get('wgArticleId') !== 0) /* 不为不存在的页面版本生成短链接 */
-) {
+  $('.noarticletext').length === 0 && (/* 不为不存在的页面生成短链接 */
+	mw.config.get('wgDiffOldId') && mw.config.get('wgDiffNewId') || $('.mw-revision.warningbox').length !== 0 || mw.config.get('wgArticleId') !== 0) /* 不为不存在的页面版本生成短链接 */) {
 	mw.loader.using([ 'mediawiki.api', 'mediawiki.util', 'mediawiki.widgets', 'oojs-ui-windows' ]).then(function () {
 		var sidebarTitle = wgULS('短链接', '短網址'),
 			sidebarDesc = wgULS('显示该页短链接', '顯示該頁短網址'),
 			sidebarLink = mw.util.addPortletLink($('#p-pagemisc').length !== 0 ? 'p-pagemisc' : 'p-tb', '#', sidebarTitle, 't-report', sidebarDesc),
 			shorturlTitle = wgULS('本页短链接：', '本頁短網址：'),
 			shorturl = '';
-
 		if (mw.config.get('wgDiffNewId')) {
 			/* Code block from 安忆, see [[MediaWiki:Gadget-Difflink.js]] */
 			if (mw.config.get('wgDiffOldId')) {
@@ -52,14 +49,20 @@ if (mw.config.get('wgNamespaceNumber') !== -1 && /* 不为特殊页面生成短�
 		} else {
 			return;
 		}
-
 		$(sidebarLink).on('click', function (e) {
 			e.preventDefault();
 			var $dom = $('<div>');
-			[ 'https://bkwz.cn' + shorturl, 'https://qwbk.cc' + shorturl ].forEach(function (url) { /* 'https://qwbk.org' + shorturl, */
-				$dom.append(new mw.widgets.CopyTextLayout({ align: 'top', copyText: url }).$element);
+			[ 'https://bkwz.cn' + shorturl, 'https://qwbk.cc' + shorturl ].forEach(function (url) {
+				/* 'https://qwbk.org' + shorturl, */
+				$dom.append(new mw.widgets.CopyTextLayout({
+					align: 'top',
+					copyText: url
+				}).$element);
 			});
-			OO.ui.alert($dom, { title: shorturlTitle, size: 'medium' });
+			OO.ui.alert($dom, {
+				title: shorturlTitle,
+				size: 'medium'
+			});
 		});
 	});
 }

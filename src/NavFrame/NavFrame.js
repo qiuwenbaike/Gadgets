@@ -20,10 +20,8 @@
 'use strict';
 
 (function ($, mw) {
-
 var collapseCaption = wgULS('隐藏', '隱藏');
 var expandCaption = wgULS('显示', '顯示');
-
 var navigationBarHide = collapseCaption + '▲';
 var navigationBarShow = expandCaption + '▼';
 
@@ -38,11 +36,9 @@ function toggleNavigationBar(indexNavigationBar, e) {
 	var $toggle = $('#NavToggle' + indexNavigationBar),
 		$frame = $('#NavFrame' + indexNavigationBar),
 		isFrameCollapsed;
-
 	if (!$frame || !$toggle) {
 		return false;
 	}
-
 	isFrameCollapsed = $frame.hasClass('collapsed');
 	if (isFrameCollapsed) {
 		$frame.find('> .NavPic, > .NavContent, > .toogleShow').each(function () {
@@ -89,7 +85,6 @@ function createNavigationBarToggleButton($content) {
 				$(this).css('display', 'none');
 			});
 		}
-
 		var showNavigationBarHide = true;
 		$frame.find('> .NavPic, > .NavContent').each(function () {
 			if ($(this).css('display') === 'none') {
@@ -97,15 +92,12 @@ function createNavigationBarToggleButton($content) {
 				return false;
 			}
 		});
-
 		navToggle.text(showNavigationBarHide ? navigationBarHide : navigationBarShow);
-
 		$frame.find('> .NavHead').each(function () {
 			$(this).append(navToggle);
 			return false;
 		});
 	});
 }
-
 mw.hook('wikipage.content').add(createNavigationBarToggleButton);
 }(jQuery, mediaWiki));
