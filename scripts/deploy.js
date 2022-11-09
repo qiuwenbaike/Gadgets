@@ -147,6 +147,14 @@ const deployTargets = [{
 		target: 'MediaWiki:Gadget-Rollback-summary.js'
 	},
 	{
+		file: 'src/ConfirmLogout/ConfirmLogout.js',
+		target: 'MediaWiki:Gadget-ConfirmLogout.js'
+	},
+	{
+		file: 'src/PurgePageCache/PurgePageCache.js',
+		target: 'MediaWiki:Gadget-PurgePageCache.js'
+	},
+	{
 		file: 'src/Difflink/Difflink.js',
 		target: 'MediaWiki:Gadget-Difflink.js'
 	},
