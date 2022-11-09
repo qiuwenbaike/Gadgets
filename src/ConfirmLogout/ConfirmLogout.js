@@ -27,7 +27,7 @@ var confirmLogout = function () {
 		newDom.href = dom.href;
 		newDom.innerHTML = dom.innerHTML;
 		dom.parentNode.appendChild(newDom);
-		dom.parentNode.removeChild(dom); // ES6: dom.remove()
+		dom.parentNode.removeChild(dom);
 		newDom.addEventListener('click', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
