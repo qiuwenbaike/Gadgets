@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=PD-self}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache-load.js
- * @source: https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js
+ * @source https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js
  * @license PD-self
  */
 //  json2.js

@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-CollapsibleSidebar.js
- * @source: https://zh.wikipedia.org/wiki/MediaWiki:Gadget-CollapsibleSidebar.js
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-CollapsibleSidebar.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency mediawiki.storage
  */

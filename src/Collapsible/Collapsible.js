@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Collapsible.js
- * @source: https://rs.miraheze.org/wiki/MediaWiki:Gadget-collapsible.js
+ * @source https://rs.miraheze.org/wiki/MediaWiki:Gadget-collapsible.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /**
