@@ -8,6 +8,8 @@
  */
 'use strict';
 
+// <nowiki>
+
 mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	var compSurnameReg,
 		prefixReg = /[字号號]\s*$/,
@@ -42,3 +44,5 @@ mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 		return jQuery.uniqueSort(retTitles);
 	});
 });
+
+// </nowiki>
