@@ -13,7 +13,7 @@
 
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
-	mw.loader.using([ 'mediawiki.api', 'mediawiki.ForeignApi', 'mediawiki.diff.styles' ]).then(function () {
+	mw.loader.using([ 'mediawiki.api', 'mediawiki.diff.styles' ]).then(function () {
 		var link = mw.util.addPortletLink('p-cactions', '#', wgULS('转换变体', '轉換變體'));
 		$(link).on('click', function () {
 			this.remove();
