@@ -97,6 +97,8 @@ mw.log.deprecate(window, 'importScriptCallback', function (page, ready) {
 	return mw.loader.getScript(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript', ready);
 }, 'Use mw.loader.load() instead');
 
-window.importScriptURICallback = mw.loader.getScript;
+mw.log.deprecate(window, 'importScriptURICallback', function () {
+	return mw.loader.getScript;
+}, 'Use mw.loader.getScript() instead');
 
 }(jQuery, mediaWiki));
