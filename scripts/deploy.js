@@ -154,6 +154,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js'
 	},
 	{
+		file: 'src/Wordcount/Wordcount.js',
+		target: 'MediaWiki:Gadget-Wordcount.js'
+	},		
+	{
 		file: 'src/Wikicache/JSON2.js',
 		target: 'MediaWiki:Gadget-JSON2.js'
 	},

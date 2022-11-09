@@ -1,7 +1,7 @@
 defaults,
 cover 97.5%,
 Chrome >= 31,
-Firefox >=39,
+Firefox >= 39,
 Edge >= 12,
 IE >= 11,
 Safari >= 9.1,
