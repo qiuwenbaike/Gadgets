@@ -11,7 +11,7 @@
 	],
 	"targets": {
 		"browsers": [
-			"cover 95%, last 2 versions, Firefox ESR, not dead"
+			"defaults, Chrome >= 70, Firefox ESR, not dead"
 		]
 	}
 }

@@ -28,6 +28,6 @@
 		"stylelint-config-wikimedia": "0.13.1"
 	},
 	"browserslist": [
-		"cover 95%, last 2 versions, Firefox ESR, not dead"
+		"defaults, Chrome >= 70, Firefox ESR, not dead"
 	]
 }
