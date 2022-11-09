@@ -72,6 +72,7 @@
  */
 
 // Polyfill
+// From <https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith>
 // eslint-disable-next-line es-x/no-string-prototype-startswith
 if (!String.prototype.startsWith) {
 	// eslint-disable-next-line no-extend-native
