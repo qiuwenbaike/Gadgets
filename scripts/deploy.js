@@ -134,6 +134,26 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Wikicache-load.js'
 	},
 	{
+		file: 'src/ToolsRedirect/ToolsRedirect.css',
+		target: 'MediaWiki:Gadget-ToolsRedirect.css'
+	},
+	{
+		file: 'src/ToolsRedirect/ToolsRedirect.js',
+		target: 'MediaWiki:Gadget-ToolsRedirect.js'
+	},
+	{
+		file: 'src/ToolsRedirect-opt-bolds/ToolsRedirect-opt-bolds.js',
+		target: 'MediaWiki:Gadget-ToolsRedirect-opt-bolds.js'
+	},
+	{
+		file: 'src/ToolsRedirect-bio-latin-names/ToolsRedirect-bio-latin-names.js',
+		target: 'MediaWiki:Gadget-ToolsRedirect-bio-latin-names.js'
+	},
+	{
+		file: 'src/ToolsRedirect-courtesy-and-art-names/ToolsRedirect-courtesy-and-art-names.js',
+		target: 'MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js'
+	},
+	{
 		file: 'src/Wikicache/JSON2.js',
 		target: 'MediaWiki:Gadget-JSON2.js'
 	},
