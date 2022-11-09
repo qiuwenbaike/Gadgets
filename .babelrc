@@ -10,6 +10,8 @@
 		"src/Wikiplus/Wikiplus-highlight.js"
 	],
 	"targets": {
-		  "browsers": ["cover 99.5%, last 2 versions, Firefox ESR, not dead"]
+		"browsers": [
+			"cover 95%, last 2 versions, Firefox ESR, not dead"
+		]
 	}
 }
