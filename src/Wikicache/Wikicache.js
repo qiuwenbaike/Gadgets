@@ -2,6 +2,7 @@
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
  *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache.js
  * @source https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/wikicache.js
  * @license <https://creativecommons.org/licenses/by-sa/3.0>
  */

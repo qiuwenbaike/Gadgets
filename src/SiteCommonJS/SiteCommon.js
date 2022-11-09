@@ -80,25 +80,19 @@ $(function () {
 mw.log.deprecate(window, 'importScript', function (page) {
 	return mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript');
 }, 'Use mw.loader.load() or mw.loader.getScript() instead');
-
 mw.log.deprecate(window, 'importStylesheet', function (page) {
 	return mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/css', 'text/css');
 }, 'Use mw.loader.load() instead');
-
 mw.log.deprecate(window, 'importScriptURI', function (URL) {
 	return mw.loader.load(mw.util.wikiUrlencode(URL));
 }, 'Use mw.loader.load() or mw.loader.getScript() instead');
-
 mw.log.deprecate(window, 'importStylesheetURI', function (URL) {
 	return mw.loader.load(mw.util.wikiUrlencode(URL), 'text/css');
 }, 'Use mw.loader.load() instead');
-
 mw.log.deprecate(window, 'importScriptCallback', function (page, ready) {
 	return mw.loader.getScript(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript', ready);
 }, 'Use mw.loader.load() or mw.loader.getScript() instead');
-
 mw.log.deprecate(window, 'importScriptURICallback', function () {
 	return mw.loader.getScript;
 }, 'Use mw.loader.getScript() instead');
-
 }(jQuery, mediaWiki));

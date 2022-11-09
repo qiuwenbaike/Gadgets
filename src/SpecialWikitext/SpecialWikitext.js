@@ -12,8 +12,8 @@
 // <nowiki>
 (function ($, mw) {
 /* =======================================
-  	* 跟[[Module:Special wikitext]]保持一致的段落。
-  	* ======================================= */
+    	* 跟[[Module:Special wikitext]]保持一致的段落。
+    	* ======================================= */
 
 var wikiTextKey = '_addText';
 function luaCheck(inputString, contentModel) {
@@ -163,8 +163,8 @@ function LuaGetJSONWikitext(inputString) {
 // 本行以上的算法請跟[[Module:Special wikitext]]保持一致。
 
 /* =======================================
-  	* 程式主要部分
-  	* ======================================= */
+    	* 程式主要部分
+    	* ======================================= */
 function previewTool() {
 	// 各類提示文字
 	var mwapi = new mw.Api({
@@ -383,8 +383,8 @@ function previewTool() {
 	}
 
 	/* =======================================
-    	* 測試樣例
-    	* ======================================= */
+       	* 測試樣例
+       	* ======================================= */
 	// 本腳本的Testcase模式
 	function wikitextPreviewTestcase(isPreview) {
 		if (!$needPreview()) {
@@ -474,8 +474,8 @@ function previewTool() {
 	}
 
 	/* =======================================
-    	* 程式進入點
-    	* ======================================= */
+       	* 程式進入點
+       	* ======================================= */
 	// 給頁面添加預覽
 	function mwAddPreview() {
 		var currentPageName = mw.config.get('wgPageName');
