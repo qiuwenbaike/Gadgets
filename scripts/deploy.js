@@ -195,6 +195,10 @@ const deployTargets = [
 	},
 	/* sysop */
 	{
+		file: 'src/TranslateVariants/TranslateVariants.js',
+		target: 'MediaWiki:Gadget-TranslateVariants.js'
+	},
+	{
 		file: 'src/RRD/RRD.js',
 		target: 'MediaWiki:Gadget-RRD.js'
 	},
