@@ -27,7 +27,6 @@
         "dist/",
 		"scripts/",
 		"src/Carousel/Carousel.js",
-		"src/Carousel/Carousel-cfg.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
 		"src/Wikicache/Wikicache.js",
