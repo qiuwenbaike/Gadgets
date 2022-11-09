@@ -16,10 +16,5 @@
 		"src/Collapsible/Collapsible.js",
 		"src/EasyArchive/EasyArchive-main.js",
 		"src/RRD/RRD-main.js"
-	],
-	"targets": {
-		"browsers": [
-			"defaults, cover 99%, Chrome >= 70, Firefox ESR, not dead"
-		]
-	}
+	]
 }
