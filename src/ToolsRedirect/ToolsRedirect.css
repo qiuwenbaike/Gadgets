@@ -6,39 +6,39 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect.css
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
- div.dialog-redirect .mw-ajax-loader {
-	top: 0
+div.dialog-redirect .mw-ajax-loader {
+	top: 0;
 }
 
 div.dialog-redirect a:visited {
-	color: #0b0080
+	color: #0b0080;
 }
 
 div.dialog-redirect a {
-	color: #0645ad
+	color: #0645ad;
 }
 
 div.dialog-redirect a.new:visited {
-	color: #a55858
+	color: #a55858;
 }
 
 div.dialog-redirect a.new {
-	color: #c20
+	color: #c20;
 }
 
-.tools-redirect_methods>a {
+.tools-redirect_methods > a {
 	position: relative;
-	margin: 0 5px
+	margin: 0 5px;
 }
 
-.tools-redirect_methods>.tools-redirect_link:first-of-type:before {
-	content: "（"
+.tools-redirect_methods > .tools-redirect_link:first-of-type:before {
+	content: '（';
 }
 
-.tools-redirect_methods>.tools-redirect_link:before {
-	content: "｜"
+.tools-redirect_methods > .tools-redirect_link:before {
+	content: '｜';
 }
 
-.tools-redirect_methods>.tools-redirect_link:last-of-type:after {
-	content: "）"
+.tools-redirect_methods > .tools-redirect_link:last-of-type:after {
+	content: '）';
 }
