@@ -101,10 +101,6 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-DisambigLinks.css'
 	},
 	{
-		file: 'src/Wikiplus/Wikiplus.js',
-		target: 'MediaWiki:Gadget-Wikiplus.js'
-	},
-	{
 		file: 'src/Carousel/Carousel.js',
 		target: 'MediaWiki:Gadget-Carousel.js'
 	},
@@ -118,12 +114,32 @@ const deployTargets = [
 	},
 	/* edit */
 	{
+		file: 'src/Wikiplus/Wikiplus.js',
+		target: 'MediaWiki:Gadget-Wikiplus.js'
+	},
+	{
 		file: 'src/Wikiplus/Wikiplus-load.js',
 		target: 'MediaWiki:Gadget-Wikiplus-load.js'
 	},
 	{
 		file: 'src/Wikiplus/Wikiplus-highlight.js',
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
+	},
+	{
+		file: 'src/Wikicache/Wikicache.js',
+		target: 'MediaWiki:Gadget-Wikicache.js'
+	},
+	{
+		file: 'src/Wikicache/Wikicache-load.js',
+		target: 'MediaWiki:Gadget-Wikicache-load.js'
+	},
+	{
+		file: 'src/Wikicache/JSON2.js',
+		target: 'MediaWiki:Gadget-JSON2.js'
+	},
+	{
+		file: 'src/Wikicache/jQuery.storage.js',
+		target: 'MediaWiki:Gadget-jQuery.storage.js'
 	},
 	{
 		file: 'src/EasyArchive/EasyArchive.js',
