@@ -8,6 +8,23 @@
  */
 'use strict';
 
+// Polyfill
+// eslint-disable-next-line no-implicit-globals
+function _typeof(obj) {
+
+	'@babel/helpers - typeof';
+
+	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef, no-shadow
+	return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
+		return typeof obj;
+		// eslint-disable-next-line no-shadow
+	} : function (obj) {
+		// eslint-disable-next-line no-undef
+		return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
+		// eslint-disable-next-line no-sequences
+	}, _typeof(obj);
+}
+
 window.simplifyRefNotesTag = function () {
 	var i, j;
 	function num2alp(n) {
@@ -85,10 +102,10 @@ window.simplifyRefNotesTag = function () {
 	window.simplifyRefNotesTag = function () {};
 };
 window.loadMergeSimplify = function () {
-	if (String(typeof window.mergeRefBracket).toLowerCase() === 'function') {
+	if (String(_typeof(window.mergeRefBracket)).toLowerCase() === 'function') {
 		window.mergeRefBracket();
 	}
-	if (String(typeof window.simplifyRefNotesTag).toLowerCase() === 'function') {
+	if (String(_typeof(window.simplifyRefNotesTag)).toLowerCase() === 'function') {
 		window.simplifyRefNotesTag();
 	}
 	window.loadMergeSimplify = function () {};

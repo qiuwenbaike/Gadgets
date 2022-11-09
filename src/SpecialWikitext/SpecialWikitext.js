@@ -10,10 +10,28 @@
 'use strict';
 
 // <nowiki>
+
+// Polyfill
+// eslint-disable-next-line no-implicit-globals
+function _typeof(obj) {
+
+	'@babel/helpers - typeof';
+
+	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef, no-shadow
+	return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
+		return typeof obj;
+		// eslint-disable-next-line no-shadow
+	} : function (obj) {
+		// eslint-disable-next-line no-undef
+		return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
+		// eslint-disable-next-line no-sequences
+	}, _typeof(obj);
+}
+
 (function ($, mw) {
 /* =======================================
-    	* 跟[[Module:Special wikitext]]保持一致的段落。
-    	* ======================================= */
+ * 跟[[Module:Special wikitext]]保持一致的段落。
+ * ======================================= */
 
 var wikiTextKey = '_addText';
 function luaCheck(inputString, contentModel) {
@@ -139,16 +157,16 @@ function LuaGetJSONWikitext(inputString) {
 		Object.keys(JSONData).forEach(function (key) {
 			var k = key,
 				v = JSONData[key];
-			if (new RegExp(wikiTextKey).exec(k) && typeof v === typeof '') {
+			if (new RegExp(wikiTextKey).exec(k) && _typeof(v) === _typeof('')) {
 				wikitext = luaAddText(wikitext, v);
 			}
 			// 如果是陣列物件會多包一層
-			if (typeof v !== typeof '') {
+			if (_typeof(v) !== _typeof('')) {
 				for (var prop in v) {
 					if (Object.hasOwnProperty.call(v, prop)) {
 						var testArrK = prop,
 							testArrV = v[prop];
-						if (new RegExp(wikiTextKey).exec(testArrK) && typeof testArrV === typeof '') {
+						if (new RegExp(wikiTextKey).exec(testArrK) && _typeof(testArrV) === _typeof('')) {
 							wikitext = luaAddText(wikitext, testArrV);
 						}
 					}
@@ -163,8 +181,8 @@ function LuaGetJSONWikitext(inputString) {
 // 本行以上的算法請跟[[Module:Special wikitext]]保持一致。
 
 /* =======================================
-    	* 程式主要部分
-    	* ======================================= */
+        	* 程式主要部分
+        	* ======================================= */
 function previewTool() {
 	// 各類提示文字
 	var mwapi = new mw.Api({
@@ -244,7 +262,7 @@ function previewTool() {
 	}
 	// 檢查是否有預覽的必要性
 	function $needPreview() {
-		return document.body.innerHTML.search('_addText') > -1;
+		return $('body').innerHTML.search('_addText') > -1;
 	}
 	// 加入預覽內容
 	function mwAddWikiText(wikiText, pagename, isPreview) {
@@ -317,7 +335,7 @@ function previewTool() {
 				if (parsedWiki !== '') {
 					// 若出錯在這個臨時模組中則取消
 					if ($(parsedWiki).find('.scribunto-error').text().search(tempModuleName) < 0) {
-						if (typeof callback === typeof function () {}) {
+						if (_typeof(callback) === _typeof(function () {})) {
 							callback(parsedWiki);
 						} else {
 							$addParsedWikitext(parsedWiki);
@@ -383,8 +401,8 @@ function previewTool() {
 	}
 
 	/* =======================================
-       	* 測試樣例
-       	* ======================================= */
+             	* 測試樣例
+             	* ======================================= */
 	// 本腳本的Testcase模式
 	function wikitextPreviewTestcase(isPreview) {
 		if (!$needPreview()) {
@@ -474,8 +492,8 @@ function previewTool() {
 	}
 
 	/* =======================================
-       	* 程式進入點
-       	* ======================================= */
+             	* 程式進入點
+             	* ======================================= */
 	// 給頁面添加預覽
 	function mwAddPreview() {
 		var currentPageName = mw.config.get('wgPageName');
