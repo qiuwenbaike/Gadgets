@@ -8,5 +8,8 @@
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js"
-	]
+	],
+	"targets": {
+		  "browsers": ["cover 99.5%, last 2 versions, Firefox ESR, not dead"]
+	}
 }
