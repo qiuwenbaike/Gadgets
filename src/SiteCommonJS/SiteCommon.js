@@ -71,22 +71,32 @@ $(function () {
 	}).attr('target', '_blank');
 });
 
-// maintenance: Some user scripts may be using the following deprecated functions on mobile.
-// These functions are no longer supported and should be updated to use mw.loader.getScript.
-window.importScript = function (page) {
-	mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript');
-};
-window.importStylesheet = function (page) {
-	mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/css', 'text/css');
-};
-window.importScriptURI = function (URL) {
-	mw.loader.load(mw.util.wikiUrlencode(URL));
-};
-window.importStylesheetURI = function (URL) {
-	mw.loader.load(mw.util.wikiUrlencode(URL), 'text/css');
-};
-window.importScriptCallback = function (page, ready) {
-	window.importScriptURICallback(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript', ready);
-};
+/**
+ * maintenance: Some user scripts may be using the following deprecated functions on mobile.
+ * These functions are no longer supported and should be updated to use mw.loader.getScript.
+ *
+ * @deprecated:  User mw.loader.load() or mw.loader.getScript() instead.
+ */
+mw.log.deprecate(window, 'importScript', function (page) {
+	return mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript');
+}, 'Use mw.loader.load() instead');
+
+mw.log.deprecate(window, 'importStylesheet', function (page) {
+	return mw.loader.load(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/css', 'text/css');
+}, 'Use mw.loader.load() instead');
+
+mw.log.deprecate(window, 'importScriptURI', function (URL) {
+	return mw.loader.load(mw.util.wikiUrlencode(URL));
+}, 'Use mw.loader.load() or mw.loader.getScript() instead');
+
+mw.log.deprecate(window, 'importStylesheetURI', function (URL) {
+	return mw.loader.load(mw.util.wikiUrlencode(URL), 'text/css');
+}, 'Use mw.loader.load() instead');
+
+mw.log.deprecate(window, 'importScriptCallback', function (page, ready) {
+	return mw.loader.getScript(mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.util.wikiUrlencode(page) + '&action=raw&ctype=text/javascript', ready);
+}, 'Use mw.loader.load() instead');
+
 window.importScriptURICallback = mw.loader.getScript;
+
 }(jQuery, mediaWiki));
