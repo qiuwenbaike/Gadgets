@@ -16,7 +16,6 @@
  * @maintainer Krinkle, 2013
  * @maintainer Fantasticfears, 2013-2014
  */
-/* eslint-disable no-jquery/no-class-state */
 
 'use strict';
 

@@ -58,7 +58,6 @@ mw.log.deprecate(window, 'getURLParamValue', function () {
  * @deprecated:  Use $(element).hasClass() instead.
  */
 mw.log.deprecate(window, 'hasClass', function (element, className) {
-	// eslint-disable-next-line no-jquery/no-class-state
 	return $(element).hasClass(className);
 }, 'Use jQuery.hasClass() instead');
 $(function () {
