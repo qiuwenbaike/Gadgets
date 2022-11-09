@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-script-url */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -12,6 +10,9 @@
  * @author Jinzhe Zeng
  * @global Wikiplus
  */
+/* eslint-disable no-undef */
+/* eslint-disable no-script-url */
+
 'use strict';
 
 mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {

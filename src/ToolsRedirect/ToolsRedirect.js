@@ -1,3 +1,12 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect.js
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect.js
+ * @license <https://creativecommons.org/licenses/by-sa/4.0>
+ */
+'use strict';
 /* eslint-disable guard-for-in */
 /* eslint-disable no-jquery/no-sizzle */
 /* eslint-disable no-shadow */
@@ -6,16 +15,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-jquery/no-map-util */
 /* eslint-disable no-underscore-dangle */
-/**
- * SPDX-License-Identifier: CC-BY-SA-4.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
- *
- * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect.js
- * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect.js
- * @license <https://creativecommons.org/licenses/by-sa/4.0>
- */'use strict';
-// <nowiki>
 /* vim:set noexpandtab ft=javascript ts=4 sw=4: */
+// <nowiki>
 
 (function ($, mw) {
 var _TR,

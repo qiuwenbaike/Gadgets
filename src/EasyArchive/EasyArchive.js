@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -7,6 +6,8 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-easy-archive.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+/* eslint-disable camelcase */
+
 'use strict';
 
 if (!('bluedeck' in window)) {

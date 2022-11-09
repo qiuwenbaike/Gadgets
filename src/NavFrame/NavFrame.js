@@ -1,4 +1,3 @@
-/* eslint-disable no-jquery/no-class-state */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -17,6 +16,8 @@
  * @maintainer Krinkle, 2013
  * @maintainer Fantasticfears, 2013-2014
  */
+/* eslint-disable no-jquery/no-class-state */
+
 'use strict';
 
 (function ($, mw) {

@@ -1,4 +1,3 @@
-/* eslint-disable no-jquery/no-class-state */
 /**
  * SPDX-License-Identifier: GPL-3.0
  * _addText: '{{Gadget Header|license=GPL-3.0}}'
@@ -20,6 +19,8 @@
  * 如想使用默认值1，但自定值2，请将值1留空，如下例：
  *   window.difflink = ['', '固定版本'];
 */
+/* eslint-disable no-jquery/no-class-state */
+
 'use strict';
 
 $(function () {
