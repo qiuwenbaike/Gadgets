@@ -79,6 +79,7 @@
 		"space-unary-ops": "error",
 		"spaced-comment": ["error", "always", { "line": { "exceptions": ["-"] }, "block": { "balanced": true } }],
 		"switch-colon-spacing": "error",
+		"mediawiki/class-doc": "off",
 		"no-jquery/no-global-selector": "off",
 		"no-jquery/no-fade": "off",
 		"no-jquery/no-slide": "off",
