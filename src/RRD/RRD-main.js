@@ -6,7 +6,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */
-
+// <nowiki>
 function get(obj, attr, defret) {
 	return obj.hasAttribute(attr) ? obj.getAttribute(attr) : defret;
 }
@@ -267,3 +267,4 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 		}
 	}
 });
+// </nowiki>
