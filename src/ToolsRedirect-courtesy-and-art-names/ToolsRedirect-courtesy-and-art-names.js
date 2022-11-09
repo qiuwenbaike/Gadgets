@@ -8,7 +8,7 @@
  */
 'use strict';
 
-mw.loader.using(['ext.gadget.ToolsRedirect'], function () {
+mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	var compSurnameReg,
 		prefixReg = /[字号號]\s*$/,
 		fdc = mw.toolsRedirect.findRedirectCallback,
@@ -22,6 +22,7 @@ mw.loader.using(['ext.gadget.ToolsRedirect'], function () {
 		return pagename[0];
 	}
 
+	// eslint-disable-next-line no-unused-vars
 	fdc(function (pagename, $content, titles) {
 		var surname,
 			retTitles = [];
