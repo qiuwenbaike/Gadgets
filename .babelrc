@@ -5,9 +5,14 @@
 	],
 	"plugins": [],
 	"ignore": [
+		"scripts/",
 		"src/Carousel/Carousel.js",
+		"src/Carousel/Carousel-cfg.js",
 		"src/Wikiplus/Wikiplus.js",
-		"src/Wikiplus/Wikiplus-highlight.js"
+		"src/Wikiplus/Wikiplus-highlight.js",
+		"src/Collapsible/Collapsible.js",
+		"src/EasyArchive/EasyArchive-main.js",
+		"src/RRD/RRD-main.js"
 	],
 	"targets": {
 		"browsers": [
