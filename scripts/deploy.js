@@ -142,8 +142,8 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Rollback-summary.js'
 	},
 	{
-		file: 'src/BanImage/BanImage.js',
-		target: 'MediaWiki:Gadget-BanImage.js'
+		file: 'src/Banimage/Banimage.js',
+		target: 'MediaWiki:Gadget-Banimage.js'
 	},
 	/* sysop */
 	{
