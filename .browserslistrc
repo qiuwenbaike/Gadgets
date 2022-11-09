@@ -1,5 +1,5 @@
 defaults,
-cover 95%,
+cover 97.5%,
 Chrome >= 31,
 Firefox >=39,
 Edge >= 12,
@@ -7,4 +7,5 @@ IE >= 11,
 Safari >= 9.1,
 ios_saf >= 9.1,
 Android >= 5,
-and_chr >= 5
+and_chr >= 5,
+not IE <= 10
