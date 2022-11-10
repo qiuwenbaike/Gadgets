@@ -1,0 +1,104 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-3.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ShortURL.js
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-Cat-a-lot.css
+ * @license <https://creativecommons.org/licenses/by-sa/3.0>
+ */
+#cat_a_lot {
+	bottom: 0;
+	display: block;
+	position: fixed;
+	right: 0;
+	z-index: 100;
+	padding: 5px;
+	box-shadow: 0 2px 4px rgba( 0, 0, 0, 0.5 );
+	background-color: #fef6e7;
+}
+
+#cat_a_lot_data,
+#cat_a_lot_mark_counter {
+	display: none;
+}
+
+#cat_a_lot_data ul {
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0 0 0 5px;
+}
+
+#cat_a_lot_selections,
+#cat_a_lot_mark_counter,
+#cat_a_lot_settings {
+	padding: 5px;
+}
+
+#cat_a_lot_remove {
+	font-weight: bold;
+	display: block;
+}
+
+a {
+	cursor: pointer;
+}
+
+.cat_a_lot_move,
+.cat_a_lot_action {
+	font-weight: bold;
+}
+
+.cat_a_lot_feedback {
+	border: 1px #a9de16 solid !important;
+	background: #eaf2cb no-repeat 8px 14px !important;
+	padding-left: 2.85em !important;
+	padding-top: 10px !important;
+	font-size: 1.1em !important;
+	min-height: 8em !important;
+}
+
+.cat_a_lot_done {
+	background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAACHFBMVEUAAAALEgAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIfBONr1xOgBhxmT5LfRdRghxlkjFhji1XhyNFew9Feg1HehBFeA5Eeg1CeA1CeAxBeApCdQtCdgpAeACYumiWtWd/pE2Fq1R4n0V1n0JrlDdEeQ5EeQ5FeQ5FeQ5Feg5Geg9FeA5Geg5Feg5EeQ5DeAtDdwsGCgJCeAxCcg0+eA9BfROZtmiRsmCIqVZThR9IfBJHfBBAcg1Cdw0sTwhBeQ0+eAqgwXCRtF6DqFRciilaiSZEdg5FeQ5BcQ1Few9Geg9Feg8+bAxHeg9EeQ8sTgc2YglCdwwiPARBeApFdQ5EeA+FqzqDqTiCqDeJrz6IrT2GrDuix1aBpjaXvEuMsUGKsD+905N/pTSew1ObwVCZvk6PtER+pDN8ojGgxVWUukmTuEiRt0aQtkV6oC+3z4qkyVqdwlKav0+Ns0LJ3Z/F2pzB1pjD25O5zpCzyYqxyoKSs1HE2pm/1ZS1y4m20IGsxICrxH6pwnygvXOszmehwGKdvlucwFWPskmNskSApDjN4qS60JK50I62y42wx4Wux36xyn2tx3imxHiz0XevzXSmwHGoxG6dvG2tzWypyWijwWedumSUs2KZt1+Wt1STtkvI3prC247B24u60Yu81oiyzIeqxHepxXGlylqYuFeVtVeavFWKrEVDeA77KVUeAAAAW3RSTlMABA8KBxcUHCANEicjKxr4/ff4+Pf29vb258GUh3FTRy4eCP7++vn59/f08ezi29THvKB/X0MxKRMQDf7+/fb0uWtQTTsY/vz69fPey8C/rqqqpXhoUT48MyUisMsBGgAAArxJREFUSMftlOVz2zAYhx3bIadtkgbapMzMzDhmhq7d1qZeYR013RZOmZmZx7x/cJICy5azq97t454vks56Tq+l373Ef/iJrtYXHM8oTY87WamPPo4SnjzzbiZOdTUG2zgR2rf6ZfStSSHPw1VyE9/0AEatvdpIPKNIbt56iLAmRuAp1aesLmPUrLqLZdQrTdtPENbEMAKLrM0PbYgttqoYy4gMMfW8hLT1JuNdmCBjZaAdsfYxPRZLqdGYJl5B2s2afLyopDnWOhCrK5kCvKgE93a0QCbMIVGYUTFutyAG4rIxo5LAPkVMWJS3MaPCjj1DDCgucd5pgW/FOQrjc8Q4K+cMfs5ZdU6pZ3FTafn+AvE+gTMqeRpLX3JGkScqZUudiLH+VK6oRKlnx8f7ykNr3VGxHL6GdLLB1ziMmKrBDYPh0DisDIe/pRv5bEDsDHFFJTYr3tEKMCwbtRdLiAgNO9UKmWK1+ZwvPTfVhBhjk3T1aUM7rtXGZibBgX5v+b6bg9m9n8FzTWg+yVZyRiVSNbzU+sCFwbFg++qafirniUptaLxxssHNgdM1TtqU0Xx9VJdgc977k8XTlwk+is+n2HYbfXHaQVR4EeSGLKw3Nv/GkXR0V4lQjSw2PPLwbTC1hDiSgjRF/4/HLpr7U7D6452MpHlnF2J/RIfXVUr0Wvt+N2B6/kw+gYWADlMPr3d1d+/GZ1I0QCDgaS7gI01RUrJGXjY4PW1X32AYhiRJKUVxeHC/lCQZkVBYl1phH6rIFovFQUFCoYiBGu0vwQPAfpEwSCyW3DqXopDXyWQBARKgCUXAgkf9bdAUSQIDCAEyWeGVC9cLCwMDgQUk4JAkRQPHvywGHiKBTiAEGRJ4DOMuzd/xVgY0ABhQXT6GvwQspHmA2z13xn3NNAVEYEKkUrDgfxqv6oX4N/wC7tnZyADOYm4AAAAASUVORK5CYII= ) !important;
+	background-position: 8px 50% !important;
+	padding-top: 0 !important;
+}
+
+#cat_a_lot_searchcatname {
+	font-size: 112%;
+	margin: -5px 0 5px -5px;
+	width: 100%;
+}
+
+.skin-vector #cat_a_lot {
+	font-size: 0.75em;
+}
+
+.cat_a_lot_markAsDone {
+	background-color: #bbb !important;
+}
+
+.cat_a_lot_selected {
+	background-color: #df6 !important;
+}
+
+#cat_a_lot_no_found,
+#cat_a_lot_last_selected,
+#cat_a_lot_settings {
+	font-weight: bold;
+}
+
+#cat_a_lot_last_selected {
+	outline: 1px dotted #999;
+}
+
+#cat_a_lot_category_list table {
+	border-collapse: collapse;
+}
+
+#cat_a_lot_category_list tr:hover {
+	background-color: #fc3;
+}
+
+#cat_a_lot_category_list {
+	overflow: auto;
+}

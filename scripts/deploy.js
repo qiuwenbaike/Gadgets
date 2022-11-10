@@ -158,6 +158,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Wordcount.js'
 	},
 	{
+		file: 'src/Cat-a-lot/Cat-a-lot.css',
+		target: 'MediaWiki:Gadget-Cat-a-lot.css'
+	},
+	{
 		file: 'src/Wikicache/JSON2.js',
 		target: 'MediaWiki:Gadget-JSON2.js'
 	},
