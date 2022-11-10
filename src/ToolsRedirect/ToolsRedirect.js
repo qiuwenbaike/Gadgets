@@ -205,7 +205,8 @@ _TR = {
 			meta: 'tokens'
 		})).then(function (data) {
 			var deferreds = [];
-			$.each(data.query.pages, function (idx, page) {
+			// eslint-disable-next-line no-jquery/no-each-util
+			$.each(data.query.pages, function (_idx, page) {
 				deferreds.push($.ajax(self.buildQuery({
 					action: 'edit',
 					title: page.title,
@@ -300,7 +301,7 @@ _TR = {
 		if ($container.length === 0) {
 			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
 		}
-		methods.forEach(function (idx, method) {
+		methods.forEach(function (_idx, method) {
 			if (!methodExist(method)) {
 				self.buildLink(method).appendTo($container);
 			}
@@ -353,6 +354,7 @@ _TR = {
 			var has_redirect = false,
 				desc = $('p.desc', self.tabs.view.cont),
 				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10);
+			// eslint-disable-next-line no-jquery/no-each-util
 			$.each(data.query.pages, function (_, page) {
 				if (!('redirects' in page)) {
 					return;
@@ -498,7 +500,7 @@ _TR = {
 			alltitles = [],
 			excludes = [ '用字模式' ];
 		titles = titles.join('|');
-		[ 'zh-hans', 'zh-hant' ].forEach(function (idx, variant) {
+		[ 'zh-hans', 'zh-hant' ].forEach(function (_idx, variant) {
 			deferreds.push($.ajax(self.buildQuery({
 				action: 'parse',
 				text: titles,
@@ -520,6 +522,7 @@ _TR = {
 				titles: alltitles
 			})).then(function (data) {
 				titles = [];
+				// eslint-disable-next-line no-jquery/no-each-util
 				$.each(data.query.pages, function (pageid, page) {
 					var title = page.title;
 					if (pageid < 0 && excludes.indexOf(title) === -1) {
