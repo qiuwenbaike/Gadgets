@@ -213,8 +213,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 			type: 'button',
 			class: 'historysubmit mw-history-rrd mw-ui-button',
 			title: msg.reportButtonTitle + RRDPage,
-			text: log ? msg.reportButtonLogText : msg.reportButtonText
-		});
+		}).text(log ? msg.reportButtonLogText : msg.reportButtonText);
 		$report.on('click', showWindow);
 		// For action=history
 		$('.historysubmit.mw-history-compareselectedversions-button').after($report);
