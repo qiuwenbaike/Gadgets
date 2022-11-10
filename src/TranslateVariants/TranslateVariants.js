@@ -10,7 +10,6 @@
 'use strict';
 
 // <nowiki>
-
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
 	mw.loader.using([ 'mediawiki.api', 'mediawiki.diff.styles' ]).then(function () {
@@ -44,7 +43,6 @@ function main() {
 	};
 	var result = {};
 	var api = new mw.Api();
-
 	var basepagetext = '';
 	var table = $('<div>').attr('id', 'TranslateVariants').prependTo('#bodyContent');
 	$('<div style="color:red">' + wgULS('提醒：TranslateVariants工具使用MediaWiki转换组进行自动转换，请确认转换结果是否正确！', '提醒：TranslateVariants工具使用MediaWiki轉換組進行自動轉換，請確認轉換結果是否正確！') + '</div>').appendTo(table);

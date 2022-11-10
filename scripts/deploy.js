@@ -195,6 +195,14 @@ const deployTargets = [
 	},
 	/* sysop */
 	{
+		file: 'src/OnlineAdmins/OnlineAdmins.js',
+		target: 'MediaWiki:Gadget-OnlineAdmins.js'
+	},
+	{
+		file: 'src/UserRightsManager/UserRightsManager.js',
+		target: 'MediaWiki:Gadget-UserRightsManager.js'
+	},
+	{
 		file: 'src/TranslateVariants/TranslateVariants.js',
 		target: 'MediaWiki:Gadget-TranslateVariants.js'
 	},
