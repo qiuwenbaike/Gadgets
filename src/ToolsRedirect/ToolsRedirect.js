@@ -11,6 +11,7 @@
 /* eslint-disable no-jquery/no-sizzle */
 /* eslint-disable no-jquery/no-parse-html-literal */
 /* eslint-disable no-shadow */
+/* eslint-disable no-jquery/no-each-util */
 /* eslint-disable camelcase */
 
 /* vim:set noexpandtab ft=javascript ts=4 sw=4: */
@@ -205,7 +206,6 @@ _TR = {
 			meta: 'tokens'
 		})).then(function (data) {
 			var deferreds = [];
-			// eslint-disable-next-line no-jquery/no-each-util
 			$.each(data.query.pages, function (_idx, page) {
 				deferreds.push($.ajax(self.buildQuery({
 					action: 'edit',
@@ -301,7 +301,6 @@ _TR = {
 		if ($container.length === 0) {
 			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
 		}
-		// eslint-disable-next-line no-jquery/no-each-util
 		$.each(methods, function (_idx, method) {
 			if (!methodExist(method)) {
 				self.buildLink(method).appendTo($container);
@@ -355,12 +354,10 @@ _TR = {
 			var has_redirect = false,
 				desc = $('p.desc', self.tabs.view.cont),
 				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10);
-			// eslint-disable-next-line no-jquery/no-each-util
 			$.each(data.query.pages, function (_, page) {
 				if (!('redirects' in page)) {
 					return;
 				}
-				// eslint-disable-next-line no-jquery/no-each-util
 				$.each(page.redirects, function (_, rdpage) {
 					var $container,
 						isCycleRedirect,
@@ -436,7 +433,6 @@ _TR = {
 				'zh-hans': true,
 				'zh-hant': true
 			};
-		// eslint-disable-next-line no-jquery/no-each-util
 		$.each(this.variants, function (_, variant) {
 			var xhr = $.ajax(self.buildQuery({
 				action: 'parse',
@@ -471,7 +467,7 @@ _TR = {
 		});
 		return $.when.apply($, deferreds).then(function () {
 			var suffixes = [];
-			arguments.forEach(function () {
+			$.each(arguments, function () {
 				var suffix,
 					title = this;
 
@@ -525,7 +521,6 @@ _TR = {
 				titles: alltitles
 			})).then(function (data) {
 				titles = [];
-				// eslint-disable-next-line no-jquery/no-each-util
 				$.each(data.query.pages, function (pageid, page) {
 					var title = page.title;
 					if (pageid < 0 && excludes.indexOf(title) === -1) {
