@@ -1,11 +1,1 @@
-defaults,
-cover 97.5%,
-Chrome >= 31,
-Firefox >= 39,
-Edge >= 12,
-IE >= 11,
-Safari >= 9.1,
-ios_saf >= 9.1,
-Android >= 5,
-and_chr >= 5,
-not IE <= 10
+defaults, cover 97%, not Chrome < 31, not Firefox < 39, not Edge < 11, not IE < 10, not Safari < 9.1, not ios_saf < 9.1, not Android < 5, not and_chr < 5
