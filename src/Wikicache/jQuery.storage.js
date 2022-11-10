@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: MIT
  * SPDX-License-Identifier: GPLv2+
  * addText: '{{Gadget Header|license=MIT}}'
- * addText: '{{Gadget Header|license=GPLv2+}}'
+ * addText: '{{GPLv2+}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-jQuery.storage.js
  * @license MIT or GPLv2+

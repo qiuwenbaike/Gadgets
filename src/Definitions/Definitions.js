@@ -1,6 +1,6 @@
 /**
  * SPDX-License-Identifier: CC-BY-NC-SA-4.0
- * _addText: '{{cc-by-nc-sa-4.0|attribution=[https://llwiki.org/zh/User:Bhsd Bhsd]（[https://llwiki.org/zh/MediaWiki:Gadget-definitions.js 作品来源]）}}'
+ * _addText: '{{Gadget Header}}{{cc-by-nc-sa-4.0|attribution=[https://llwiki.org/zh/User:Bhsd Bhsd]（[https://llwiki.org/zh/MediaWiki:Gadget-definitions.js 作品来源]）}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Definitions.js
  * @source https://llwiki.org/zh/MediaWiki:Gadget-definitions.js
