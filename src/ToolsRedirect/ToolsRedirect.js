@@ -359,7 +359,8 @@ _TR = {
 				if (!('redirects' in page)) {
 					return;
 				}
-				page.redirects.forEach(function (_, rdpage) {
+				// eslint-disable-next-line no-jquery/no-each-util
+				$.each(page.redirects, function (_, rdpage) {
 					var $container,
 						isCycleRedirect,
 						rdtitle = rdpage.title,
@@ -434,7 +435,8 @@ _TR = {
 				'zh-hans': true,
 				'zh-hant': true
 			};
-		this.variants.forEach(function (_, variant) {
+		// eslint-disable-next-line no-jquery/no-each-util
+		$.each(this.variants, function (_, variant) {
 			var xhr = $.ajax(self.buildQuery({
 				action: 'parse',
 				page: pagename,
