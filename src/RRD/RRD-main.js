@@ -79,11 +79,9 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 		},
 		msg,
 		log = false;
-
 	function get(obj, attr, defret) {
 		return obj.hasAttribute(attr) ? obj.getAttribute(attr) : defret;
 	}
-
 	function loadIDs() {
 		var boxes = document.getElementsByTagName('input');
 		for (var i = 0; i < boxes.length; ++i) {
@@ -180,7 +178,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 						otherReasons = '，' + otherReasons;
 					}
 					var toHide = [];
-					if (Object.prototype.hasOwnProperty.call(config.checkboxes, 'rrdHideContent')) { //
+					if (Object.prototype.hasOwnProperty.call(config.checkboxes, 'rrdHideContent')) {
 						toHide.push(log ? msg.hideLog : msg.hideContent);
 					}
 					if (Object.prototype.hasOwnProperty.call(config.checkboxes, 'rrdHideUsername')) {

@@ -18,7 +18,6 @@
 // </nowiki>
 if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.get('wgAction') === 'view') {
 	mw.loader.using([ 'jquery.tablesorter', 'mediawiki.api', 'oojs-ui-widgets' ]).then(function () {
-
 		function _toConsumableArray(arr) {
 			if (Array.isArray(arr)) {
 				for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
@@ -30,7 +29,6 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 			// eslint-disable-next-line es-x/no-array-from
 			return Array.from(arr);
 		}
-
 		$(function () {
 			// 1. 最基本的工具函数，用于text、HTML、data三种状态间转换
 			var Keys = [ 'name', 'type', 'default', 'peers', 'dependencies', 'rights', 'targets', 'skins', 'hidden', 'pages' ],
@@ -52,7 +50,7 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							pages: parts[3],
 							type: 'general',
 							targets: 'desktop'
-						// eslint-disable-next-line es-x/no-object-fromentries
+							// eslint-disable-next-line es-x/no-object-fromentries
 						}, Object.fromEntries(parts[2].split('|').map(function (s) {
 							// eslint-disable-next-line es-x/no-string-prototype-includes, es-x/no-array-prototype-includes
 							return s.includes('=') ? s.split('=') : [ s, true ];

@@ -7,8 +7,9 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* globals TranslateVariants:true */
-
 /* eslint-disable no-jquery/no-parse-html-literal */
+
+'use strict';
 
 // <nowiki>
 (function () {
