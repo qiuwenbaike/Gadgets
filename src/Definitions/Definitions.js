@@ -12,26 +12,33 @@
  * @Author: Bhsd
  * @Warning: 未添加繁体中文
  */
+
+'use strict';
+
 // </nowiki>
-function _toConsumableArray(arr) {
-	if (Array.isArray(arr)) {
-		for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-			arr2[i] = arr[i];
-		}
-		return arr2;
-	}
-	return Array.from(arr);
-
-}
-
-if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.get('wgAction') == 'view') {
+if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.get('wgAction') === 'view') {
 	mw.loader.using([ 'jquery.tablesorter', 'mediawiki.api', 'oojs-ui-widgets' ]).then(function () {
-		/* global mw, $, OO */
+
+		function _toConsumableArray(arr) {
+			if (Array.isArray(arr)) {
+				for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+					arr2[i] = arr[i];
+				}
+				// eslint-disable-next-line block-scoped-var
+				return arr2;
+			}
+			// eslint-disable-next-line es-x/no-array-from
+			return Array.from(arr);
+		}
+
 		$(function () {
 			// 1. 最基本的工具函数，用于text、HTML、data三种状态间转换
 			var Keys = [ 'name', 'type', 'default', 'peers', 'dependencies', 'rights', 'targets', 'skins', 'hidden', 'pages' ],
 				dictionary = {
-					type: { general: '通常', styles: '纯CSS' },
+					type: {
+						general: '通常',
+						styles: '纯CSS'
+					},
 					targets: {
 						'desktop': '桌面版',
 						'mobile': '移动版',
@@ -45,20 +52,23 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							pages: parts[3],
 							type: 'general',
 							targets: 'desktop'
+						// eslint-disable-next-line es-x/no-object-fromentries
 						}, Object.fromEntries(parts[2].split('|').map(function (s) {
+							// eslint-disable-next-line es-x/no-string-prototype-includes, es-x/no-array-prototype-includes
 							return s.includes('=') ? s.split('=') : [ s, true ];
 						})));
 					delete params.ResourceLoader;
 					[ 'peers', 'dependencies', 'skins', 'rights', 'pages' ].forEach(function (key) {
-						params[key] = params[key] ? params[key].split(key == 'pages' ? '|' : ',').sort() : [];
+						params[key] = params[key] ? params[key].split(key === 'pages' ? '|' : ',').sort() : [];
 					});
 					return params;
 				},
 				data2html = function data2html(params, key) {
 					var val = params[key];
+					// eslint-disable-next-line default-case
 					switch (key) {
 						case 'name':
-							return $('<span>', {
+							return $('<span>').attr({
 								id: val,
 								html: [ val, new OO.ui.IndicatorWidget({
 									title: '删除',
@@ -73,18 +83,25 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							return val ? '是' : '否';
 						case 'peers':
 							return val.map(function (ele) {
-								return $('<div>', { html: $('<a>', { text: ele, href: '#' + ele }) });
+								return $('<div>').attr({
+									html: $('<a>').attr({
+										text: ele,
+										href: '#' + ele
+									})
+								});
 							});
 						case 'dependencies':
 						case 'rights':
 						case 'skins':
 							return val.map(function (ele) {
-								return $('<div>', { text: ele });
+								return $('<div>').attr({
+									text: ele
+								});
 							});
 						case 'pages':
 							return val.map(function (ele) {
-								return $('<div>', {
-									html: $('<a>', {
+								return $('<div>').attr({
+									html: $('<a>').attr({
 										text: ele,
 										href: mw.util.getUrl('mediawiki:gadget-' + ele)
 									})
@@ -99,26 +116,29 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 						return params[key].length ? '|' + key + '=' + params[key].join() : '';
 					}).join('') + (params.targets === 'desktop' ? '' : '|targets=' + params.targets) + (params.skins.length === 3 || params.skins.length === 0 ? '' : '|skins=' + params.skins.join()) + (']|' + params.pages.join('|'));
 				},
-
 				// 2. 使用表格显示小工具定义
 				insertRow = function insertRow() {
 					var params = text2data(this.textContent);
-					return $('<tr>', {
+					return $('<tr>').attr({
 						class: 'defTr',
 						html: Keys.map(function (key) {
-							return $('<td>', { html: data2html(params, key) });
+							return $('<td>').attr({
+								html: data2html(params, key)
+							});
 						})
 					}).data('params', params)[0];
 				},
-
 				// 3. 使用表格修改小工具定义
 				api = new mw.Api(),
 				btns = [ new OO.ui.ButtonWidget({
 					label: '保存',
 					flags: [ 'primary', 'progressive' ]
-				}), new OO.ui.ButtonWidget({ label: '添加', flags: 'progressive' }) ],
-				$tr = $('<tr>', {
-					html: $('<td>', {
+				}), new OO.ui.ButtonWidget({
+					label: '添加',
+					flags: 'progressive'
+				}) ],
+				$tr = $('<tr>').attr({
+					html: $('<td>').attr({
 						colspan: 9,
 						html: btns.map(function (ele) {
 							return ele.$element;
@@ -126,10 +146,19 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					})
 				}),
 				boolWidget = new OO.ui.DropdownInputWidget({
-					options: [ { data: 'true', label: '是' }, { data: '', label: '否' } ]
+					options: [ {
+						data: 'true',
+						label: '是'
+					}, {
+						data: '',
+						label: '否'
+					} ]
 				}),
-				freeWidget = new OO.ui.TagMultiselectWidget({ allowArbitrary: true }),
+				freeWidget = new OO.ui.TagMultiselectWidget({
+					allowArbitrary: true
+				}),
 				getOptions = function getOptions(key) {
+					// eslint-disable-next-line es-x/no-array-prototype-entries, es-x/no-object-entries
 					return Object.entries(dictionary[key]).map(function (ele) {
 						return {
 							data: ele[0],
@@ -153,10 +182,8 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					btns[0].setDisabled(true);
 					widgets.forEach(endEdit);
 					var $table = $tr.closest('table'),
-						revid = mw.config.get('wgCurRevisionId'),
 						pageid = mw.config.get('wgArticleId'),
 						section = $table.index('.defTable') + 1,
-
 						// 注意可能标题自动编号
 						sectionName = $('.mw-headline').eq(section - 1).contents().last().text().trim(),
 						text = '==' + sectionName + '==\n' + [].concat(_toConsumableArray($table.find('.defTr'))).map(function (ele) {
@@ -171,11 +198,13 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					}).then(function () {
 						location.reload();
 					}, function (reason) {
+						// eslint-disable-next-line no-console
 						console.error(reason);
 					});
 				},
 				edit = function edit(e) {
 					if (widgets.length === 0) {
+						// eslint-disable-next-line no-useless-call
 						widgets.push.apply(widgets, [ new OO.ui.TextInputWidget(), new OO.ui.DropdownInputWidget({
 							options: getOptions('type')
 						}), boolWidget, new OO.ui.MenuTagMultiselectWidget({
@@ -185,7 +214,9 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							}).filter(function (ele) {
 								return ele.type === 'styles';
 							}).map(function (ele) {
-								return { data: ele.name };
+								return {
+									data: ele.name
+								};
 							})
 						}), freeWidget, freeWidget, new OO.ui.DropdownInputWidget({
 							options: getOptions('targets')
@@ -217,13 +248,16 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 						$tr.appendTo(table);
 					}
 				};
+			// eslint-disable-next-line no-jquery/no-sizzle
 			$('h2:has( .mw-editsection )').next().children('ul').addBack('ul').replaceWith(function () {
-				return $('<table>', {
+				return $('<table>').attr({
 					class: 'wikitable sortable defTable',
-					html: $('<tbody>', {
-						html: $('<tr>', {
+					html: $('<tbody>').attr({
+						html: $('<tr>').attr({
 							html: [ '名称', '类型', '默认', 'Peers', '依赖项', '权限', '范围', '皮肤', '隐藏', '链接' ].map(function (ele) {
-								return $('<th>', { text: ele });
+								return $('<th>').attr({
+									text: ele
+								});
 							})
 						}).add($(this).children().map(insertRow))
 					})
@@ -241,10 +275,12 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					skins: [],
 					pages: []
 				};
-				$('<tr>', {
+				$('<tr>').attr({
 					class: 'defTr',
 					html: Keys.map(function (key) {
-						return $('<td>', { html: data2html(params, key) });
+						return $('<td>').attr({
+							html: data2html(params, key)
+						});
 					})
 				}).data('params', params).insertBefore($(this).closest('tr'));
 			});
