@@ -9,9 +9,7 @@
 'use strict';
 
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-each-util */
 /* eslint-disable no-jquery/no-parse-html-literal */
-/* eslint-disable no-jquery/no-map-util */
 /* eslint-disable no-shadow */
 /* eslint-disable camelcase */
 
@@ -30,7 +28,7 @@ var _TR,
 	SUFFIX_REPLACE = 1,
 	SUFFIX_SETDEFAULT = 2,
 	_nsCanonPrefix = origPageName.split(':')[0] + ':',
-	_nsPrefixPattern = $.map(mw.config.get('wgNamespaceIds'), function (nsid, text) {
+	_nsPrefixPattern = mw.config.get('wgNamespaceIds').map(function (nsid, text) {
 		return nsid === nsNumber ? text : null;
 	}).join('|');
 _nsPrefixPattern = new RegExp('^(' + _nsPrefixPattern + '):', 'i');
@@ -206,7 +204,7 @@ _TR = {
 			meta: 'tokens'
 		})).then(function (data) {
 			var deferreds = [];
-			$.each(data.query.pages, function (idx, page) {
+			data.query.pages.forEach(function (idx, page) {
 				deferreds.push($.ajax(self.buildQuery({
 					action: 'edit',
 					title: page.title,
@@ -301,7 +299,7 @@ _TR = {
 		if ($container.length === 0) {
 			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
 		}
-		$.each(methods, function (idx, method) {
+		methods.forEach(function (idx, method) {
 			if (!methodExist(method)) {
 				self.buildLink(method).appendTo($container);
 			}
@@ -354,11 +352,11 @@ _TR = {
 			var has_redirect = false,
 				desc = $('p.desc', self.tabs.view.cont),
 				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10);
-			$.each(data.query.pages, function (_, page) {
+			data.query.pages.forEach(function (_, page) {
 				if (!('redirects' in page)) {
 					return;
 				}
-				$.each(page.redirects, function (_, rdpage) {
+				page.redirects.forEach(function (_, rdpage) {
 					var $container,
 						isCycleRedirect,
 						rdtitle = rdpage.title,
@@ -433,7 +431,7 @@ _TR = {
 				'zh-hans': true,
 				'zh-hant': true
 			};
-		$.each(this.variants, function (_, variant) {
+		this.variants.forEach(function (_, variant) {
 			var xhr = $.ajax(self.buildQuery({
 				action: 'parse',
 				page: pagename,
@@ -467,7 +465,7 @@ _TR = {
 		});
 		return $.when.apply($, deferreds).then(function () {
 			var suffixes = [];
-			$.each(arguments, function () {
+			arguments.forEach(function () {
 				var suffix,
 					title = this;
 
@@ -484,8 +482,8 @@ _TR = {
 			});
 
 			// append suffixes
-			$.each($.uniqueSort(suffixes), function (_, suffix) {
-				$.merge(retTitles, $.map(titles, function (title) {
+			$.uniqueSort(suffixes).forEach(function (_, suffix) {
+				$.merge(retTitles, titles.map(function (title) {
 					title = fixNamespace(title);
 					return suffixReg.test(title) ? title : title + suffix;
 				}));
@@ -499,7 +497,7 @@ _TR = {
 			alltitles = [],
 			excludes = [ '用字模式' ];
 		titles = titles.join('|');
-		$.each([ 'zh-hans', 'zh-hant' ], function (idx, variant) {
+		[ 'zh-hans', 'zh-hant' ].forEach(function (idx, variant) {
 			deferreds.push($.ajax(self.buildQuery({
 				action: 'parse',
 				text: titles,
@@ -508,7 +506,7 @@ _TR = {
 			})));
 		});
 		return $.when.apply($, deferreds).then(function () {
-			$.each(arguments, function () {
+			arguments.forEach(function () {
 				alltitles = alltitles.concat($(this[0].parse.text['*']).text().replace(/(^\s*|\s*$)/g, '').split('|'));
 			});
 			alltitles = alltitles.filter(function (v, i, arr) {
@@ -521,7 +519,7 @@ _TR = {
 				titles: alltitles
 			})).then(function (data) {
 				titles = [];
-				$.each(data.query.pages, function (pageid, page) {
+				data.query.pages.forEach(function (pageid, page) {
 					var title = page.title;
 					if (pageid < 0 && excludes.indexOf(title) === -1) {
 						if (title in _redirectExcludes) {
@@ -550,7 +548,7 @@ _TR = {
 			$content = $('#mw-content-text > div.mw-parser-output'),
 			deferObj = $.Deferred();
 		this.loading(container);
-		$.each(_findRedirectCallbacks, function (_, callback) {
+		_findRedirectCallbacks.forEach(function (_, callback) {
 			var ret = callback(pagename, $content, titles);
 			if (typeof ret === 'string') {
 				titles.push(ret);
@@ -563,7 +561,7 @@ _TR = {
 		});
 
 		// remove all empty titles
-		titles = $.map(titles, function (title) {
+		titles = titles.map(function (title) {
 			return title || null;
 		});
 		function onClickCreate(evt) {
@@ -575,7 +573,7 @@ _TR = {
 
 		// handles the deferred callbacks
 		$.when.apply($, frcDeferreds).then(function () {
-			$.each(arguments, function (_, ret) {
+			arguments.forEach(function (_, ret) {
 				if (typeof ret === 'string') {
 					titles.push(ret);
 				} else {
@@ -586,7 +584,7 @@ _TR = {
 		}).done(function (titles) {
 			// build HTML
 			self.loaded(container);
-			$.each(titles, function (_, title) {
+			titles.forEach(function (_, title) {
 				var ultitle = title.replace(' ', '_'),
 					baseuri = scriptPath + '/index.php?title=' + encodeURIComponent(ultitle),
 					entry = $('<p>').appendTo(container);
