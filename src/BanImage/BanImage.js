@@ -10,42 +10,45 @@
  * @author Jinzhe Zeng
  * @global Wikiplus
  */
-/* eslint-disable no-undef */
 /* eslint-disable no-script-url */
 
 'use strict';
 
 mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
+	if (!window.Wikiplus) {
+		return;
+	}
+
 	window.banImage = function banImage() {
-		Wikiplus.kotori.redirectTo('File:Banned Images.svg', Wikiplus.kotori.pageName, {
+		window.Wikiplus.kotori.redirectTo('File:Banned Images.svg', window.Wikiplus.kotori.pageName, {
 			success: function success() {
-				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
+				window.Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, window.Wikiplus.kotori.pageName);
 			},
 			fail: function fail(d) {
-				Wikiplus.notice.create.error('错误：' + d.message);
+				window.Wikiplus.notice.create.error('错误：' + d.message);
 			}
 		});
 	};
 	window.banArticle = function banArticle() {
-		Wikiplus.kotori.redirectTo('Qiuwen:首页', Wikiplus.kotori.pageName, {
+		window.Wikiplus.kotori.redirectTo('Qiuwen:首页', window.Wikiplus.kotori.pageName, {
 			success: function success() {
-				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
+				window.Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, window.Wikiplus.kotori.pageName);
 			},
 			fail: function fail(d) {
-				Wikiplus.notice.create.error('错误：' + d.message);
+				window.Wikiplus.notice.create.error('错误：' + d.message);
 			}
 		});
 	};
 	window.banTemplate = function banTemplate() {
-		Wikiplus.kotori.redirectTo('Template:Void', Wikiplus.kotori.pageName, {
+		window.Wikiplus.kotori.redirectTo('Template:Void', window.Wikiplus.kotori.pageName, {
 			success: function success() {
-				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
+				window.Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, window.Wikiplus.kotori.pageName);
 			},
 			fail: function fail(d) {
-				Wikiplus.notice.create.error('错误：' + d.message);
+				window.Wikiplus.notice.create.error('错误：' + d.message);
 			}
 		});
 	};
