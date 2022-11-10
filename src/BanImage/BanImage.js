@@ -18,7 +18,6 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then(function () {
 	if (!window.Wikiplus) {
 		return;
 	}
-
 	window.banImage = function banImage() {
 		window.Wikiplus.kotori.redirectTo('File:Banned Images.svg', window.Wikiplus.kotori.pageName, {
 			success: function success() {

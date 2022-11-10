@@ -190,7 +190,7 @@ if (window.localStorage || window.globalStorage) {
 			ud.load(xml);
 			var part = ud.getAttribute('_udata');
 			val.push(part);
-		// eslint-disable-next-line block-scoped-var
+			// eslint-disable-next-line block-scoped-var
 		} while (part !== null);
 		val.pop();
 		return val.length ? JSON.parse(val.join('')) : null;
@@ -208,7 +208,7 @@ if (window.localStorage || window.globalStorage) {
 				ud.setAttribute('_udata', '');
 			}
 			ud.save(xml);
-		// eslint-disable-next-line block-scoped-var
+			// eslint-disable-next-line block-scoped-var
 		} while (part !== null);
 		ud.expires = new Date(0xFFFFFFFFFFF).toUTCString();
 		var index = jQuery.storage.getIndex();

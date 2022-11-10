@@ -70,36 +70,34 @@
  * - data-expandtext 和 data-collapsetext 可用于控制折叠按钮的显示文字。不支持
  *   繁简转换，但是其默认值是可以正常根据界面语言繁简转换的。
  */
-
 mw.hook('wikipage.content').add(function ($wikipageContent) {
-
 	// 为元素添加“隐藏”和“显示”的按钮。
 	function appendToggle($collapsible, $toggle) {
 		var appendHere;
 		if ($collapsible.hasClass('collapsible-next')) {
-		// 如果有 collapsible-next 类，那么被折叠的元素不在该元素内，此时直接将折叠按钮添加在末尾。
+			// 如果有 collapsible-next 类，那么被折叠的元素不在该元素内，此时直接将折叠按钮添加在末尾。
 			$collapsible.append($toggle);
 		} else if ((appendHere = $collapsible.find('.collapsible-toggle-append-here').not('.collapsible-toggle-appended')).length) {
-		// 带有 collapsible-toggle-append-here 类的元素，如果存在，则无论可折叠元素是什么，则强制将折叠按钮添加至该元素中。
+			// 带有 collapsible-toggle-append-here 类的元素，如果存在，则无论可折叠元素是什么，则强制将折叠按钮添加至该元素中。
 			appendHere.append($toggle);
 			appendHere.addClass('collapsible-toggle-appended');
 			appendHere.parentsUntil($collapsible).addClass('collapsible-always-show');
 		} else if ($collapsible.hasClass('navbox')) {
-		// navbox 元素的折叠按钮添加至 navbox-title 中，且该 navbox-title 会避免被折叠影响到。
+			// navbox 元素的折叠按钮添加至 navbox-title 中，且该 navbox-title 会避免被折叠影响到。
 			$collapsible.children('.navbox-title').first().addClass('collapsible-always-show').append($toggle);
 		} else if ($collapsible.is('table')) {
-		// 对于 table 对象，尝试添加到 caption 中，如果 caption 不存在，则添加到第一行的最后一列，并将第一行设为始终显示。
+			// 对于 table 对象，尝试添加到 caption 中，如果 caption 不存在，则添加到第一行的最后一列，并将第一行设为始终显示。
 			var $caption = $collapsible.children('caption');
 			if ($caption.length) {
-			// 有caption的情况
+				// 有caption的情况
 				$caption.first().append($toggle);
 			} else {
 				var $trows = $collapsible.children().children('tr');
 				$trows.first().addClass('collapsible-always-show').children().last().append($toggle);
 			}
 		} else {
-		// 尝试查找带有 collapsible-always-show 类的子元素，如果存在则将折叠按钮添加至其中。
-		// 否则，添加至整个可折叠元素的最前面。
+			// 尝试查找带有 collapsible-always-show 类的子元素，如果存在则将折叠按钮添加至其中。
+			// 否则，添加至整个可折叠元素的最前面。
 			var $toToggle = $collapsible.children('.collapsible-always-show');
 			if (!$toToggle.length) {
 				$collapsible.prepend($toggle);
@@ -161,7 +159,6 @@ mw.hook('wikipage.content').add(function ($wikipageContent) {
 			});
 		}
 	}
-
 	function toggle($collapsible) {
 		var collapsed = $collapsible.hasClass('collapsed');
 		var duration = parseInt($collapsible.data('collapse-duration')) || 200;
@@ -173,7 +170,6 @@ mw.hook('wikipage.content').add(function ($wikipageContent) {
 			$collapsible.addClass('collapsed');
 		}
 	}
-
 	$wikipageContent.find('.parent-collapsible, .parent-collapsible-using-slide, .parent-collapsible-next').each(function (_index, element) {
 		var $element = $(element),
 			$parent = $element.parent();

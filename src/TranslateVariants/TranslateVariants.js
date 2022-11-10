@@ -12,7 +12,7 @@
 // <nowiki>
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
-	mw.loader.using([ 'mediawiki.api', 'mediawiki.diff.styles' ]).then(function () {
+	mw.loader.using([ 'mediawiki.api', 'mediawiki.ForeignApi', 'mediawiki.diff.styles' ]).then(function () {
 		var link = mw.util.addPortletLink('p-cactions', '#', wgULS('转换变体', '轉換變體'));
 		$(link).on('click', function () {
 			this.remove();
@@ -165,7 +165,7 @@ function main() {
 						mw.notify(wgULS('编辑', '編輯 ') + targetTitle + wgULS(' 发生错误：', ' 發生錯誤：') + e);
 					});
 				});
-				$('<table>').addClass('diff').html(diff).prepend('<colgroup><col class="diff-marker"><col class="diff-content"><col class="diff-marker"><col class="diff-content"></colgroup>').appendTo(diffTable);
+				$('<table>').attr('class', 'diff').html(diff).prepend('<colgroup><col class="diff-marker"><col class="diff-content"><col class="diff-marker"><col class="diff-content"></colgroup>').appendTo(diffTable);
 			}
 		}, function (err) {
 			mw.notify('取得' + lang + wgULS('差异时发生错误：', '差異時發生錯誤：') + err);
