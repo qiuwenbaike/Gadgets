@@ -301,7 +301,8 @@ _TR = {
 		if ($container.length === 0) {
 			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
 		}
-		methods.forEach(function (_idx, method) {
+		// eslint-disable-next-line no-jquery/no-each-util
+		$.each(methods, function (_idx, method) {
 			if (!methodExist(method)) {
 				self.buildLink(method).appendTo($container);
 			}
