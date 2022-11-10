@@ -1,7 +1,3 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable camelcase */
-/* eslint-disable no-control-regex */
-/* eslint-disable no-misleading-character-class */
 /**
  * SPDX-License-Identifier: CC0-1.0
  * _addText: '{{Gadget Header|license=PD-self}}'
@@ -11,6 +7,11 @@
  * @license PD-self
  */
 'use strict';
+
+/* eslint-disable no-useless-escape */
+/* eslint-disable camelcase */
+/* eslint-disable no-control-regex */
+/* eslint-disable no-misleading-character-class */
 
 // Polyfill
 // eslint-disable-next-line no-implicit-globals

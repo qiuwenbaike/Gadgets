@@ -1,4 +1,3 @@
-/* eslint-disable no-jquery/no-parse-html-literal */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -8,6 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* globals TranslateVariants:true */
+
+/* eslint-disable no-jquery/no-parse-html-literal */
 
 // <nowiki>
 (function () {

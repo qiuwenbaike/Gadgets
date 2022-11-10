@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 /**
  * SPDX-License-Identifier: CC BY-SA-4.0
  * addText: '{{Gadget Header|license=CC-BY-4.0}}'
@@ -7,8 +6,11 @@
  * @source https://zh.wikipedia.org/w/index.php?oldid=52825311
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-/* 在最近修改、监视列表、条目历史记录等位置以特殊格式显示有特殊权限的用户 */
 'use strict';
+
+/* eslint-disable no-shadow */
+
+/* 在最近修改、监视列表、条目历史记录等位置以特殊格式显示有特殊权限的用户 */
 
 $(function () {
 	var groups = {

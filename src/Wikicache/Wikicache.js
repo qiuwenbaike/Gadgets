@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-parse-html-literal */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -10,6 +7,10 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
+
+/* eslint-disable no-console */
+/* eslint-disable no-jquery/no-sizzle */
+/* eslint-disable no-jquery/no-parse-html-literal */
 
 // <nowiki>
 (function ($, mw) {
