@@ -30,6 +30,7 @@
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
 		"src/EasyArchive/EasyArchive-main.js",
+		"src/Definitions/Definitions.js",
 		"src/RRD/RRD-main.js",
 		"src/SpecialWikitext/SpecialWikitext.js"
 	],

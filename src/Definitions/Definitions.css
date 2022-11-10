@@ -1,0 +1,23 @@
+/**
+ * SPDX-License-Identifier: CC-BY-NC-SA-4.0
+ * _addText: '{{cc-by-nc-sa-4.0|attribution=[https://llwiki.org/zh/User:Bhsd Bhsd]（[https://llwiki.org/zh/MediaWiki:Gadget-definitions.css 作品来源]）}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Definitions.css
+ * @source https://llwiki.org/zh/MediaWiki:Gadget-definitions.css
+ * @license <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+ */
+.defTable span > a {
+	margin-left: 1ch;
+}
+
+.defTable td:only-child {
+	text-align: center;
+}
+
+.defTable .oo-ui-icon-check {
+	display: none;
+}
+
+.defTable .oo-ui-tagItemWidget {
+	display: block;
+}

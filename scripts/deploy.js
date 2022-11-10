@@ -211,6 +211,14 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-UserRightsManager.js'
 	},
 	{
+		file: 'src/Definitions/Definitions.css',
+		target: 'MediaWiki:Gadget-Definitions.css'
+	},
+	{
+		file: 'src/Definitions/Definitions.js',
+		target: 'MediaWiki:Gadget-Definitions.js'
+	},
+	{
 		file: 'src/TranslateVariants/TranslateVariants.js',
 		target: 'MediaWiki:Gadget-TranslateVariants.js'
 	},
