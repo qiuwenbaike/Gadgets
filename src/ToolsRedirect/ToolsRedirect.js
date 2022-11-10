@@ -65,8 +65,7 @@ mw.toolsRedirect = {
 		return this;
 	},
 	findRedirectBySelector: function findRedirectBySelector(selector) {
-		/* A shortcut to add CSS selectors as rule to find new potential redirect titles.
-                             * @param {string} selector */
+		/* A shortcut to add CSS selectors as rule to find new potential redirect titles. */
 		_findRedirectCallbacks.push(function () {
 			return $(selector).map(function () {
 				var title = $(this).text();

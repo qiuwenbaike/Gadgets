@@ -1,6 +1,3 @@
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-redeclare */
-/* eslint-disable guard-for-in */
 /* !
  * SPDX-License-Identifier: MIT
  * SPDX-License-Identifier: GPLv2+
@@ -40,7 +37,9 @@
 jQuery.storage = function (key, val) {
 	if (key instanceof Object) {
 		for (var k in key) {
-			jQuery.storage.success = jQuery.storage.set(k, key[k]);
+			if (Object.prototype.hasOwnProperty.call(key, k)) {
+				jQuery.storage.success = jQuery.storage.set(k, key[k]);
+			}
 		}
 		return jQuery;
 	} else if (val === null) {
@@ -62,7 +61,9 @@ jQuery.storageUsedSpace = function () {
 	var index = jQuery.storage.getIndex();
 	var size = 0;
 	for (var key in index) {
-		size += index[key];
+		if (Object.prototype.hasOwnProperty.call(index, key)) {
+			size += index[key];
+		}
 	}
 	return size;
 };
@@ -144,16 +145,16 @@ if (window.localStorage || window.globalStorage) {
 		return index ? JSON.parse(index) : {};
 	};
 	jQuery.storage.set = function set(key, val) {
-		var val = JSON.stringify(val);
+		val = JSON.stringify(val);
 		var count = 0;
 		var ud = jQuery.storage._userData;
 		var vallen = val.length;
 		try {
 			var keyenc = encodeURIComponent(key);
+			var part = val.slice(0, 64000);
+			var xml = 'jQueryStorage_' + keyenc + '_' + count++;
 			while (val) {
-				var part = val.slice(0, 64000);
 				val = val.slice(64000);
-				var xml = 'jQueryStorage_' + keyenc + '_' + count++;
 				ud.load(xml);
 				ud.setAttribute('_udata', part);
 				ud.save(xml);
@@ -161,9 +162,9 @@ if (window.localStorage || window.globalStorage) {
 			ud.expires = new Date(315532799000).toUTCString();
 			do {
 				// remove the ramain part
-				var xml = 'jQueryStorage_' + keyenc + '_' + count++;
+				xml = 'jQueryStorage_' + keyenc + '_' + count++;
 				ud.load(xml);
-				var part = ud.getAttribute('_udata');
+				part = ud.getAttribute('_udata');
 				if (part) {
 					ud.setAttribute('_udata', '');
 				}
@@ -189,6 +190,7 @@ if (window.localStorage || window.globalStorage) {
 			ud.load(xml);
 			var part = ud.getAttribute('_udata');
 			val.push(part);
+		// eslint-disable-next-line block-scoped-var
 		} while (part !== null);
 		val.pop();
 		return val.length ? JSON.parse(val.join('')) : null;
@@ -206,6 +208,7 @@ if (window.localStorage || window.globalStorage) {
 				ud.setAttribute('_udata', '');
 			}
 			ud.save(xml);
+		// eslint-disable-next-line block-scoped-var
 		} while (part !== null);
 		ud.expires = new Date(0xFFFFFFFFFFF).toUTCString();
 		var index = jQuery.storage.getIndex();
