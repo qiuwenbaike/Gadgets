@@ -28,8 +28,8 @@ var _TR,
 	SUFFIX_REPLACE = 1,
 	SUFFIX_SETDEFAULT = 2,
 	_nsCanonPrefix = origPageName.split(':')[0] + ':',
-	_nsIDs = mw.config.get('wgNamespaceIds'),
-	_nsPrefixPattern = _nsIDs.map(function (nsid, text) {
+	// eslint-disable-next-line no-jquery/no-map-util
+	_nsPrefixPattern = $.map(mw.config.get('wgNamespaceIds'), function (nsid, text) {
 		return nsid === nsNumber ? text : null;
 	}).join('|');
 _nsPrefixPattern = new RegExp('^(' + _nsPrefixPattern + '):', 'i');
