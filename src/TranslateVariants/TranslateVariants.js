@@ -8,7 +8,6 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* globals TranslateVariants:true */
-'use strict';
 
 // <nowiki>
 (function () {
