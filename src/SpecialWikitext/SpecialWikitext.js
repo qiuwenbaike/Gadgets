@@ -12,13 +12,6 @@
 
 // Polyfill
 // eslint-disable-next-line no-implicit-globals
-function _typeof2(obj) {
-	'@babel/helpers - typeof'; return _typeof2 = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
-		return typeof obj;
-	} : function (obj) {
-		return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
-	}, _typeof2(obj);
-}
 function _typeof(obj) {
 	'@babel/helpers - typeof';
 
@@ -161,16 +154,16 @@ function lua_getJSONwikitext(input_string) {
 		Object.keys(json_data).forEach(function (key) {
 			var k = key,
 				v = json_data[key];
-			if (new RegExp(wikiTextKey).exec(k) && _typeof2(v) === _typeof2('')) {
+			if (new RegExp(wikiTextKey).exec(k) && _typeof(v) === _typeof('')) {
 				wikitext = lua_addText(wikitext, v);
 			}
 			// 如果是陣列物件會多包一層
-			if (_typeof2(v) !== _typeof2('')) {
+			if (_typeof(v) !== _typeof('')) {
 				for (var prop in v) {
 					if (Object.hasOwnProperty.call(v, prop)) {
 						var testArr_k = prop,
 							testArr_v = v[prop];
-						if (new RegExp(wikiTextKey).exec(testArr_k) && _typeof2(testArr_v) === _typeof2('')) {
+						if (new RegExp(wikiTextKey).exec(testArr_k) && _typeof(testArr_v) === _typeof('')) {
 							wikitext = lua_addText(wikitext, testArr_v);
 						}
 					}
