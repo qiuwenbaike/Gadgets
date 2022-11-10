@@ -195,6 +195,14 @@ const deployTargets = [
 	},
 	/* sysop */
 	{
+		file: 'src/OnlineAdmins/MarkRights.css',
+		target: 'MediaWiki:Gadget-MarkRights.css'
+	},
+	{
+		file: 'src/OnlineAdmins/MarkRights.js',
+		target: 'MediaWiki:Gadget-MarkRights.js'
+	},
+	{
 		file: 'src/OnlineAdmins/OnlineAdmins.js',
 		target: 'MediaWiki:Gadget-OnlineAdmins.js'
 	},
