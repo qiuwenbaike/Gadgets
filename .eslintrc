@@ -21,7 +21,10 @@
 	],
 	"env": {
 		"browser": true,
-		"jquery": true
+        "jquery": true,
+        "es6": false,
+        "es2020": false,
+        "es2021": false
 	},
 	"ignorePatterns": [
 		"dist/",
@@ -54,7 +57,7 @@
 		"comma-spacing": ["error", { "before": false, "after": true }],
 		"computed-property-spacing": ["error", "never"],
 		"func-call-spacing": ["error", "never"],
-		"indent": ["error", "tab", { "outerIIFEBody": 0, "SwitchCase": 1 }],
+		"indent": ["2", "4", "tab", { "outerIIFEBody": 0, "SwitchCase": 1 }],
 		"key-spacing": ["error", {"singleLine": {"beforeColon": false, "afterColon": true}}],
 		"keyword-spacing": ["error", { "after": true, "before": true}],
 		"linebreak-style": ["error", "unix"],
