@@ -8,13 +8,12 @@
  */
 'use strict';
 
-/* eslint-disable guard-for-in */
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-shadow */
 /* eslint-disable no-jquery/no-each-util */
 /* eslint-disable no-jquery/no-parse-html-literal */
-/* eslint-disable camelcase */
 /* eslint-disable no-jquery/no-map-util */
+/* eslint-disable no-shadow */
+/* eslint-disable camelcase */
 
 /* vim:set noexpandtab ft=javascript ts=4 sw=4: */
 // <nowiki>
@@ -126,12 +125,14 @@ _TR = {
 	},
 	addTabs: function addTabs() {
 		for (var kname in this.tabs) {
-			if (this.tabs[kname] === null) {
-				this.tabs[kname] = this['_initTab' + kname[0].charAt(0).toUpperCase() + kname.slice(1)]();
+			if (Object.prototype.hasOwnProperty.call(this.tabs, kname)) {
+				if (this.tabs[kname] === null) {
+					this.tabs[kname] = this['_initTab' + kname[0].charAt(0).toUpperCase() + kname.slice(1)]();
+				}
+				var tab = this.tabs[kname];
+				this.tagselem.append(tab.tag);
+				this.tabselem.append(tab.cont);
 			}
-			var tab = this.tabs[kname];
-			this.tagselem.append(tab.tag);
-			this.tabselem.append(tab.cont);
 		}
 		// default tab, autoload when dialog initiate
 		this.loadView();

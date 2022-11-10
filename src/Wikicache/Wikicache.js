@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable guard-for-in */
 /* eslint-disable no-jquery/no-sizzle */
 /* eslint-disable no-jquery/no-parse-html-literal */
 /**
@@ -208,12 +207,14 @@ window.wikiCache = {
 				el.appendTo(notice);
 				// eslint-disable-next-line no-shadow
 				for (var msg in more) {
-					if (!first) {
-						el.append('&nbsp;|&nbsp;');
-					} else {
-						first = false;
+					if (Object.prototype.hasOwnProperty.call(more, msg)) {
+						if (!first) {
+							el.append('&nbsp;|&nbsp;');
+						} else {
+							first = false;
+						}
+						el.append($('<a href="#"/>').html(msg).on('click', more[msg]));
 					}
-					el.append($('<a href="#"/>').html(msg).on('click', more[msg]));
 				}
 				el.append(msgs['bracket-right']);
 			}, function () {
@@ -269,7 +270,9 @@ window.wikiCache = {
 			_date: new Date()
 		};
 		for (var sele in asarea) {
-			autosave[sele] = asarea[sele]($(sele));
+			if (Object.prototype.hasOwnProperty.call(asarea, sele)) {
+				autosave[sele] = asarea[sele]($(sele));
+			}
 		}
 		var thekey = 'autosave-' + mw.config.get('wgPageName');
 		var section = $('input[name="wpSection"]:first').val();
@@ -324,8 +327,10 @@ window.wikiCache = {
 		var msgs = window.wikiCache._msgs;
 		var asarea = window.wikiCache._autoSaveArea;
 		for (var sele in asarea) {
-			// eslint-disable-next-line block-scoped-var
-			asarea[sele]($(sele), autosave[sele]);
+			if (Object.prototype.hasOwnProperty.call(asarea, sele)) {
+				// eslint-disable-next-line block-scoped-var
+				asarea[sele]($(sele), autosave[sele]);
+			}
 		}
 		window.wikiCache._defaultNotice();
 		window.wikiCache._autoSave();
