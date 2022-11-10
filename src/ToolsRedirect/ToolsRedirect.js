@@ -205,7 +205,8 @@ _TR = {
 			meta: 'tokens'
 		})).then(function (data) {
 			var deferreds = [];
-			data.query.pages.forEach(function (idx, page) {
+			var pages = data.query.pages;
+			pages.forEach(function (idx, page) {
 				deferreds.push($.ajax(self.buildQuery({
 					action: 'edit',
 					title: page.title,
@@ -352,8 +353,9 @@ _TR = {
 			self.loaded(container);
 			var has_redirect = false,
 				desc = $('p.desc', self.tabs.view.cont),
-				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10);
-			data.query.pages.forEach(function (_, page) {
+				maximumRedirectDepth = mw.config.get('toolsRedirectMaximumRedirectDepth', 10),
+				pages = data.query.pages;
+			pages.forEach(function (_, page) {
 				if (!('redirects' in page)) {
 					return;
 				}
@@ -520,7 +522,8 @@ _TR = {
 				titles: alltitles
 			})).then(function (data) {
 				titles = [];
-				data.query.pages.forEach(function (pageid, page) {
+				var pages = data.query.pages;
+				pages.forEach(function (pageid, page) {
 					var title = page.title;
 					if (pageid < 0 && excludes.indexOf(title) === -1) {
 						if (title in _redirectExcludes) {
