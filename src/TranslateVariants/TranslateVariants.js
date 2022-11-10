@@ -9,8 +9,6 @@
 /* globals TranslateVariants:true */
 /* eslint-disable no-jquery/no-parse-html-literal */
 
-'use strict';
-
 // <nowiki>
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
