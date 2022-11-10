@@ -11,7 +11,7 @@
 		"eslint:fix": "eslint src/**/*.js --fix",
 		"stylelint": "stylelint src/**/*.css",
 		"stylelint:fix": "stylelint src/**/*.css --fix",
-		"babel": "babel -d src src; eslint src/**/*.js --fix",
+		"babel": "babel -d src src && eslint src/**/*.js --fix",
 		"deploy": "node scripts/deploy.js"
 	},
 	"devDependencies": {
