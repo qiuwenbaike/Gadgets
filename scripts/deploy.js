@@ -225,7 +225,7 @@ const deployTargets = [
 	{
 		file: 'src/RRD/RRD.js',
 		target: 'MediaWiki:Gadget-RRD.js'
-	}
+	},
 	/* browser */
 	{
 		file: 'src/ConfirmLogout/ConfirmLogout.js',
