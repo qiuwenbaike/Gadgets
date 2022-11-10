@@ -484,7 +484,7 @@ _TR = {
 			});
 
 			// append suffixes
-			$.uniqueSort(suffixes).forEach(function (_, suffix) {
+			$.each($.uniqueSort(suffixes), function (_, suffix) {
 				$.merge(retTitles, titles.map(function (title) {
 					title = fixNamespace(title);
 					return suffixReg.test(title) ? title : title + suffix;
@@ -499,7 +499,7 @@ _TR = {
 			alltitles = [],
 			excludes = [ '用字模式' ];
 		titles = titles.join('|');
-		[ 'zh-hans', 'zh-hant' ].forEach(function (_idx, variant) {
+		$.each([ 'zh-hans', 'zh-hant' ], function (_idx, variant) {
 			deferreds.push($.ajax(self.buildQuery({
 				action: 'parse',
 				text: titles,
@@ -508,7 +508,7 @@ _TR = {
 			})));
 		});
 		return $.when.apply($, deferreds).then(function () {
-			arguments.forEach(function () {
+			$.each(arguments, function () {
 				alltitles = alltitles.concat($(this[0].parse.text['*']).text().replace(/(^\s*|\s*$)/g, '').split('|'));
 			});
 			alltitles = alltitles.filter(function (v, i, arr) {
@@ -550,7 +550,7 @@ _TR = {
 			$content = $('#mw-content-text > div.mw-parser-output'),
 			deferObj = $.Deferred();
 		this.loading(container);
-		_findRedirectCallbacks.forEach(function (_, callback) {
+		$.each(_findRedirectCallbacks, function (_, callback) {
 			var ret = callback(pagename, $content, titles);
 			if (typeof ret === 'string') {
 				titles.push(ret);
@@ -575,7 +575,7 @@ _TR = {
 
 		// handles the deferred callbacks
 		$.when.apply($, frcDeferreds).then(function () {
-			arguments.forEach(function (_, ret) {
+			$.each(arguments, function (_, ret) {
 				if (typeof ret === 'string') {
 					titles.push(ret);
 				} else {
@@ -586,7 +586,7 @@ _TR = {
 		}).done(function (titles) {
 			// build HTML
 			self.loaded(container);
-			titles.forEach(function (_, title) {
+			$.each(titles, function (_, title) {
 				var ultitle = title.replace(' ', '_'),
 					baseuri = scriptPath + '/index.php?title=' + encodeURIComponent(ultitle),
 					entry = $('<p>').appendTo(container);
