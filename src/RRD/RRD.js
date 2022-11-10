@@ -236,7 +236,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 			case 'zh-mo':
 			case 'zh-tw':
 				msg = {
-					editSummary: '[[MediaWiki:Gadget-RRD-main.js|半自動提報]]修訂版本刪除',
+					editSummary: '[[MediaWiki:Gadget-RRD.js|半自動提報]]修訂版本刪除',
 					errNoRevisionProvided: '您沒有選擇需隱藏的版本！',
 					errNoItemProvided: '您沒有選擇需隱藏的項目！',
 					warnNoReasonProvided: '您沒有輸入任何理由！確定要繼續嗎？',
@@ -263,7 +263,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 				break;
 			default:
 				msg = {
-					editSummary: '[[MediaWiki:Gadget-RRD-main.js|半自动提报]]修订版本删除',
+					editSummary: '[[MediaWiki:Gadget-RRD.js|半自动提报]]修订版本删除',
 					errNoRevisionProvided: '您没有选择需隐藏的版本！',
 					errNoItemProvided: '您没有选择需隐藏的项目！',
 					warnNoReasonProvided: '您没有输入任何理由！确定要继续吗？',
