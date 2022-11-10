@@ -7,6 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-nc-sa/4.0/>
  * @dependencies: mediawiki.api, jquery.tablesorter, oojs-ui-widgets
  */
+/* eslint-disable no-jquery/no-constructor-attributes */
 /**
  * @Function: 使用表格界面显示和编辑小工具定义
  * @Author: Bhsd
@@ -66,7 +67,7 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					// eslint-disable-next-line default-case
 					switch (key) {
 						case 'name':
-							return $('<span>').attr({
+							return $('<span>', {
 								id: val,
 								html: [ val, new OO.ui.IndicatorWidget({
 									title: '删除',
@@ -81,8 +82,8 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							return val ? '是' : '否';
 						case 'peers':
 							return val.map(function (ele) {
-								return $('<div>').attr({
-									html: $('<a>').attr({
+								return $('<div>', {
+									html: $('<a>', {
 										text: ele,
 										href: '#' + ele
 									})
@@ -92,14 +93,14 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 						case 'rights':
 						case 'skins':
 							return val.map(function (ele) {
-								return $('<div>').attr({
+								return $('<div>', {
 									text: ele
 								});
 							});
 						case 'pages':
 							return val.map(function (ele) {
-								return $('<div>').attr({
-									html: $('<a>').attr({
+								return $('<div>', {
+									html: $('<a>', {
 										text: ele,
 										href: mw.util.getUrl('mediawiki:gadget-' + ele)
 									})
@@ -117,10 +118,10 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 				// 2. 使用表格显示小工具定义
 				insertRow = function insertRow() {
 					var params = text2data(this.textContent);
-					return $('<tr>').attr({
+					return $('<tr>', {
 						class: 'defTr',
 						html: Keys.map(function (key) {
-							return $('<td>').attr({
+							return $('<td>', {
 								html: data2html(params, key)
 							});
 						})
@@ -135,8 +136,8 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					label: '添加',
 					flags: 'progressive'
 				}) ],
-				$tr = $('<tr>').attr({
-					html: $('<td>').attr({
+				$tr = $('<tr>', {
+					html: $('<td>', {
 						colspan: 9,
 						html: btns.map(function (ele) {
 							return ele.$element;
@@ -248,12 +249,12 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 				};
 			// eslint-disable-next-line no-jquery/no-sizzle
 			$('h2:has( .mw-editsection )').next().children('ul').addBack('ul').replaceWith(function () {
-				return $('<table>').attr({
+				return $('<table>', {
 					class: 'wikitable sortable defTable',
-					html: $('<tbody>').attr({
-						html: $('<tr>').attr({
+					html: $('<tbody>', {
+						html: $('<tr>', {
 							html: [ '名称', '类型', '默认', 'Peers', '依赖项', '权限', '范围', '皮肤', '隐藏', '链接' ].map(function (ele) {
-								return $('<th>').attr({
+								return $('<th>', {
 									text: ele
 								});
 							})
@@ -273,10 +274,10 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					skins: [],
 					pages: []
 				};
-				$('<tr>').attr({
+				$('<tr>', {
 					class: 'defTr',
 					html: Keys.map(function (key) {
-						return $('<td>').attr({
+						return $('<td>', {
 							html: data2html(params, key)
 						});
 					})
