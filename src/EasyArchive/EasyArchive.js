@@ -24,4 +24,4 @@ window.bluedeck.external_config.easy_archive.never_enable_on_these_namespaces_in
 
 /* Due to ES6 issues */
 /* _addText: '{{editnotice|text=因技术原因，源代码请参见[[MediaWikiGadget-EasyArchive-main.js|Gadget-EasyArchive-main.js]]。}}' */
-mw.loader.load('/index.php?title=MediaWiki:Gadget-EasyArchive-main.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+mw.loader.load('/index.php?title=MediaWiki:Gadget-EasyArchive-main.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600');
