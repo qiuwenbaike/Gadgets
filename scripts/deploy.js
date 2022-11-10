@@ -156,7 +156,7 @@ const deployTargets = [
 	{
 		file: 'src/Wordcount/Wordcount.js',
 		target: 'MediaWiki:Gadget-Wordcount.js'
-	},		
+	},
 	{
 		file: 'src/Wikicache/JSON2.js',
 		target: 'MediaWiki:Gadget-JSON2.js'
@@ -225,11 +225,7 @@ const deployTargets = [
 	{
 		file: 'src/RRD/RRD.js',
 		target: 'MediaWiki:Gadget-RRD.js'
-	},
-	{
-		file: 'src/RRD/RRD-main.js',
-		target: 'MediaWiki:Gadget-RRD-main.js'
-	},
+	}
 	/* browser */
 	{
 		file: 'src/ConfirmLogout/ConfirmLogout.js',
