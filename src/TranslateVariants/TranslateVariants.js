@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -10,11 +8,11 @@
  */
 /* globals TranslateVariants:true */
 /* eslint-disable no-jquery/no-parse-html-literal */
+'use strict';
 
 // <nowiki>
-if (!TranslateVariants) {
-	TranslateVariants = {};
-}
+var TranslateVariants = {};
+
 if (!TranslateVariants.summary) {
 	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
 }
