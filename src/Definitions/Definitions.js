@@ -193,7 +193,7 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 						pageid: pageid,
 						section: section,
 						text: text,
-						summary: '/*' + sectionName + '*/ Edit via [[MediaWiki:Gadget-definitions.js|Definitions]]'
+						summary: '/*' + sectionName + '*/ Edit via [[MediaWiki:Gadget-Definitions.js|Definitions]]'
 					}).then(function () {
 						location.reload();
 					}, function (reason) {
