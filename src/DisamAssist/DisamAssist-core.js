@@ -122,9 +122,7 @@ var createUI = function createUI() {
 	ui.display.hide().fadeIn();
 };
 
-/*
-             * If there are pending changes, show a confirm dialog before closing
-             */
+/* If there are pending changes, show a confirm dialog before closing */
 var addUnloadConfirm = function addUnloadConfirm() {
 	$(window).on('beforeunload', function (_ev) {
 		if (running && checkActualChanges()) {
@@ -135,9 +133,7 @@ var addUnloadConfirm = function addUnloadConfirm() {
 	});
 };
 
-/*
-             * Mark the disambiguation options as such
-             */
+/* Mark the disambiguation options as such */
 var markDisamOptions = function markDisamOptions() {
 	var optionPageTitles = [];
 	var optionMarkers = [];
@@ -169,11 +165,7 @@ var markDisamOptions = function markDisamOptions() {
 	}).fail(error);
 };
 
-/*
-             * Check whether intentional links to disambiguation pages can be explicitly marked
-             * as such in this wiki. If so, ensure that a "Foo (disambiguation)" page exists.
-             * Returns a jQuery promise
-             */
+/* Check whether intentional links to disambiguation pages can be explicitly marked/* * as such in this wiki. If so, ensure that a "Foo (disambiguation)" page exists./* * Returns a jQuery promise */
 var ensureDABExists = function ensureDABExists() {
 	var dfd = new $.Deferred();
 	var title = getTitle();
@@ -209,10 +201,7 @@ var ensureDABExists = function ensureDABExists() {
 	return dfd.promise();
 };
 
-/*
-             * Check whether the edit cooldown applies and sets editLimit accordingly.
-             * Returns a jQuery promise
-             */
+/* Check whether the edit cooldown applies and sets editLimit accordingly./* * Returns a jQuery promise */
 var checkEditLimit = function checkEditLimit() {
 	var dfd = new $.Deferred();
 	if (cfg.editCooldown <= 0) {
@@ -231,10 +220,7 @@ var checkEditLimit = function checkEditLimit() {
 	return dfd.promise();
 };
 
-/*
-             * Find and ask the user to fix all the incoming links to the disambiguation ("target")
-             * page from a single "origin" page
-             */
+/* Find and ask the user to fix all the incoming links to the disambiguation ("target")/* * page from a single "origin" page */
 var doPage = function doPage() {
 	if (pageChanges.length > cfg.historySize) {
 		applyChange(pageChanges.shift());
@@ -277,10 +263,7 @@ var doPage = function doPage() {
 	}
 };
 
-/*
-             * Find and ask the user to fix a single incoming link to the disambiguation ("target")
-             * page
-             */
+/* Find and ask the user to fix a single incoming link to the disambiguation ("target")/* * page */
 var doLink = function doLink() {
 	currentLink = extractLinkToPage(currentPageParameters.content, possibleBacklinkDestinations, currentLink ? currentLink.end : 0);
 	if (currentLink) {
@@ -290,12 +273,7 @@ var doLink = function doLink() {
 	}
 };
 
-/*
-             * Replace the target of a link with a different one
-             * pageTitle: New link target
-             * extra: Additional text after the link (optional)
-             * summary: Change summary (optional)
-             */
+/* Replace the target of a link with a different one/* * pageTitle: New link target/* * extra: Additional text after the link (optional)/* * summary: Change summary (optional) */
 var chooseReplacement = function chooseReplacement(pageTitle, extra, summary) {
 	if (choosing) {
 		choosing = false;
@@ -314,17 +292,13 @@ var chooseReplacement = function chooseReplacement(pageTitle, extra, summary) {
 	}
 };
 
-/*
-             * Replace the link with an explicit link to the disambiguation page
-             */
+/* Replace the link with an explicit link to the disambiguation page */
 var chooseIntentionalLink = function chooseIntentionalLink() {
 	var disamTitle = cfg.disamFormat.replace('$1', getTargetPage());
 	chooseReplacement(disamTitle, '', txt.summaryIntentional);
 };
 
-/*
-             * Prompt for an alternative link target and use it as a replacement
-             */
+/* Prompt for an alternative link target and use it as a replacement */
 var chooseTitleFromPrompt = function chooseTitleFromPrompt() {
 	var title = prompt(txt.titleAsTextPrompt);
 	if (title !== null) {
@@ -332,9 +306,7 @@ var chooseTitleFromPrompt = function chooseTitleFromPrompt() {
 	}
 };
 
-/*
-             * Remove the current link, leaving the text unchanged
-             */
+/* Remove the current link, leaving the text unchanged */
 var chooseLinkRemoval = function chooseLinkRemoval() {
 	if (choosing) {
 		var summary = txt.summaryRemoved;
@@ -344,16 +316,12 @@ var chooseLinkRemoval = function chooseLinkRemoval() {
 	}
 };
 
-/*
-             * Add a "disambiguation needed" template after the link
-             */
+/* Add a "disambiguation needed" template after the link */
 var chooseDisamNeeded = function chooseDisamNeeded() {
 	chooseReplacement(currentLink.title, cfg.disamNeededText, txt.summaryHelpNeeded);
 };
 
-/*
-             * Undo the last change
-             */
+/* Undo the last change */
 var undo = function undo() {
 	if (pageChanges.length !== 0) {
 		var lastPage = pageChanges[pageChanges.length - 1];
@@ -372,25 +340,18 @@ var undo = function undo() {
 	}
 };
 
-/*
-             * Omit the current link without making a change
-             */
+/* Omit the current link without making a change */
 var omit = function omit() {
 	chooseReplacement(null);
 };
 
-/*
-             * Save all the pending changes and restart the tool.
-             */
+/* Save all the pending changes and restart the tool. */
 var refresh = function refresh() {
 	saveAndEnd();
 	start();
 };
 
-/*
-             * Enable or disable the buttons that can perform actions on a page or change the current link.
-             * enabled: Whether to enable or disable the buttons
-             */
+/* Enable or disable the buttons that can perform actions on a page or change the current link./* * enabled: Whether to enable or disable the buttons */
 var toggleActionButtons = function toggleActionButtons(enabled) {
 	var affectedButtons = [ ui.omitButton, ui.titleAsTextButton, ui.removeLinkButton, ui.intentionalLinkButton, ui.disamNeededButton, ui.undoButton ];
 	$.each(affectedButtons, function (_ii, button) {
@@ -398,10 +359,7 @@ var toggleActionButtons = function toggleActionButtons(enabled) {
 	});
 };
 
-/*
-             * Show or hide the 'no more links' message
-             * show: Whether to show or hide the message
-             */
+/* Show or hide the 'no more links' message/* * show: Whether to show or hide the message */
 var toggleFinishedMessage = function toggleFinishedMessage(show) {
 	toggleActionButtons(!show);
 	ui.undoButton.prop('disabled', pageChanges.length === 0);
@@ -434,10 +392,7 @@ var notifyCompletion = function notifyCompletion() {
 	});
 };
 
-/*
-             * Update the displayed information to match the current link
-             * or lack thereof
-             */
+/* Update the displayed information to match the current link/* * or lack thereof */
 var updateContext = function updateContext() {
 	updateEditCounter();
 	if (!currentLink) {
@@ -463,9 +418,7 @@ var updateContext = function updateContext() {
 	}
 };
 
-/*
-             * Update the count of pending changes
-             */
+/* Update the count of pending changes */
 var updateEditCounter = function updateEditCounter() {
 	if (ui.pendingEditCounter) {
 		ui.pendingEditCounter.text(txt.pendingEditCounter.replace('$1', editCount).replace('$2', countActuallyChangedFullyCheckedPages()));
@@ -483,10 +436,7 @@ var updateEditCounter = function updateEditCounter() {
 	}
 };
 
-/*
-             * Apply the changes made to an "origin" page
-             * pageChange: Change that will be saved
-             */
+/* Apply the changes made to an "origin" page/* * pageChange: Change that will be saved */
 var applyChange = function applyChange(pageChange) {
 	if (pageChange.page.content !== pageChange.contentBefore[0]) {
 		editCount++;
@@ -503,9 +453,7 @@ var applyChange = function applyChange(pageChange) {
 	}
 };
 
-/*
-             * Save all the pending changes
-             */
+/* Save all the pending changes */
 var applyAllChanges = function applyAllChanges() {
 	for (var ii = 0; ii < pageChanges.length; ii++) {
 		applyChange(pageChanges[ii]);
@@ -513,14 +461,7 @@ var applyAllChanges = function applyAllChanges() {
 	pageChanges = [];
 };
 
-/*
-             * Record a new pending change
-             * pageTitle: Title of the page
-             * page: Content of the page
-             * oldContent: Content of the page before the change
-             * link: Link that has been changed
-             * summary: Change summary
-             */
+/* Record a new pending change/* * pageTitle: Title of the page/* * page: Content of the page/* * oldContent: Content of the page before the change/* * link: Link that has been changed/* * summary: Change summary */
 var addChange = function addChange(pageTitle, page, oldContent, link, summary) {
 	if (pageChanges.length === 0 || pageChanges[pageChanges.length - 1].title !== pageTitle) {
 		pageChanges.push({
@@ -537,16 +478,12 @@ var addChange = function addChange(pageTitle, page, oldContent, link, summary) {
 	lastPageChange.summary.push(summary);
 };
 
-/*
-             * Check whether actual changes are stored in the history array
-             */
+/* Check whether actual changes are stored in the history array */
 var checkActualChanges = function checkActualChanges() {
 	return countActualChanges() !== 0;
 };
 
-/*
-             * Return the number of entries in the history array that represent actual changes
-             */
+/* Return the number of entries in the history array that represent actual changes */
 var countActualChanges = function countActualChanges() {
 	var changeCount = 0;
 	for (var ii = 0; ii < pageChanges.length; ii++) {
@@ -557,10 +494,7 @@ var countActualChanges = function countActualChanges() {
 	return changeCount;
 };
 
-/*
-             * Return the number of changed pages in the history array, ignoring the last entry
-             * if we aren't done with that page yet
-             */
+/* Return the number of changed pages in the history array, ignoring the last entry/* * if we aren't done with that page yet */
 var countActuallyChangedFullyCheckedPages = function countActuallyChangedFullyCheckedPages() {
 	var changeCount = countActualChanges();
 	if (pageChanges.length !== 0) {
@@ -572,26 +506,20 @@ var countActuallyChangedFullyCheckedPages = function countActuallyChangedFullyCh
 	return changeCount;
 };
 
-/*
-             * Find the links to disambiguation options in a disambiguation page
-             */
+/* Find the links to disambiguation options in a disambiguation page */
 var getDisamOptions = function getDisamOptions() {
 	return $('#mw-content-text a').filter(function () {
 		return !!extractPageName($(this));
 	});
 };
 
-/*
-             * Save all the pending changes and close the tool
-             */
+/* Save all the pending changes and close the tool */
 var saveAndEnd = function saveAndEnd() {
 	applyAllChanges();
 	end();
 };
 
-/*
-             * Close the tool
-             */
+/* Close the tool */
 var end = function end() {
 	var currentToolUI = ui.display;
 	choosing = false;
@@ -608,9 +536,7 @@ var end = function end() {
 	});
 };
 
-/*
-             * Display an error message
-             */
+/* Display an error message */
 var error = function error(errorDescription) {
 	var errorBox = $('<div>').addClass('disamassist-box disamassist-errorbox');
 	errorBox.text(txt.error.replace('$1', errorDescription));
@@ -623,13 +549,7 @@ var error = function error(errorDescription) {
 	errorBox.hide().fadeIn();
 };
 
-/*
-             * Change a link so that it points to the title
-             * text: The wikitext of the whole page
-             * title: The new destination of the link
-             * link: The link that will be modified
-             * extra: Text that will be added after the link (optional)
-             */
+/* Change a link so that it points to the title/* * text: The wikitext of the whole page/* * title: The new destination of the link/* * link: The link that will be modified/* * extra: Text that will be added after the link (optional) */
 var replaceLink = function replaceLink(text, title, link, extra) {
 	var newContent;
 	if (isSamePage(title, link.description)) {
@@ -643,25 +563,14 @@ var replaceLink = function replaceLink(text, title, link, extra) {
 	return linkStart + '[[' + newContent + ']]' + link.afterDescription + (extra || '') + linkEnd;
 };
 
-/*
-             * Remove a link from the text
-             * text: The wikitext of the whole page
-             * link: The link that will be removed
-             */
+/* Remove a link from the text/* * text: The wikitext of the whole page/* * link: The link that will be removed */
 var removeLink = function removeLink(text, link) {
 	var linkStart = text.slice(0, Math.max(0, link.start));
 	var linkEnd = text.slice(Math.max(0, link.end));
 	return linkStart + link.description + link.afterDescription + linkEnd;
 };
 
-/*
-             * Extract a link from a string in wiki format,
-             * starting from a given index. Return a link if one can be found,
-             * otherwise return null. The "link" includes "disambiguation needed"
-             * templates inmediately following the link proper
-             * text: Text from which the link will be extracted
-             * lastIndex: Index from which the search will start
-             */
+/* Extract a link from a string in wiki format,/* * starting from a given index. Return a link if one can be found,/* * otherwise return null. The "link" includes "disambiguation needed"/* * templates inmediately following the link proper/* * text: Text from which the link will be extracted/* * lastIndex: Index from which the search will start */
 var extractLink = function extractLink(text, lastIndex) {
 	// FIXME: Not an actual title regex (lots of false positives
 	// and some false negatives), but hopefully good enough.
@@ -701,14 +610,7 @@ var extractLink = function extractLink(text, lastIndex) {
 	return null;
 };
 
-/*
-             * Extract a link to one of a number of destination pages from a string
-             * ("text") in wiki format, starting from a given index ("lastIndex").
-             * "Disambiguation needed" templates are included as part of the links.
-             * text: Page in wiki format
-             * destinations: Array of page titles to look for
-             * lastIndex: Index from which the search will start
-             */
+/* Extract a link to one of a number of destination pages from a string/* * ("text") in wiki format, starting from a given index ("lastIndex")./* * "Disambiguation needed" templates are included as part of the links./* * text: Page in wiki format/* * destinations: Array of page titles to look for/* * lastIndex: Index from which the search will start */
 var extractLinkToPage = function extractLinkToPage(text, destinations, lastIndex) {
 	var link, title;
 	do {
@@ -721,40 +623,29 @@ var extractLinkToPage = function extractLinkToPage(text, destinations, lastIndex
 	return link;
 };
 
-/*
-             * Find the "target" page: either the one we are in or the "main" one found by extracting
-                * the title from ".* (disambiguation)" or whatever the appropiate local format is
-             */
+/* Find the "target" page: either the one we are in or the "main" one found by extracting/* * the title from ".* (disambiguation)" or whatever the appropiate local format is */
 var getTargetPage = function getTargetPage() {
 	var title = getTitle();
 	return forceSamePage ? title : removeDisam(title);
 };
 
-/*
-             * Get the page title, with the namespace prefix if any.
-             */
+/* Get the page title, with the namespace prefix if any. */
 var getTitle = function getTitle() {
 	return mw.config.get('wgPageName').replace(/_/g, ' ');
 };
 
-/*
-             * Extract a "main" title from ".* (disambiguation)" or whatever the appropiate local format is
-             */
+/* Extract a "main" title from ".* (disambiguation)" or whatever the appropiate local format is */
 var removeDisam = function removeDisam(title) {
 	var match = new RegExp(cfg.disamRegExp).exec(title);
 	return match ? match[1] : title;
 };
 
-/*
-             * Check whether two page titles are the same
-             */
+/* Check whether two page titles are the same */
 var isSamePage = function isSamePage(title1, title2) {
 	return getCanonicalTitle(title1) === getCanonicalTitle(title2);
 };
 
-/*
-             * Return the 'canonical title' of a page
-             */
+/* Return the 'canonical title' of a page */
 var getCanonicalTitle = function getCanonicalTitle(title) {
 	try {
 		title = new mw.Title(title).getPrefixedText();
@@ -765,9 +656,7 @@ var getCanonicalTitle = function getCanonicalTitle(title) {
 	return title;
 };
 
-/*
-             * Extract the context around a given link in a text string
-             */
+/* Extract the context around a given link in a text string */
 var extractContext = function extractContext(text, link) {
 	var contextStart = link.start - cfg.radius;
 	var contextEnd = link.end + cfg.radius;
@@ -782,9 +671,7 @@ var extractContext = function extractContext(text, link) {
 	return [ contextPrev, text.substring(link.start, link.end), contextNext ];
 };
 
-/*
-             * Extract the prefixed page name from a link
-             */
+/* Extract the prefixed page name from a link */
 var extractPageName = function extractPageName(link) {
 	var pageName = extractPageNameRaw(link);
 	if (pageName) {
@@ -799,9 +686,7 @@ var extractPageName = function extractPageName(link) {
 	return null;
 };
 
-/*
-             * Extract the page name from a link, as is
-             */
+/* Extract the page name from a link, as is */
 var extractPageNameRaw = function extractPageNameRaw(link) {
 	if (!link.hasClass('image')) {
 		var href = link.attr('href');
@@ -821,9 +706,7 @@ var extractPageNameRaw = function extractPageNameRaw(link) {
 	return null;
 };
 
-/*
-             * Check whether this is a disambiguation page
-             */
+/* Check whether this is a disambiguation page */
 var isDisam = function isDisam() {
 	var categories = mw.config.get('wgCategories', []);
 	for (var ii = 0; ii < categories.length; ii++) {
@@ -852,11 +735,7 @@ var pad = function pad(str, z, width) {
 	return new Array(width - str.length + 1).join(z) + str;
 };
 
-/*
-             * Create a new button
-             * text: Text that will be displayed on the button
-             * onClick: Function that will be called when the button is clicked
-             */
+/* Create a new button/* * text: Text that will be displayed on the button/* * onClick: Function that will be called when the button is clicked */
 var createButton = function createButton(text, onClick) {
 	var button = $('<input>', {
 		type: 'button',
@@ -866,10 +745,7 @@ var createButton = function createButton(text, onClick) {
 	return button;
 };
 
-/*
-             * Given a page title and an array of possible redirects {from, to} ("canonical titles"), find the page
-             * at the end of the redirect chain, if there is one. Otherwise, return the page title that was passed
-             */
+/* Given a page title and an array of possible redirects {from, to} ("canonical titles"), find the page/* * at the end of the redirect chain, if there is one. Otherwise, return the page title that was passed */
 var resolveRedirect = function resolveRedirect(pageTitle, possibleRedirects) {
 	var appliedRedirect = true;
 	var visitedPages = {};
@@ -893,13 +769,7 @@ var resolveRedirect = function resolveRedirect(pageTitle, possibleRedirects) {
 	return currentPage;
 };
 
-/*
-             * Fetch the incoming links to a page. Returns a jQuery promise
-             * (success - array of titles of pages that contain links to the target page and
-             * array of "canonical titles" of possible destinations of the backlinks (either
-             * the target page or redirects to the target page), failure - error description)
-             * page: Target page
-             */
+/* Fetch the incoming links to a page. Returns a jQuery promise/* * (success - array of titles of pages that contain links to the target page and/* * array of "canonical titles" of possible destinations of the backlinks (either/* * the target page or redirects to the target page), failure - error description)/* * page: Target page */
 var getBacklinks = function getBacklinks(page) {
 	var dfd = new $.Deferred();
 	var api = new mw.Api();
@@ -931,11 +801,7 @@ var getBacklinks = function getBacklinks(page) {
 	return dfd.promise();
 };
 
-/*
-             * Download a list of redirects for some pages. Returns a jQuery callback (success -
-             * array of redirects ({from, to}), failure - error description )
-             * pageTitles: Array of page titles
-             */
+/* Download a list of redirects for some pages. Returns a jQuery callback (success -/* * array of redirects ({from, to}), failure - error description )/* * pageTitles: Array of page titles */
 var fetchRedirects = function fetchRedirects(pageTitles) {
 	var dfd = new $.Deferred();
 	var api = new mw.Api();
@@ -962,10 +828,7 @@ var fetchRedirects = function fetchRedirects(pageTitles) {
 	return dfd.promise();
 };
 
-/*
-             * Download the list of user rights for the current user. Returns a
-             * jQuery promise (success - array of right names, error - error description)
-             */
+/* Download the list of user rights for the current user. Returns a/* * jQuery promise (success - array of right names, error - error description) */
 var fetchRights = function fetchRights() {
 	var dfd = $.Deferred();
 	var api = new mw.Api();
@@ -981,11 +844,7 @@ var fetchRights = function fetchRights() {
 	return dfd.promise();
 };
 
-/*
-             * Load the raw page text for a given title. Returns a jQuery promise (success - page
-             * content, failure - error description)
-             * pageTitle: Title of the page
-             */
+/* Load the raw page text for a given title. Returns a jQuery promise (success - page/* * content, failure - error description)/* * pageTitle: Title of the page */
 var loadPage = function loadPage(pageTitle) {
 	var dfd = new $.Deferred();
 	var api = new mw.Api();
@@ -1024,11 +883,7 @@ var loadPage = function loadPage(pageTitle) {
 	return dfd.promise();
 };
 
-/*
-             * Register changes to a page, to be saved later. Returns a jQuery promise
-             * (success - no params, failure - error description). Takes the same parameters
-             * as savePage
-             */
+/* Register changes to a page, to be saved later. Returns a jQuery promise/* * (success - no params, failure - error description). Takes the same parameters/* * as savePage */
 var saveWithCooldown = function saveWithCooldown() {
 	var deferred = new $.Deferred();
 	pendingSaves.push({
@@ -1041,10 +896,7 @@ var saveWithCooldown = function saveWithCooldown() {
 	return deferred.promise();
 };
 
-/*
-             * Save the first set of changes in the list of pending changes, providing that
-             * enough time has passed since the last edit
-             */
+/* Save the first set of changes in the list of pending changes, providing that/* * enough time has passed since the last edit */
 var checkAndSave = function checkAndSave() {
 	if (pendingSaves.length === 0) {
 		runningSaves = false;
@@ -1070,15 +922,7 @@ var checkAndSave = function checkAndSave() {
 	}
 };
 
-/*
-             * Save the changes made to a page. Returns a jQuery promise (success - no params,
-             * failure - error description)
-             * pageTitle: Title of the page
-             * page: Page data
-             * summary: Summary of the changes made to the page
-             * minorEdit: Whether to mark the edit as 'minor'
-             * botEdit: Whether to mark the edit as 'bot'
-             */
+/* Save the changes made to a page. Returns a jQuery promise (success - no params,/* * failure - error description)/* * pageTitle: Title of the page/* * page: Page data/* * summary: Summary of the changes made to the page/* * minorEdit: Whether to mark the edit as 'minor'/* * botEdit: Whether to mark the edit as 'bot' */
 var savePage = function savePage(pageTitle, page, summary, minorEdit, botEdit) {
 	var dfd = new $.Deferred();
 	var api = new mw.Api();
