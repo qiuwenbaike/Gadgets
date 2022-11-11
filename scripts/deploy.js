@@ -198,16 +198,16 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Banimage.js'
 	},
 	{
-		file: 'src/Banimage/Banimage.js',
-		target: 'MediaWiki:Gadget-Banimage.js'
+		file: 'src/DisamAssist/DisamAssist.css',
+		target: 'MediaWiki:Gadget-DisamAssist.css'
 	},
 	{
-		file: 'src/Banimage/Banimage.js',
-		target: 'MediaWiki:Gadget-Banimage.js'
+		file: 'src/DisamAssist/DisamAssist.js',
+		target: 'MediaWiki:Gadget-DisamAssist.js'
 	},
 	{
-		file: 'src/Banimage/Banimage.js',
-		target: 'MediaWiki:Gadget-Banimage.js'
+		file: 'src/DisamAssist/DisamAssist-core.js',
+		target: 'MediaWiki:Gadget-DisamAssist-core.js'
 	},
 	/* sysop */
 	{
