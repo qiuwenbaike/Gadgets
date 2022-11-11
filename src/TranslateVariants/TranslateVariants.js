@@ -12,11 +12,9 @@
 
 // <nowiki>
 window.TranslateVariants = {};
-
 if (!TranslateVariants.summary) {
 	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
 }
-
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
 	mw.loader.using([ 'mediawiki.api', 'mediawiki.diff.styles' ]).then(function () {
