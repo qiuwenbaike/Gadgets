@@ -11,6 +11,6 @@
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
 		"src/EasyArchive/EasyArchive-main.js",
-		"src/Popups/Popup-mains.js"
+		"src/Popups/Popup-main.js"
 	]
 }

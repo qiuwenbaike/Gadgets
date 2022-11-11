@@ -5792,12 +5792,12 @@ $(function () {
 	// STARTFILE: diff.js
 	// <NOLITE>
 	/*
-     * Javascript Diff Algorithm
-     *  By John Resig (http://ejohn.org/) and Lupin
-     *
-     * More Info:
-     *  http://ejohn.org/projects/javascript-diff-algorithm/
-     */
+      * Javascript Diff Algorithm
+      *  By John Resig (http://ejohn.org/) and Lupin
+      *
+      * More Info:
+      *  http://ejohn.org/projects/javascript-diff-algorithm/
+      */
 
 	function delFmt(x) {
 		if (!x.length) {
