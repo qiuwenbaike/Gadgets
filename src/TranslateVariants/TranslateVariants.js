@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -45,7 +47,7 @@ function main() {
 	var api = new mw.Api();
 	var basepagetext = '';
 	var table = $('<div id="TranslateVariants">').prependTo('#bodyContent');
-	$('<div style="color:red">提醒：TranslateVariants工具使用IT及MediaWiki兩個轉換組進行自動轉換，請確認轉換結果是否正確！</div>').appendTo(table);
+	$('<div style="color:red">' + wgULS('提醒：TranslateVariants工具使用IT及MediaWiki转换组进行自动转换，请确认转换结果是否正确！', '提醒：TranslateVariants工具使用IT及MediaWiki轉換組進行自動轉換，請確認轉換結果是否正確！') + '</div>').appendTo(table);
 	var defaultlangs = 'zh,zh-hans,zh-cn,zh-my,zh-sg,zh-hant,zh-hk,zh-mo,zh-tw';
 	// eslint-disable-next-line no-alert
 	var runlangs = prompt(wgULS('转换以下语言（以逗号隔开）：', '轉換以下語言（以逗號隔開）：'), defaultlangs);
@@ -88,7 +90,15 @@ function main() {
 		});
 		text = text.replace(/(&#91;&#91;)((?:(?!&#124;)(?!&#93;).)+?)(&#124;(?:(?!&#93;).)+?&#93;&#93;)/g, '$1-{$2}-$3');
 		text = text.replace(/-&#123;(.+?)&#125;-/g, function (s) {
-			return s.replace('-&#123;', '-{').replace('&#125;-', '}-').replace(/&#124;/g, '|').replace(/&#32;/g, ' ').replace(/&#61;/g, '=').replace(/&#62;/g, '>').replace(/&#58;/g, ':');
+			s = s.replace('-&#123;', '-{');
+			s = s.replace('-&#123;', '-{');
+			s = s.replace('&#125;-', '}-');
+			s = s.replace(/&#124;/g, '|');
+			s = s.replace(/&#32;/g, ' ');
+			s = s.replace(/&#61;/g, '=');
+			s = s.replace(/&#62;/g, '>');
+			s = s.replace(/&#58;/g, ':');
+			return s;
 		});
 		basepagetext = text;
 		process();

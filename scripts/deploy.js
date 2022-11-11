@@ -197,6 +197,18 @@ const deployTargets = [
 		file: 'src/Banimage/Banimage.js',
 		target: 'MediaWiki:Gadget-Banimage.js'
 	},
+	{
+		file: 'src/Banimage/Banimage.js',
+		target: 'MediaWiki:Gadget-Banimage.js'
+	},
+	{
+		file: 'src/Banimage/Banimage.js',
+		target: 'MediaWiki:Gadget-Banimage.js'
+	},
+	{
+		file: 'src/Banimage/Banimage.js',
+		target: 'MediaWiki:Gadget-Banimage.js'
+	},
 	/* sysop */
 	{
 		file: 'src/MarkRights/MarkRights.css',
