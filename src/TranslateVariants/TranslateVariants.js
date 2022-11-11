@@ -12,6 +12,13 @@
 /* eslint-disable no-jquery/no-parse-html-literal */
 
 // <nowiki>
+if (typeof TranslateVariants === 'undefined') {
+	TranslateVariants = {};
+}
+if (typeof TranslateVariants.summary !== 'string') {
+	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
+}
+
 (function () {
 if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
 	mw.loader.using([ 'mediawiki.api', 'mediawiki.diff.styles' ]).then(function () {
@@ -21,14 +28,6 @@ if (mw.config.get('wgPageName').match(/^MediaWiki:[^/]+(\/zh)?$/)) {
 			main();
 		});
 	});
-} else {
-	return;
-}
-if (typeof TranslateVariants === 'undefined') {
-	TranslateVariants = {};
-}
-if (typeof TranslateVariants.summary !== 'string') {
-	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
 }
 function main() {
 	var langs = [ 'zh', 'zh-hans', 'zh-cn', 'zh-my', 'zh-sg', 'zh-hant', 'zh-hk', 'zh-mo', 'zh-tw' ];
