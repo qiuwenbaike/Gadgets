@@ -12,10 +12,10 @@
 /* eslint-disable no-jquery/no-parse-html-literal */
 
 // <nowiki>
-if (typeof TranslateVariants === 'undefined') {
+if (!TranslateVariants) {
 	TranslateVariants = {};
 }
-if (typeof TranslateVariants.summary !== 'string') {
+if (!TranslateVariants.summary) {
 	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
 }
 
