@@ -11,7 +11,7 @@
 'use strict';
 
 // <nowiki>
-var TranslateVariants = {};
+window.TranslateVariants = {};
 
 if (!TranslateVariants.summary) {
 	TranslateVariants.summary = '自动转换变体自[[$1]] via [[MediaWiki:Gadget-TranslateVariants.js|TranslateVariants]]';
