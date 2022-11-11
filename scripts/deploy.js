@@ -244,6 +244,18 @@ const deployTargets = [
 	},
 	/* browser */
 	{
+		file: 'src/Popup/Popup.css',
+		target: 'MediaWiki:Gadget-Popup.css'
+	},
+	{
+		file: 'src/Popup/Popup.js',
+		target: 'MediaWiki:Gadget-Popup.js'
+	},
+	{
+		file: 'src/Popup/Popup-main.js',
+		target: 'MediaWiki:Gadget-Popup-main.js'
+	},
+	{
 		file: 'src/ConfirmLogout/ConfirmLogout.js',
 		target: 'MediaWiki:Gadget-ConfirmLogout.js'
 	},
