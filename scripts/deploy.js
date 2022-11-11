@@ -244,15 +244,15 @@ const deployTargets = [
 	},
 	/* browser */
 	{
-		file: 'src/Popup/Popup.css',
+		file: 'src/Popups/Popups.css',
 		target: 'MediaWiki:Gadget-Popup.css'
 	},
 	{
-		file: 'src/Popup/Popup.js',
+		file: 'src/Popups/Popups.js',
 		target: 'MediaWiki:Gadget-Popup.js'
 	},
 	{
-		file: 'src/Popup/Popup-main.js',
+		file: 'src/Popups/Popups-main.js',
 		target: 'MediaWiki:Gadget-Popup-main.js'
 	},
 	{
