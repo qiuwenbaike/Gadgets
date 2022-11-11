@@ -1,11 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable default-case */
-/* eslint-disable no-script-url */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-mixed-operators */
-/* eslint-disable camelcase */
-/* eslint-disable default-case */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -491,7 +483,7 @@ $(function () {
 		// redirMatch is a regex match
 		var target = new Title().fromWikiText(redirMatch[2]);
 		// overwrite (or add) anchor from original target
-		// mediawiki does overwrite; eg [[User:Lupin/foo3#Done]]
+		// mediawiki does overwrite
 		if (navpop.article.anchor) {
 			target.anchor = navpop.article.anchor;
 		}
@@ -633,7 +625,7 @@ $(function () {
 	 * 10.28.2001 - fixed minor bug where events
 	 * sometimes fired off the handle, not the root.
 	 *
-	 * Pared down, some hooks added by [[User:Lupin]]
+	 * Pared down, some hooks added by Lupin
 	 *
 	 * Copyright Aaron Boodman.
 	 * Saying stupid things daily since March 2001.
@@ -870,7 +862,7 @@ $(function () {
 	pg.structures.fancy.popupRedirOtherLinks = pg.structures.fancy.popupOtherLinks;
 
 	/** -- fancy2 -- */
-	// hack for [[User:MacGyverMagic]]
+	// hack for MacGyverMagic
 	copyStructure('fancy', 'fancy2');
 	pg.structures.fancy2.popupTopLinks = function (x) {
 		// hack out the <br> at the end and put one at the beginning
@@ -3687,7 +3679,7 @@ $(function () {
 		this.kill(RegExp('[{][{][^{}\\s|]*?(float|box)[_ ](begin|start)', 'i'), /[}][}]\s*/, '{{');
 
 		// infoboxes etc
-		// from [[User:Zyxw/popups.js]]: kill frames too
+		// from Zyxw/popups.js: kill frames too
 		this.kill(RegExp('[{][{][^{}\\s|]*?(infobox|elementbox|frame)[_ ]', 'i'), /[}][}]\s*/, '{{');
 	};
 
@@ -5800,12 +5792,12 @@ $(function () {
 	// STARTFILE: diff.js
 	// <NOLITE>
 	/*
-   * Javascript Diff Algorithm
-   *  By John Resig (http://ejohn.org/) and [[:en:User:Lupin]]
-   *
-   * More Info:
-   *  http://ejohn.org/projects/javascript-diff-algorithm/
-   */
+    * Javascript Diff Algorithm
+    *  By John Resig (http://ejohn.org/) and Lupin
+    *
+    * More Info:
+    *  http://ejohn.org/projects/javascript-diff-algorithm/
+    */
 
 	function delFmt(x) {
 		if (!x.length) {

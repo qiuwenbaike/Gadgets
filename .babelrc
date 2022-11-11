@@ -10,6 +10,7 @@
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
-		"src/EasyArchive/EasyArchive-main.js"
+		"src/EasyArchive/EasyArchive-main.js",
+		"src/Popup/Popup-main.js"
 	]
 }
