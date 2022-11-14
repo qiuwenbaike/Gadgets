@@ -5,6 +5,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-PreviewWithVariant.js
  * @source https://zh.wikipedia.org/wiki/Special:Permalink/67345361
  * @license MIT
+ * @dependency ext.gadget.SiteCommonJs, mediawiki.Uri, mediawiki.user, oojs-ui, oojs-ui-core
  */
 /**
  * @file Add a "Preview with variant" option to the edit form.
