@@ -1,9 +1,13 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Hotcatcheck.js
+ * @source https://commons.wikimedia.org/wiki/MediaWiki:Gadget-Hotcatcheck.js
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
 'use strict';
 
-/**
- * 取自：https://commons.wikimedia.org/wiki/MediaWiki:Gadget-Hotcatcheck.js
- * CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>
- */
 /*
 * CheckCategories HotCat Extension –
 * removes the template when categorizing (prompts before) with HotCat and
