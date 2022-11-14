@@ -1,0 +1,30 @@
+/**
+ * SPDX-License-Identifier: MIT
+ * _addText: '{{Gadget Header|license=MIT}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-PreviewWithVariant2017.css
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-PreviewWithVariant2017.css
+ * @license MIT
+ */
+/**
+ * @author Tranve@zhwiki
+ * @license MIT
+ */
+
+.npv-variant {
+	width: 9em;
+	float: right;
+}
+
+.ve-ui-mwSaveDialog-preview > .mw-content-container {
+	display: none;
+}
+
+.npv-pendingStackLayout.oo-ui-pendingElement-pending > .oo-ui-panelLayout {
+	opacity: 0.5;
+	transition: opacity 0.1s ease-out;
+}
+
+.npv-pendingStackLayout .vector-body .firstHeading {
+	margin-top: 0;
+}

@@ -94,8 +94,8 @@ mw.hook('wikipage.editform').add(function () {
 });
 
 // Register 2017 wikitext editor version to VE
-// mw.loader.using( 'ext.visualEditor.desktopArticleTarget.init' ).then( function () {
-//   mw.libs.ve.addPlugin( 'ext.gadget.PreviewWithVariant2017' );
-// } );
+mw.loader.using('ext.visualEditor.desktopArticleTarget.init').then(function () {
+	mw.libs.ve.addPlugin('ext.gadget.PreviewWithVariant2017');
+});
 }(jQuery, mediaWiki));
 // </nowiki>
