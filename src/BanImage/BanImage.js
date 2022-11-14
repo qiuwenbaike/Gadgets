@@ -26,7 +26,6 @@ window.ban_image = function ban_image() {
 		}
 	});
 };
-
 window.ban_article = function ban_article() {
 	Wikiplus.kotori.redirectTo('Qiuwen:首页', Wikiplus.kotori.pageName, {
 		success: function success() {
@@ -38,7 +37,6 @@ window.ban_article = function ban_article() {
 		}
 	});
 };
-
 window.ban_template = function ban_template() {
 	Wikiplus.kotori.redirectTo('Template:Void', Wikiplus.kotori.pageName, {
 		success: function success() {
@@ -50,7 +48,6 @@ window.ban_template = function ban_template() {
 		}
 	});
 };
-
 $(function () {
 	if (mw.config.get('wgNamespaceNumber') === 0) {
 		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_article();', '禁用此页面');
