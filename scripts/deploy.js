@@ -158,6 +158,26 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Wordcount.js'
 	},
 	{
+		file: 'src/HotCat/HotCat.js',
+		target: 'MediaWiki:Gadget-HotCat.js'
+	},
+	{
+		file: 'src/HotCat/Hotcatcheck.js',
+		target: 'MediaWiki:Gadget-Hotcatcheck.js'
+	},
+	{
+		file: 'src/HotCat/HotCat-zh-hans.js',
+		target: 'MediaWiki:Gadget-HotCat-zh-hans.js'
+	},
+	{
+		file: 'src/HotCat/HotCat-zh-hant.js',
+		target: 'MediaWiki:Gadget-HotCat-zh-hant.js'
+	},
+	{
+		file: 'src/HotCat/HotCat-local-defaults.js',
+		target: 'MediaWiki:Gadget-HotCat-local-defaults.js'
+	},
+	{
 		file: 'src/Cat-a-lot/Cat-a-lot.css',
 		target: 'MediaWiki:Gadget-Cat-a-lot.css'
 	},

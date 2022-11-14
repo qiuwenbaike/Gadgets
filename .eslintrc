@@ -32,6 +32,8 @@
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
+		"src/HotCat/HotCat.js",
+		"src/HotCat/Hotcatcheck.js",
 		"src/EasyArchive/EasyArchive-main.js",
 		"src/Popups/Popups-main.js"
 	],
