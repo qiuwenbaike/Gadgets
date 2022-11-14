@@ -154,6 +154,14 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js'
 	},
 	{
+		file: 'src/Edittools-vector/Edittools-vector.js',
+		target: 'MediaWiki:Gadget-Edittools-vector.js'
+	},
+	{
+		file: 'src/Edittools-vplus/Edittools-vplus.js',
+		target: 'MediaWiki:Gadget-Edittools-vplus.js'
+	},
+	{
 		file: 'src/Wordcount/Wordcount.js',
 		target: 'MediaWiki:Gadget-Wordcount.js'
 	},
