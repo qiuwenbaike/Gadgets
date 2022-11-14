@@ -218,8 +218,8 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Edit0.css'
 	},
 	{
-		file: 'src/Edit0/Edit0.js',
-		target: 'MediaWiki:Gadget-Edit0.js'
+		file: 'src/PreviewWithVariant/PreviewWithVariant.js',
+		target: 'MediaWiki:Gadget-PreviewWithVariant.js'
 	},
 	{
 		file: 'src/Banimage/Banimage.js',
