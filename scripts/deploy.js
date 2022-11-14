@@ -222,6 +222,14 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-PreviewWithVariant.js'
 	},
 	{
+		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.css',
+		target: 'MediaWiki:Gadget-PreviewWithVariant2017.css'
+	},
+	{
+		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.js',
+		target: 'MediaWiki:Gadget-PreviewWithVariant2017.js'
+	},
+	{
 		file: 'src/Banimage/Banimage.js',
 		target: 'MediaWiki:Gadget-Banimage.js'
 	},
