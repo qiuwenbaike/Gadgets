@@ -192,6 +192,26 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-RefToolbarLegacy.js'
 	},
 	{
+		file: 'src/RefToolbar/RefToolbarBase.js',
+		target: 'MediaWiki:Gadget-RefToolbarBase.js'
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarMessages.js',
+		target: 'MediaWiki:Gadget-RefToolbarMessages.js',
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarMessages-en.js',
+		target: 'MediaWiki:Gadget-RefToolbarMessages-en.js',
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarMessages-zh-hans.js',
+		target: 'MediaWiki:Gadget-RefToolbarMessages-zh-hans.js',
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarMessages-zh-hant.js',
+		target: 'MediaWiki:Gadget-RefToolbarMessages-zh-hant.js',
+	},
+	{
 		file: 'src/Edittools-vector/Edittools-vector.js',
 		target: 'MediaWiki:Gadget-Edittools-vector.js'
 	},
