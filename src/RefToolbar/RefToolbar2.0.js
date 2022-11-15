@@ -58,14 +58,14 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	};
 	CiteTB.init = function () {
 		/* Main stuff, build the actual toolbar structure
-         * 1. get the template list, make the dropdown list and set up the template dialog boxes
-         * 2. actually build the toolbar:
-         *    * A section for cites
-         *    ** dropdown for the templates (previously defined)
-         *    ** button for named refs with a dialog box
-         *    ** button for errorcheck
-         * 3. add the whole thing to the main toolbar
-        */
+           * 1. get the template list, make the dropdown list and set up the template dialog boxes
+           * 2. actually build the toolbar:
+           *    * A section for cites
+           *    ** dropdown for the templates (previously defined)
+           *    ** button for named refs with a dialog box
+           *    ** button for errorcheck
+           * 3. add the whole thing to the main toolbar
+          */
 
 		if (typeof $('div[rel=cites]')[0] !== 'undefined') {
 			// Mystery IE bug workaround
