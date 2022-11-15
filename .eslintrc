@@ -66,7 +66,7 @@
 		"linebreak-style": ["error", "unix"],
 		"no-array-constructor": "error",
 		"no-bitwise": "error",
-		"no-mixed-operators": "error",
+		"no-mixed-operators": "off",
 		"no-new-object": "error",
 		"no-shadow": ["error", { "allow": ["done"] } ],
 		"no-tabs": ["error", { "allowIndentationTabs": true }],
