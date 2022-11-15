@@ -18,7 +18,6 @@
 'use strict';
 
 // <nowiki>
-
 (function () {
 var DATA = [ {
 	var: 'zh',
