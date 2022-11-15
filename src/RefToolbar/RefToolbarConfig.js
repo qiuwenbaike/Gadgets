@@ -40,7 +40,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-new */
 /* eslint-disable camelcase */
-/* eslint-disable new-cap */
+
 'use strict';
 
 CiteTB.Options = {

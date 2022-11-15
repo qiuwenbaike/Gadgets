@@ -44,7 +44,7 @@ function _unsupportedIterableToArray(o, minLen) {
 }
 // eslint-disable-next-line no-implicit-globals
 function _iterableToArray(iter) {
-	// eslint-disable-next-line no-undef, eqeqeq, no-mixed-operators
+	// eslint-disable-next-line no-undef, eqeqeq
 	if (typeof Symbol !== 'undefined' && iter[Symbol.iterator] != null || iter['@@iterator'] != null) {
 		// eslint-disable-next-line es-x/no-array-from
 		return Array.from(iter);

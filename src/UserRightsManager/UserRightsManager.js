@@ -118,7 +118,7 @@ function showDialog() {
 			if (logs.length === 0) {
 				rightLogText.text('没有任何日志');
 			} else {
-				// eslint-disable-next-line new-cap
+
 				var timestamp = new Morebits.date(logs[0].timestamp).calendar();
 				var rights = logs[0].params.newgroups.join('、') || '（无）';
 				rightLogText.text(timestamp + ' ' + logs[0].user + '将用户组改为' + rights);
