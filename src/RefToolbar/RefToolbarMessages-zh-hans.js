@@ -16,7 +16,8 @@ mw.usability.addMessages({
 	'cite-named-refs-label': '同名文献',
 	'cite-named-refs-title': '插入同名文献',
 	'cite-named-refs-button': '已命名参考文献',
-	'cite-named-refs-dropdown': '同名文献', // Used on the top of the named refs list dropsown
+	'cite-named-refs-dropdown': '同名文献',
+	// Used on the top of the named refs list dropsown
 	'cite-errorcheck-label': '错误检查',
 	'cite-errorcheck-button': '检查错误',
 	'cite-dialog-base': '引用',
@@ -41,12 +42,18 @@ mw.usability.addMessages({
 	'cite-error-repeated-msg': '给多个参考文献命名: "$1"',
 	'cite-error-templates-msg': '没有使用模板: $1',
 	'cite-form-reset': '重设表单',
-	'cite-loading': '载入数据', // Shown while pagetext is being downloaded from the API
-	'cite-insert-date': '插入当前日期', // Alt/title text for "insert date" icon
-	'cite-err-report-heading': '引用错误报告', // Heading for error report table
-	'cite-err-report-close': '关闭', // Alt/title text for "close" icon on error report
-	'cite-err-report-empty': '未找到错误', // Message displayed in the error report list if there are no errors
-	'cite-autofill-alt': '自动填充', // Alt text for autofill button image
+	'cite-loading': '载入数据',
+	// Shown while pagetext is being downloaded from the API
+	'cite-insert-date': '插入当前日期',
+	// Alt/title text for "insert date" icon
+	'cite-err-report-heading': '引用错误报告',
+	// Heading for error report table
+	'cite-err-report-close': '关闭',
+	// Alt/title text for "close" icon on error report
+	'cite-err-report-empty': '未找到错误',
+	// Message displayed in the error report list if there are no errors
+	'cite-autofill-alt': '自动填充',
+	// Alt text for autofill button image
 	'cite-dialog-web': '网页引用',
 	'cite-dialog-news': '新闻引用',
 	'cite-dialog-book': '书籍引用',
