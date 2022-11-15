@@ -170,16 +170,7 @@ function lastNameToRefname() {
 }
 function setAccessDateToday() {
 	document.getElementById('access-date').value = getTime();
-	/*  var fields = document.getElementById('citediv'+numforms).getElementsByTagName('input');
-        for (var i=0; i<fields.length; i++) {
-          if(fields[i].id === 'accessdate') {
-            fields[i].value = getTime();
-            return;
-          }
-        }
-      */
 }
-
 function getLastName(authornum) {
 	if (/\S/.test(document.getElementById('last' + authornum).value)) {
 		return document.getElementById('last' + authornum).value;
@@ -712,12 +703,7 @@ function makeBookCitationCode(callback) {
 			authorcite = '|last' + i + '=' + last + '|first' + i + '=' + first + authorcite;
 			prevauthor = 1;
 		}
-		/* else if (/\S/.test(author)) {
-              authorcite = '|author' + i + '=' + author + authorcite;
-              prevauthor = 1;
-            } */
 	}
-
 	cite += authorcite;
 	var simplefields = [ 'editor', 'others', 'title', 'url', 'access-date', 'edition', 'series', 'volume', 'date', 'publisher', 'location', 'language', 'isbn', 'pages', 'chapter' ];
 	for (var i = 0; i < simplefields.length; i++) {
@@ -951,10 +937,6 @@ function pullJs() {
 		}
 		var baseurl = refTagURL + 'googlebooksjs.py';
 		var url = baseurl + '?book_url=' + book_url_enc + '&callback=setFormValues';
-		/* var script = document.createElement("script");
-            script.setAttribute("src",url);
-            script.setAttribute("type","text/javascript");
-            document.body.appendChild(script); */
 		JsonRequest(url);
 	} else {
 		alert('No URL.');
@@ -970,10 +952,6 @@ function pullISBN() {
 		}
 		var baseurl = refTagURL + 'getdiberri.py';
 		var url = baseurl + '?isbn=' + isbn + '&callback=useDiberriData';
-		/* var script = document.createElement("script");
-            script.setAttribute("src",url);
-            script.setAttribute("type","text/javascript");
-            document.body.appendChild(script); */
 		JsonRequest(url);
 	} else {
 		alert('No ISBN.');
@@ -995,18 +973,7 @@ function pullDOI() {
 }
 function pullPMID() {
 	alert('Not implemented yet...');
-	/* var doi = document.getElementById('doi').value;
-        	if (doi) {
-      	document.getElementById('progress').style.visibility = "visible";
-      	if(!refTagURL) {refTagURL = defaultRefTagURL;}
-      	var baseurl = refTagURL + 'doifetchjs.py';
-      	var url = baseurl + '?doi=' + encodeURIComponent(doi) + '&callback=useDoiData';
-      	JsonRequest(url);
-      }else{
-      	alert('No DOI.');
-      } */
 }
-
 function pullURL() {
 	var url = document.getElementById('url').value;
 	if (url) {
@@ -1169,27 +1136,6 @@ function useUrlData(data) {
 	if (data.date) {
 		document.getElementById('date').value = formatDate(data.date, getDateFormat());
 	}
-	/* if (data.author) {
-      	var authors = data.author.replace(/ [Aa]nd /, ', ');
-      	var match = /(.+),\s*(.+)/.exec(authors);
-      	var firstauthor = '';
-      	if (match) {
-      		firstauthor = match[1];
-      		var coauthors = match[2];
-      		document.getElementById('coauthors').value = coauthors;
-      	}
-      	else {
-      		firstauthor = data.author;
-      	}
-      	var match = /(.+)\s+(.+)/.exec(firstauthor);
-      	if (match) {
-      		document.getElementById('first').value = match[1];
-      		document.getElementById('last').value = match[2];
-      	}
-      	else {
-      		document.getElementById('last').value = author;
-      	}
-      } */
 	if (data.authors) {
 		var coauthors = [];
 		for (var i = 0; i < data.authors.length; i++) {
