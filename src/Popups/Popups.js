@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -8,6 +6,8 @@
  * @source https://zh.wikipedia.org/w/index.php?title=MediaWiki:Gadget-popups.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+'use strict';
+
 (function ($, mw) {
 // The following translated strings is based on https://en.wikipedia.org/w/index.php?title=User:Lupin/strings-draft&oldid=579996170
 // This can help sysops to manage this Gadget, so please update this every fetch from [[en:User:Lupin/strings-draft]]
