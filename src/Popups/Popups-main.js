@@ -2630,8 +2630,8 @@ $(function () {
 			this.anchor = '';
 			return;
 		}
-		this.value = value.slice(0, Math.max(0, anch)).split('_').join(' ');
-		this.anchor = value.slice(Math.max(0, anch + 1));
+		this.value = value.substring(0, anch).split('_').join(' ');
+		this.anchor = value.substring(anch + 1);
 		this.ns = null; // wait until namespace() is called
 	};
 
