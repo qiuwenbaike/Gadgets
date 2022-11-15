@@ -176,6 +176,22 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js'
 	},
 	{
+		file: 'src/RefToolbar/RefToolbar.js',
+		target: 'MediaWiki:Gadget-RefToolbar.js'
+	},
+	{
+		file: 'src/RefToolbar/RefToolbar2.0.js',
+		target: 'MediaWiki:Gadget-RefToolbar2.0.js'
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarConfig.js',
+		target: 'MediaWiki:Gadget-RefToolbarConfig.js'
+	},
+	{
+		file: 'src/RefToolbar/RefToolbarLegacy.js',
+		target: 'MediaWiki:Gadget-RefToolbarLegacy.js'
+	},
+	{
 		file: 'src/Edittools-vector/Edittools-vector.js',
 		target: 'MediaWiki:Gadget-Edittools-vector.js'
 	},
