@@ -3,12 +3,9 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Banimage.js
+ * @author Jinzhe Zeng
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.Wikiplus
- */
-/**
- * @author Jinzhe Zeng
- * @global Wikiplus
  */
 /* global Wikiplus */
 /* eslint-disable camelcase */
