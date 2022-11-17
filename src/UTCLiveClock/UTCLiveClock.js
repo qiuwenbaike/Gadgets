@@ -7,10 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  * @dependency ext.gadget.SiteCommonJs, ext.gadget.morebits, mediawiki.api, oojs-ui
  */
-/**
- * 部分内容取自
- * CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>
- */
+'use strict';
+
 /**
  * Warning! Global gadget file!
  *
@@ -46,56 +44,50 @@
  * the desired timezone. For example, adding the following to your common.js
  *      window.LiveClockTimeZone = 'America/Los_Angeles';
  * would result in the local time in Los Angeles being shown. See
- * [[:w:List of tz database time zones]] for valid options (use the TZ database name).
+ * TZ database for valid options.
  */
 
-/*global mw, $ */
-mw.loader.using( ['mediawiki.util', 'mediawiki.api'] ).then( function () {
-
-	function padWithZeroes( num ) {
+mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
+	function padWithZeroes(num) {
 		// Pad a number with zeroes. The number must be an integer where
 		// 0 <= num < 100.
 		return num < 10 ? '0' + num.toString() : num.toString();
 	}
-
-	function showTime( $target ) {
+	function showTime($target) {
 		var now = new Date();
-
 		var timezone = window.LiveClockTimeZone || 'Asia/Shanghai';
 
 		// Set the time.
 		var hh, mm, ss;
-		if ( timezone === "UTC" ) {
+		if (timezone === 'UTC') {
 			hh = now.getUTCHours();
 			mm = now.getUTCMinutes();
 			ss = now.getUTCSeconds();
-		} else if ( timezone === "local" ) {
+		} else if (timezone === 'local') {
 			hh = now.getHours();
 			mm = now.getMinutes();
 			ss = now.getSeconds();
 		} else {
 			var newNow;
 			try {
-				newNow = new Date(
-					now.toLocaleString(
-						"en-US",
-						{ timeZone: timezone }
-					)
-				);
+				newNow = new Date(now.toLocaleString('en-US', {
+					timeZone: timezone
+				}));
 				hh = newNow.getHours();
 				mm = newNow.getMinutes();
 				ss = newNow.getSeconds();
-			} catch ( err ) {
-				console.log( "LiveClock - error creating Date object with timezone '" + timezone + "': " + err.name);
-				timezone = "UTC";
+			} catch (err) {
+				// eslint-disable-next-line no-console
+				console.log("LiveClock - error creating Date object with timezone '" + timezone + "': " + err.name);
+				timezone = 'UTC';
 				newNow = now;
 				hh = now.getUTCHours();
 				mm = now.getUTCMinutes();
 				ss = now.getUTCSeconds();
 			}
 		}
-		var time = padWithZeroes( hh ) + ':' + padWithZeroes( mm ) + ':' + padWithZeroes( ss );
-		$target.text( time );
+		var time = padWithZeroes(hh) + ':' + padWithZeroes(mm) + ':' + padWithZeroes(ss);
+		$target.text(time);
 
 		// Schedule the next time change.
 		//
@@ -106,47 +98,48 @@ mw.loader.using( ['mediawiki.util', 'mediawiki.api'] ).then( function () {
 		// good. By scheduling 100 ms after the tick, we will always be about 100 ms
 		// late, but we are also very likely to display a new time every second.
 		var ms = now.getUTCMilliseconds();
-		setTimeout( function () {
-			showTime( $target );
-		}, 1100 - ms );
+		setTimeout(function () {
+			showTime($target);
+		}, 1100 - ms);
 	}
-
 	function liveClock() {
 		// Set CSS styles. We do this here instead of on the CSS page because some
 		// wikis load this page directly, without loading the accompanying CSS.
-		mw.util.addCSS( '#utcdate a { font-weight:bolder; font-size:120%; }' );
+		mw.util.addCSS('#utcdate a { font-weight:bolder; font-size:120%; }');
 
 		// Reset whitespace that was set in the peer CSS gadget; this prevents the
 		// effect of the p-personal menu jumping to the left when the JavaScript
 		// loads.
-		$( '.client-js > body.skin-vector #p-personal ul' ).css( 'margin-right', 'initial' );
-		$( '.client-js > body.skin-monobook #p-personal ul' ).css( 'margin-right', 'initial' );
+		$('.client-js > body.skin-vector #p-personal ul').css('margin-right', 'initial');
+		$('.client-js > body.skin-monobook #p-personal ul').css('margin-right', 'initial');
 
 		// Add the portlet link.
-		var node = mw.util.addPortletLink(
-			'p-personal',
-			mw.util.getUrl( null, { action: 'purge' } ),
-			'',
-			'utcdate'
-		);
-		if ( !node ) {
+		var node = mw.util.addPortletLink('p-personal', mw.util.getUrl(null, {
+			action: 'purge'
+		}), '', 'utcdate');
+		if (!node) {
 			return;
 		}
 
 		// Purge the page when the clock is clicked. We have to do this through the
 		// API, as purge URLs now make people click through a confirmation screen.
-		$( node ).on( 'click', function ( e ) {
-			new mw.Api().post( { action: 'purge', titles: mw.config.get( 'wgPageName' ) } ).then( function () {
+		$(node).on('click', function (e) {
+			new mw.Api().post({
+				action: 'purge',
+				titles: mw.config.get('wgPageName')
+			}).then(function () {
 				location.reload();
 			}, function () {
-				mw.notify( 'Purge failed', { type: 'error' } );
-			} );
+				mw.notify('Purge failed', {
+					type: 'error'
+				});
+			});
 			e.preventDefault();
-		} );
+		});
 
 		// Show the clock.
-		showTime( $( node ).find( 'a:first' ) );
+		// eslint-disable-next-line no-jquery/no-sizzle
+		showTime($(node).find('a:first'));
 	}
-
-	$( liveClock );
-	} );
+	$(liveClock);
+});
