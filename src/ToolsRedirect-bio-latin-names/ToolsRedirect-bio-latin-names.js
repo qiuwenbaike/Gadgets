@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect-bio-latin-names.js
  * @source https://zh.wikipedia.org/wiki/Special:Permalink/61193369
- * * @license <https://creativecommons.org/licenses/by-sa/4.0>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 
 'use strict';

@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect-courtesy-and-art-names.js
- * * @license <https://creativecommons.org/licenses/by-sa/4.0>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
 

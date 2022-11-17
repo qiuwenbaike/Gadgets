@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect-opt-bolds.js
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect-opt-bolds.js
- * * @license <https://creativecommons.org/licenses/by-sa/4.0>
+ * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
 
