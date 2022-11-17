@@ -56,7 +56,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		var i = 0;
 		var trs = [];
 		var autofills = [];
-		for (i = 0; i < fields.length; i++) {
+		for (var i = 0; i < fields.length; i++) {
 			var fieldobj = fields[i];
 			var field = fieldobj.field;
 			var labelfield = fieldobj.field;
@@ -158,7 +158,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			}
 		}
 		var needsetup = false;
-		for (g in this.incrementables) {
+		for (var g in this.incrementables) {
 			if (!this.incrementables[g].setup) {
 				needsetup = true;
 				$(document).on('click', '#cite-incr-' + CiteTB.escStr(this.shortform) + '-' + g, CiteTB.incrementFields);
@@ -166,7 +166,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			}
 		}
 		if (needsetup || $.isEmptyObject(this.incrementables)) {
-			for (i = 0; i < autofills.length; i++) {
+			for (var i = 0; i < autofills.length; i++) {
 				$(document).on('click', autofills[i], CiteTB.initAutofill);
 			}
 		}
