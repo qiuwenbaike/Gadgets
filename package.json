@@ -6,7 +6,6 @@
 		"url": "https://git.qiuwen.wiki/qiuwen/Qiuwen-Gadgets"
 	},
 	"scripts": {
-		"test": "grunt test",
 		"eslint": "eslint src/**/*.js",
 		"eslint:fix": "eslint src/**/*.js --fix",
 		"stylelint": "stylelint src/**/*.css",
