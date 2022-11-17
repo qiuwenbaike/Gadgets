@@ -123,6 +123,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-DisambigLinks.css'
 	},
 	{
+		file: 'src/DisambigLinks/ScrollUpButton.css',
+		target: 'MediaWiki:Gadget-ScrollUpButton.css'
+	},
+	{
 		file: 'src/Carousel/Carousel.js',
 		target: 'MediaWiki:Gadget-Carousel.js'
 	},
@@ -136,24 +140,32 @@ const deployTargets = [
 	},
 	/* edit */
 	{
-		file: 'src/Wikiplus/Wikiplus.js',
-		target: 'MediaWiki:Gadget-Wikiplus.js'
-	},
-	{
 		file: 'src/Wikiplus/Wikiplus-load.js',
 		target: 'MediaWiki:Gadget-Wikiplus-load.js'
+	},
+	{
+		file: 'src/Wikiplus/Wikiplus.js',
+		target: 'MediaWiki:Gadget-Wikiplus.js'
 	},
 	{
 		file: 'src/Wikiplus/Wikiplus-highlight.js',
 		target: 'MediaWiki:Gadget-Wikiplus-highlight.js'
 	},
 	{
+		file: 'src/Wikicache/Wikicache-load.js',
+		target: 'MediaWiki:Gadget-Wikicache-load.js'
+	},
+	{
 		file: 'src/Wikicache/Wikicache.js',
 		target: 'MediaWiki:Gadget-Wikicache.js'
 	},
 	{
-		file: 'src/Wikicache/Wikicache-load.js',
-		target: 'MediaWiki:Gadget-Wikicache-load.js'
+		file: 'src/Wikicache/JSON2.js',
+		target: 'MediaWiki:Gadget-JSON2.js'
+	},
+	{
+		file: 'src/Wikicache/jQuery.storage.js',
+		target: 'MediaWiki:Gadget-jQuery.storage.js'
 	},
 	{
 		file: 'src/ToolsRedirect/ToolsRedirect.css',
@@ -224,6 +236,14 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Wordcount.js'
 	},
 	{
+		file: 'src/Cat-a-lot/Cat-a-lot.css',
+		target: 'MediaWiki:Gadget-Cat-a-lot.css'
+	},
+	{
+		file: 'src/Cat-a-lot/Cat-a-lot.js',
+		target: 'MediaWiki:Gadget-Cat-a-lot.js'
+	},
+	{
 		file: 'src/HotCat/HotCat.js',
 		target: 'MediaWiki:Gadget-HotCat.js'
 	},
@@ -244,16 +264,24 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-HotCat-local-defaults.js'
 	},
 	{
-		file: 'src/Cat-a-lot/Cat-a-lot.css',
-		target: 'MediaWiki:Gadget-Cat-a-lot.css'
+		file: 'src/Edit0/Edit0.css',
+		target: 'MediaWiki:Gadget-Edit0.css'
 	},
 	{
-		file: 'src/Wikicache/JSON2.js',
-		target: 'MediaWiki:Gadget-JSON2.js'
+		file: 'src/Edit0/Edit0.js',
+		target: 'MediaWiki:Gadget-Edit0.js'
 	},
 	{
-		file: 'src/Wikicache/jQuery.storage.js',
-		target: 'MediaWiki:Gadget-jQuery.storage.js'
+		file: 'src/PreviewWithVariant/PreviewWithVariant.js',
+		target: 'MediaWiki:Gadget-PreviewWithVariant.js'
+	},
+	{
+		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.css',
+		target: 'MediaWiki:Gadget-PreviewWithVariant2017.css'
+	},
+	{
+		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.js',
+		target: 'MediaWiki:Gadget-PreviewWithVariant2017.js'
 	},
 	{
 		file: 'src/EasyArchive/EasyArchive.js',
@@ -270,22 +298,6 @@ const deployTargets = [
 	{
 		file: 'src/Rollback-summary/Rollback-summary.js',
 		target: 'MediaWiki:Gadget-Rollback-summary.js'
-	},
-	{
-		file: 'src/Edit0/Edit0.css',
-		target: 'MediaWiki:Gadget-Edit0.css'
-	},
-	{
-		file: 'src/PreviewWithVariant/PreviewWithVariant.js',
-		target: 'MediaWiki:Gadget-PreviewWithVariant.js'
-	},
-	{
-		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.css',
-		target: 'MediaWiki:Gadget-PreviewWithVariant2017.css'
-	},
-	{
-		file: 'src/PreviewWithVariant2017/PreviewWithVariant2017.js',
-		target: 'MediaWiki:Gadget-PreviewWithVariant2017.js'
 	},
 	{
 		file: 'src/Banimage/Banimage.js',
@@ -446,6 +458,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Popups-main.js'
 	},
 	{
+		file: 'src/UTCLiveClock/UTCLiveClock.js',
+		target: 'MediaWiki:Gadget-UTCLiveClock.js'
+	},
+	{
 		file: 'src/ConfirmLogout/ConfirmLogout.js',
 		target: 'MediaWiki:Gadget-ConfirmLogout.js'
 	},
@@ -460,6 +476,14 @@ const deployTargets = [
 	{
 		file: 'src/ShortURL/ShortURL.js',
 		target: 'MediaWiki:Gadget-ShortURL.js'
+	},
+	{
+		file: 'src/Fullwidth-search-fix/Fullwidth-search-fix.js',
+		target: 'MediaWiki:Gadget-Fullwidth-search-fix.js'
+	},
+	{
+		file: 'src/Did-you-mean/Did-you-mean.js',
+		target: 'MediaWiki:Gadget-Did-you-mean.js'
 	},
 	/* compatibility */
 	{
