@@ -913,7 +913,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		var tr1 = $('<tr style="width:100%" />');
 		var th1 = $('<th style="width:60%; font-size:110%" />').html(mw.usability.getMsg('cite-err-report-heading'));
 		var th2 = $('<th style="text-align:right; width:40%" />');
-		var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
+		var im = $('<img src="//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png" />');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
 		var ad = $('<a id="cite-err-check-close" />').attr('href', '#');
 		ad.append(im);
