@@ -5,41 +5,18 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Banimage.js
  * @author Jinzhe Zeng
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
- * @dependency ext.gadget.Wikiplus
+ * @dependency ext.gadget.window.Wikiplus
  */
 /* global Wikiplus */
-/* eslint-disable camelcase */
 /* eslint-disable no-script-url */
 'use strict';
 
-$(function () {
-	window.ban_image = function ban_image() {
-		Wikiplus.redirectTo('File:Banned Images.svg', Wikiplus.pageName, {
+mw.loader.using([ 'ext.gadget.Wikiplus' ]).then($(function () {
+	var banPage = function banPage(targetName, currentName) {
+		Wikiplus.kotori.redirectTo(targetName, currentName, {
 			success: function success() {
 				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
-			},
-			fail: function fail(d) {
-				Wikiplus.notice.create.error('错误：' + d.message);
-			}
-		});
-	};
-	window.ban_article = function ban_article() {
-		Wikiplus.redirectTo('Qiuwen:首页', Wikiplus.pageName, {
-			success: function success() {
-				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
-			},
-			fail: function fail(d) {
-				Wikiplus.notice.create.error('错误：' + d.message);
-			}
-		});
-	};
-	window.ban_template = function ban_template() {
-		Wikiplus.redirectTo('Template:Void', Wikiplus.pageName, {
-			success: function success() {
-				Wikiplus.notice.create.success('创建重定向成功！');
-				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, currentName);
 			},
 			fail: function fail(d) {
 				Wikiplus.notice.create.error('错误：' + d.message);
@@ -47,12 +24,15 @@ $(function () {
 		});
 	};
 	if (mw.config.get('wgNamespaceNumber') === 0) {
-		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_article();', '禁用此页面');
+		window.banImage = banPage('File:Banned Images.svg', Wikiplus.kotori.pageName);
+		mw.util.addPortletLink('p-cactions', 'javascript:window.banArticle();', '禁用此页面');
 	}
 	if (mw.config.get('wgNamespaceNumber') === 6) {
-		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_image();', '禁用此图片');
+		window.banArticle = banPage('Qiuwen:首页', Wikiplus.kotori.pageName);
+		mw.util.addPortletLink('p-cactions', 'javascript:window.banImage();', '禁用此图片');
 	}
 	if (mw.config.get('wgNamespaceNumber') === 10) {
-		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_template();', '禁用此模板');
+		window.banTemplate = banPage('Template:Void', Wikiplus.kotori.pageName);
+		mw.util.addPortletLink('p-cactions', 'javascript:window.banTemplate();', '禁用此模板');
 	}
 });
