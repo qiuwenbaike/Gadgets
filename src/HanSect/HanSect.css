@@ -16,6 +16,15 @@ body.ns-subject .mw-parser-output > p,
 	text-indent: 2em;
 }
 
+body.ns-subject .mw-parser-output > ul,
+.hantsect > ul,
+.hansect > ul,
+body.ns-subject .mw-parser-output > ol,
+.hantsect > ol,
+.hansect > ol {
+	margin-left: 2em;
+}
+
 /* 段落内如有其他元素，则不再缩进 */
 body.ns-subject .mw-parser-output > p > *,
 .hantsect > p > *,
@@ -26,4 +35,14 @@ body.ns-subject .mw-parser-output > p > *,
 /* 讨论页不缩进 */
 body.ns-talk .mw-parser-output > p {
 	text-indent: 0;
+}
+
+body.ext-discussiontools-replytool-enabled .mw-parser-output > p,
+body.ext-discussiontools-newtopictool-enabled .mw-parser-output > p {
+	text-indent: 0;
+}
+
+/* 可视化编辑界面不缩进 */
+.ve-init-target p {
+	text-indent: 0 !important;
 }
