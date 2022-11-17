@@ -137,7 +137,7 @@
 .mbox-policy,
 .mbox.green {
 	border-left-color: #181;	/* Green */
-	background: #cfc;			/* Light green  */
+	background: #cfc;			/* Light green */
 }
 
 .mbox-guideline,
@@ -233,8 +233,8 @@ body.mediawiki .compact-mbox .mbox-small-left {
 	background: #f8eaba;
 }
 
-.mbox-inside .tmbox.mbox-small {/* "small" tmboxes should not be small when  */
-	line-height: 1.5em;			/* also "nested", so reset styles that are   */
+.mbox-inside .tmbox.mbox-small {/* "small" tmboxes should not be small when */
+	line-height: 1.5em;			/* also "nested", so reset styles that are  */
 	font-size: 100%;			/* set in "mbox-small" above.				*/
 }
 
