@@ -58,7 +58,6 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		var autofills = [];
 		for (i = 0; i < fields.length; i++) {
 			var fieldobj = fields[i];
-			var labelfield;
 			var field = labelfield = fieldobj.field;
 			var ad = false;
 			if (incrsetup && fieldobj.increment_group) {
@@ -85,27 +84,27 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 				labelfield = fieldobj.field.replace('<N>', '');
 			}
 			if ($.inArray(field, CiteTB.getOption('autodate fields')) !== -1) {
-				im = $('<img src="//upload.qiuwenbaike.cn/images/thumb/7/7b/Nuvola_apps_date.svg/20px-Nuvola_apps_date.svg.png" />');
+				im = $('<img />').attr('src', '//upload.qiuwenbaike.cn/images/thumb/7/7b/Nuvola_apps_date.svg/20px-Nuvola_apps_date.svg.png');
 				im.attr('alt', mw.usability.getMsg('cite-insert-date')).attr('title', mw.usability.getMsg('cite-insert-date'));
-				var ad = $('<a>').attr('href', '#');
+				var ad = $('<a />').attr('href', '#');
 				ad.append(im);
 				ad.attr('id', 'cite-date-' + CiteTB.escStr(this.shortform) + '-' + field);
 				$(document).on('click', '#cite-date-' + CiteTB.escStr(this.shortform) + '-' + field, CiteTB.fillAccessdate);
 			}
 			if (fieldobj.autofillid) {
 				var autotype = fieldobj.autofillid;
-				im = $('<img src="//upload.qiuwenbaike.cn/images/thumb/1/17/System-search.svg/20px-System-search.svg.png" />');
+				im = $('<img />').attr('src', '//upload.qiuwenbaike.cn/images/thumb/1/17/System-search.svg/20px-System-search.svg.png');
 				im.attr('alt', mw.usability.getMsg('cite-autofill-alt')).attr('title', mw.usability.getMsg('cite-autofill-alt'));
-				var ad = $('<a>').attr('href', '#');
+				var ad = $('<a />').attr('href', '#');
 				ad.append(im);
 				ad.attr('id', 'cite-auto-' + CiteTB.escStr(this.shortform) + '-' + field + '-' + autotype);
 				autofills.push('#cite-auto-' + CiteTB.escStr(this.shortform) + '-' + field + '-' + autotype);
 			}
 			if (fieldobj.increment_button) {
 				var incrtype = fieldobj.increment_group;
-				im = $('<img src="//upload.qiuwenbaike.cn/images/thumb/b/b9/Nuvola_action_edit_add.svg/20px-Nuvola_action_edit_add.svg.png" />');
+				im = $('<img />').attr('src', '//upload.qiuwenbaike.cn/images/thumb/b/b9/Nuvola_action_edit_add.svg/20px-Nuvola_action_edit_add.svg.png');
 				im.attr('alt', mw.usability.getMsg('cite-increment-alt')).attr('title', mw.usability.getMsg('cite-increment-alt'));
-				var ad = $('<a>').attr('href', '#');
+				var ad = $('<a />').attr('href', '#');
 				ad.append(im);
 				ad.attr('id', 'cite-incr-' + CiteTB.escStr(this.shortform) + '-' + incrtype);
 			}
@@ -117,7 +116,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 					display = CiteTB.fixStr(labelfield);
 				}
 			}
-			var tooltip = fieldobj.tooltip ? $('<abbr>').attr('title', mw.usability.getMsg(fieldobj.tooltip)).html('<sup>?</sup>') : false;
+			var tooltip = fieldobj.tooltip ? $('<abbr />').attr('title', mw.usability.getMsg(fieldobj.tooltip)).html('<sup>?</sup>') : false;
 			var input = '';
 			if (ad) {
 				input = $('<input tabindex="1" style="width:85%" type="text" />');
@@ -133,7 +132,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 				}
 				input.addClass(classname);
 			}
-			var label = $('<label>');
+			var label = $('<label />');
 			label.attr('for', 'cite-' + CiteTB.escStr(this.shortform) + '-' + field).text(display);
 			if (tooltip) {
 				label.append(tooltip);
@@ -142,7 +141,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			if (i % 2 === 1) {
 				style += ' padding-left:1em;';
 			} else {
-				var tr = $('<tr>');
+				var tr = $('<tr />');
 			}
 			var td1 = $('<td class="cite-form-td" />').attr('style', style);
 			td1.append(label);
@@ -195,9 +194,9 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		}
 		main.append(form1).append(form2);
 		var form3 = $('<table style="width:100%; background-color:transparent;padding-top:1em" class="cite-other-fields">');
-		var tr = $('<tr>');
+		var tr = $('<tr />');
 		var td1 = $('<td class="cite-form-td" style="text-align:right; width:20%" />');
-		var label1 = $('<label>');
+		var label1 = $('<label />');
 		label1.attr('for', 'cite-' + CiteTB.escStr(this.shortform) + '-name').text(mw.usability.getMsg('cite-name-label'));
 		td1.append(label1);
 		var td2 = $('<td class="cite-form-td" style="width:30%" />');
@@ -205,7 +204,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		input1.attr('id', 'cite-' + CiteTB.escStr(this.shortform) + '-name');
 		td2.append(input1);
 		var td3 = $('<td class="cite-form-td" style="text-align:right; padding-left:1em; width:20%">');
-		var label2 = $('<label>');
+		var label2 = $('<label />');
 		label2.attr('for', 'cite-' + CiteTB.escStr(this.shortform) + '-group').text(mw.usability.getMsg('cite-group-label'));
 		td3.append(label2);
 		var td4 = $('<td class="cite-form-td" style="width:30%" />');
@@ -215,7 +214,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		tr.append(td1).append(td2).append(td3).append(td4);
 		form3.append(tr);
 		main.append(form3);
-		var extras = $('<div>');
+		var extras = $('<div />');
 		extras.append('<input type="hidden" class="cite-form-status" value="closed" />');
 		var hidden = $('<input type="hidden" class="cite-template" />');
 		hidden.val(this.templatename);
@@ -279,10 +278,10 @@ window.citeErrorCheck = function (obj) {
 		return errors;
 	};
 	this.getRow = function () {
-		var row = $('<li>');
+		var row = $('<li />');
 		var check = $("<input type='checkbox' name='cite-err-test' />");
 		check.attr('value', this.obj.testname);
-		var label = $('<label>').html(mw.usability.getMsg(this.obj.desc));
+		var label = $('<label />').html(mw.usability.getMsg(this.obj.desc));
 		label.attr('for', this.obj.testname);
 		row.append(check).append(' &ndash; ').append(label);
 		return row;

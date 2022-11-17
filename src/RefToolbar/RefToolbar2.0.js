@@ -1,7 +1,3 @@
-/* eslint-disable no-jquery/no-parse-html-literal */
-/* eslint-disable no-redeclare */
-/* eslint-disable no-jquery/no-trim */
-/* eslint-disable block-scoped-var */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -10,16 +6,20 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:RefToolbar.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* jshint smarttabs:true, loopfunc:true, forin:false */
-// TODO: make autodate an option in the CiteTemplate object, not a preference
+/* eslint-disable no-jquery/no-parse-html-literal */
+/* eslint-disable no-redeclare */
+/* eslint-disable no-jquery/no-trim */
+/* eslint-disable block-scoped-var */
+/* eslint-disable no-use-before-define */
 'use strict';
+// TODO: make autodate an option in the CiteTemplate object, not a preference
 
-/* global CiteTB */
 // Global object
 // TODO:
 // * Remove this once the page is moved to a module 'ext.gadget.refToolbarDialogs' depending on 'ext.gadget.refToolbarBase'
 if (typeof CiteTB === 'undefined') {
-	window.CiteTB = {
+	// eslint-disable-next-line no-implicit-globals
+	var CiteTB = {
 		Templates: {},
 		// All templates
 		Options: {},
@@ -35,7 +35,7 @@ if (typeof CiteTB === 'undefined') {
 // Only execute when editing/previewing wikitext pages
 // TODO: Remove tests already done by [[MediaWiki:Gadget-RefToolbar.js]]
 if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.get('wgPageContentModel') === 'wikitext') {
-	mw.util.addCSS('.cite-form-td{height:0!important;padding:.1em!important}');
+	mw.util.addCSS('.cite-form-td { height: 0 !important; padding: 0.1em !important; }');
 
 	// Default options, these mainly exist so the script won't break if a new option is added
 	CiteTB.DefaultOptions = {
@@ -57,6 +57,16 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		return CiteTB.DefaultOptions[opt];
 	};
 	CiteTB.init = function () {
+		/* Main stuff, build the actual toolbar structure
+     * 1. get the template list, make the dropdown list and set up the template dialog boxes
+     * 2. actually build the toolbar:
+     *    * A section for cites
+     *    ** dropdown for the templates (previously defined)
+     *    ** button for named refs with a dialog box
+     *    ** button for errorcheck
+     * 3. add the whole thing to the main toolbar
+    */
+
 		if (typeof $('div[rel=cites]')[0] !== 'undefined') {
 			// Mystery IE bug workaround
 			return;
@@ -195,7 +205,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 				id: 'citetoolbar-errorcheck',
 				resizeme: false,
 				init: function init() {},
-				html: '<div id="cite-namedref-loading"><img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" />&nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
+				html: '<div id="cite-namedref-loading"> <img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
 				dialog: {
 					width: 550,
 					open: function open() {
@@ -221,7 +231,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 				titleMsg: 'cite-named-refs-title',
 				resizeme: false,
 				id: 'citetoolbar-namedrefs',
-				html: '<div id="cite-namedref-loading"><img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" />&nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
+				html: '<div id="cite-namedref-loading"> <img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
 				init: function init() {},
 				dialog: {
 					width: 550,
@@ -258,7 +268,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		if (!CiteTB.getOption('modal')) {
 			// $('#citetoolbar-namedrefs').dialog('option', 'modal', false);
 			// $('#citetoolbar-errorcheck').dialog('option', 'modal', false);
-			mw.util.addCSS('.ui-widget-overlay{display:none !important}');
+			mw.util.addCSS('.ui-widget-overlay { display:none !important; }');
 		}
 		try {
 			$target.wikiEditor('addToToolbar', refsection);
@@ -376,7 +386,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 
 	// Function that actually loads the list from the page text
 	CiteTB.loadRefsInternal = function (text) {
-		// What this does: extract first name/group; extract second name/group; shorttag inner content
+		// What this does:             extract first name/group                                     extract second name/group                                          shorttag   inner content
 		var refsregex = /< *ref(?: +(name|group) *= *(?:"([^"]*?)"|'([^']*?)'|([^ '"/>]*?)) *)? *(?: +(name|group) *= *(?:"([^"]*?)"|'([^']*?)'|([^ '"/>]*?)) *)? *(?:\/ *>|>((?:.|\n)*?)< *\/ *ref *>)/gim;
 		// This should work regardless of the quoting used for names/groups and for linebreaks in the inner content
 		while (true) {
@@ -640,10 +650,12 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		$(this).prev().css('width', '100%');
 		$(this).detach();
 		var elemid = $(this).attr('id');
-		var res = /^cite-incr-(.*?)-(.*)$/.exec(elemid),
-			group = res[2],
-			increments = template.incrementables[group],
-			fields = increments.fields;
+		var res = /^cite-incr-(.*?)-(.*)$/.exec(elemid);
+		var group = res[2];
+		var increments = template.incrementables[group];
+		var fields = increments.fields;
+		// eslint-disable-next-line no-unused-vars
+		var incrval = increments.val + 1;
 		template.incrementables[group].val += 1;
 		var trs = template.makeFormInner(fields, false);
 		trs.reverse();
@@ -704,7 +716,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			datestr = datestr.replace('<monthname>', '');
 		}
 		datestr = datestr.replace('<year>', DT.getUTCFullYear().toString());
-		return datestr.replace(/^[ /\-,.]*(.*?)[ /\-,.]*$/g, '$1'); // Cleanup any dangling spaces or connectors that might result from omitting date/month
+		return datestr.replace(/^[ /-,.]*(.*?)[ /-,.]*$/g, '$1'); // Cleanup any dangling spaces or connectors that might result from omitting date/month
 	};
 
 	// Function called after the ref list is loaded, to actually set the contents of the named ref dialog
@@ -723,27 +735,18 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			stuff.html(mw.usability.getMsg('cite-no-namedrefs'));
 		} else {
 			stuff.html(mw.usability.getMsg('cite-namedrefs-intro'));
-			var select = $('<select>').attr('id', 'cite-namedref-select');
-			select.append($('<option>').attr('value', '').text(mw.usability.getMsg('cite-named-refs-dropdown')));
+			var select = $('<select id="cite-namedref-select">');
+			select.append($('<option value="" />').text(mw.usability.getMsg('cite-named-refs-dropdown')));
 			for (i = 0; i < names.length; i++) {
-				select.append($('<option>').text(names[i].refname));
+				select.append($('<option />').text(names[i].refname));
 			}
 			stuff.after(select);
 			select.before('<br />');
-			var prevlabel = $('<div>').attr({
-				id: 'cite-nref-preview-label',
-				style: 'display:none'
-			}).html(mw.usability.getMsg('cite-raw-preview'));
+			var prevlabel = $('<div id="cite-nref-preview-label" style="display:none;" />').html(mw.usability.getMsg('cite-raw-preview'));
 			select.after(prevlabel);
 			prevlabel.before('<br /><br />');
-			prevlabel.after('<div').attr({
-				id: 'cite-namedref-preview',
-				style: 'padding:0.5em;font-size:110%'
-			});
-			var parselabel = $('<span>').attr({
-				id: 'cite-parsed-label',
-				style: 'display:none'
-			}).html(mw.usability.getMsg('cite-parsed-label'));
+			prevlabel.after('<div id="cite-namedref-preview" style="padding:0.5em; font-size:110%" />');
+			var parselabel = $('<span id="cite-parsed-label" style="display:none;" />').html(mw.usability.getMsg('cite-parsed-label'));
 			$('#cite-namedref-preview').after(parselabel);
 			parselabel.after('<div id="cite-namedref-parsed" style="padding-bottom:0.5em; font-size:110%" />');
 			var link = $('<a href="#" id="cite-nref-parse" style="margin:0 1em 0 1em; display:none; color:darkblue" />');
@@ -881,6 +884,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		// Has double and single quotes
 		s = s.replace(/"/g, '\'');
 		return '"' + s + '"';
+
 	};
 
 	// Fix up strings for output - capitalize first char, replace underscores with spaces
@@ -913,7 +917,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		var tr1 = $('<tr style="width:100%" />');
 		var th1 = $('<th style="width:60%; font-size:110%" />').html(mw.usability.getMsg('cite-err-report-heading'));
 		var th2 = $('<th style="text-align:right; width:40%" />');
-		var im = $('<img src="//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png" />');
+		var im = $('<img />').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
 		var ad = $('<a id="cite-err-check-close" />').attr('href', '#');
 		ad.append(im);
