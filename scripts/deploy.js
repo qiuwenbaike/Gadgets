@@ -301,7 +301,7 @@ const deployTargets = [
 	},
 	{
 		file: 'src/Banimage/BanImage.js',
-		target: 'MediaWiki:Gadget-Banimage.js'
+		target: 'MediaWiki:Gadget-BanImage.js'
 	},
 	{
 		file: 'src/DisamAssist/DisamAssist.css',
