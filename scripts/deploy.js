@@ -305,6 +305,102 @@ const deployTargets = [
 	},
 	/* sysop */
 	{
+		file: 'src/Twinkle/twinkle.js',
+		target: 'MediaWiki:Gadget-Twinkle.js'
+	},
+	{
+		file: 'src/Twinkle/twinkle.css',
+		target: 'MediaWiki:Gadget-Twinkle.css'
+	},
+	{
+		file: 'src/Twinkle/morebits.js',
+		target: 'MediaWiki:Gadget-morebits.js'
+	},
+	{
+		file: 'src/Twinkle/morebits.css',
+		target: 'MediaWiki:Gadget-morebits.css'
+	},
+	{
+		file: 'src/Twinkle/twinkle-pagestyles.css',
+		target: 'MediaWiki:Gadget-Twinkle-pagestyles.css'
+	},
+	{
+		file: 'src/Twinkle/modules/friendlytag.js',
+		target: 'MediaWiki:Gadget-friendlytag.js'
+	},
+	{
+		file: 'src/Twinkle/modules/friendlytalkback.js',
+		target: 'MediaWiki:Gadget-friendlytalkback.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklearv.js',
+		target: 'MediaWiki:Gadget-twinklearv.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklebatchprotect.js',
+		target: 'MediaWiki:Gadget-twinklebatchprotect.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklebatchdelete.js',
+		target: 'MediaWiki:Gadget-twinklebatchdelete.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklebatchundelete.js',
+		target: 'MediaWiki:Gadget-twinklebatchundelete.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleblock.js',
+		target: 'MediaWiki:Gadget-twinkleblock.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleclose.js',
+		target: 'MediaWiki:Gadget-twinkleclose.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleconfig.js',
+		target: 'MediaWiki:Gadget-twinkleconfig.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklecopyvio.js',
+		target: 'MediaWiki:Gadget-twinklecopyvio.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklediff.js',
+		target: 'MediaWiki:Gadget-twinklediff.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklefluff.js',
+		target: 'MediaWiki:Gadget-twinklefluff.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleimage.js',
+		target: 'MediaWiki:Gadget-twinkleimage.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleprotect.js',
+		target: 'MediaWiki:Gadget-twinkleprotect.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklespeedy.js',
+		target: 'MediaWiki:Gadget-twinklespeedy.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklestub.js',
+		target: 'MediaWiki:Gadget-twinklestub.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinkleunlink.js',
+		target: 'MediaWiki:Gadget-twinkleunlink.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklewarn.js',
+		target: 'MediaWiki:Gadget-twinklewarn.js'
+	},
+	{
+		file: 'src/Twinkle/modules/twinklexfd.js',
+		target: 'MediaWiki:Gadget-twinklexfd.js'
+	},
+	{
 		file: 'src/MarkRights/MarkRights.css',
 		target: 'MediaWiki:Gadget-MarkRights.css'
 	},
