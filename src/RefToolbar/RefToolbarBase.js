@@ -126,7 +126,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			}
 			input.attr('id', 'cite-' + CiteTB.escStr(this.shortform) + '-' + field);
 			if (fieldobj.autofillprop) {
-				classname = 'cite-' + CiteTB.escStr(this.shortform) + '-' + fieldobj.autofillprop;
+				var classname = 'cite-' + CiteTB.escStr(this.shortform) + '-' + fieldobj.autofillprop;
 				if (fieldobj.increment_group) {
 					input.addClass('cite-' + CiteTB.escStr(this.shortform) + '-incr-' + fieldobj.increment_group);
 					classname += '-' + this.incrementables[fieldobj.increment_group].val.toString();
