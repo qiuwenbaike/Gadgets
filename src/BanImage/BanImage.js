@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
- * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Banimage.js
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-BanImage.js
  * @author Jinzhe Zeng
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.window.Wikiplus
