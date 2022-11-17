@@ -25,7 +25,6 @@
  */
 
 /* jshint curly:false, unused:true, unused:true, forin:false, smarttabs:true, loopfunc:true, browser:true */
-
 (function ($, mw) {
 'use strict';
 
@@ -397,7 +396,6 @@ catALot = window.catALot = {
 			return text.replace(/\{\{\s*[Ch]eck categories\s*(\|?.*?)\}\}/, '');
 		}
 		return text;
-
 	},
 	editCategories: function editCategories(result, file, targetcat, mode) {
 		var otext, starttimestamp, timestamp;
@@ -584,7 +582,6 @@ catALot = window.catALot = {
 			} else if (params.title) {
 				this.connectionError.push(params.title);
 				this.updateCounter();
-
 			}
 		};
 		var doCall = function doCall() {
