@@ -29,6 +29,7 @@
 	"ignorePatterns": [
 		"dist/",
 		"scripts/",
+		"*.json",
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
