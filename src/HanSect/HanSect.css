@@ -31,18 +31,3 @@ body.ns-subject .mw-parser-output > p > *,
 .hansect > p > * {
 	text-indent: 0;
 }
-
-/* 讨论页不缩进 */
-body.ns-talk .mw-parser-output > p {
-	text-indent: 0;
-}
-
-body.ext-discussiontools-replytool-enabled .mw-parser-output > p,
-body.ext-discussiontools-newtopictool-enabled .mw-parser-output > p {
-	text-indent: 0;
-}
-
-/* 可视化编辑界面不缩进 */
-.ve-init-target p {
-	text-indent: 0 !important;
-}
