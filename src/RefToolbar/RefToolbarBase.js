@@ -58,7 +58,8 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 		var autofills = [];
 		for (i = 0; i < fields.length; i++) {
 			var fieldobj = fields[i];
-			var field = labelfield = fieldobj.field;
+			var field = fieldobj.field;
+			var labelfield = fieldobj.field;
 			var ad = false;
 			if (incrsetup && fieldobj.increment_group) {
 				field = fieldobj.field.replace('<N>', '1');
