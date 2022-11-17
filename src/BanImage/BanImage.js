@@ -5,7 +5,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-BanImage.js
  * @author Jinzhe Zeng
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
- * @dependency ext.gadget.window.Wikiplus
+ * @dependency ext.gadget.Wikiplus
  */
 /* global Wikiplus */
 /* eslint-disable no-script-url */
