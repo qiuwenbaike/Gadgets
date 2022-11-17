@@ -47,10 +47,10 @@
 }
 
 /* Cell sizes for tmbox/fmbox message boxes */
-.mbox-text {                 /* The message body cell(s) */
+.mbox-text {				 /* The message body cell(s) */
 	border: 0;
 	padding: 0.25em 0.9em;		/* 0.9em left/right */
-	width: 95%;				    /* Make all mboxes the same width regardless of text length */
+	width: 95%;					/* Make all mboxes the same width regardless of text length */
 	flex: 1 1 95%;
 }
 

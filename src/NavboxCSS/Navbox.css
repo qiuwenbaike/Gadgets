@@ -28,7 +28,7 @@
 .navbox-wrapper + .navbox-wrapper > .navbox,
 .navbox-wrapper + .navbox-wrapper > .content-table > .navbox,
 .navbox + .navbox {  /* Single pixel border between adjacent navboxes */
-	margin-top: calc( -1px - 1em );          /* (doesn't work for IE6, but that's okay)      */
+	margin-top: calc( -1px - 1em );		  /* (doesn't work for IE6, but that's okay)	  */
 	/* 优先级低于 .navbox-list.navbox 的 margin:0 */
 }
 
@@ -244,7 +244,7 @@
 .navbox td.hlist dl,
 .navbox td.hlist ol,
 .navbox td.hlist ul {
-	padding: 0.125em 0;       /* Adjust hlist padding in navboxes */
+	padding: 0.125em 0;	   /* Adjust hlist padding in navboxes */
 }
 
 .navbox .hlist dd,
@@ -258,7 +258,7 @@
 .navbox .hlist dt dl,
 .navbox .hlist li ol,
 .navbox .hlist li ul {
-	white-space: normal;      /* But allow parent list items to be wrapped */
+	white-space: normal;	  /* But allow parent list items to be wrapped */
 }
 
 .navbox .hlist ul ul {

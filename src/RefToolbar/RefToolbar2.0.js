@@ -376,7 +376,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 
 	// Function that actually loads the list from the page text
 	CiteTB.loadRefsInternal = function (text) {
-		// What this does:             extract first name/group                                     extract second name/group                                          shorttag   inner content
+		// What this does:			 extract first name/group									 extract second name/group										  shorttag   inner content
 		var refsregex = /< *ref(?: +(name|group) *= *(?:"([^"]*?)"|'([^']*?)'|([^ '"/>]*?)) *)? *(?: +(name|group) *= *(?:"([^"]*?)"|'([^']*?)'|([^ '"/>]*?)) *)? *(?:\/ *>|>((?:.|\n)*?)< *\/ *ref *>)/gim;
 		// This should work regardless of the quoting used for names/groups and for linebreaks in the inner content
 		while (true) {

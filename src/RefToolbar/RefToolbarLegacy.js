@@ -82,11 +82,11 @@ function refbuttons() {
 			citeselect.id = 'citeselect';
 			citeselect.style.display = 'none';
 			citeselect.innerHTML = '<input type="button" value="Web" onclick="citeWeb()" /><input type="button" value="News" onclick="citeNews()" /><input type="button" value="Book" onclick="citeBook()" /><input type="button" value="Journal" onclick="citeJournal()" /><input type="button" value="Named references" onclick="citeNamedRef()" /><input type="button" value="Error check" onclick="dispErrors()" /><input type="button" value="More" onclick="showMore()" /><input type="button" value="Cancel" onclick="hideInitial()" /><div id="citemore" style="display:none">\
-      <input type="button" value="Encyclopedia" onclick="citeEncyclopedia()" />\
-      <input type="button" value="Press release" onclick="citePressRelease()" />\
-      <input type="button" value="Map" onclick="citeMap()" />\
-      <input type="button" value="Ref Section" onclick="showRefSectionOptions()" />\
-      </div>';
+	  <input type="button" value="Encyclopedia" onclick="citeEncyclopedia()" />\
+	  <input type="button" value="Press release" onclick="citePressRelease()" />\
+	  <input type="button" value="Map" onclick="citeMap()" />\
+	  <input type="button" value="Ref Section" onclick="showRefSectionOptions()" />\
+	  </div>';
 			document.getElementById('editform').insertBefore(citeselect, document.getElementById('editform').firstChild);
 		}
 		var reftoolformarea = document.createElement('span');
@@ -357,7 +357,7 @@ function showRefSectionOptions() {
 	<input id="type-references" name="type" type="radio" tabindex=1><label for="type-references">&lt;references/&gt;</label><br /> \
 	<input id="type-reflist" name="type" type="radio" tabindex=1 checked="checked"><label for="type-reflist">{{Reflist}}</label><br /> \
 	<input type="checkbox" tabindex=1 id="ldr"><label for="ldr">List-defined references</label> (<a href="//en.wikipedia.org/wiki/Wikipedia:Footnotes#List-defined_references" target="_blank">Info 1</a>, <a href="//en.wikipedia.org/wiki/Help:Footnotes#List-defined_references" target="_blank">Info 2</a>)<br />\
-    <input type="button" value="Add references section" onClick="addRefSection()"></fieldset></div>';
+	<input type="button" value="Add references section" onClick="addRefSection()"></fieldset></div>';
 	document.getElementById('refToolFormArea').innerHTML = form;
 }
 function makeCiteCode() {

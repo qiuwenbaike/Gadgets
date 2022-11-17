@@ -14,14 +14,14 @@
  *
  * Usage:
  *   set: $.storage( foo, bar )
- *        or $.storage( { foo1 : bar1, foo2 : bar2, ... } )
+ *  	or $.storage( { foo1 : bar1, foo2 : bar2, ... } )
  *
  *   get: $.storage( foo )
  *
  *   remove: $.storage( foo, null )
  *
  *   get keys index: $.storageIndex( foo )
- *                   or all: $.storageIndex()
+ *  			   or all: $.storageIndex()
  *
  *   used space: $.storageUsedSpace()
  *

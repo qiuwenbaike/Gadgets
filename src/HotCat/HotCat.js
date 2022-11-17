@@ -35,11 +35,11 @@
 	// Don't use mw.config.get() as that takes a copy of the config, and so doesn't
 	// account for values changing, e.g. wgCurRevisionId after a VE edit
 	var
-        conf = $.extend( {}, mw.config.values, {
-            // when running on mobile domain - do not use wgServer.
-            wgServer: window.location.host.indexOf('.m.') > -1 ?
-                '//' + window.location.host : mw.config.get( 'wgServer' )
-        } );
+		conf = $.extend( {}, mw.config.values, {
+			// when running on mobile domain - do not use wgServer.
+			wgServer: window.location.host.indexOf('.m.') > -1 ?
+				'//' + window.location.host : mw.config.get( 'wgServer' )
+		} );
 
 	// Guard against double inclusions (in old IE/Opera element ids become window properties)
 	if ( ( window.HotCat && !window.HotCat.nodeName ) ||
@@ -1524,7 +1524,7 @@
 				//   either all suppressed (FF/Gecko), or otherwise have keyDown === IME for all keys (Webkit).
 				//   - Webkit sends a textInput followed by keyDown === IME and a keyUp with the key that ended composition.
 				//   - Gecko doesn't send textInput but just a keyUp with the key that ended composition, without sending keyDown
-				//     first. Gecko doesn't send any keydown while IME is active.
+				//	 first. Gecko doesn't send any keydown while IME is active.
 				// - Older browsers signal composition by keyDown === IME for the first and subsequent keys for a composition. The
 				//   first keyDown !== IME is certainly after the end of the composition. Typically, composition end can also be
 				//   detected by a keyDown IME with a keyUp of space, tab, escape, or return.

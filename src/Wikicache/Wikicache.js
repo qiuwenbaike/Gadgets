@@ -34,9 +34,9 @@ window.wikiCache = {
 		'no-permission-more-link': 'Help:WikiCache/浏览器配置',
 		'pendding-delete': '确认提交',
 		'pendding-delete-message': '由于您启用了网络访问受阻模式，请确认内容是否提交成功。<ul>\
-            <li>点击“<b>删除</b>”删除先前的自动保存结果；</li>\
-            <li>点击“<b>载入</b>”将转向上次编辑时的页面，并自动载入已保存内容；</li>\
-            <li>点击“<b>忽略</b>”会关闭本窗口，下次打开本页面时不再提醒，但不会删除先前的自动保存结果。</li></ul>',
+			<li>点击“<b>删除</b>”删除先前的自动保存结果；</li>\
+			<li>点击“<b>载入</b>”将转向上次编辑时的页面，并自动载入已保存内容；</li>\
+			<li>点击“<b>忽略</b>”会关闭本窗口，下次打开本页面时不再提醒，但不会删除先前的自动保存结果。</li></ul>',
 		'notice-init': '自动保存已启用。',
 		'notice-more': '配置',
 		'notice-load': '载入上次存档',
@@ -58,37 +58,37 @@ window.wikiCache = {
 		'gfw-mode': false
 	},
 	_style: '\
-            .wikicache-dialog {\
-                font-size: 1em;\
-            }\
-            .wikicache-notice {\
-                position: fixed;\
-                left: 0;\
-                top: 0;\
-                height: 1.6em;\
-                font-size: .8em;\
-                line-height: 1.6em;\
-                white-space: nowrap;\
-                border-bottom: 1px solid #a7d7f9;\
-                border-right: 1px solid #a7d7f9;\
-                display: none;\
-            }\
-            .wikicache-notice .ui-dialog-titlebar-close {\
-                float: right;\
-                display: inline-block;\
-            }\
-            .wikicache-dialog a, .wikicache-notice a {\
-                color: #0645AD;\
-            }\
-            .wikicache-dialog a:visited, .wikicache-notice a:visited {\
-                color: #0B0080;\
-            }\
-            .wikicache-error-message {\
-                background: url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_%28Red%29.svg/48px-Cross_Mark_%28Red%29.svg.png") no-repeat left center;\
-                padding-left: 60px;\
-                min-height: 48px;\
-            }\
-        ',
+			.wikicache-dialog {\
+				font-size: 1em;\
+			}\
+			.wikicache-notice {\
+				position: fixed;\
+				left: 0;\
+				top: 0;\
+				height: 1.6em;\
+				font-size: .8em;\
+				line-height: 1.6em;\
+				white-space: nowrap;\
+				border-bottom: 1px solid #a7d7f9;\
+				border-right: 1px solid #a7d7f9;\
+				display: none;\
+			}\
+			.wikicache-notice .ui-dialog-titlebar-close {\
+				float: right;\
+				display: inline-block;\
+			}\
+			.wikicache-dialog a, .wikicache-notice a {\
+				color: #0645AD;\
+			}\
+			.wikicache-dialog a:visited, .wikicache-notice a:visited {\
+				color: #0B0080;\
+			}\
+			.wikicache-error-message {\
+				background: url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_%28Red%29.svg/48px-Cross_Mark_%28Red%29.svg.png") no-repeat left center;\
+				padding-left: 60px;\
+				min-height: 48px;\
+			}\
+		',
 	_autoSaveArea: {
 		'#wpTextbox1': function wpTextbox1(el, val) {
 			if (val) {

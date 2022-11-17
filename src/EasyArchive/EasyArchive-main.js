@@ -36,9 +36,9 @@ if (!window.bluedeck.easy_archive) {
 		var version_delim = '.';
 
 		var version =
-            x.toString(10) + version_delim +
-            y.toString(10) + version_delim +
-            z.toString(10) + (more ? version_delim + more.toString(10) : '');
+			x.toString(10) + version_delim +
+			y.toString(10) + version_delim +
+			z.toString(10) + (more ? version_delim + more.toString(10) : '');
 
 		var iteration = status + build.toString(10);
 
@@ -168,7 +168,7 @@ if (!window.bluedeck.easy_archive) {
 			Pare_str.prototype.new = function (new_key, new_value) // will not check for existance
 			{
 				if (new_key.indexOf(this.left) !== -1 || new_key.indexOf(this.right) !== -1 || new_key.indexOf(this.delim) !== -1 ||
-                    new_value.indexOf(this.left) !== -1 || new_value.indexOf(this.right) !== -1) {
+					new_value.indexOf(this.left) !== -1 || new_value.indexOf(this.right) !== -1) {
 					throw new Error("Pare_str: Illegal key or value. Key mustn't have any bound or delimiter, value mustn't have any bound.");
 				}
 
@@ -409,14 +409,14 @@ if (!window.bluedeck.easy_archive) {
 
 		// default settings:
 		easy.settings_string =
-            '#set%|?                                     \n' +
-            'display section delete link   %sec-del|1?   \n' +
-            'display section archive line  %sec-arc|1?   \n' +
-            'display control bar at top    %top-bar|0?   \n' +
-            'archive location              %arc-loc|?    \n' +
-            'subsection effectiveness      %sub-sec|2?   \n' +
-            'confirm action                %confirm|0?   \n' +
-            'is this data initialized      %data-init|0? \n';
+			'#set%|?									 \n' +
+			'display section delete link   %sec-del|1?   \n' +
+			'display section archive line  %sec-arc|1?   \n' +
+			'display control bar at top	%top-bar|0?   \n' +
+			'archive location			  %arc-loc|?	\n' +
+			'subsection effectiveness	  %sub-sec|2?   \n' +
+			'confirm action				%confirm|0?   \n' +
+			'is this data initialized	  %data-init|0? \n';
 		easy.settings = new Pare_str(easy.settings_string);
 		easy.my_user_talk = null;
 
@@ -592,19 +592,19 @@ if (!window.bluedeck.easy_archive) {
 				var processed_lang_code_short = processed_lang_code.slice(0, 2);
 
 				var best_match =
-                    accepted_languages_dict[raw_lang_code] ||
-                    accepted_languages_dict[processed_lang_code] ||
-                    accepted_languages_dict[processed_lang_code_short] ||
-                    null;
+					accepted_languages_dict[raw_lang_code] ||
+					accepted_languages_dict[processed_lang_code] ||
+					accepted_languages_dict[processed_lang_code_short] ||
+					null;
 
 				if (all_acceptable_codes === null || typeof all_acceptable_codes !== 'object' || !all_acceptable_codes instanceof Array || all_acceptable_codes.length === 0 || all_acceptable_codes.indexOf(best_match) !== -1) {
 					return best_match;
 				}
 
 				// assert all_acceptable_codes:
-				//     instanceof Array
-				//     does not contain best match
-				//     has at least 1 entry
+				//	 instanceof Array
+				//	 does not contain best match
+				//	 has at least 1 entry
 				var current_group = group_world.group_of(best_match);
 
 				if (current_group === null) {
@@ -1332,15 +1332,15 @@ if (!window.bluedeck.easy_archive) {
 
 				ding_ele.insertAdjacentHTML('beforeend',
 					'<div ' +
-                    retractant +
-                    "style='" +
-                    'position:fixed; top:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' +
-                    'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' +
-                    'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' +
-                    'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " +
-                    '>' +
-                    message +
-                    '</div>'
+					retractant +
+					"style='" +
+					'position:fixed; top:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' +
+					'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' +
+					'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' +
+					'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " +
+					'>' +
+					message +
+					'</div>'
 				);
 
 				var notice_ele = ding_ele.lastChild;
@@ -1428,8 +1428,8 @@ if (!window.bluedeck.easy_archive) {
 
 						if (
 							(ele.parentNode.tagName.toLowerCase() === 'h2') &&
-                            (ele.parentNode.id !== 'firstHeading') &&
-                            decodeURIComponent(ele.childNodes[child_node_number].href.split(/[?&]title=/)[1].split('&')[0]) === mw.config.values.wgPageName
+							(ele.parentNode.id !== 'firstHeading') &&
+							decodeURIComponent(ele.childNodes[child_node_number].href.split(/[?&]title=/)[1].split('&')[0]) === mw.config.values.wgPageName
 						) {
 
 							actual = parseInt(ele.childNodes[child_node_number].href.split(/[&?]section=/)[1].split('&')[0]);
@@ -1437,9 +1437,9 @@ if (!window.bluedeck.easy_archive) {
 							nominal = i - j + 1;
 
 							section_delete_interface_html = section_delete_interface_inhibit ? '' : pipe_html +
-                                '<a href="javascript:window.bluedeck.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
+								'<a href="javascript:window.bluedeck.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
 							section_archive_interface_html = section_archive_interface_inhibit ? '' : pipe_html +
-                                '<a href="javascript:window.bluedeck.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
+								'<a href="javascript:window.bluedeck.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
 
 							ele.childNodes[child_node_number].insertAdjacentHTML('afterend',
 								section_delete_interface_html + section_archive_interface_html + section_id_span_html.replace('@@', nominal.toString()));
@@ -1452,15 +1452,15 @@ if (!window.bluedeck.easy_archive) {
 
 					footer_info_ele.insertAdjacentHTML(position_of_insertion,
 						'<li>' + ml('supports') + ml('left_par_split') +
-                        //     "<a href='javascript:window.bluedeck.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
-                        //     "<a href='javascript:window.bluedeck.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
-                        //     "<a href='javascript:window.bluedeck.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
-                        //     "<a href='javascript:window.bluedeck.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
-                        //     "<a href='javascript:window.bluedeck.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
-                        "<a href='javascript:window.bluedeck.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' +
-                        ml('right_par') + ml('full_stop_split') + '</li>' +
-                        '<li>' + ml('archive_path_colon_split') + "<a href='/wiki/" + sanitize_html(easy.settings.find('arc-loc')) + "'" + '>' + sanitize_html(easy.settings.find('arc-loc'))
-						//     + "</a>（<a href='javascript:window.bluedeck.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
+						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.bluedeck.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
+						"<a href='javascript:window.bluedeck.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' +
+						ml('right_par') + ml('full_stop_split') + '</li>' +
+						'<li>' + ml('archive_path_colon_split') + "<a href='/wiki/" + sanitize_html(easy.settings.find('arc-loc')) + "'" + '>' + sanitize_html(easy.settings.find('arc-loc'))
+						//	 + "</a>（<a href='javascript:window.bluedeck.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
 					);
 
 				};

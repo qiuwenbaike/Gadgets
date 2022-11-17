@@ -1,9 +1,9 @@
 {
   "extends": [
-    "development"
+	"development"
   ],
   "browserslist": [
-    "defaults",
-    "not ie < 11"
+	"defaults",
+	"not ie < 11"
   ]
 }

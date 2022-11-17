@@ -18,15 +18,15 @@
  *   或者第一行最后一格末尾。
  * - 对于其他元素，
  *   - 如果其子元素有带有 collapsible-always-show 类，那么除了该子元素之外的各个
- *     子元素都会随折叠隐藏，且折叠按钮添加在该子元素末尾。
+ *   子元素都会随折叠隐藏，且折叠按钮添加在该子元素末尾。
  *   - 如果没有子元素带有 collapsible-always-show 类，那么所有子元素都会被折叠，
- *     折叠按钮添加在整个 collapsible 元素的开头，且该按钮不会随折叠隐藏。
+ *   折叠按钮添加在整个 collapsible 元素的开头，且该按钮不会随折叠隐藏。
  *   - 如果子元素带有 collapsible-cascade 类，那么当折叠时，该元素自身不是隐藏，
- *     而是隐藏其所有的子元素，这些子元素同样可以受 collapsible-always-show 和
- *     collapsible-cascade 类的影响。
+ *   而是隐藏其所有的子元素，这些子元素同样可以受 collapsible-always-show 和
+ *   collapsible-cascade 类的影响。
  *   - 注意必须是子元素，直接的文本节点不会随折叠隐藏，例如：
- *       <div class="collapsible">123<span>456</span></div>
- *     折叠时，“456”会随折叠隐藏，但“123”不会。
+ *     <div class="collapsible">123<span>456</span></div>
+ *   折叠时，“456”会随折叠隐藏，但“123”不会。
  * - 如果带有 collapsible-using-slide 类，那么折叠时，使用滑动动画而非淡入淡出的
  *   动画。建议当只有一个元素会被隐藏时，才加此类。
  *   - 带有 collapsible-using-slide 类的元素会自动带有 collapsible 类。
@@ -49,15 +49,15 @@
  *   或者第一行最后一格末尾。
  * - 对于其他元素，
  *   - 如果其子元素有带有 collapsible-always-show 类，那么除了该子元素之外的各个
- *     子元素都会随折叠隐藏，且折叠按钮添加在该子元素末尾。
+ *   子元素都会随折叠隐藏，且折叠按钮添加在该子元素末尾。
  *   - 如果没有子元素带有 collapsible-always-show 类，那么所有子元素都会被折叠，
- *     折叠按钮添加在整个 collapsible 元素的开头，且该按钮不会随折叠隐藏。
+ *   折叠按钮添加在整个 collapsible 元素的开头，且该按钮不会随折叠隐藏。
  *   - 如果子元素带有 collapsible-cascade 类，那么当折叠时，该元素自身不是隐藏，
- *     而是隐藏其所有的子元素，这些子元素同样可以受 collapsible-always-show 和
- *     collapsible-cascade 类的影响。
+ *   而是隐藏其所有的子元素，这些子元素同样可以受 collapsible-always-show 和
+ *   collapsible-cascade 类的影响。
  *   - 注意必须是子元素，直接的文本节点不会随折叠隐藏，例如：
- *       <div class="collapsible">123<span>456</span></div>
- *     折叠时，“456”会随折叠隐藏，但“123”不会。
+ *     <div class="collapsible">123<span>456</span></div>
+ *   折叠时，“456”会随折叠隐藏，但“123”不会。
  * - 如果带有 collapsible-using-slide 类，那么折叠时，使用滑动动画而非淡入淡出的
  *   动画。建议当只有一个元素会被隐藏时，才加此类。
  *   - 带有 collapsible-using-slide 类的元素会自动带有 collapsible 类。

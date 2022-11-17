@@ -31,17 +31,17 @@
  * You must have interface-admin rights to deploy as gadget.
  *
  * ----------------------------------------------------------------------------
- *    Set up:
+ *  Set up:
  * ----------------------------------------------------------------------------
  * 1) Use [[Special:BotPasswords]] to get credentials. Make sure you enable
- *    sufficient permissions.
+ *  sufficient permissions.
  * 2) Create a JSON file to store the username and password. This should be
- *    a plain JSON object with keys "username" and "password", see README
- *    file for an example. Save it here in the "scripts" directory with file
- *    name "credentials.json".
+ *  a plain JSON object with keys "username" and "password", see README
+ *  file for an example. Save it here in the "scripts" directory with file
+ *  name "credentials.json".
  *
  * ---------------------------------------------------------------------------
- *    Pre-deployment checklist:
+ *  Pre-deployment checklist:
  * ---------------------------------------------------------------------------
  * 1) Changes committed and merged to master branch on GitHub repo
  * 2) Currently on master branch, and synced with GitHub repo
@@ -49,12 +49,12 @@
  * When all of the above are done ==> you are ready to proceed with deployment
  *
  * --------------------------------------------------------------------------
- *    Usage:
+ *  Usage:
  * --------------------------------------------------------------------------
  * Ensure the pre-deployment steps above are completed, unless you are only
  * deploying to the testwiki (www.qiuwen.wiki). Then, run this script:
  * In the terminal, enter
- *     node deploy.js
+ *   node deploy.js
  * and supply the requested details.
  * Notes:
  * - The default summary if not specified is "Updated from repository"

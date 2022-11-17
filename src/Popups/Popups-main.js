@@ -27,18 +27,18 @@ function _typeof(obj) {
 
 // STARTFILE: main.js
 // **********************************************************************
-// **                                                                 **
-// **             changes to this file affect many users.             **
-// **           please discuss on the talk page before editing        **
-// **                                                                 **
+// **																   **
+// **			 changes to this file affect many users.			   **
+// **		   please discuss on the talk page before editing		   **
+// **																   **
 // **********************************************************************
-// **                                                                 **
+// **																   **
 // ** if you do edit this file, be sure that your editor recognizes it **
 // ** as utf8, or the weird and wonderful characters in the namespaces **
-// **   below will be completely broken. You can check with the show  **
-// **            changes button before submitting the edit.           **
-// **                      test: مدیا מיוחד Мэдыя                     **
-// **                                                                 **
+// **   below will be completely broken. You can check with the show   **
+// **			changes button before submitting the edit.		       **
+// **					  test: مدیا מיוחד Мэдыя					  **
+// **																   **
 // **********************************************************************
 /* eslint-env browser */
 
@@ -826,8 +826,8 @@ $(function () {
 		var historystr = '<<history|shortcut=h>>';
 		var watchstr = '<<unwatch|unwatchShort>>|<<watch|shortcut=w|watchThingy>>';
 		str += '<br>if(talk){' + editOldidStr + '|<<new|shortcut=+>>' + '*' + historystr + '*' + watchstr + '*' + '<b><<article|shortcut=a>></b>|<<editArticle|edit>>' + '}else{' +
-    // not a talk page
-    editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
+	// not a talk page
+	editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
 
 		// misc links
 		str += '<br><<whatLinksHere|shortcut=l>>*<<relatedChanges|shortcut=r>>';
@@ -1065,10 +1065,10 @@ $(function () {
 
 	/*eslint-disable*/
   function skipToEnd(str, sep) {
-    return {
-      segment: str,
-      remainder: ''
-    };
+	return {
+	  segment: str,
+	  remainder: ''
+	};
   }
   /* eslint-enable */
 
@@ -2839,10 +2839,10 @@ $(function () {
 
 	// Schematic for a getWiki call
 	//
-	//             getPageWithCaching
+	//			 getPageWithCaching
 	// eslint-disable-next-line no-tabs
 	//					|
-	//     false        |         true
+	//	 false		|		 true
 	// getPage<-[findPictureInCache]->-onComplete(a fake download)
 	//   \.
 	//  (async)->addPageToCache(download)->-onComplete(download)
@@ -3941,85 +3941,85 @@ $(function () {
 	/** Test function for debugging preview problems one step at a time. */
 	/*eslint-disable */
   function previewSteps(txt) {
-    try {
-      txt = txt || document.editform.wpTextbox1.value;
-    } catch (err) {
-      if (pg.cache.pages.length > 0) {
-        txt = pg.cache.pages[pg.cache.pages.length - 1].data;
-      } else {
-        alert('provide text or use an edit page');
-      }
-    }
-    txt = txt.substring(0, 10000);
-    var base = pg.wiki.articlebase + Title.fromURL(document.location.href).urlString();
-    var p = new Previewmaker(txt, base, pg.current.link.navpopup);
-    if (this.owner.article.namespaceId() !== pg.nsTemplateId) {
-      p.killComments();
-      if (!confirm('done killComments(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killDivs();
-      if (!confirm('done killDivs(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killGalleries();
-      if (!confirm('done killGalleries(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killBoxTemplates();
-      if (!confirm('done killBoxTemplates(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      if (getValueOf('popupPreviewKillTemplates')) {
-        p.killTemplates();
-        if (!confirm('done killTemplates(). Continue?\n---\n' + p.data)) {
-          return;
-        }
-      } else {
-        p.killMultilineTemplates();
-        if (!confirm('done killMultilineTemplates(). Continue?\n---\n' + p.data)) {
-          return;
-        }
-      }
-      p.killTables();
-      if (!confirm('done killTables(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killImages();
-      if (!confirm('done killImages(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killHTML();
-      if (!confirm('done killHTML(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killChunks();
-      if (!confirm('done killChunks(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.mopup();
-      if (!confirm('done mopup(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.firstBit();
-      if (!confirm('done firstBit(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-      p.killBadWhitespace();
-      if (!confirm('done killBadWhitespace(). Continue?\n---\n' + p.data)) {
-        return;
-      }
-    }
-    p.html = wiki2html(p.data, base); // needs livepreview
-    p.fixHTML();
-    if (!confirm('done fixHTML(). Continue?\n---\n' + p.html)) {
-      return;
-    }
-    p.stripLongTemplates();
-    if (!confirm('done stripLongTemplates(). Continue?\n---\n' + p.html)) {
-      return;
-    }
-    alert('finished preview - end result follows.\n---\n' + p.html);
+	try {
+	  txt = txt || document.editform.wpTextbox1.value;
+	} catch (err) {
+	  if (pg.cache.pages.length > 0) {
+		txt = pg.cache.pages[pg.cache.pages.length - 1].data;
+	  } else {
+		alert('provide text or use an edit page');
+	  }
+	}
+	txt = txt.substring(0, 10000);
+	var base = pg.wiki.articlebase + Title.fromURL(document.location.href).urlString();
+	var p = new Previewmaker(txt, base, pg.current.link.navpopup);
+	if (this.owner.article.namespaceId() !== pg.nsTemplateId) {
+	  p.killComments();
+	  if (!confirm('done killComments(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killDivs();
+	  if (!confirm('done killDivs(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killGalleries();
+	  if (!confirm('done killGalleries(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killBoxTemplates();
+	  if (!confirm('done killBoxTemplates(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  if (getValueOf('popupPreviewKillTemplates')) {
+		p.killTemplates();
+		if (!confirm('done killTemplates(). Continue?\n---\n' + p.data)) {
+		  return;
+		}
+	  } else {
+		p.killMultilineTemplates();
+		if (!confirm('done killMultilineTemplates(). Continue?\n---\n' + p.data)) {
+		  return;
+		}
+	  }
+	  p.killTables();
+	  if (!confirm('done killTables(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killImages();
+	  if (!confirm('done killImages(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killHTML();
+	  if (!confirm('done killHTML(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killChunks();
+	  if (!confirm('done killChunks(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.mopup();
+	  if (!confirm('done mopup(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.firstBit();
+	  if (!confirm('done firstBit(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	  p.killBadWhitespace();
+	  if (!confirm('done killBadWhitespace(). Continue?\n---\n' + p.data)) {
+		return;
+	  }
+	}
+	p.html = wiki2html(p.data, base); // needs livepreview
+	p.fixHTML();
+	if (!confirm('done fixHTML(). Continue?\n---\n' + p.html)) {
+	  return;
+	}
+	p.stripLongTemplates();
+	if (!confirm('done stripLongTemplates(). Continue?\n---\n' + p.html)) {
+	  return;
+	}
+	alert('finished preview - end result follows.\n---\n' + p.html);
   }
   /* eslint-enable */
 	// </NOLITE>
@@ -5792,12 +5792,12 @@ $(function () {
 	// STARTFILE: diff.js
 	// <NOLITE>
 	/*
-     * Javascript Diff Algorithm
-     *  By John Resig (http://ejohn.org/) and Lupin
-     *
-     * More Info:
-     *  http://ejohn.org/projects/javascript-diff-algorithm/
-     */
+	 * Javascript Diff Algorithm
+	 *  By John Resig (http://ejohn.org/) and Lupin
+	 *
+	 * More Info:
+	 *  http://ejohn.org/projects/javascript-diff-algorithm/
+	 */
 
 	function delFmt(x) {
 		if (!x.length) {
@@ -6131,10 +6131,10 @@ $(function () {
 		pg.re.category = RegExp('\\[\\[' + nsRe(pg.nsCategoryId) + ': *([^|\\]]*[^|\\] ]) *', 'i');
 		pg.re.categoryBracketCount = 1;
 		pg.re.ipUser = RegExp('^' +
-    // IPv6
-    '(?::(?::|(?::[0-9A-Fa-f]{1,4}){1,7})|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6}::|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){7})' +
-    // IPv4
-    '|(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}' + '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$');
+	// IPv6
+	'(?::(?::|(?::[0-9A-Fa-f]{1,4}){1,7})|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6}::|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){7})' +
+	// IPv4
+	'|(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}' + '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$');
 		pg.re.stub = RegExp(getValueOf('popupStubRegexp'), 'im');
 		pg.re.disambig = RegExp(getValueOf('popupDabRegexp'), 'im');
 
@@ -6265,8 +6265,8 @@ $(function () {
 		var historystr = '<<history|shortcut=h>>|<<editors|shortcut=E|>>';
 		var watchstr = '<<unwatch|unwatchShort>>|<<watch|shortcut=w|watchThingy>>';
 		str += '<br>if(talk){' + editOldidStr + '|<<new|shortcut=+>>' + '*' + historystr + '*' + watchstr + '*' + '<b><<article|shortcut=a>></b>|<<editArticle|edit>>' + '}else{' +
-    // not a talk page
-    editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
+	// not a talk page
+	editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
 
 		// misc links
 		str += '<br><<whatLinksHere|shortcut=l>>*<<relatedChanges|shortcut=r>>*<<move|shortcut=m>>';
@@ -7861,13 +7861,13 @@ $(function () {
 
 	/*eslint-disable */
   function useDefaultOptions() {
-    // for testing
-    for (var p in pg.optionDefault) {
-      pg.option[p] = pg.optionDefault[p];
-      if (typeof window[p] !== 'undefined') {
-        delete window[p];
-      }
-    }
+	// for testing
+	for (var p in pg.optionDefault) {
+	  pg.option[p] = pg.optionDefault[p];
+	  if (typeof window[p] !== 'undefined') {
+		delete window[p];
+	  }
+	}
   }
   /* eslint-enable */
 
@@ -7936,7 +7936,7 @@ $(function () {
 		newOption('popupImages', true);
 		newOption('imagePopupsForImages', true);
 		newOption('popupNeverGetThumbs', false);
-		// newOption('popupImagesToggleSize',       true);
+		// newOption('popupImagesToggleSize',	   true);
 		newOption('popupThumbAction', 'imagepage'); // 'sizetoggle');
 		newOption('popupImageSize', 60);
 		newOption('popupImageSizeLarge', 200);
