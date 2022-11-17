@@ -166,7 +166,8 @@ function showDialog() {
 			}
 		});
 		this.closingRemarksInput = new OO.ui.TextInputWidget({
-			value: '{{done}}。~~~~'
+			// eslint-disable-next-line no-useless-concat
+			value: '{{done}}。~~' + '~~'
 		});
 		this.watchTalkPageCheckbox = new OO.ui.CheckboxInputWidget({
 			selected: false
