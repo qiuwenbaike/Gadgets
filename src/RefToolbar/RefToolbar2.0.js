@@ -716,7 +716,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			datestr = datestr.replace('<monthname>', '');
 		}
 		datestr = datestr.replace('<year>', DT.getUTCFullYear().toString());
-		return datestr.replace(/^[ /-,.]*(.*?)[ /-,.]*$/g, '$1'); // Cleanup any dangling spaces or connectors that might result from omitting date/month
+		return datestr.replace(/^[ /\-,.]*(.*?)[ /\-,.]*$/g, '$1'); // Cleanup any dangling spaces or connectors that might result from omitting date/month
 	};
 
 	// Function called after the ref list is loaded, to actually set the contents of the named ref dialog
