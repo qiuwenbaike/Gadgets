@@ -1,6 +1,6 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Rollback-summary.js
  * @source https://zh.wikipedia.org/w/index.php?title=MediaWiki:Gadget-rollback-summary.js

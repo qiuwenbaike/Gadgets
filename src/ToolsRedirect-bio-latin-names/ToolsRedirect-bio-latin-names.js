@@ -1,10 +1,10 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-3.0}}'
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ToolsRedirect-bio-latin-names.js
  * @source https://zh.wikipedia.org/wiki/Special:Permalink/61193369
- * @license <https://creativecommons.org/licenses/by-sa/3.0>
+ * * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 
 'use strict';
