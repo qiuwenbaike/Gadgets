@@ -12,40 +12,41 @@
 /* eslint-disable no-script-url */
 'use strict';
 
-window.ban_image = function ban_image() {
-	Wikiplus.kotori.redirectTo('File:Banned Images.svg', Wikiplus.kotori.pageName, {
-		success: function success() {
-			Wikiplus.notice.create.success('创建重定向成功！');
-			location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
-		},
-		fail: function fail(d) {
-			Wikiplus.notice.create.error('错误：' + d.message);
-		}
-	});
-};
-window.ban_article = function ban_article() {
-	Wikiplus.kotori.redirectTo('Qiuwen:首页', Wikiplus.kotori.pageName, {
-		success: function success() {
-			Wikiplus.notice.create.success('创建重定向成功！');
-			location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
-		},
-		fail: function fail(d) {
-			Wikiplus.notice.create.error('错误：' + d.message);
-		}
-	});
-};
-window.ban_template = function ban_template() {
-	Wikiplus.kotori.redirectTo('Template:Void', Wikiplus.kotori.pageName, {
-		success: function success() {
-			Wikiplus.notice.create.success('创建重定向成功！');
-			location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.kotori.pageName);
-		},
-		fail: function fail(d) {
-			Wikiplus.notice.create.error('错误：' + d.message);
-		}
-	});
-};
 $(function () {
+	window.ban_image = function ban_image() {
+		Wikiplus.redirectTo('File:Banned Images.svg', Wikiplus.pageName, {
+			success: function success() {
+				Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
+			},
+			fail: function fail(d) {
+				Wikiplus.notice.create.error('错误：' + d.message);
+			}
+		});
+	};
+	window.ban_article = function ban_article() {
+		Wikiplus.redirectTo('Qiuwen:首页', Wikiplus.pageName, {
+			success: function success() {
+				Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
+			},
+			fail: function fail(d) {
+				Wikiplus.notice.create.error('错误：' + d.message);
+			}
+		});
+	};
+	window.ban_template = function ban_template() {
+		Wikiplus.redirectTo('Template:Void', Wikiplus.pageName, {
+			success: function success() {
+				Wikiplus.notice.create.success('创建重定向成功！');
+				location.href = mw.config.get('wgArticlePath').replace(/\$1/gi, Wikiplus.pageName);
+			},
+			fail: function fail(d) {
+				Wikiplus.notice.create.error('错误：' + d.message);
+			}
+		});
+	};
+
 	if (mw.config.get('wgNamespaceNumber') === 0) {
 		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_article();', '禁用此页面');
 	}
