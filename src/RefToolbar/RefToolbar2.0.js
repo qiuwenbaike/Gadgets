@@ -12,6 +12,7 @@
 /* eslint-disable block-scoped-var */
 /* eslint-disable no-use-before-define */
 'use strict';
+
 // TODO: make autodate an option in the CiteTemplate object, not a preference
 
 // Global object
@@ -58,14 +59,14 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	};
 	CiteTB.init = function () {
 		/* Main stuff, build the actual toolbar structure
-     * 1. get the template list, make the dropdown list and set up the template dialog boxes
-     * 2. actually build the toolbar:
-     *    * A section for cites
-     *    ** dropdown for the templates (previously defined)
-     *    ** button for named refs with a dialog box
-     *    ** button for errorcheck
-     * 3. add the whole thing to the main toolbar
-    */
+         * 1. get the template list, make the dropdown list and set up the template dialog boxes
+         * 2. actually build the toolbar:
+         *    * A section for cites
+         *    ** dropdown for the templates (previously defined)
+         *    ** button for named refs with a dialog box
+         *    ** button for errorcheck
+         * 3. add the whole thing to the main toolbar
+         */
 
 		if (typeof $('div[rel=cites]')[0] !== 'undefined') {
 			// Mystery IE bug workaround
@@ -884,7 +885,6 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		// Has double and single quotes
 		s = s.replace(/"/g, '\'');
 		return '"' + s + '"';
-
 	};
 
 	// Fix up strings for output - capitalize first char, replace underscores with spaces
