@@ -595,5 +595,5 @@ function previewTool() {
 }
 // oidid=65569634
 $(previewTool);
-}(jQuery, mw));
+}(jQuery, mediaWiki));
 // </nowiki>

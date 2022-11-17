@@ -47,4 +47,4 @@ var confirmLogout = function confirmLogout() {
 mw.loader.using([ 'ext.gadget.ding', 'mediawiki.api', 'oojs-ui-windows' ]).then(function () {
 	$(confirmLogout);
 });
-}(jQuery, mw));
+}(jQuery, mediaWiki));

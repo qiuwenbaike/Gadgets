@@ -176,4 +176,4 @@ $(function () {
 	}
 	sidebarHiddenInit();
 });
-}(jQuery, mw));
+}(jQuery, mediaWiki));

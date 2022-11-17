@@ -55,5 +55,5 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1) {
 	// Double check if user.options is loaded, to prevent errors when copy pasted accross installations
 	$.when(mw.loader.using([ 'user.options' ]), $.ready).done(initializeRefTools);
 }
-}(jQuery, mw));
+}(jQuery, mediaWiki));
 // </nowiki>

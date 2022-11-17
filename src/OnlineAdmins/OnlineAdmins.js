@@ -159,4 +159,4 @@ $(function () {
 		});
 	});
 });
-}(jQuery, mw));
+}(jQuery, mediaWiki));

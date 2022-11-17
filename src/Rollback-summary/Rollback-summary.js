@@ -47,4 +47,4 @@ mw.loader.using([ 'ext.gadget.SiteCommonJs', 'mediawiki.util' ]).then(function (
 		updateLinks();
 	});
 });
-}(jQuery, mw));
+}(jQuery, mediaWiki));
