@@ -101,7 +101,8 @@
 		"jsdoc/valid-types": 0,
 		"jsdoc/check-param-names": 0,
 		"new-cap": "off",
-		"max-len": "off"
+		"max-len": "off",
+		"es-x/no-symbol-prototype-description": "off"
 	},
 	"globals": {
 		"$": "readonly",
