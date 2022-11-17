@@ -905,7 +905,6 @@ var checkAndSave = function checkAndSave() {
 	runningSaves = true;
 	var millisSinceLast = Date.now() - lastEditMillis;
 	if (millisSinceLast < cfg.editCooldown * 1000) {
-
 		setTimeout(checkAndSave, cfg.editCooldown * 1000 - millisSinceLast);
 	} else {
 		// The last edit started at least cfg.editCooldown seconds ago

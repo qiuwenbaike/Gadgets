@@ -46,7 +46,6 @@ $(function () {
 			}
 		});
 	};
-
 	if (mw.config.get('wgNamespaceNumber') === 0) {
 		mw.util.addPortletLink('p-cactions', 'javascript:window.ban_article();', '禁用此页面');
 	}
