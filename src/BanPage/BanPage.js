@@ -28,6 +28,7 @@ window.banPage = function banPage(targetName, summary) {
 			minor: true
 		}
 	)).then(
+		mw.notify('页面禁用完成，即将刷新'),
 		location.reload()
 	);
 };
