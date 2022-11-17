@@ -10,27 +10,17 @@
 
 window.banPage = function banPage(targetName, summary) {
 	var api = new mw.Api();
-
-	api.edit(
-		mw.config.get('wgPageName'),
-		function () {
-			return {
-				text: '#REDIRECT [[' + targetName + ']]',
-				summary: summary,
-				minor: true
-			};
-		}
-	).fail(api.create(
-		mw.config.get('wgPageName'),
-		{
+	api.edit(mw.config.get('wgPageName'), function () {
+		return {
 			text: '#REDIRECT [[' + targetName + ']]',
 			summary: summary,
 			minor: true
-		}
-	)).then(
-		mw.notify('页面禁用完成，即将刷新'),
-		location.reload()
-	);
+		};
+	}).fail(api.create(mw.config.get('wgPageName'), {
+		text: '#REDIRECT [[' + targetName + ']]',
+		summary: summary,
+		minor: true
+	})).then(mw.notify('页面禁用完成，即将刷新'), location.reload());
 };
 window.banImage = function banImage() {
 	window.banPage('File:Banned Images.svg', '禁用此图片');
@@ -41,7 +31,6 @@ window.banTemplate = function banTemplate() {
 window.banArticle = function banArticle() {
 	window.banPage('Qiuwen:首页', '禁用此页面');
 };
-
 $(function () {
 	switch (mw.config.get('wgNamespaceNumber')) {
 		case 6:

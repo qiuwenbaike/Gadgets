@@ -48,7 +48,7 @@ if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle') && mw.c
 		for (var i = 0; i < node.length; i++) {
 			var params = new URL(node[i].href).searchParams,
 				title = mw.config.get('wgPageName') || params.get('title');
-				// eslint-disable-next-line no-loop-func
+			// eslint-disable-next-line no-loop-func
 			node[i].addEventListener('click', function (e) {
 				fn(e, title);
 			});
