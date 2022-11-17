@@ -85,7 +85,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 				labelfield = fieldobj.field.replace('<N>', '');
 			}
 			if ($.inArray(field, CiteTB.getOption('autodate fields')) !== -1) {
-				im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/7/7b/Nuvola_apps_date.svg/20px-Nuvola_apps_date.svg.png');
+				im =$('<img src="//upload.qiuwenbaike.cn/images/thumb/7/7b/Nuvola_apps_date.svg/20px-Nuvola_apps_date.svg.png" />');
 				im.attr('alt', mw.usability.getMsg('cite-insert-date')).attr('title', mw.usability.getMsg('cite-insert-date'));
 				var ad = $('<a>').attr('href', '#');
 				ad.append(im);
@@ -94,7 +94,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			}
 			if (fieldobj.autofillid) {
 				var autotype = fieldobj.autofillid;
-				im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/1/17/System-search.svg/20px-System-search.svg.png');
+				im =$('<img src="//upload.qiuwenbaike.cn/images/thumb/1/17/System-search.svg/20px-System-search.svg.png" />');
 				im.attr('alt', mw.usability.getMsg('cite-autofill-alt')).attr('title', mw.usability.getMsg('cite-autofill-alt'));
 				var ad = $('<a>').attr('href', '#');
 				ad.append(im);
@@ -103,7 +103,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 			}
 			if (fieldobj.increment_button) {
 				var incrtype = fieldobj.increment_group;
-				im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/b/b9/Nuvola_action_edit_add.svg/20px-Nuvola_action_edit_add.svg.png');
+				im =$('<img src="//upload.qiuwenbaike.cn/images/thumb/b/b9/Nuvola_action_edit_add.svg/20px-Nuvola_action_edit_add.svg.png" />');
 				im.attr('alt', mw.usability.getMsg('cite-increment-alt')).attr('title', mw.usability.getMsg('cite-increment-alt'));
 				var ad = $('<a>').attr('href', '#');
 				ad.append(im);
