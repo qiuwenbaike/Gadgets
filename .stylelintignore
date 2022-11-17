@@ -1,3 +1,5 @@
 dist/
 scripts/
-src/Twinkle/
+src/Twinkle/scripts/
+src/Twinkle/tests/
+src/Twinkle/lib/
