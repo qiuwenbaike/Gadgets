@@ -1881,14 +1881,14 @@ $(function () {
 				close,
 				subloop;
 			var html = '';
-			while ((start = str.indexOf('<nowiki>', substart)) !== -1) {
+			while ((start = str.indexOf('<no' + 'wiki>', substart)) !== -1) {
 				html += parse_inline_wiki(str.substring(lastend, start));
 				start += 8;
 				substart = start;
 				subloop = true;
 				do {
-					open = str.indexOf('<nowiki>', substart);
-					close = str.indexOf('</nowiki>', substart);
+					open = str.indexOf('<no' + 'wiki>', substart);
+					close = str.indexOf('</no' + 'wiki>', substart);
 					if (close <= open || open === -1) {
 						if (close === -1) {
 							return html + html_entities(str.slice(start));
@@ -3734,8 +3734,8 @@ $(function () {
 		var len = splitted.length;
 		for (var i = 1; i < len; i = i + 2) {
 			switch (splitted[i]) {
-				case '<nowiki>':
-				case '</nowiki>':
+				case '<no' + 'wiki>':
+				case '</no' + 'wiki>':
 				case '<blockquote>':
 				case '</blockquote>':
 					break;
