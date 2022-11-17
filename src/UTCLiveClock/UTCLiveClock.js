@@ -46,7 +46,6 @@
  * would result in the local time in Los Angeles being shown. See
  * TZ database for valid options.
  */
-
 mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 	function padWithZeroes(num) {
 		// Pad a number with zeroes. The number must be an integer where
