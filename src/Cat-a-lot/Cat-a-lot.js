@@ -1,8 +1,3 @@
-/* eslint-disable no-jquery/no-each-util */
-/* eslint-disable default-case */
-/* eslint-disable camelcase */
-'use strict';
-
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -11,6 +6,11 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-Cat-a-lot.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+/* eslint-disable no-jquery/no-each-util */
+/* eslint-disable default-case */
+/* eslint-disable camelcase */
+'use strict';
+
 /**
  * Cat-A-Lot
  * Changes category of multiple files
