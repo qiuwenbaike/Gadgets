@@ -8,7 +8,7 @@
  */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-/* eslint-disable es-x/no-symbol-prototype-description */
+
 /* eslint-disable no-jquery/no-constructor-attributes */
 /* eslint-disable unicorn/prefer-string-slice */
 /* eslint-disable no-alert */

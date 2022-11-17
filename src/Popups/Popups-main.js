@@ -27,20 +27,20 @@ function _typeof(obj) {
 
 // STARTFILE: main.js
 // **********************************************************************
-// **                                                                  **
-// **             changes to this file affect many users.              **
-// **           please discuss on the talk page before editing         **
-// **                                                                  **
+// **                                                                 **
+// **             changes to this file affect many users.             **
+// **           please discuss on the talk page before editing        **
+// **                                                                 **
 // **********************************************************************
-// **                                                                  **
+// **                                                                 **
 // ** if you do edit this file, be sure that your editor recognizes it **
 // ** as utf8, or the weird and wonderful characters in the namespaces **
-// **   below will be completely broken. You can check with the show   **
-// **            changes button before submitting the edit.            **
-// **                      test: مدیا מיוחד Мэдыя                      **
-// **                                                                  **
+// **   below will be completely broken. You can check with the show  **
+// **            changes button before submitting the edit.           **
+// **                      test: مدیا מיוחד Мэдыя                     **
+// **                                                                 **
 // **********************************************************************
-/* eslint-env browser  */
+/* eslint-env browser */
 
 // Fix later
 /* global log, errlog, popupStrings, wikEdUseWikEd, WikEdUpdateFrame */
@@ -1302,7 +1302,7 @@ $(function () {
 		return this.http.send(x);
 	};
 
-	/** Aborts the download, setting the <code>aborted</code> field to true.  */
+	/** Aborts the download, setting the <code>aborted</code> field to true. */
 	Downloader.prototype.abort = function () {
 		if (!this.http) {
 			return null;
@@ -5792,12 +5792,12 @@ $(function () {
 	// STARTFILE: diff.js
 	// <NOLITE>
 	/*
-      * Javascript Diff Algorithm
-      *  By John Resig (http://ejohn.org/) and Lupin
-      *
-      * More Info:
-      *  http://ejohn.org/projects/javascript-diff-algorithm/
-      */
+     * Javascript Diff Algorithm
+     *  By John Resig (http://ejohn.org/) and Lupin
+     *
+     * More Info:
+     *  http://ejohn.org/projects/javascript-diff-algorithm/
+     */
 
 	function delFmt(x) {
 		if (!x.length) {
@@ -6953,8 +6953,8 @@ $(function () {
 			var stable_revid = data.query.pages[0].flagged && data.query.pages[0].flagged.stable_revid || 0;
 			// The diff can be reviewed if the old version is the last reviewed version
 			// TODO: Other possible conditions that we may want to implement instead of this one:
-			//  * old version is patrolled and the new version is not patrolled
-			//  * old version is patrolled and the new version is more recent than the last reviewed version
+			// * old version is patrolled and the new version is not patrolled
+			// * old version is patrolled and the new version is more recent than the last reviewed version
 			if (stable_revid === navpop.diffData.oldRev.revid) {
 				var a = document.createElement('a');
 				a.innerHTML = popupString('mark patrolled');
