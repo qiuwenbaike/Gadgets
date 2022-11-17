@@ -11,7 +11,7 @@
 /* eslint-disable no-script-url */
 'use strict';
 
-$(function (mw) {
+mw.loader.using([ 'ext.gadget.Wikiplus' ], (function (mw) {
 	var banPage = function banPage(targetName, currentName) {
 		Wikiplus.kotori.redirectTo(targetName, currentName, {
 			success: function success() {
@@ -35,4 +35,4 @@ $(function (mw) {
 		window.banTemplate = banPage('Template:Void', Wikiplus.kotori.pageName);
 		mw.util.addPortletLink('p-cactions', 'javascript:window.banTemplate();', '禁用此模板');
 	}
-}(mediaWiki));
+}(mediaWiki)));
