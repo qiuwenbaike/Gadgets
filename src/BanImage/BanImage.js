@@ -35,4 +35,4 @@ mw.loader.using([ 'ext.gadget.Wikiplus' ]).then($(function () {
 		window.banTemplate = banPage('Template:Void', Wikiplus.kotori.pageName);
 		mw.util.addPortletLink('p-cactions', 'javascript:window.banTemplate();', '禁用此模板');
 	}
-});
+}));
