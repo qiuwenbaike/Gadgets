@@ -8,8 +8,8 @@
 	"scripts": {
 		"eslint": "eslint .",
 		"eslint:fix": "eslint . --fix",
-		"stylelint": "stylelint .",
-		"stylelint:fix": "stylelint . --fix",
+		"stylelint": "stylelint *.css",
+		"stylelint:fix": "stylelint *.css --fix",
 		"babel": "babel -d src src && eslint . --fix",
 		"deploy": "node scripts/deploy.js"
 	},
