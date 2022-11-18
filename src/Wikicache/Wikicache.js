@@ -132,7 +132,14 @@ window.wikiCache = {
 		buttons[msgs.ok] = function () {
 			$(this).dialog('close').remove();
 		};
-		$('<div>').attr({ title: title, class: 'wikicache-dialog wikicache-error' }).append($('<div>').attr('class', 'wikicache-error-message').html(msg + '&nbsp;' + msgs['bracket-left']).append($('<a>').attr('href', more).html(msgs.more)).append(msgs['bracket-right'])).append($('<p>').append($('<input>').attr({ id: noreminderid, type: 'checkbox', name: 'noreminder' })).append($('<label>').attr('for', noreminderid).html(msgs['no-reminder']))).appendTo($('body')).dialog({
+		$('<div>').attr({
+			title: title,
+			class: 'wikicache-dialog wikicache-error'
+		}).append($('<div>').attr('class', 'wikicache-error-message').html(msg + '&nbsp;' + msgs['bracket-left']).append($('<a>').attr('href', more).html(msgs.more)).append(msgs['bracket-right'])).append($('<p>').append($('<input>').attr({
+			id: noreminderid,
+			type: 'checkbox',
+			name: 'noreminder'
+		})).append($('<label>').attr('for', noreminderid).html(msgs['no-reminder']))).appendTo($('body')).dialog({
 			buttons: buttons,
 			draggable: false,
 			modal: true,
@@ -193,7 +200,14 @@ window.wikiCache = {
 		buttons[msgs.ok] = function () {
 			$(this).dialog('close');
 		};
-		var dia = $('<div>').attr({ class: 'wikicache-dialog', title: msgs['settings-title'] }).append($('<p>').append($('<label>').attr('for', 'autosave-interval').html(msgs['settings-autosave-interval'])).append($('<input>').attr({ id: 'autosave-interval', type: 'text', size: 5 }).val(settings['autosave-interval'])).append('&nbsp;' + msgs['settings-autosave-interval-suffix']));
+		var dia = $('<div>').attr({
+			class: 'wikicache-dialog',
+			title: msgs['settings-title']
+		}).append($('<p>').append($('<label>').attr('for', 'autosave-interval').html(msgs['settings-autosave-interval'])).append($('<input>').attr({
+			id: 'autosave-interval',
+			type: 'text',
+			size: 5
+		}).val(settings['autosave-interval'])).append('&nbsp;' + msgs['settings-autosave-interval-suffix']));
 		dia.appendTo($('body')).dialog({
 			buttons: buttons,
 			draggable: false,

@@ -109,7 +109,10 @@ _TR = {
 		$('li#ca-history').after(btn);
 	},
 	dialog: function dialog() {
-		var dlg = $('<div>').attr({ class: 'dialog-redirect', title: this.msg.dlgtitle }).dialog({
+		var dlg = $('<div>').attr({
+			class: 'dialog-redirect',
+			title: this.msg.dlgtitle
+		}).dialog({
 			bgiframe: true,
 			resizable: false,
 			modal: true,
