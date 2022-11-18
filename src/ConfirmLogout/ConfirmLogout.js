@@ -39,7 +39,7 @@ mw.loader.using([ 'ext.gadget.Ding', 'mediawiki.api', 'oojs-ui-windows' ]).then(
 					style: 'font-size :1.2rem; font-weight: 500; line-height: 1.8; padding: .4em 0'
 				}).text('您' + wgUVS('确', '確') + '定要' + wgUVS('退', '登') + '出' + wgUVS('吗', '嗎') + '？'))).then(function (confirmed) {
 					if (confirmed) {
-						window.bldkDingExposedInterface(mw.message('logging-out-notify'), 'default', 'long');
+						window.DingExposedInterface(mw.message('logging-out-notify'), 'default', 'long');
 						new mw.Api().postWithEditToken({
 							action: 'logout'
 						}).then(function () {

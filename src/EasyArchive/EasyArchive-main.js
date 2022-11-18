@@ -13,17 +13,12 @@
 //
 // contributors:
 // Plenty thanks to Wong128hk for providing zh_hk interface translation
-// Plenty thanks to Davidzdh for providing zh_classical interface translation
 //
 // strict mode where possible
 
-if (!window.bluedeck) {
-	window.bluedeck = {};
-}
+if (!window.easy_archive) {
 
-if (!window.bluedeck.easy_archive) {
-
-	bluedeck.easy_archive = {};
+	window.easy_archive = {};
 
 	(function (object) {
 
@@ -50,7 +45,7 @@ if (!window.bluedeck.easy_archive) {
 		object.ver = ver;
 		object.version_parsed = { x: x, y: y, z: z, more: more, status: status, build: build };
 
-	}(window.bluedeck.easy_archive));
+	}(window.easy_archive));
 
 	(function (ele, txt, time, condition) {
 		if (!condition) {
@@ -66,7 +61,7 @@ if (!window.bluedeck.easy_archive) {
 				}, i * rate);
 			}
 		}(ele, txt, time));
-	}(document.getElementById('easy_archive'), window.bluedeck.easy_archive.ver, 400, document.getElementById('8c23b4144bd58c689e192c6ab912a3b75c76f6849977518b8bedefd5e347d67f')));
+	}(document.getElementById('easy_archive'), window.easy_archive.ver, 400, document.getElementById('8c23b4144bd58c689e192c6ab912a3b75c76f6849977518b8bedefd5e347d67f')));
 
 	(function (easy) {
 
@@ -214,7 +209,7 @@ if (!window.bluedeck.easy_archive) {
 
 		}());
 
-		// bluedeck common repo.
+		// common repo.
 		var expose = (function () {
 
 			var glb = {
@@ -421,7 +416,7 @@ if (!window.bluedeck.easy_archive) {
 		easy.my_user_talk = null;
 
 		try {
-			easy.never_enable_on_these_pages_regex = window.bluedeck.external_config.easy_archive.never_enable_on_these_pages_regex;
+			easy.never_enable_on_these_pages_regex = window.external_config.easy_archive.never_enable_on_these_pages_regex;
 		} catch (e) {
 			easy.never_enable_on_these_pages_regex = [];
 		}
@@ -438,7 +433,7 @@ if (!window.bluedeck.easy_archive) {
 			/^User:.*\/?.*\.json$/
 		];
 
-		var settings_span_collection = document.getElementsByClassName('bluedeck_easy_archive_data_point_collection');
+		var settings_span_collection = document.getElementsByClassName('easy_archive_data_point_collection');
 		var settings_span = settings_span_collection[0];
 		var settings = settings_span ? new Pare_str(settings_span.innerHTML) : new Pare_str('');
 		if (settings.find('data-init') === '1') {
@@ -468,7 +463,6 @@ if (!window.bluedeck.easy_archive) {
 				'en': 'en_us', 'enau': 'en_au', 'enca': 'en_ca', 'enhk': 'en_hk', 'ennz': 'en_nz', 'enuk': 'en_uk', 'enus': 'en_us',
 				'fi': 'fi_fi',
 				'fr': 'fr_fr', 'frch': 'fr_ch', 'frfr': 'fr_fr',
-				'ja': 'ja_jp', 'jajp': 'ja_jp',
 				'sv': 'sv_se', 'svse': 'sv_se', 'svfi': 'sv_fi',
 				'zh': 'zh_cn', 'zhcn': 'zh_cn', 'zhhk': 'zh_hk', 'zhtw': 'zh_tw', 'zhsg': 'zh_cn',
 
@@ -483,7 +477,6 @@ if (!window.bluedeck.easy_archive) {
 				 * "fr" : "fr_fr",  // francais of french republic
 				 */
 				'hk': 'zh_hk',  // zhongwen of hong kong s.a.r.
-				'jp': 'ja_jp',  // nihongo  of japan
 				'li': 'de_li',  // deutsch  of principality of liechtenstein
 				'nz': 'en_us',  // english  of new-zealand
 				'tw': 'zh_tw',  // zhongwen of taiwan
@@ -495,7 +488,6 @@ if (!window.bluedeck.easy_archive) {
 				// non-standard raw lang code
 				'zh-hans': 'zh_cn',
 				'zh-hant': 'zh_hk',
-				'lzh': 'zh_cl'  // classical chinese
 			};
 
 			var Language_proximity_group = class {
@@ -579,9 +571,7 @@ if (!window.bluedeck.easy_archive) {
 
 			var group_zh_hans = new Language_proximity_group('zh_hans').add('zh_cn', 'zh_sg', 'zh_mo');
 			var group_zh_hant = new Language_proximity_group('zh_hant').add('zh_hk', 'zh_tw');
-			var group_zh_classical = new Language_proximity_group('zh_classical').add('zh_cl');
-			var group_zh = new Language_proximity_group('zh').add(group_zh_hans, group_zh_hant, group_zh_classical);
-			var group_japanese = new Language_proximity_group('ja').add('ja_jp');
+			var group_zh = new Language_proximity_group('zh').add(group_zh_hans, group_zh_hant);
 			var group_cjk = new Language_proximity_group('cjk').add(group_zh, group_japanese);
 			var group_asian = new Language_proximity_group('asian').add(group_cjk);
 
@@ -637,7 +627,7 @@ if (!window.bluedeck.easy_archive) {
 
 		var raw_lang_code = mw.config.values.wgUserLanguage || window.wgUserLanguage || navigator.language;
 
-		easy.lang_code = accepted_language(raw_lang_code, [ 'en_us', 'ja_jp', 'zh_cn', 'zh_hk', 'zh_tw', 'zh_cl' ]);
+		easy.lang_code = accepted_language(raw_lang_code, [ 'en_us', 'zh_cn', 'zh_hk', 'zh_tw' ]);
 
 		// ... lang done
 
@@ -666,352 +656,264 @@ if (!window.bluedeck.easy_archive) {
 			}
 			easy.lang.delete = {
 				en_us: 'delete',
-				ja_jp: '削除',
-				zh_cl: '刪削',
 				zh_cn: '删除',
 				zh_hk: '刪除',
 				zh_tw: '刪除'
 			};
 			easy.lang.archive = {
 				en_us: 'archive',
-				ja_jp: 'アーカイブ',
-				zh_cl: '存檔',
 				zh_cn: '存档',
 				zh_hk: '存檔',
 				zh_tw: '存檔'
 			};
 			easy.lang.supports = {
 				en_us: 'Easy Archive is enabled on this talk page',
-				ja_jp: 'この会話ページでは Easy Archive ツールがオンになっています',
-				zh_cl: '此頁具載文士之議論，而以 Easy Archive 存檔',
 				zh_cn: '本讨论页面使用 Easy Archive 快速存档',
 				zh_hk: '本頁使用 Easy Archive',
 				zh_tw: '本頁使用 Easy Archive'
 			};
 			easy.lang.others_page = {
 				en_us: 'Easy Archive is not enabled.',
-				ja_jp: 'Easy Archive は適用しません。',
-				zh_cl: '此議論之頁屬於他人，故 Easy Archive 無以存檔。',
 				zh_cn: '本页面是他人的用户讨论页面，因此不支持 Easy Archive 快速存档。',
 				zh_hk: '本頁為他人用戶討論頁面，故不支援 Easy Archive 快速存檔。',
 				zh_tw: '本頁為他人用戶討論頁面，故不支援 Easy Archive 快速存檔。'
 			};
 			easy.lang.to_enable = {
 				en_us: 'This page is not using Easy Archive.',
-				ja_jp: 'このページで Easy Archive がオンになっていません。',
-				zh_cl: '此頁不用 Easy Archive。',
 				zh_cn: '本页面没有启用 Easy Archive。',
 				zh_hk: '本頁没有啟用 Easy Archive。',
 				zh_tw: '本頁没有啟用 Easy Archive。'
 			};
 			easy.lang.enable_on_generic_page = {
 				en_us: '<div>This page is not your user talk page. However Easy Archive still can be used if needed.</div><div>To enable it, add {{Easy Archive|to=[Archive location]}} to this page.</div>',
-				ja_jp: '<div>このページがあなたの利用者会話ページではありませんが、Easy Archive は機能できます。</div><div>Easy Archive を使用するには、テンプレート {{Easy Archive|to=アーカイブ先}} を書き添えてください。</div>',
-				zh_cl: '<div>此討論之頁所屬，微獨足下。雖曰弗屬，而 Easy Archive 之用，亦無不可。</div><div>欲行 Easy Archive 於此頁，宜補 {{Easy Archive|to=存檔所在}}。</div>',
 				zh_cn: '<div>本页面不是您的用户讨论页面。不过，如果需要，本页面是可以使用 Easy Archive 的。</div><div>如果要在本页面使用 Easy Archive，请加入 {{Easy Archive|to=存档位置}}。</div>',
 				zh_hk: '<div>本頁面不是您的用戶討論頁面。不過，如果需要，本頁面是可以使用 Easy Archive 的。</div><div>如果要在本頁面使用 Easy Archive，請加入 {{Easy Archive|to=存檔位置}}。</div>',
 				zh_tw: '<div>本頁面不是您的用戶討論頁面。不過，如果需要，本頁面是可以使用 Easy Archive 的。</div><div>如果要在本頁面使用 Easy Archive，請加入 {{Easy Archive|to=存檔位置}}。</div>'
 			};
 			easy.lang.please_enable = {
 				en_us: '<div>Add {{Easy Archive|to=[Archive location]}} to this page to start using Easy Archive.</div>',
-				ja_jp: '<div>テンプレート {{Easy Archive|to=アーカイブ先}} をこのページに書き添えて Easy Archive をオンにしてください。</div>',
-				zh_cl: '<div>以 {{Easy Archive|to=存檔所在}} 補於此頁，而 Easy Archive 得以行矣。</div>',
 				zh_cn: '<div>请在本页面加入 {{Easy Archive|to=存档地址}} 来启用 Easy Archive。</div>',
 				zh_hk: '<div>請在本頁加入 {{Easy Archive|to=存檔位置}} 來啟用 Easy Archive。</div>',
 				zh_tw: '<div>請在本頁加入 {{Easy Archive|to=存檔位置}} 來啟用 Easy Archive。</div>'
 			};
 			easy.lang.please_enable_elaborate = {
 				en_us: "<div>You have the Easy Archive functionality enabled but your talk page hasn't been configured yet. </div><div>To take advantage of Easy Archive, add {{Easy Archive|to=[Archive location]}} template to this page.</div>",
-				ja_jp: '<div>Easy Archive はすでにインストールされていますが、機能を利用するには、自分の利用者会話ページでテンプレートも必要です。</div><div>{{Easy Archive|to=アーカイブ先}} をこのページに書き添えて、Easy Archive を利用しましょう。</div>',
-				zh_cl: '<div>足下之簿已可行 Easy Archive，懸模板於書齋，曰 {{Easy Archive|to=存檔所在}}，即能用之。</div>',
 				zh_cn: '<div>您的帐户已经支持 Easy Archive，但是，为了开始使用该功能，您还需要在自己的用户讨论页面上添加模板 {{Easy Archive|to=存档位置}}。</div>',
 				zh_hk: '<div>您的帳戶已經支持 Easy Archive，但是，為了開始使用該功能，您還需要在自己的用戶討論頁面上添加模板 {{Easy Archive|to=存檔位置}}。</div>',
 				zh_tw: '<div>您的帳戶已經支持 Easy Archive，但是，為了開始使用該功能，您還需要在自己的用戶討論頁面上添加模板 {{Easy Archive|to=存檔位置}}。</div>'
 			};
 			easy.lang.arc_all = {
 				en_us: 'Archive all topics',
-				ja_jp: '全てアーカイブ',
-				zh_cl: '所論悉存檔',
 				zh_cn: '存档全部讨论',
 				zh_hk: '全部討論存檔',
 				zh_tw: '全部討論存檔'
 			};
 			easy.lang.arc_old_percent = {
 				en_us: 'Archive oldest ${1}',
-				ja_jp: '${1}をアーカイブ',
-				zh_cl: '以最舊者${1}存檔',
 				zh_cn: '存档最旧${1}',
 				zh_hk: '存檔最舊${1}',
 				zh_tw: '存檔最舊${1}'
 			};
 			easy.lang.arc_old = {
 				en_us: 'Archive oldest ${1} topic${2}',  // ${2} = 's' if plural
-				ja_jp: '${1}つをアーカイブ',
-				zh_cl: '舊者凡${1}，悉存檔',
 				zh_cn: '存档最旧${1}个',
 				zh_hk: '存檔最舊${1}個',
 				zh_tw: '存檔最舊${1}個'
 			};
 			easy.lang.arc_all_but = {
 				en_us: 'Archive all but ${1} topic${2}',  // ${2} = 's' if plural
-				ja_jp: '${1}つを残す',
-				zh_cl: '徒留新者凡${1}',
 				zh_cn: '只留下${1}个最新',
 				zh_hk: '只留最新${1}個',
 				zh_tw: '只留最新${1}個'
 			};
 			easy.lang.settings = {
 				en_us: 'Preference',
-				ja_jp: '設定',
-				zh_cl: '設定',
 				zh_cn: '设置',
 				zh_hk: '設定',
 				zh_tw: '設定'
 			};
 			easy.lang.stop_using = {
 				en_us: 'Turn off',
-				ja_jp: 'オフにする',
-				zh_cl: '休止',
 				zh_cn: '停用',
 				zh_hk: '停用',
 				zh_tw: '停用'
 			};
 			easy.lang.change = {
 				en_us: 'Change',
-				ja_jp: '変更',
-				zh_cl: '更改',
 				zh_cn: '更改',
 				zh_hk: '更改',
 				zh_tw: '更改'
 			};
 			easy.lang.left_par_split = {
 				en_us: ' (',
-				ja_jp: '（',
-				zh_cl: '（',
 				zh_cn: '（',
 				zh_hk: '（',
 				zh_tw: '（'
 			};
 			easy.lang.right_par = {
 				en_us: ')',
-				ja_jp: '）',
-				zh_cl: '）',
 				zh_cn: '）',
 				zh_hk: '）',
 				zh_tw: '）'
 			};
 			easy.lang.full_stop_split = {
 				en_us: '. ',
-				ja_jp: '。',
-				zh_cl: '。',
 				zh_cn: '。',
 				zh_hk: '。',
 				zh_tw: '。'
 			};
 			easy.lang.archive_path_colon_split = {
 				en_us: 'Archive location: ',
-				ja_jp: 'アーカイブ先：',
-				zh_cl: '存檔所在：',
 				zh_cn: '存档地址：',
 				zh_hk: '存檔至：',
 				zh_tw: '存檔至：'
 			};
 			easy.lang.warning_stop_using = {
-				en_us: "<div>Once Easy Archive is turned off, and you want it back on, you'll have to turn it on manually.</div><div>Do you want to turn it off? <div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>Yes</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>No</button></div>",
-				ja_jp: "<div>Easy Archive をオフにしたら、二度とオンにしたい時、手動でする必要があります。</div><div>Easy Archive をオフにしますか？<div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>はい</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>いいえ</button></div>",
-				zh_cl: "<div>既休止 Easy Archive，復欲使之，則必躬親啟動。</div><div>今休意已決乎？<div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>然</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>否</button></div>",
-				zh_cn: "<div>停用 Easy Archive 后，如要再次启用，只能手工操作。</div><div>要现在停用 Easy Archive 吗？<div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>是</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>否</button></div>",
-				zh_hk: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>是</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>否</button></div>",
-				zh_tw: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.bluedeck.easy_archive.turn_off(1)'>是</button><button onclick='window.bluedeck.easy_archive.elaborate_notice(3163);'>否</button></div>"
+				en_us: "<div>Once Easy Archive is turned off, and you want it back on, you'll have to turn it on manually.</div><div>Do you want to turn it off? <div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>Yes</button><button onclick='window.easy_archive.elaborate_notice(3163);'>No</button></div>",
+				zh_cn: "<div>停用 Easy Archive 后，如要再次启用，只能手工操作。</div><div>要现在停用 Easy Archive 吗？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>",
+				zh_hk: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>",
+				zh_tw: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>"
 			};
 			easy.lang.stop_manually = {
 				en_us: '<div>Cannot turn off Easy Archive automatically. </div><div>To manually discontinue use, delete the template {{Easy Archive|to=[Archive location]}} from this page.</div>',
-				ja_jp: '<div>Easy Archive を自動的にオフにできませんでした。</div><div>Easy Archive を手動でオフにするには、このページからテンプレート {{Easy Archive|to=アーカイブ先}} を削除してください。</div>',
-				zh_cl: '<div>怪哉，Easy Archive 不能自休。宜親止之。</div><div>此頁模板曰 {{Easy Archive|to=存檔位置}} 者，宜刪之。</div>',
 				zh_cn: '<div>经过尝试，无法自动停用 Easy Archive。请手动停用。</div><div>请从本页面删除如下模版：{{Easy Archive|to=存档位置}}。</div>',
 				zh_hk: '<div>經過嘗試，恕無法自動停用 Easy Archive。請手動停用。</div><div>請從本頁刪除以下模板︰{{Easy Archive|to=存檔位置}}。</div>',
 				zh_tw: '<div>經過嘗試，恕無法自動停用 Easy Archive。請手動停用。</div><div>請從本頁刪除以下模板︰{{Easy Archive|to=存檔位置}}。</div>'
 			};
 			easy.lang.change_location_to = {
 				en_us: "<div>Change archive location to: <input type='text'/></div>",
-				ja_jp: "<div>アーカイブ先を変更：<input type='text'/></div>",
-				zh_cl: "<div>存檔所在易爲：<input type='text'/></div>",
 				zh_cn: "<div>将存档地址更改为：<input type='text'/></div>",
 				zh_hk: "<div>将存檔地址更改為：<input type='text'/></div>",
 				zh_tw: "<div>将存檔地址更改為：<input type='text'/></div>"
 			};
 			easy.lang.change_manually = {
 				en_us: '<div>Cannot update Easy Archive location automatically. </div><div>To update manually, find the template {{Easy Archive|to=[Archive location]}} and update the location.</div>',
-				ja_jp: '<div>アーカイブ先が自動的に変更できませんでした。</div><div>手動で変更するには、このページでテンプレート {{Easy Archive|to=アーカイブ先}} を探し、アーカイブ先を取って替えてください。</div>',
-				zh_cl: '<div>存檔所在無以自易。惟君親改之。</div><div>是頁有模板曰 {{Easy Archive|to=存檔所在}} 者，徑改之。</div>',
 				zh_cn: '<div>无法自动更改 Easy Archive 存档地址。请手动更改。</div><div>请在本页面找到如下模版：{{Easy Archive|to=存档位置}}，并更改存档位置。</div>',
 				zh_hk: '<div>恕無法自動更改 Easy Archive 存檔地址。請手動更改。</div><div>請在本頁找到以下模板︰{{Easy Archive|to=存檔位置}}，并更改存檔位置。</div>',
 				zh_tw: '<div>恕無法自動更改 Easy Archive 存檔地址。請手動更改。</div><div>請在本頁找到以下模板︰{{Easy Archive|to=存檔位置}}，并更改存檔位置。</div>'
 			};
 			easy.lang.loading_section_i = {
 				en_us: '<div>Loading section ${1}</div>',
-				ja_jp: '<div>セクション ${1} を読み込んでいます</div>',
-				zh_cl: '<div>方解析第 ${1} 節</div>',
 				zh_cn: '<div>正在读取第 ${1} 节的内容</div>',
 				zh_hk: '<div>正在讀取第 ${1} 節的內容</div>',
 				zh_tw: '<div>正在讀取第 ${1} 節的內容</div>'
 			};
 			easy.lang.deleting_section_i = {
 				en_us: '<div>Deleting section ${1}</div>',
-				ja_jp: '<div>セクション ${1} を削除しています</div>',
-				zh_cl: '<div>第 ${1} 節之刪削未畢</div>',
 				zh_cn: '<div>正在删除第 ${1} 节的内容</div>',
 				zh_hk: '<div>正在刪除第 ${1} 節的內容</div>',
 				zh_tw: '<div>正在刪除第 ${1} 節的內容</div>'
 			};
 			easy.lang.done_section_i = {
 				en_us: '<div>Section ${1} has been archived to ${2}</div>',
-				ja_jp: '<div>セクション ${1} が ${2} にアーカイブしました</div>',
-				zh_cl: '<div>第 ${1} 節已存於 ${2}</div>',
 				zh_cn: '<div>已经将第 ${1} 节存档到 ${2}</div>',
 				zh_hk: '<div>已經將第 ${1} 節存檔到 ${2}</div>',
 				zh_tw: '<div>已經將第 ${1} 節存檔到 ${2}</div>'
 			};
 			easy.lang.done_sections_i_thru_j = {
 				en_us: '<div>Sections ${1} through ${2} has been archived to ${3}</div>',
-				ja_jp: '<div>${1} から ${2} までのセクションが ${3} にアーカイブしました</div>',
-				zh_cl: '<div>第 ${1} 至 ${2} 節已存於 ${3}</div>',
 				zh_cn: '<div>已经将第 ${1} 至 ${2} 节存档到 ${3}</div>',
 				zh_hk: '<div>已經將第 ${1} 至 ${2} 節存檔到 ${3}</div>',
 				zh_tw: '<div>已經將第 ${1} 至 ${2} 節存檔到 ${3}</div>'
 			};
 			easy.lang.done_deleting_section_i = {
 				en_us: '<div>Section ${1} has been deleted</div>',
-				ja_jp: '<div>セクション ${1} が削除しました</div>',
-				zh_cl: '<div>第 ${1} 節已刪</div>',
 				zh_cn: '<div>已经将第 ${1} 节删除</div>',
 				zh_hk: '<div>已經將第 ${1} 節刪除</div>',
 				zh_tw: '<div>已經將第 ${1} 節刪除</div>'
 			};
 			easy.lang.done_deleting_sections_i_thru_j = {
 				en_us: '<div>Sections ${1} through ${2} has been deleted</div>',
-				ja_jp: '<div>${1} から ${2} までのセクションが削除しました</div>',
-				zh_cl: '<div>第 ${1} 至 ${2} 節已刪</div>',
 				zh_cn: '<div>已经将第 ${1} 至 ${2} 节删除</div>',
 				zh_hk: '<div>已經將第 ${1} 至 ${2} 節刪除</div>',
 				zh_tw: '<div>已經將第 ${1} 至 ${2} 節刪除</div>'
 			};
 			easy.lang.being_archived = {
 				en_us: 'being archived',
-				ja_jp: 'アーカイブ中',
-				zh_cl: '方存檔',
 				zh_cn: '存档中',
 				zh_hk: '存檔中',
 				zh_tw: '存檔中'
 			};
 			easy.lang.being_deleted = {
 				en_us: 'being deleted',
-				ja_jp: '削除中',
-				zh_cl: '方刪削',
 				zh_cn: '删除中',
 				zh_hk: '刪除中',
 				zh_tw: '刪除中'
 			};
 			easy.lang.already_archived = {
 				en_us: 'archived',
-				ja_jp: 'アーカイブしました',
-				zh_cl: '已存檔',
 				zh_cn: '已存档',
 				zh_hk: '已存檔',
 				zh_tw: '已存檔'
 			};
 			easy.lang.already_deleted = {
 				en_us: 'deleted',
-				ja_jp: '削除しました',
-				zh_cl: '已刪削',
 				zh_cn: '已删除',
 				zh_hk: '已刪除',
 				zh_tw: '已刪除'
 			};
 			easy.lang.others_talk_elaborate = {
 				en_us: "This page is another user's talk page. You cannot archive the topics on this page for him/her",
-				ja_jp: 'この会話ページは他人のスペースです。Easy Archive によって他人の代わりにアーカイブできません。',
-				zh_cl: '此議論之頁屬於他人，君無以代爲存檔。',
 				zh_cn: '这是另一名用户的讨论页面，您不能代替另一名用户存档。',
 				zh_hk: '這是另一名用戶的討論頁面，您不能代替另一名用戶存檔。',
 				zh_tw: '這是另一名用戶的討論頁面，您不能代替另一名用戶存檔。'
 			};
 			easy.lang.page_not_supported = {
 				en_us: 'This page is not supported by Easy Archive.',
-				ja_jp: 'このページは Easy Archive をサポートしていません。',
-				zh_cl: '是頁無以行 Easy Archive。',
 				zh_cn: '本页面不支持 Easy Archive。',
 				zh_hk: '本頁面不支持 Easy Archive。',
 				zh_tw: '本頁面不支持 Easy Archive。'
 			};
 			easy.lang.page_not_supported_elaborate = {
 				en_us: '<div>These pages are not supported by Easy Archive: </div><div>File, Template, Module, MediaWiki, Category, Special, JavaScript, CSS, JSON.</div>',
-				ja_jp: '<div>これらのページは Easy Archive をサポートしません：</div><div>File、Template、Module、MediaWiki、Category、Special、JavaScript、CSS、JSON。</div>',
-				zh_cl: '<div>下記，皆 Easy Archive 所不能及：</div><div>File、Template、Module、MediaWiki、Category、Special、JavaScript、CSS、JSON。</div>',
 				zh_cn: '<div>这些页面不受 Easy Archive 支持：</div><div>File、Template、Module、MediaWiki、Category、Special、JavaScript、CSS、JSON。</div>',
 				zh_hk: '<div>這些頁面不受 Easy Archive 支持：</div><div>File、Template、Module、MediaWiki、Category、Special、JavaScript、CSS、JSON。</div>',
 				zh_tw: '<div>這些頁面不受 Easy Archive 支持：</div><div>File、Template、Module、MediaWiki、Category、Special、JavaScript、CSS、JSON。</div>'
 			};
 			easy.lang.cancelled = {
 				en_us: '<div>Cancelled</div>',
-				ja_jp: '<div>キャンセルしました</div>',
-				zh_cl: '<div>未然</div>',
 				zh_cn: '<div>已取消</div>',
 				zh_hk: '<div>已取消</div>',
 				zh_tw: '<div>已取消</div>'
 			};
 			easy.lang.easy_archive_has_been_stopped = {
 				en_us: '<div>Easy Archive has been stopped.</div>',
-				ja_jp: '<div>Easy Archive をオフにしました。</div>',
-				zh_cl: '<div>已在此頁面停用 Easy Archive。</div>',
 				zh_cn: '<div>已在此页面停用 Easy Archive。</div>',
 				zh_hk: '<div>已在此頁面停用 Easy Archive。</div>',
 				zh_tw: '<div>已在此頁面停用 Easy Archive。</div>'
 			};
 			easy.lang.clickable_questionmark_split_before = {
 				en_us: " (<a href='${1}'>?</a>)",
-				ja_jp: "（<a href='${1}'>？</a>）",
-				zh_cl: "（<a href='${1}'>？</a>）",
 				zh_cn: "（<a href='${1}'>？</a>）",
 				zh_hk: "（<a href='${1}'>？</a>）",
 				zh_tw: "（<a href='${1}'>？</a>）"
 			};
 			easy.lang.problem_with_archive_location_main_space = {
 				en_us: '<div>Currently the archive location of this page, "${1}", is under the article namespace, where archives should not be normally directed to. </div><div>Please check if you have the correct archive location.</div>',
-				ja_jp: '<div>今このページのアーカイブ先は「${1}」であり、記事名前空間にあります。</div><div>通常は記事名前空間にアーカイブしないはずですので、アーカイブ先が正しいかどうか、お確かめください。</div>',
-				zh_cl: '<div>今本頁所存檔，在「${1}」，屬條目名稱空間。</div><div>條目名稱空間所屬，多不存檔，宜熟視所書地址。</div>',
 				zh_cn: '<div>本页面目前的存档地址是“${1}”，在条目名称空间之下。</div><div>一般而言不应向条目名称空间进行存档，请检查存档地址。</div>',
 				zh_hk: '<div>本頁面當前的存檔地址是「${1}」，在條目名稱空間之下。</div><div>一般而言不應向條目名稱空間進行存檔，請檢查存檔地址。</div>',
 				zh_tw: '<div>本頁面當前的存檔地址是「${1}」，在條目名稱空間之下。</div><div>一般而言不應向條目名稱空間進行存檔，請檢查存檔地址。</div>'
 			};
 			easy.lang.problem_with_archive_location_same_page = {
 				en_us: '<div>Currently the archive location of this page, "${1}", is this page itself, Easy archive cannot operate like this. </div>',
-				ja_jp: '<div>今のところ、このページのアーカイブ先は「${1}」であり、アーカイブ元ページ自身です。Easy Archive はこのまま働けません。</div>',
-				zh_cl: '<div>今本頁所存檔，悉在「${1}」，其名同於本頁。Easy Archive 無以按址存檔。</div>',
 				zh_cn: '<div>本页面目前的存档地址是“${1}”，和本页面名称相同。Easy Archive 无法按此地址存档。</div>',
 				zh_hk: '<div>本頁面當前的存檔地址是「${1}」，和本頁面名稱相同。Easy Archive 無法按此地址存檔。</div>',
 				zh_tw: '<div>本頁面當前的存檔地址是「${1}」，和本頁面名稱相同。Easy Archive 無法按此地址存檔。</div>'
 			};
 			easy.lang.archive_summary = {
 				en_us: 'archive section',
-				ja_jp: 'セクションをアーカイブ',
-				zh_cl: '以此節存檔',
 				zh_cn: '存档段落',
 				zh_hk: '存檔段落',
 				zh_tw: '存檔段落'
 			};
 			easy.lang.delete_summary = {
 				en_us: 'delete section',
-				ja_jp: 'セクションを削除',
-				zh_cl: '刪削此節',
 				zh_cn: '删除段落',
 				zh_hk: '刪除段落',
 				zh_tw: '刪除段落'
 			};
 			easy.lang.turn_off_summary = {
 				en_us: 'Disable Easy Archive on this page.',
-				ja_jp: 'このページで Easy Archive をオフにします。',
-				zh_cl: '休 Easy Archive。',
 				zh_cn: '在本页面停用 Easy Archive。',
 				zh_hk: '在本頁停用 Easy Archive。',
 				zh_tw: '在本頁停用 Easy Archive。'
@@ -1032,8 +934,8 @@ if (!window.bluedeck.easy_archive) {
 				return object;
 			}
 
-			var arc_sum = looker_upper(window, [ 'bluedeck.external_config.easy_archive.user_custom_archive_summary' ]);
-			var del_sum = looker_upper(window, [ 'bluedeck.external_config.easy_archive.user_custom_delete_summary' ]);
+			var arc_sum = looker_upper(window, [ 'external_config.easy_archive.user_custom_archive_summary' ]);
+			var del_sum = looker_upper(window, [ 'external_config.easy_archive.user_custom_delete_summary' ]);
 
 			function sanitize_html(string) {
 				return string
@@ -1050,8 +952,8 @@ if (!window.bluedeck.easy_archive) {
 			{
 				'use strict';
 
-				if (window.bluedeck.language_code_overwrite) {
-					lang_code = window.bluedeck.language_code_overwrite;
+				if (window.language_code_overwrite) {
+					lang_code = window.language_code_overwrite;
 				}
 
 				if (!lang_code) {
@@ -1127,7 +1029,7 @@ if (!window.bluedeck.easy_archive) {
 						ding(ml(tag_ding, [ section_number.toString(), to ]), ding_type, ding_ttl, false, false);
 					},
 					section_link: function () {
-						var node = document.getElementsByClassName('bluedeck-easy-archive-section-id-span-order-' + section_number)[0];
+						var node = document.getElementsByClassName('easy-archive-section-id-span-order-' + section_number)[0];
 						var pnode = node.parentNode;
 						for (var i = 1; i < pnode.childNodes.length - 2; i++) {
 							pnode.childNodes[i].style.display = 'none';
@@ -1266,13 +1168,13 @@ if (!window.bluedeck.easy_archive) {
 
 			// ding and its prerequisites.
 
-			if (!document.getElementById('bluedeck_ding')) {
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<style>#bluedeck_ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#bluedeck_ding button:active{background:rgba(255,255,255,0.6)}</style>');
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='bluedeck_ding'></div>");
+			if (!document.getElementById('ding')) {
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<style>#ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#ding button:active{background:rgba(255,255,255,0.6)}</style>');
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='ding'></div>");
 			}
 
-			if (!document.getElementById('bluedeck_ding_history')) {
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='bluedeck_ding_history'></div>");
+			if (!document.getElementById('ding_history')) {
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='ding_history'></div>");
 			}
 
 			easy.ding = function (message, type, ttl, history, persist)  // default type="info", ttl=3500, history=true, persist = false.
@@ -1301,8 +1203,8 @@ if (!window.bluedeck.easy_archive) {
 					persist = false;
 				}
 
-				var ding_ele = document.getElementById('bluedeck_ding');
-				var ding_hist_ele = document.getElementById('bluedeck_ding_history');
+				var ding_ele = document.getElementById('ding');
+				var ding_hist_ele = document.getElementById('ding_history');
 
 				if (ding_ele.lastChild) {
 					var previous_ding = ding_ele.lastChild;
@@ -1371,7 +1273,7 @@ if (!window.bluedeck.easy_archive) {
 			var page_top_control_bar_inhibit = easy.settings.find('top-bar') === '0';
 			var section_delete_interface_html;
 			var section_archive_interface_html;
-			var section_id_span_html = '<span class="bluedeck-easy-archive-section-id-span bluedeck-easy-archive-section-id-span-order-@@" style="display: none;">section</span>';
+			var section_id_span_html = '<span class="easy-archive-section-id-span easy-archive-section-id-span-order-@@" style="display: none;">section</span>';
 
 			var footer_info_ele, position_of_insertion;
 			if (document.getElementById('footer-info')) {
@@ -1405,7 +1307,7 @@ if (!window.bluedeck.easy_archive) {
 			})(easy.dis_support_these_pages_regex)) {
 				// insert not supported notice if the page name indicates that it is not supported.
 
-				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='bluedeck_easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.bluedeck.easy_archive.elaborate_notice(9623)'>" + ml('page_not_supported') + '</a></li>');
+				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(9623)'>" + ml('page_not_supported') + '</a></li>');
 			} else if (mw.config.values.wgPageName === easy.settings.find('arc-loc')) {
 				easy.elaborate_notice(9220);
 			} else if (easy.has_template && !easy.others_user_talk) {
@@ -1437,9 +1339,9 @@ if (!window.bluedeck.easy_archive) {
 							nominal = i - j + 1;
 
 							section_delete_interface_html = section_delete_interface_inhibit ? '' : pipe_html +
-								'<a href="javascript:window.bluedeck.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
+								'<a href="javascript:window.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
 							section_archive_interface_html = section_archive_interface_inhibit ? '' : pipe_html +
-								'<a href="javascript:window.bluedeck.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
+								'<a href="javascript:window.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
 
 							ele.childNodes[child_node_number].insertAdjacentHTML('afterend',
 								section_delete_interface_html + section_archive_interface_html + section_id_span_html.replace('@@', nominal.toString()));
@@ -1452,15 +1354,15 @@ if (!window.bluedeck.easy_archive) {
 
 					footer_info_ele.insertAdjacentHTML(position_of_insertion,
 						'<li>' + ml('supports') + ml('left_par_split') +
-						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.bluedeck.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.bluedeck.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
-						"<a href='javascript:window.bluedeck.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' +
+						//	 "<a href='javascript:window.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
+						//	 "<a href='javascript:window.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
+						"<a href='javascript:window.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' +
 						ml('right_par') + ml('full_stop_split') + '</li>' +
 						'<li>' + ml('archive_path_colon_split') + "<a href='/wiki/" + sanitize_html(easy.settings.find('arc-loc')) + "'" + '>' + sanitize_html(easy.settings.find('arc-loc'))
-						//	 + "</a>（<a href='javascript:window.bluedeck.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
+						//	 + "</a>（<a href='javascript:window.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
 					);
 
 				};
@@ -1470,16 +1372,16 @@ if (!window.bluedeck.easy_archive) {
 			} else if (easy.others_user_talk === true) {
 				// others user talk.
 
-				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='bluedeck_easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.bluedeck.easy_archive.elaborate_notice(953)'>" + ml('others_page') + '</a></li>');
+				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(953)'>" + ml('others_page') + '</a></li>');
 			} else if (easy.my_user_talk === false) {
 				// a generic page that did not enable easy archive.
 
-				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='bluedeck_easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.bluedeck.easy_archive.elaborate_notice(3959)'>" + ml('to_enable') + '</a></li>');
+				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(3959)'>" + ml('to_enable') + '</a></li>');
 			} else // then assert: (easy.my_user_talk === true), (easy.has_template === false).
 			{
 				// my user talk -- installed easy archive but lacking template.
 
-				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='bluedeck_easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.bluedeck.easy_archive.elaborate_notice(933)'>" + ml('please_enable') + '</a></li>');
+				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(933)'>" + ml('please_enable') + '</a></li>');
 			}
 
 			var nominal_sections = (function (count) {
@@ -1492,5 +1394,5 @@ if (!window.bluedeck.easy_archive) {
 
 		}());
 
-	}(window.bluedeck.easy_archive));
+	}(window.easy_archive));
 }

@@ -10,17 +10,14 @@
 
 'use strict';
 
-if (!('bluedeck' in window)) {
-	window.bluedeck = {};
+if (!('external_config' in window)) {
+	window.external_config = {};
 }
-if (!('external_config' in window.bluedeck)) {
-	window.bluedeck.external_config = {};
+if (!('easy_archive' in window.external_config)) {
+	window.external_config.easy_archive = {};
 }
-if (!('easy_archive' in window.bluedeck.external_config)) {
-	window.bluedeck.external_config.easy_archive = {};
-}
-window.bluedeck.external_config.easy_archive.never_enable_on_these_pages_regex = [];
-window.bluedeck.external_config.easy_archive.never_enable_on_these_namespaces_int = [ 0 ];
+window.external_config.easy_archive.never_enable_on_these_pages_regex = [];
+window.external_config.easy_archive.never_enable_on_these_namespaces_int = [ 0 ];
 
 /* Due to ES6 issues */
 /* _addText: '{{editnotice|text=因技术原因，源代码请参见[[MediaWiki:Gadget-EasyArchive-main.js|Gadget-EasyArchive-main.js]]。}}' */

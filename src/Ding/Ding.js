@@ -10,7 +10,7 @@
 'use strict';
 
 /* ding ("message here should be safe html, beacuse you can write <button>Buttons</button>", "info" | "warning" | "success" | "default", "long" | 10000 <-- expiry time in ms ) */
-window.bldkDingExposedInterface = (function () {
+window.DingExposedInterface = (function () {
 /**
  *
  * @param {string} message message here should be safe html, beacuse you can write <button>Buttons</button> in this
@@ -32,16 +32,16 @@ function ding(message, type, ttl, history, persist) {
 	if (persist === undefined) {
 		persist = false;
 	}
-	if (!document.getElementById('bluedeck_ding')) {
-		document.body.insertAdjacentHTML('afterbegin', '<style>#bluedeck_ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#bluedeck_ding button:active{background:rgba(255,255,255,0.6)}</style>');
-		document.body.insertAdjacentHTML('afterbegin', "<div id='bluedeck_ding'></div>");
+	if (!document.getElementById('ding')) {
+		document.body.insertAdjacentHTML('afterbegin', '<style>#ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#ding button:active{background:rgba(255,255,255,0.6)}</style>');
+		document.body.insertAdjacentHTML('afterbegin', "<div id='ding'></div>");
 	}
-	if (!document.getElementById('bluedeck_ding_history')) {
-		document.body.insertAdjacentHTML('afterbegin', "<div id='bluedeck_ding_history'></div>");
+	if (!document.getElementById('ding_history')) {
+		document.body.insertAdjacentHTML('afterbegin', "<div id='ding_history'></div>");
 	}
-	var dingEle = document.getElementById('bluedeck_ding');
+	var dingEle = document.getElementById('ding');
 	// eslint-disable-next-line no-unused-vars
-	var dingHistEle = document.getElementById('bluedeck_ding_history');
+	var dingHistEle = document.getElementById('ding_history');
 	var previousMessage = dingEle.lastChild;
 	if (previousMessage) {
 		previousMessage.style.transform = 'translateY(-130%)';

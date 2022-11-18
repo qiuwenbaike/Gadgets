@@ -25,7 +25,7 @@ if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle') && mw.c
 		var dom = mw.util.addPortletLink(pos, '#', wgULS('清除缓存', '清除快取'), 'ca-purge', wgULS('更新服务器缓存', '更新伺服器快取'));
 		var fn = function fn(e, pageTitle) {
 			e.preventDefault();
-			window.bldkDingExposedInterface('正在清除…', 'default', 'long');
+			window.DingExposedInterface('正在清除…', 'default', 'long');
 			new mw.Api().post({
 				action: 'purge',
 				format: 'json',
@@ -35,7 +35,7 @@ if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle') && mw.c
 				window.localStorage.removeItem('MediaWikiModuleStore:' + mw.config.get('wgWikiID'));
 				window.location.reload(true);
 			}).catch(function () {
-				window.bldkDingExposedInterface(wgULS('清除失败，请重试', '清除失敗，請重試'), 'default', 'long');
+				window.DingExposedInterface(wgULS('清除失败，请重试', '清除失敗，請重試'), 'default', 'long');
 			});
 		};
 		var clickDom = isMinerva ? dom : dom.firstElementChild;
