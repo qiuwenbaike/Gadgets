@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-EasyArchive-main.js
- * @source meta.wikimedia.org/w/index.php?title=user:bluedeck/source/easy-archive.js
+ * @source meta.wikimedia.org/w/index.php?oldid=18915644
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 // Out-of-the-box language support: English(US), Japanese, Chinese(Chinese Mainland, Hong Kong, Taiwan) and Classical Chinese.
