@@ -88,7 +88,7 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 							});
 						case 'pages':
 							return val.map(function (ele) {
-								return $('<div>').html($('<a>').attr('href', mw.util.getUrl('mediawiki:gadget-' + ele).text(ele)));
+								return $('<div>').html($('<a>').attr('href', mw.util.getUrl('mediawiki:gadget-' + ele)).text(ele));
 							});
 					}
 				},
