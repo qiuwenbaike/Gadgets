@@ -548,6 +548,10 @@ const deployTargets = [
 		target: 'MediaWiki:Common.js'
 	},
 	{
+		file: 'src/Common/Print.css',
+		target: 'MediaWiki:Print.css',
+	},
+	{
 		file: 'src/Common/Group-user.css',
 		target: 'MediaWiki:Group-user.css',
 	},
