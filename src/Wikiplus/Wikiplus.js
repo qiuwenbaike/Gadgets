@@ -1701,36 +1701,6 @@ $(function () {
 				}
 
 				/**
-				 * 提交统计数据
-				 *
-				 * @param {string} title 页面名
-				 * @param {@integer} useTime 用时 单位毫秒
-				 */
-			}, {
-				key: 'sendStatistic',
-				value: function sendStatistic(title, useTime) {
-					if (title === undefined) {
-						title = mw.config.get('wgPageName');
-					}
-					if (localStorage.Wikiplus_SendStatistics === 'True') {
-						$.ajax({
-							url: scriptPath + '/statistics/api/submit',
-							type: 'POST',
-							dataType: 'json',
-							data: {
-								wikiname: mw.config.get('wgSiteName'),
-								usetime: useTime,
-								username: mw.config.get('wgUserName'),
-								pagename: title
-							},
-							success: function success(data) {
-								// 提交成功
-							}
-						});
-					}
-				}
-
-				/**
 				 * 检查安装
 				 *
 				 * @param {Function} callback 回调函数
@@ -1752,21 +1722,6 @@ $(function () {
 								$(this).remove();
 							});
 						};
-						var notice = $('<div>').text(i18n('install_tip').replace(/\$1/ig, mw.config.get('wgSiteName'))).attr('id', 'Wikiplus-InterBox-Content');
-						var applyBtn = $('<div>').addClass('Wikiplus-InterBox-Btn').attr('id', 'Wikiplus-Setting-Apply').text(i18n('accept'));
-						var cancelBtn = $('<div>').addClass('Wikiplus-InterBox-Btn').attr('id', 'Wikiplus-Setting-Cancel').text(i18n('decline'));
-						var content = $('<div>').append(notice).append($('<hr>')).append(applyBtn).append(cancelBtn); // 拼接
-						self.createDialogBox('安装Wikiplus', content, 600, function () {
-							$('#Wikiplus-InterBox-Content').css('text-align', 'left');
-							$('#Wikiplus-Setting-Apply').on('click', function () {
-								localStorage.Wikiplus_SendStatistics = 'True';
-								install();
-							});
-							$('#Wikiplus-Setting-Cancel').on('click', function () {
-								localStorage.Wikiplus_SendStatistics = 'False';
-								install();
-							});
-						});
 					}
 				}
 
