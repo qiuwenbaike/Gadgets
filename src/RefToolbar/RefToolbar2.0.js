@@ -851,7 +851,10 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			div.find('.cite-form-status').val('open');
 			div.find('.cite-extra-fields').show(1, function () {
 				// jQuery adds "display:block", which screws things up
-				div.find('.cite-extra-fields').css({ 'width': '100%', 'background-color': 'transparent' });
+				div.find('.cite-extra-fields').css({
+					'width': '100%',
+					'background-color': 'transparent'
+				});
 			});
 		} else {
 			div.find('.cite-form-status').val('closed');
