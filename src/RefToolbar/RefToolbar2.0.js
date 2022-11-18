@@ -64,7 +64,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		 * * A section for cites
 		 * ** dropdown for the templates (previously defined)
 		 * ** button for named refs with a dialog box
-		 * * button for errorcheck
+		 * ** button for errorcheck
 		 * 3. add the whole thing to the main toolbar
 		 */
 
