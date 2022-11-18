@@ -1,0 +1,819 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Common.css
+ * @source https://zh.wikipedia.org/wiki/MediaWiki:Common.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* <nowiki> */
+/**
+ * 这里的样式仅为桌面版用户加载。
+ * 为登录用户加载请编辑[[MediaWiki:Group-user.css]]。
+ */
+/*
+ * All-page CSS rules
+ */
+/* Default styling for HTML elements */
+/* Reset default styling for <dfn> */
+dfn {
+	font-style: inherit;
+}
+
+body,
+input {
+	font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+body:lang( zh-hant ),
+input:lang( zh-hant ) {
+	font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Source Han Sans TC', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+.mw-editfont-monospace,
+.mw-editfont-sans-serif,
+.mw-editfont-serif {
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 14px !important;
+}
+
+.content code,
+.content kbd,
+.content pre,
+.content samp,
+.screenplay,
+.ve-ui-mwWikitextSurface .ve-ce-attachedRootNode,
+div.CodeMirror,
+.mw-editfont-monospace,
+code,
+kbd,
+pre,
+samp,
+tt {
+	font-family: 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', 'Source Han Mono SC', monospace;
+}
+
+.content code:lang( zh-hant ),
+.content kbd:lang( zh-hant ),
+.content pre:lang( zh-hant ),
+.content samp:lang( zh-hant ),
+.screenplay:lang( zh-hant ),
+.ve-ui-mwWikitextSurface .ve-ce-attachedRootNode:lang( zh-hant ),
+div.CodeMirror:lang( zh-hant ),
+.mw-editfont-monospace:lang( zh-hant ),
+code:lang( zh-hant ),
+kbd:lang( zh-hant ),
+pre:lang( zh-hant ),
+samp:lang( zh-hant ),
+tt:lang( zh-hant ) {
+	font-family: 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', 'Source Han Mono TC', monospace;
+}
+
+.mw-body h1,
+.mw-body h2,
+.mw-body h3,
+.mw-body h4,
+.mw-body h5,
+.mw-body h6,
+.mw-body dt,
+#mw-related-navigation h2,
+#mw-site-navigation h2,
+#personal h2,
+#p-logo-text a,
+.mw-logo-wordmark,
+#mw-site-navigation .sidebar-chunk h3 {
+	font-family: 'Source Serif', 'Times New Roman', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
+}
+
+.mw-body h1:lang( zh-hant ),
+.mw-body h2:lang( zh-hant ),
+.mw-body h3:lang( zh-hant ),
+.mw-body h4:lang( zh-hant ),
+.mw-body h5:lang( zh-hant ),
+.mw-body h6:lang( zh-hant ),
+.mw-body dt:lang( zh-hant ),
+#mw-related-navigation h2:lang( zh-hant ),
+#mw-site-navigation h2:lang( zh-hant ),
+#personal h2:lang( zh-hant ),
+#p-logo-text a:lang( zh-hant ),
+.mw-logo-wordmark:lang( zh-hant ),
+#mw-site-navigation .sidebar-chunk h3:lang( zh-hant ) {
+	font-family: 'Source Serif', 'Times New Roman', 'Source Han Serif TC', 'MingLiU', 'SimSun', serif;
+}
+
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+	word-break: break-all;
+}
+
+html {
+	tab-size: 4;
+}
+
+pre,
+.mw-code,
+.mw-highlight,
+.ve-init-mw-desktopArticleTarget .CodeMirror-code,
+.ve-init-mw-desktopArticleTarget .CodeMirror-code *,
+.ve-init-mw-desktopArticleTarget .ve-ui-mwWikitextSurface .ve-ce-paragraphNode {
+	line-break: anywhere !important;
+	white-space: pre-wrap !important;
+	word-break: break-all !important;
+	word-wrap: break-word !important;
+}
+
+ol.references .mw-extended-references {
+	margin-left: 1.25em;
+	margin-bottom: 0.3em;
+}
+/* Make the list of references smaller */
+ol.references,
+div.reflist {
+	font-size: 90%;
+	/* Default font-size */
+	margin-bottom: 0.5em;
+}
+
+div.reflist ol.references {
+	font-size: 100%;
+	/* Reset font-size when nested in div.reflist */
+}
+
+div.reflist ol.references,
+div.notelist ol.references {
+	list-style-type: inherit;
+	/* Enable custom list style types */
+}
+
+/* .references-2column b/c */
+div.references-2column {
+	-moz-column-count: 2;
+	column-count: 2;
+	font-size: 90%;
+}
+
+div.references-2column ol.references,
+div.references-2column div.reflist {
+	font-size: 100%;
+}
+
+/* Reset top margin for lists embedded in columns */
+div.columns {
+	margin-top: 0.3em;
+}
+
+div.columns dl,
+div.columns ol,
+div.columns ul {
+	margin-top: 0;
+}
+
+/* Avoid list items from breaking between columns */
+div.columns li,
+div.columns dd dd {
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid-column;
+}
+
+/* Highlight clicked reference in blue to help navigation */
+ol.references li:target,
+sup.reference:target,
+span.citation:target {
+	background-color: #def;
+}
+
+/* 处理灰色链接，比如未开通的轨道交通车站 */
+
+a.graylink,
+.graylink a,
+a .graylink {
+	color: #888;
+}
+
+a:visited.graylink,
+.graylink a:visited,
+a:visited .graylink {
+	color: #666;
+}
+
+a.new.graylink,
+.graylink a.new,
+a.new .graylink {
+	color: #a77;
+}
+
+a:visited.new.graylink,
+.graylink a:visited.new,
+a:visited.new .graylink {
+	color: #955;
+}
+
+a.selflink.graylink,
+.graylink a.selflink,
+a.selflink .graylink {
+	color: #333;
+}
+
+/* Prevent line breaks in silly places:
+   1) Where desired
+   2) Links when we don't want them to
+   3) Bold "links" to the page itself
+   4) HTML formulae
+   5) Ref tags with group names <ref group="Note"> → "[Note 1]"
+*/
+.nowrap,
+.nowraplinks a,
+/* .nowraplinks .selflink, */
+span.texhtml,
+sup.reference a {
+	white-space: nowrap;
+}
+
+/* In the case where non-CJK links are joined with CJK punctuations
+   (thus no space after punctuations), browsers tend to disallow link wrap
+   around those punctuations (see diff=37708459). Insert an empty pseudo-
+   element with standard wrapping to work around this. */
+.nowraplinks a:before,
+.nowraplinks .selflink:before {
+	content: ' ';
+	font-size: 0;
+	white-space: normal;
+}
+
+/* However if there is a manual nowrap, do not ignore it. */
+.nowraplinks .nowrap a:before,
+.nowraplinks .nowrap .selflink:before {
+	white-space: nowrap;
+}
+
+/* Style for horizontal lists (separator following item) */
+.skin-modern .hlist dl,
+.skin-vector .hlist dl {
+	line-height: 1.5em;
+}
+
+.hlist dl,
+.hlist ol,
+.hlist ul {
+	margin: 0;
+}
+
+.hlist dd,
+.hlist dt,
+.hlist li {
+	display: inline;
+	margin: 0;
+}
+
+/* Display nested lists inline */
+.hlist.inline,
+.hlist.inline dl,
+.hlist.inline ol,
+.hlist.inline ul,
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+	display: inline;
+}
+
+/* Generate interpuncts */
+.hlist dt:after {
+	content: ' :';
+}
+
+.hlist dd:after,
+.hlist li:after {
+	content: ' · ';
+	font-weight: bold;
+}
+
+.hlist dd:last-child:after,
+.hlist dt:last-child:after,
+.hlist li:last-child:after {
+	content: none;
+}
+
+/* for IE 8 */
+.hlist dd.nopunct:after,
+.hlist dt.nopunct:after,
+.hlist li.nopunct:after {
+	content: none;
+}
+
+/* Add parens around nested lists */
+.hlist dl dl:before,
+.hlist ol ol:before,
+.hlist ul ul:before {
+	content: '（';
+}
+
+.hlist dl dl:after,
+.hlist ol ol:after,
+.hlist ul ul:after {
+	content: '）';
+}
+
+/* Put numbers in ordered lists */
+.hlist.hnum ol li {
+	counter-increment: level1;
+}
+
+.hlist.hnum ol li:before {
+	content: counter( level1 ) ' ';
+}
+
+.hlist.hnum ol ol li {
+	counter-increment: level2;
+}
+
+.hlist.hnum ol ol li:before {
+	content: counter( level2 ) ' ';
+}
+
+/* Unbulleted lists */
+.plainlist,
+.plainlist ul {
+	list-style: none none !important;
+	margin-left: 0 !important;
+}
+
+.plainlist li {
+	margin-bottom: 0;
+}
+
+.same-bg {
+	background: none;
+}
+
+/* 解决cite定位内文字显示为斜体的问题 */
+cite {
+	font-style: normal;
+}
+
+@media screen and ( max-width: 768px ) {
+	.nomobile {
+		display: none;
+	}
+}
+
+@media screen and ( min-width: 768px ) {
+	.mobileonly,
+	.onlymobile {
+		display: none;
+	}
+}
+
+/* {{hatnote}}、{{notice}}等模板 */
+.hatnote,
+.notice,
+#spoiler {
+	/* @noflip */
+	font-size: small;
+	text-align: justify;
+	max-width: 92.5%;
+	width: 100%;
+	margin: 1em auto; /* 小于1.2可能会导致错行问题 */
+	padding: 0.2em;
+}
+
+.hatnote i {
+	font-style: normal;
+}
+
+div.hatnote + div.hatnote {
+	margin-top: -0.5em;
+}
+
+.hatnote a:not( .new ),
+.dablink a:not( .new ),
+.rellink a:not( .new ) {
+	color: #36c;
+}
+
+/* .nounderlines 样式 */
+.nounderlines a {
+	text-decoration: none !important;
+}
+
+/* 页底文字太小 */
+#footer ul li {
+	font-size: small;
+}
+
+/* 页底二维码 */
+#footer-info-copyright > .wechat {
+	width: 72px;
+	float: right;
+	font-size: 0.8em;
+	margin: 0 1em 1em;
+}
+
+/* 解决small标签中文字体太小 */
+small {
+	font-size: 0.9em;
+}
+
+big {
+	font-size: 1.2em;
+}
+
+/*
+ * For Extension: Graph
+ */
+.nowrap,
+.nowrap a:before,
+.nowrap .selflink:before {
+	white-space: nowrap;
+}
+
+/*
+ * For {{coord}}
+ */
+.geo-default,
+.geo-multi-punct {
+	display: none;
+}
+
+.geo-nondefault {
+	display: inline;
+}
+
+.longitude,
+.latitude {
+	white-space: nowrap;
+}
+
+/* [[File:PDF icon.svg]] */
+#bodyContent a[ href$='.pdf' ].external,
+#bodyContent a[ href*='.pdf?' ].external,
+#bodyContent a[ href*='.pdf#' ].external,
+#bodyContent a[ href$='.PDF' ].external,
+#bodyContent a[ href*='.PDF?' ].external,
+#bodyContent a[ href*='.PDF#' ].external {
+	background: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVR4AWOAgv8EMQHwHx9AGEK5Af+pYcB/ahjwn5ABhA2Egata6v/JxSgGwMDXU6dQ+K+mTobwEQCnAYRokl2ATsPY+F1AwEUkGIAIA8IGkIspTgfUNYBkDAUAFfk2nifLLg0AAAAASUVORK5CYII= ) center right no-repeat;
+	padding-right: 16px;
+}
+
+/*
+ * For external interwiki links
+ */
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.mw-parser-output a:not( :local-link ) {
+	background-image: url( data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+Cgk8cGF0aCBmaWxsPSIjZmZmIiBzdHJva2U9IiMzNmMiIGQ9Ik0xLjUgNC41MThoNS45ODJWMTAuNUgxLjV6Ii8+Cgk8cGF0aCBmaWxsPSIjMzZjIiBkPSJNNS43NjUgMUgxMXY1LjM5TDkuNDI3IDcuOTM3bC0xLjMxLTEuMzFMNS4zOTMgOS4zNWwtMi42OS0yLjY4OCAyLjgxLTIuODA4TDQuMiAyLjU0NHoiLz4KCTxwYXRoIGZpbGw9IiNmZmYiIGQ9Im05Ljk5NSAyLjAwNC4wMjIgNC44ODVMOC4yIDUuMDcgNS4zMiA3Ljk1IDQuMDkgNi43MjNsMi44ODItMi44OC0xLjg1LTEuODUyeiIvPgo8L3N2Zz4K );
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-right: 13px;
+}
+
+/*
+ * Page-specific rules
+ */
+/* Gadgets-definition大字号 */
+.rootpage-MediaWiki_Gadgets-definition .mw-parser-output li {
+	font-family: monospace;
+	font-size: 1.2em;
+}
+
+/* [[Special:小工具]]行距 */
+.rootpage-rootpage-Special_小工具 p {
+	margin: 0;
+}
+
+/* 最近更改说明不自动换行 */
+.mw-changeslist-legend dd {
+	white-space: nowrap;
+}
+
+/* 注册页面样式 */
+.mw-special-CreateAccount .mw-ui-container {
+	float: none !important;
+	margin-right: 0 !important;
+	flex-flow: row wrap;
+	align-content: flex-start;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.mw-special-CreateAccount .mw-ui-container #userloginForm {
+	display: flex;
+	margin: 2em;
+	flex: 1 1 100px;
+}
+
+.mw-special-CreateAccount .mw-createacct-benefits-container {
+	margin: 2em;
+	flex: 1 1 100px;
+}
+
+/*
+ * Screen-specific rules
+ */
+/* 编辑提交界面按钮部分的样式 */
+.mw-summary-preset {
+	display: inline;
+	padding: 0;
+}
+
+.mw-summary-preset-item {
+	border-left: 1px solid #a2a9b1;
+	display: inline-block;
+	line-height: 1.25em;
+	margin: 0.125em 0;
+	padding: 0 0.5em;
+}
+
+.mw-summary-preset-item:first-child {
+	border-left: medium none;
+	padding-left: 0.25em;
+}
+
+.mw-summary-preset-item:last-child {
+	padding-right: 0.25em;
+}
+
+.ve-ui-mwSaveDialog-summaryLabel .mw-summary-preset {
+	display: none;
+}
+
+/* 编辑历史界面 */
+#pagehistory li.not-patrolled {
+	background-color: #ffa !important;
+}
+
+/* 上传界面 */
+#mwe-upwiz-upload-ctrl-flickr-container {
+	display: none;
+}
+/* 文件信息页面 */
+.licensetpl_wrapper,
+.licensetpl_metadata {
+	display: none;
+}
+
+.fileinfotpl-type-information {
+	width: 95%;
+	padding: 5px;
+	border-radius: 5px;
+	border-style: solid;
+	border-collapse: inherit;
+	border-width: 2px;
+	border-color: #999;
+	background-color: #f9f9f9;
+	margin: 1em auto;
+}
+
+@media ( max-width: 768px ) {
+	.fileinfotpl-type-information {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.fileinfotpl-type-information td {
+	background-color: #f7f8ff;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
+.fileinfotpl-type-information td.fileinfo-paramfield {
+	width: 5em;
+	background-color: #def;
+	text-align: right;
+	font-weight: bold;
+}
+
+.fileinfotpl-type-information tbody > tr:first-child > td:first-child {
+	border-radius: 5px 0 0 0;
+}
+
+.fileinfotpl-type-information tbody > tr:first-child > td:last-child {
+	border-radius: 0 5px 0 0;
+}
+
+.fileinfotpl-type-information tbody > tr:last-child > td:first-child {
+	border-radius: 0 0 0 5px;
+}
+
+.fileinfotpl-type-information tbody > tr:last-child > td:last-child {
+	border-radius: 0 0 5px 0;
+}
+
+.fileinfotpl-type-information .fn {
+	display: none;
+}
+
+.wikitable .filehistory {
+	overflow-y: auto;
+}
+
+/* Multimedia Viewer */
+.mw-mmv-repo-button-commons,
+.mw-mmv-description-page-button[ href*='wikipedia' ],
+.mw-mmv-description-page-button[ href*='wikimedia' ] {
+	display: none !important;
+}
+
+/* Makes the background of a framed image white instead of gray. */
+/* Only visible with transparent images. */
+/* See #Framed_image_background_color */
+div.thumb div a img {
+	background-color: #f8f9fa;
+}
+
+/* Put a checker background at the image description page only visible if the image has transparent background */
+#file img {
+	/* [[File:Checker-16x16.png]] */
+	background: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGElEQVQYV2N4DwX/oYBhgARgDJjEAAkAAEC99wFuu0VFAAAAAElFTkSuQmCC ) repeat;
+}
+
+/* 首页 */
+@media screen {
+	.page-Qiuwen_首页.action-view #firstHeading {
+		display: none !important;
+	}
+
+	.page-Qiuwen_首页 .mw-redirectedfrom {
+		display: none !important;
+	}
+
+	/* 禁止无聊者删除首页 */
+	.page-Qiuwen_首页.action-view #mw-page-header-links,
+	.page-Qiuwen_首页.action-view #mw-related-navigation,
+	.page-Qiuwen_首页.action-view #ca-delete {
+		display: none !important;
+	}
+}
+
+/* 隐藏首页下方的Catlink */
+.page-Qiuwen_首页 #catlinks {
+	display: none;
+}
+
+/* fix vertical-align on [[Special:历史]] */
+/* .skin-minerva .mw-ui-icon-before span {
+ * 	vertical-align: unset !important;
+ * }
+ */
+
+/* 导入界面 */
+.mw-special-Import #ooui-php-41,
+.mw-special-Import #ooui-php-42 {
+	display: none;
+}
+
+/* 未归类 */
+/* For display uneditable section */
+.noedit .editsection,
+.noedit .mw-editsection {
+	display: none;
+}
+
+/* other */
+span.lanLabel {
+	color: #72777d;
+	padding-left: 0.5em;
+}
+
+tt span.minor {
+	margin: 0 -2px 0 -3px;
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 12px;
+}
+
+tt span.newpage {
+	margin: 0 1px 0 -6px;
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 12px;
+}
+
+tt span.bot {
+	margin: 0 -6px 0 1px;
+	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
+	font-size: 12px;
+}
+/* tt span.unpatrolled */
+
+/* 用于封禁类模板，如Template:Uw-block1 */
+div.user-block {
+	padding: 5px;
+	border: 1px solid #a2a9b1;
+	background-color: #ffefd5;
+}
+
+/* For linked citation numbers and document IDs, where the number need not be shown on a screen or a handheld, but should be included in the printed version */
+
+@media screen, handheld, projection {
+	cite *.printonly {
+		display: none;
+	}
+}
+
+#wpSummary,
+#wpSummaryLabel,
+input#wpSummary,
+input.mw-summary {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Allow limiting of which header levels are shown in a TOC;
+   <div class="toclimit-3">, for instance, will limit to
+   showing ==headings== and ===headings=== but no further
+   (as long as there are no =headings= on the page, which
+   there shouldn't be according to the MoS).
+ */
+.toclimit-2 .toclevel-2,
+.toclimit-3 .toclevel-3,
+.toclimit-4 .toclevel-4,
+.toclimit-5 .toclevel-5,
+.toclimit-6 .toclevel-6,
+.toclimit-7 .toclevel-7 {
+	display: none;
+}
+
+/* Pie chart test: Transparent borders */
+.transborder {
+	border: solid transparent;
+}
+
+/* [[Template:Fact]] */
+.template-facttext {
+	background-color: #eaecf0;
+	margin: -0.3em 0;
+	padding: 0.3em 0;
+}
+
+/* Hide stuff meant for accounts with special permissions. Made visible again in
+   [[MediaWiki:Group-sysop.css]], [[Mediawiki:Group-autoconfirmed.css]],
+   [[MediaWiki:Group-user.css]] and more. */
+.steward-show,
+.sysop-show,
+.autoconfirmed-show,
+.user-show {
+	display: none;
+}
+
+.senioreditor-show,
+.patroller-show,
+.transwiki-show,
+.templateeditor-show,
+.autoreviewer-show {
+	display: none;
+}
+
+/* HACK to workaround VE and badly written CGroups */
+.noteTA {
+	display: none;
+}
+
+/* Normal font styling for wikitable row headers with scope="row" tag */
+.wikitable.plainrowheaders th[ scope='row' ] {
+	font-weight: normal;
+	/* @noflip */
+	text-align: left;
+}
+
+/* Wikiplus */
+.Wikiplus-InterBox {
+	max-width: 90vw;
+}
+
+/* Noarticletext */
+.noarticletext {
+	font-family: 'Source Serif', 'Source Han Serif SC', 'Times New Roman', 'Noto Serif', 'Noto Serif SC', 'STSong', 'SimSun', serif;
+}
+
+.noarticletext:lang( zh-hant ) {
+	font-family: 'Source Serif', 'Source Han Serif TC', 'Times New Roman', 'Noto Serif', 'Noto Serif TC', 'MingLiU', 'SimSun', serif;
+}
+
+.noarticletext-core {
+	border: 1px solid #eaecf0;
+	background: #f8f9fa;
+}
+
+.noarticletext-core .clear {
+	clear: both;
+	height: 1em;
+}
+
+.noarticletext-core .clear-high {
+	height: 5em;
+}
+
+.noarticletext-core .mw-noarticletext-title {
+	font-size: 200%;
+}
+
+.noarticletext-core .big {
+	font-size: 120%;
+}
+
+/* </nowiki> */

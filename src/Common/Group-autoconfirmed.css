@@ -1,0 +1,37 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/Group-autoconfirmed.css
+ * @source zh.wikipedia.org/wiki/MediaWiki:Common.css
+ * @source zh.wikipedia.org/wiki/MediaWiki:Group-autoconfirmed.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 这里放置的CSS将只影响自动确认用户 */
+
+/* Show hidden items that have class="autoconfirmed-show". */
+div.autoconfirmed-show,
+p.autoconfirmed-show {
+	display: block !important;
+}
+
+span.autoconfirmed-show,
+small.autoconfirmed-show {
+	display: inline !important;
+}
+
+table.autoconfirmed-show {
+	display: table !important;
+}
+
+tr.autoconfirmed-show {
+	display: table-row !important;
+}
+
+td.autoconfirmed-show {
+	display: table-cell !important;
+}
+
+li.autoconfirmed-show {
+	display: list-item !important;
+}

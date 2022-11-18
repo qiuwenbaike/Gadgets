@@ -538,6 +538,31 @@ const deployTargets = [
 		file: 'src/EditFormJS/Editform.js',
 		target: 'MediaWiki:Gadget-Editform.js'
 	},
+	/* Other stylesheets and scripts */
+	{
+		file: 'src/Common/Common.css',
+		target: 'MediaWiki:Common.css'
+	},
+	{
+		file: 'src/Common/Common.js',
+		target: 'MediaWiki:Common.js'
+	},
+	{
+		file: 'src/Common/Group-user.css',
+		target: 'MediaWiki:Group-user.css',
+	},
+	{
+		file: 'src/Common/Group-user.js',
+		target: 'MediaWiki:Group-user.js',
+	},
+	{
+		file: 'src/Common/Group-autoconfirmed.css',
+		target: 'MediaWiki:Group-autoconfirmed.css',
+	},
+	{
+		file: 'src/Common/Group-sysop.css',
+		target: 'MediaWiki:Group-sysop.css',
+	},
 ];
 
 class Deploy {
