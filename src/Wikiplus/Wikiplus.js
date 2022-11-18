@@ -1,6 +1,6 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
- * _addText: '{{Gadget Header|licnese=CC-BY-SA-4.0}}'
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}{{Apache-2.0}}'
  *
  * @source https://github.com/Wikiplus/Wikiplus/blob/master/Main.js
  * @author Eridanus Sora/妹空酱
@@ -1221,10 +1221,11 @@ $(function () {
 					var isMinorEdit = $('<div>').append($('<input>').attr({
 						type: 'checkbox',
 						id: 'Wikiplus-Quickedit-MinorEdit'
-					})).append($('<label>').attr('for', 'Wikiplus-Quickedit-MinorEdit').text(i18n('mark_minoredit') + '(Ctrl+Shift+S)'))({
+					})).append($('<label>').attr({
+						for: 'Wikiplus-Quickedit-MinorEdit',
 						margin: '5px 5px 5px -3px',
 						display: 'inline'
-					});
+					}).text(i18n('mark_minoredit') + '(Ctrl+Shift+S)'));
 					// DOM定义结束
 					var editBody = $('<div>').append(backBtn, jumpBtn, previewBox, inputBox, summaryBox, $('<br>'), isMinorEdit, editSubmitBtn, previewSubmitBtn);
 					this.createDialogBox(String(i18n('quickedit_topbtn')) + message, editBody, 1000, function () {
