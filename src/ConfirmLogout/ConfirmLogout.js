@@ -14,8 +14,6 @@
  *
  * This source code is licensed under the GPL v3 license.
  */
-'use strict';
-
 (function ($, mw) {
 var confirmLogout = function confirmLogout() {
 	var dom = document.querySelector('#ca-cb-logout>a') || document.querySelector('.menu__item--logout') || document.querySelector('#pt-logout>a');
