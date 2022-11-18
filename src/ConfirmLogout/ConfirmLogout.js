@@ -6,6 +6,8 @@
  * @license GPL-3.0
  * @dependency ext.gadget.SiteCommonJs, ext.gadget.Ding, mediawiki.api, oojs-ui-windows
  */
+'use strict';
+
 /* !
  * @author 安忆
  * @file ConfirmLogout.js
