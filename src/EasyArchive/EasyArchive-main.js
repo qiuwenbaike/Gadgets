@@ -572,7 +572,7 @@ if (!window.easy_archive) {
 			var group_zh_hans = new Language_proximity_group('zh_hans').add('zh_cn', 'zh_sg', 'zh_mo');
 			var group_zh_hant = new Language_proximity_group('zh_hant').add('zh_hk', 'zh_tw');
 			var group_zh = new Language_proximity_group('zh').add(group_zh_hans, group_zh_hant);
-			var group_cjk = new Language_proximity_group('cjk').add(group_zh, group_japanese);
+			var group_cjk = new Language_proximity_group('cjk').add(group_zh);
 			var group_asian = new Language_proximity_group('asian').add(group_cjk);
 
 			var group_world = new Language_proximity_group('world').add(group_asian, group_european);
