@@ -9,7 +9,6 @@
 'use strict';
 
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-parse-html-literal */
 /* eslint-disable no-shadow */
 /* eslint-disable no-jquery/no-each-util */
 /* eslint-disable camelcase */
@@ -110,7 +109,7 @@ _TR = {
 		$('li#ca-history').after(btn);
 	},
 	dialog: function dialog() {
-		var dlg = $('<div class="dialog-redirect" title="' + this.msg.dlgtitle + '">').dialog({
+		var dlg = $('<div>').attr({ class: 'dialog-redirect', title: this.msg.dlgtitle }).dialog({
 			bgiframe: true,
 			resizable: false,
 			modal: true,
@@ -118,7 +117,7 @@ _TR = {
 			position: 'center'
 		});
 		dlg.css('max-height', Math.round($(window).height() * 0.8) + 'px');
-		this.tabselem = $('<div class="tab-redirect">').appendTo(dlg);
+		this.tabselem = $('<div>').attr('class', 'tab-redirect').appendTo(dlg);
 		this.tagselem = $('<ul>').appendTo(this.tabselem);
 		this.addTabs();
 		this.tabselem.tabs();
@@ -250,7 +249,7 @@ _TR = {
 		if (container.prop('tagName').toLowerCase() === 'span') {
 			container.addClass('mw-ajax-loader');
 		} else if ($('span.mw-ajax-loader', container).length === 0) {
-			$('<span class="mw-ajax-loader"></span>').appendTo(container);
+			$('<span>').attr('class', 'mw-ajax-loader').appendTo(container);
 		}
 	},
 	loaded: function loaded(container) {
@@ -290,7 +289,7 @@ _TR = {
 		if (attr.classname) {
 			a.addClass(attr.classname);
 		}
-		return $('<span class="tools-redirect_link">').append(a);
+		return $('<span>').attr('class', 'tools-redirect_link').append(a);
 	},
 	addMethods: function addMethods($parent, methods) {
 		var self = this,
@@ -299,7 +298,7 @@ _TR = {
 			return $container.find('a[href=' + JSON.stringify(method.href) + ']').length > 0;
 		}
 		if ($container.length === 0) {
-			$container = $('<span class="tools-redirect_methods">').appendTo($parent);
+			$container = $('<span>').attr('class', 'tools-redirect_methods').appendTo($parent);
 		}
 		$.each(methods, function (_idx, method) {
 			if (!methodExist(method)) {
@@ -309,7 +308,7 @@ _TR = {
 	},
 	buildSelection: function buildSelection(main, metd, mt, dsab) {
 		var cont = $('<span>'),
-			sele = $('<input type="checkbox"/>').appendTo(cont);
+			sele = $('<input>').attr('type', 'checkbox').appendTo(cont);
 		this.buildLink(main).appendTo(cont);
 		this.addMethods(cont, metd);
 		sele.data('page-title', mt);
