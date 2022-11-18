@@ -6,11 +6,11 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:RefToolbar.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* eslint-disable no-jquery/no-parse-html-literal */
-/* eslint-disable no-redeclare */
-/* eslint-disable no-jquery/no-trim */
 /* eslint-disable block-scoped-var */
+/* eslint-disable no-redeclare */
 /* eslint-disable no-use-before-define */
+/* eslint-disable no-jquery/no-trim */
+/* eslint-disable no-jquery/no-parse-html-literal */
 'use strict';
 
 // TODO: make autodate an option in the CiteTemplate object, not a preference
@@ -739,7 +739,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			var select = $('<select id="cite-namedref-select">');
 			select.append($('<option value="" />').text(mw.usability.getMsg('cite-named-refs-dropdown')));
 			for (i = 0; i < names.length; i++) {
-				select.append($('<option />').text(names[i].refname));
+				select.append($('<option>').text(names[i].refname));
 			}
 			stuff.after(select);
 			select.before('<br />');
@@ -920,7 +920,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		var tr1 = $('<tr style="width:100%" />');
 		var th1 = $('<th style="width:60%; font-size:110%" />').html(mw.usability.getMsg('cite-err-report-heading'));
 		var th2 = $('<th style="text-align:right; width:40%" />');
-		var im = $('<img />').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
+		var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
 		var ad = $('<a id="cite-err-check-close" />').attr('href', '#');
 		ad.append(im);
