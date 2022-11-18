@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache-load.js
- * @source https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/load.js
+ * @source zh.wikipedia.org/w/index.php?oldid=16537574
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */

@@ -5,6 +5,7 @@
  * addText: '{{GPLv2+}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-jQuery.storage.js
+ * @source zh.wikipedia.org/w/index.php?oldid=62520995
  * @license MIT or GPLv2+
  */
 /* ! jQuery.storage
@@ -29,8 +30,6 @@
  * split data and store them into multiple files automatically.
  *
  * Released under the MIT, BSD, and GPL Licenses.
- *
- * Author: Philip Tzou
  */
 'use strict';
 

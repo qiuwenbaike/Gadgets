@@ -3,7 +3,7 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-window.wikiCache.js
- * @source https://zh.wikipedia.org/wiki/User:PhiLiP/wikicache/window.wikiCache.js
+ * @source zh.wikipedia.org/w/index.php?oldid=65190708
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 'use strict';
