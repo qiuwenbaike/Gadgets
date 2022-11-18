@@ -1295,7 +1295,6 @@ $(function () {
 										var useTime = Date.now() - timer;
 										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
 										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(String(i18n('edit_success')).replace(/\$1/ig, useTime.toString()));
-										self.sendStatistic(sectionTargetName, useTime);
 										window.onclose = window.onbeforeunload = undefined; // 取消页面关闭确认
 										setTimeout(function () {
 											location.reload();
@@ -1322,7 +1321,6 @@ $(function () {
 												var useTime = Date.now() - timer;
 												$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
 												$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(String(i18n('edit_success')).replace(/\$1/ig, String(useTime)));
-												self.sendStatistic(sectionTargetName, useTime);
 												window.onclose = window.onbeforeunload = undefined; // 取消页面关闭确认
 												setTimeout(function () {
 													location.reload();
