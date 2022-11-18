@@ -6,16 +6,14 @@
  * @source es.wikipedia.org/wiki/Usuario:Qwertyytrewqqwerty/DisamAssist.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-
-/* eslint-disable no-jquery/no-constructor-attributes */
-/* eslint-disable unicorn/prefer-string-slice */
 /* eslint-disable no-alert */
 /* eslint-disable no-jquery/no-in-array */
 /* eslint-disable no-jquery/no-grep */
 /* eslint-disable no-jquery/no-each-util */
-/* eslint-disable no-use-before-define */
+/* eslint-disable unicorn/prefer-string-slice */
 'use strict';
 
 /*
@@ -737,7 +735,7 @@ var pad = function pad(str, z, width) {
 
 /* Create a new button/* * text: Text that will be displayed on the button/* * onClick: Function that will be called when the button is clicked */
 var createButton = function createButton(text, onClick) {
-	var button = $('<input>', {
+	var button = $('<input>').attr({
 		type: 'button',
 		value: text
 	});
