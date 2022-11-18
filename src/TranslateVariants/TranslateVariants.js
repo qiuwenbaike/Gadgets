@@ -7,7 +7,6 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* globals TranslateVariants:true */
-/* eslint-disable no-jquery/no-parse-html-literal */
 'use strict';
 
 // <nowiki>
@@ -41,7 +40,7 @@ function main() {
 	var result = {};
 	var api = new mw.Api();
 	var basepagetext = '';
-	var table = $('<div id="TranslateVariants">').prependTo('#bodyContent');
+	var table = $('<div>').attr('id', 'TranslateVariants').prependTo('#bodyContent');
 	$('<div style="color:red">' + wgULS('提醒：TranslateVariants工具使用IT及MediaWiki转换组进行自动转换，请确认转换结果是否正确！', '提醒：TranslateVariants工具使用IT及MediaWiki轉換組進行自動轉換，請確認轉換結果是否正確！') + '</div>').appendTo(table);
 	var defaultlangs = 'zh,zh-hans,zh-cn,zh-my,zh-sg,zh-hant,zh-hk,zh-mo,zh-tw';
 	// eslint-disable-next-line no-alert
@@ -168,7 +167,7 @@ function main() {
 						mw.notify(wgULS('编辑', '編輯 ') + targetTitle + wgULS(' 发生错误：', ' 發生錯誤：') + e);
 					});
 				});
-				$('<table class="diff">').html(diff).prepend('<colgroup><col class="diff-marker"><col class="diff-content"><col class="diff-marker"><col class="diff-content"></colgroup>').appendTo(diffTable);
+				$('<table>').attr('class', 'diff').html(diff).prepend('<colgroup><col class="diff-marker"><col class="diff-content"><col class="diff-marker"><col class="diff-content"></colgroup>').appendTo(diffTable);
 			}
 		}, function (err) {
 			mw.notify(wgULS('获取', '取得') + lang + wgULS('差异时发生错误：', '差異時發生錯誤：') + err);
