@@ -14,7 +14,7 @@
  * @author Kwj2772
  * @contributor Perhelion
  * No internationalisation required
- * [kowiki] Fixed an issue with help-panel-button ([[ko:User:ykhwong]])
+ * [kowiki] Fixed an issue with help-panel-button (ykhwong)
  * [zhwiki] Add a timer to autohide button, check more gadgets. Add scrollDownButton
  *   @from https://ko.wikipedia.org/?oldid=25440719 CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
  *   @maintainer 安忆 (https://zh.wikipedia.org/wiki/User:安忆)

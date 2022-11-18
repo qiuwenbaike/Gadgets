@@ -3,8 +3,8 @@
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}{{Apache-2.0}}'
  *
  * @source https://github.com/Wikiplus/Wikiplus/blob/master/Main.js
- * @author Eridanus Sora/妹空酱
- * @license <https://creativecommons.org/licenses/by-sa/3.0/>
+ * @author Eridanus Sora (妹空酱)
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* eslint-disable block-scoped-var */
 /* eslint-disable camelcase */
