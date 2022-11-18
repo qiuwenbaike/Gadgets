@@ -334,7 +334,7 @@ catALot = window.catALot = {
 		if (this._variantCache[category] !== undefined) {
 			return this._variantCache[category];
 		}
-		$.each([ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ], function (idx, variant) {
+		[ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ].forEach(function (idx, variant) {
 			var r = $($.ajax({
 				url: baseUrl + variant,
 				async: false
