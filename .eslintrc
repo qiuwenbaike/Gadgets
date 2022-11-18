@@ -36,9 +36,7 @@
 		"src/HotCat/Hotcatcheck.js",
 		"src/EasyArchive/EasyArchive-main.js",
 		"src/Popups/Popups-main.js",
-		"src/Twinkle/scripts/",
-		"src/Twinkle/lib/",
-		"src/Twinkle/*.json"
+		"src/Twinkle/"
 	],
 	"rules": {
 		"no-console": "error",
