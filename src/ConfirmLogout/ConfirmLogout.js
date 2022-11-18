@@ -4,7 +4,7 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-ConfirmLogout.js
  * @license GPL-3.0
- * @dependency ext.gadget.SiteCommonJs, ext.gadget.ding, mediawiki.api, oojs-ui-windows
+ * @dependency ext.gadget.SiteCommonJs, ext.gadget.Ding, mediawiki.api, oojs-ui-windows
  */
 /* !
  * @author 安忆
@@ -47,7 +47,7 @@ var confirmLogout = function confirmLogout() {
 		});
 	}
 };
-mw.loader.using([ 'ext.gadget.ding', 'mediawiki.api', 'oojs-ui-windows' ]).then(function () {
+mw.loader.using([ 'ext.gadget.Ding', 'mediawiki.api', 'oojs-ui-windows' ]).then(function () {
 	$(confirmLogout);
 });
 }(jQuery, mediaWiki));

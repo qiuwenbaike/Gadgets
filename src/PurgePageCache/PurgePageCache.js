@@ -4,13 +4,13 @@
  *
  * @url https://www.qiuwenbaike.cn/wiki/mediawiki:gadget-PurgePageCache.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
- * @dependency ext.gadget.SiteCommonJs
+ * @dependency ext.gadget.SiteCommonJs, ext.gadget.Ding, mediawiki.api, mediawiki.util
  */
 'use strict';
 
 (function ($, mw) {
 if (mw.config.get('wgAction') === 'view' && mw.config.get('wgIsArticle') && mw.config.get('wgCurRevisionId') !== 0 && mw.config.get('wgRevisionId') !== 0 && mw.config.get('wgCurRevisionId') === mw.config.get('wgRevisionId')) {
-	mw.loader.using([ 'ext.gadget.ding', 'mediawiki.api', 'mediawiki.util' ]).then(function () {
+	mw.loader.using([ 'ext.gadget.Ding', 'mediawiki.api', 'mediawiki.util' ]).then(function () {
 		var isMinerva = document.body.classList.contains('skin-minerva'),
 			pos = '';
 		if (isMinerva) {

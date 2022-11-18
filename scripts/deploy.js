@@ -538,6 +538,10 @@ const deployTargets = [
 		file: 'src/EditFormJS/Editform.js',
 		target: 'MediaWiki:Gadget-Editform.js'
 	},
+	{
+		file: 'src/Ding/Ding.js',
+		target: 'MediaWiki:Gadget-Ding.js'
+	},
 	/* Other stylesheets and scripts */
 	{
 		file: 'src/Common/Common.css',
