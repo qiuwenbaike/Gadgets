@@ -169,10 +169,6 @@ function _typeof(obj) {
 //  This is a reference implementation. You are free to copy, modify, or
 //  redistribute.
 
-/* jslint
-	eval, for, this
-*/
-
 /* property
 	JSON, apply, call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
 	getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,

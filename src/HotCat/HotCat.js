@@ -30,7 +30,7 @@
 // <nowiki>
 /* eslint-disable vars-on-top, one-var, camelcase, no-alert, curly */
 /* global jQuery, mediaWiki, UFUI, JSconfig, UploadForm */
-/* jslint strict:false, nonew:false, bitwise:true */
+
 ( function ( $, mw ) {
 	// Don't use mw.config.get() as that takes a copy of the config, and so doesn't
 	// account for values changing, e.g. wgCurRevisionId after a VE edit
