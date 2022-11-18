@@ -3,7 +3,7 @@
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "https://git.qiuwen.wiki/qiuwen/Qiuwen-Gadgets"
+		"url": "https://git.qiuwen.wiki/qiuwen/Gadgets"
 	},
 	"scripts": {
 		"eslint": "eslint .",
