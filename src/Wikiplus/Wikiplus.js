@@ -1065,12 +1065,12 @@ $(function () {
 						target: self.kotori.pageName
 					});
 					if (mw.config.get('skin') === 'minerva') {
-						$(topBtn)({
+						$(topBtn).css({
 							'align-items': 'center',
 							'display': 'flex'
 						});
 						$(topBtn).find('span').addClass('page-actions-menu__list-item');
-						$(topBtn).find('a').addClass('mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit-base20 mw-ui-icon-with-label-desktop')('vertical-align', 'middle');
+						$(topBtn).find('a').addClass('mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit-base20 mw-ui-icon-with-label-desktop').css('vertical-align', 'middle');
 					}
 					if ($('#ca-edit').length > 0 && $('#Wikiplus-Edit-TopBtn').length === 0) {
 						mw.config.get('skin') === 'minerva' ? $('#ca-edit').parent().after(topBtn) : $('#ca-edit').after(topBtn);
@@ -1084,7 +1084,7 @@ $(function () {
 					if ($('.mw-editsection').length > 0) {
 						self.sectionMap = {};
 						// 段落快速编辑按钮
-						var sectionBtn = mw.config.get('skin') === 'minerva' ? $('<span>').append($('<a>').addClass('Wikiplus-Edit-SectionBtn mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit-base20 edit-page mw-ui-icon-flush-right')('margin-left', '0.75em').attr('href', 'javascript:void(0)').attr('title', i18n('quickedit_sectionbtn'))) : $('<span>').append($('<span>').addClass('mw-editsection-divider').text(' | ')).append($('<a>').addClass('Wikiplus-Edit-SectionBtn').attr('href', 'javascript:void(0)').text(i18n('quickedit_sectionbtn')));
+						var sectionBtn = mw.config.get('skin') === 'minerva' ? $('<span>').append($('<a>').addClass('Wikiplus-Edit-SectionBtn mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit-base20 edit-page mw-ui-icon-flush-right').css('margin-left', '0.75em').attr('href', 'javascript:void(0)').attr('title', i18n('quickedit_sectionbtn'))) : $('<span>').append($('<span>').addClass('mw-editsection-divider').text(' | ')).append($('<a>').addClass('Wikiplus-Edit-SectionBtn').attr('href', 'javascript:void(0)').text(i18n('quickedit_sectionbtn')));
 						$('.mw-editsection').each(function (i) {
 							try {
 								var editURL = $(this).find("a[href*='action=edit']").first().attr('href');
@@ -1293,7 +1293,7 @@ $(function () {
 								self.kotori.edit(wikiText, sectionTargetName, {
 									success: function success() {
 										var useTime = Date.now() - timer;
-										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner')('background', 'rgba(6, 239, 92, 0.44)');
+										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
 										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(String(i18n('edit_success')).replace(/\$1/ig, useTime.toString()));
 										self.sendStatistic(sectionTargetName, useTime);
 										window.onclose = window.onbeforeunload = undefined; // 取消页面关闭确认
