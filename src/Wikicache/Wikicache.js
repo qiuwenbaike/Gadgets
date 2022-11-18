@@ -10,7 +10,6 @@
 
 /* eslint-disable no-console */
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-parse-html-literal */
 
 // <nowiki>
 (function ($, mw) {
@@ -32,11 +31,6 @@ window.wikiCache = {
 		'no-permission': '抱歉，我们检测到您的浏览器禁用了WikiCache需要的功能，如果您要使用WikiCache，请进行相关设置。',
 		'no-permission-title': '权限不足',
 		'no-permission-more-link': 'Help:WikiCache/浏览器配置',
-		'pendding-delete': '确认提交',
-		'pendding-delete-message': '由于您启用了网络访问受阻模式，请确认内容是否提交成功。<ul>\
-			<li>点击“<b>删除</b>”删除先前的自动保存结果；</li>\
-			<li>点击“<b>载入</b>”将转向上次编辑时的页面，并自动载入已保存内容；</li>\
-			<li>点击“<b>忽略</b>”会关闭本窗口，下次打开本页面时不再提醒，但不会删除先前的自动保存结果。</li></ul>',
 		'notice-init': '自动保存已启用。',
 		'notice-more': '配置',
 		'notice-load': '载入上次存档',
@@ -50,45 +44,12 @@ window.wikiCache = {
 		'settings-autosave-interval': '自动保存间隔：',
 		'settings-autosave-interval-suffix': '秒',
 		'settings-autosave-interval-too-small': '错误：“自动保存间隔”所设间隔过小（<10秒），请重新设置',
-		'settings-autosave-interval-invalid': '错误：请在“自动保存间隔”输入框中输入数字',
-		'settings-gfw-mode': '启用网络访问受阻模式'
+		'settings-autosave-interval-invalid': '错误：请在“自动保存间隔”输入框中输入数字'
 	},
 	_settings: {
-		'autosave-interval': 60,
-		'gfw-mode': false
+		'autosave-interval': 60
 	},
-	_style: '\
-			.wikicache-dialog {\
-				font-size: 1em;\
-			}\
-			.wikicache-notice {\
-				position: fixed;\
-				left: 0;\
-				top: 0;\
-				height: 1.6em;\
-				font-size: .8em;\
-				line-height: 1.6em;\
-				white-space: nowrap;\
-				border-bottom: 1px solid #a7d7f9;\
-				border-right: 1px solid #a7d7f9;\
-				display: none;\
-			}\
-			.wikicache-notice .ui-dialog-titlebar-close {\
-				float: right;\
-				display: inline-block;\
-			}\
-			.wikicache-dialog a, .wikicache-notice a {\
-				color: #0645AD;\
-			}\
-			.wikicache-dialog a:visited, .wikicache-notice a:visited {\
-				color: #0B0080;\
-			}\
-			.wikicache-error-message {\
-				background: url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_%28Red%29.svg/48px-Cross_Mark_%28Red%29.svg.png") no-repeat left center;\
-				padding-left: 60px;\
-				min-height: 48px;\
-			}\
-		',
+	_style: '.wikicache-dialog{font-size:1em}.wikicache-notice{position:fixed;left:0;top:0;height:1.6em;font-size:.8em;line-height:1.6em;white-space:nowrap;border-bottom:1px solid #a7d7f9;border-right:1px solid #a7d7f9;display:none}.wikicache-notice .ui-dialog-titlebar-close{float:right;display:inline-block}.wikicache-dialog a,.wikicache-notice a{color:#0645ad}.wikicache-dialog a:visited,.wikicache-notice a:visited{color:#0b0080}.wikicache-error-message{background:url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_(Red).svg/48px-Cross_Mark_(Red).svg.png") no-repeat 0;padding-left:60px;min-height:48px}',
 	_autoSaveArea: {
 		'#wpTextbox1': function wpTextbox1(el, val) {
 			if (val) {
@@ -118,7 +79,6 @@ window.wikiCache = {
 			if (typeof $.storage !== 'undefined' && !$.storage.notsupport && !$.storage.nopermission) {
 				window.wikiCache._loadStyle();
 				window.wikiCache._loadSettings();
-				window.wikiCache._onComplete();
 			}
 		});
 	},
@@ -172,7 +132,7 @@ window.wikiCache = {
 		buttons[msgs.ok] = function () {
 			$(this).dialog('close').remove();
 		};
-		$('<div class="wikicache-dialog wikicache-error">').attr('title', title).append($('<div class="wikicache-error-message" />').html(msg + '&nbsp;' + msgs['bracket-left']).append($('<a href="' + more + '"/>').html(msgs.more)).append(msgs['bracket-right'])).append($('<p>').append($('<input type="checkbox" name="noreminder">').attr('id', noreminderid)).append($('<label>').attr('for', noreminderid).html(msgs['no-reminder']))).appendTo($('body')).dialog({
+		$('<div>').attr({ title: title, class: 'wikicache-dialog wikicache-error' }).append($('<div>').attr('class', 'wikicache-error-message').html(msg + '&nbsp;' + msgs['bracket-left']).append($('<a>').attr('href', more).html(msgs.more)).append(msgs['bracket-right'])).append($('<p>').append($('<input>').attr({ id: noreminderid, type: 'checkbox', name: 'noreminder' })).append($('<label>').attr('for', noreminderid).html(msgs['no-reminder']))).appendTo($('body')).dialog({
 			buttons: buttons,
 			draggable: false,
 			modal: true,
@@ -197,13 +157,16 @@ window.wikiCache = {
 	_notice: function _notice(msg, more) {
 		var notice = $('#wikicache-notice');
 		if (notice.length === 0) {
-			notice = $('<div id="wikicache-notice" class="ui-widget-content wikicache-notice"/>');
+			notice = $('<div>').attr({
+				id: 'wikicache-notice',
+				class: 'ui-widget-content wikicache-notice'
+			});
 		}
 		notice.empty().unbind('mouseenter').unbind('mouseleave').append(msg).appendTo($('body')).fadeIn();
 		if (more instanceof Object) {
 			notice.hover(function () {
 				var msgs = window.wikiCache._msgs;
-				var el = $('<span class="wikicache-more"/>').appendTo(notice).append(msgs['bracket-left']);
+				var el = $('<span>').attr('class', 'wikicache-more').appendTo(notice).append(msgs['bracket-left']);
 				var first = true;
 				el.appendTo(notice);
 				// eslint-disable-next-line no-shadow
@@ -214,7 +177,7 @@ window.wikiCache = {
 						} else {
 							first = false;
 						}
-						el.append($('<a href="#"/>').html(msg).on('click', more[msg]));
+						el.append($('<a>').attr('href', '#').html(msg).on('click', more[msg]));
 					}
 				}
 				el.append(msgs['bracket-right']);
@@ -230,7 +193,7 @@ window.wikiCache = {
 		buttons[msgs.ok] = function () {
 			$(this).dialog('close');
 		};
-		var dia = $('<div class="wikicache-dialog"/>').attr('title', msgs['settings-title']).append($('<p>').append($('<label for="autosave-interval"/>').html(msgs['settings-autosave-interval'])).append($('<input id="autosave-interval" type="text"/>').attr('size', 5).val(settings['autosave-interval'])).append('&nbsp;' + msgs['settings-autosave-interval-suffix'])).append($('<p>').append($('<input id="gfw-mode" name="gfw-mode" type="checkbox"/>').attr('checked', settings['gfw-mode'])).append($('<label for="gfw-mode"/>').html(msgs['settings-gfw-mode'])));
+		var dia = $('<div>').attr({ class: 'wikicache-dialog', title: msgs['settings-title'] }).append($('<p>').append($('<label>').attr('for', 'autosave-interval').html(msgs['settings-autosave-interval'])).append($('<input>').attr({ id: 'autosave-interval', type: 'text', size: 5 }).val(settings['autosave-interval'])).append('&nbsp;' + msgs['settings-autosave-interval-suffix']));
 		dia.appendTo($('body')).dialog({
 			buttons: buttons,
 			draggable: false,
@@ -249,7 +212,6 @@ window.wikiCache = {
 					console.log(msgs['settings-autosave-interval-invalid']);
 					return false;
 				}
-				settings['gfw-mode'] = $('#gfw-mode', dia).attr('checked');
 				window.wikiCache._saveSettings();
 			}
 		});
@@ -343,42 +305,7 @@ window.wikiCache = {
 		if (section) {
 			thekey += '_' + section;
 		}
-		if (window.wikiCache._settings['gfw-mode']) {
-			$.storage('autosave-' + mw.config.get('wgPageName') + '-pendding-delete', thekey);
-		} else {
-			$.storage(thekey, null);
-		}
-	},
-	_onComplete: function _onComplete() {
-		if (window.wikiCache._settings['gfw-mode']) {
-			var thekeykey = 'autosave-' + mw.config.get('wgPageName') + '-pendding-delete';
-			var thekey = jQuery.storage(thekeykey);
-			if (thekey) {
-				var msgs = window.wikiCache._msgs;
-				var buttons = {};
-				buttons[msgs.delete] = function () {
-					$.storage(thekey, null);
-					$.storage(thekeykey, null);
-					$(this).dialog('close');
-				};
-				buttons[msgs.ignore] = function () {
-					$.storage(thekeykey, null);
-					$(this).dialog('close');
-				};
-				buttons[msgs.load] = function () {
-					$.storage(thekeykey, null);
-					$(this).dialog('close');
-					var autosave = $.storage(thekey);
-					window.location = autosave._path + '#wikicache=autoload';
-				};
-				$('<div class="wikicache-dialog"></div>').attr('title', msgs['pendding-delete']).append($('<p>').html(msgs['pendding-delete-message'])).dialog({
-					buttons: buttons,
-					draggable: false,
-					modal: true,
-					width: 450
-				});
-			}
-		}
+		$.storage(thekey, null);
 	},
 	// eslint-disable-next-line no-unused-vars
 	_saveFailed: function _saveFailed(_silence) {}
@@ -407,8 +334,7 @@ if ([ 'zh-hant', 'zh-tw', 'zh-hk' ].indexOf(mw.config.get('wgUserVariant')) > -1
 		'settings-autosave-interval': '自動保存間隔：',
 		'settings-autosave-interval-suffix': '秒',
 		'settings-autosave-interval-too-small': '錯誤：「自動保存間隔」所設間隔過小（<10秒），請重新設定',
-		'settings-autosave-interval-invalid': '錯誤：請在「自動保存間隔」輸入框輸入數字',
-		'settings-gfw-mode': '啟用網路訪問受阻模式'
+		'settings-autosave-interval-invalid': '錯誤：請在「自動保存間隔」輸入框輸入數字'
 	});
 }
 $(window.wikiCache.init);
