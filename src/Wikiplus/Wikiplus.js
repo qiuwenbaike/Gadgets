@@ -18,7 +18,6 @@
 /* eslint-disable no-implicit-globals */
 /* eslint-disable no-console */
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-bind */
 /**
  * Wikiplus
  * Author: +Eridanus Sora/@妹空酱
@@ -1484,7 +1483,7 @@ $(function () {
 					var self = this;
 					$('#toc').children('ul').find('a').each(function (i) {
 						$(this).on('mouseover', function () {
-							$(this).unbind('mouseover');
+							$(this).off('mouseover');
 							self.preload(i + 1);
 						});
 					});
@@ -1606,9 +1605,9 @@ $(function () {
 								});
 							});
 							$(document).on('mouseup', function () {
-								element.unbind('mousedown');
-								$(document).unbind('mousemove');
-								$(document).unbind('mouseup');
+								element.off('mousedown');
+								$(document).off('mousemove');
+								$(document).off('mouseup');
 								bindDragging(element);
 							});
 						});
