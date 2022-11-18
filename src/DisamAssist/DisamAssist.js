@@ -94,5 +94,5 @@ window.DisamAssist = jQuery.extend(true, {
 		redirectSummary: '使用[[MediaWiki:Gadget-DisamAssist.js|DisamAssist]]创建目标为[[$1]]的重定向。'
 	}
 }, window.DisamAssist || {});
-mw.loader.load('/index.php?title=MediaWiki:Gadget-DisamAssist-core.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600');
+mw.loader.load('/index.php?title=MediaWiki:Gadget-DisamAssist-core.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 // </nowiki>

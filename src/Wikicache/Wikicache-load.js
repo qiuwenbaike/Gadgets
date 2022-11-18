@@ -11,12 +11,12 @@
 
 (function ($, mw) {
 function autoload() {
-	mw.loader.getScript('/index.php?title=MediaWiki:Gadget-jQuery.storage.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600').then(function () {
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-Wikicache.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600');
+	mw.loader.getScript('/index.php?title=MediaWiki:Gadget-jQuery.storage.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600').then(function () {
+		mw.loader.load('/index.php?title=MediaWiki:Gadget-Wikicache.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 	});
 }
 if (window.JSON === undefined) {
-	mw.loader.getScript('/index.php?title=MediaWiki:Gadget-JSON2.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600').then(function () {
+	mw.loader.getScript('/index.php?title=MediaWiki:Gadget-JSON2.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600').then(function () {
 		autoload();
 	});
 } else {

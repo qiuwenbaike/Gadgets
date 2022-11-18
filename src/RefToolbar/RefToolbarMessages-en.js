@@ -13,8 +13,8 @@ switch (mw.config.get('wgUserLanguage')) {
 	case 'zh-hk':
 	case 'zh-mo':
 	case 'zh-tw':
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hant.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hant.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 		break;
 	default:
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hans.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hans.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 }

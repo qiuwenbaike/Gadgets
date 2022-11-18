@@ -129,4 +129,4 @@ mw.usability.addMessages({
 
 // Load configuration for site
 // eslint-disable-next-line no-implicit-globals, no-unused-vars
-var RefToolbarLocal = mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarConfig.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+var RefToolbarLocal = mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarConfig.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');

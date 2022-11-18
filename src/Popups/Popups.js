@@ -307,5 +307,5 @@ window.popupStrings = {
 };
 // </nowiki></pre>
 
-mw.loader.load('/index.php?title=MediaWiki:Gadget-popups-main.js&action=raw&ctype=text/javascript&smaxage=600&maxage=600');
+mw.loader.load('/index.php?title=MediaWiki:Gadget-popups-main.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 }(jQuery, mediaWiki));

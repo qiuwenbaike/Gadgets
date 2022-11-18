@@ -38,14 +38,14 @@ function initializeRefTools() {
 	}
 	if (mw.user.options.get('usebetatoolbar')) {
 		// Enhanced editing toolbar is on. Going to load RefToolbar 2.0.
-		$.getScript('/index.php?title=MediaWiki:Gadget-RefToolbarBase.js&action=raw&ctype=text/javascript', function () {
+		$.getScript('/index.php?title=MediaWiki:Gadget-RefToolbarBase.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600', function () {
 			mw.loader.using('ext.wikiEditor').then(function () {
-				mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbar2.0.js&action=raw&ctype=text/javascript');
+				mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbar2.0.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 			});
 		});
 	} else if (mw.user.options.get('showtoolbar')) {
 		// Enhanced editing toolbar is off. Loading RefToolbar 1.0. (legacy)
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarLegacy.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarLegacy.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 	} else {
 		return;
 	}

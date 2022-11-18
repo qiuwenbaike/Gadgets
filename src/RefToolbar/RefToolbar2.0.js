@@ -280,7 +280,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 
 	// Load local data - messages, cite templates, etc.
 	$(function () {
-		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages.js&action=raw&ctype=text/javascript');
+		mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 	});
 
 	// Setup the main object

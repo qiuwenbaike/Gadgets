@@ -8,9 +8,9 @@
 'use strict';
 
 if ([ 'zh', 'zh-hans', 'zh-cn', 'zh-my', 'zh-sg' ].indexOf(mw.config.get('wgUserLanguage')) !== -1) {
-	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hans.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hans.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 } else if ([ 'zh-hant', 'zh-hk', 'zh-mo', 'zh-tw' ].indexOf(mw.config.get('wgUserLanguage')) !== -1) {
-	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hant.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-zh-hant.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 } else {
-	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-en.js&action=raw&ctype=text/javascript&smaxage=21600&maxage=86400');
+	mw.loader.load('/index.php?title=MediaWiki:Gadget-RefToolbarMessages-en.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 }
