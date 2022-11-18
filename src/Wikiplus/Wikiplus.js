@@ -28,6 +28,7 @@
  * 依赖组件: MoeNotification
  * https://github.com/Last-Order/MoeNotification
  */
+// 求闻百科注：统计组件已删除
 'use strict';
 
 var _createClass = (function () {
