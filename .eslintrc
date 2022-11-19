@@ -39,7 +39,7 @@
 		"src/Twinkle/"
 	],
 	"rules": {
-		"no-console": "error",
+		"no-console": "off",
 		"no-extra-parens": ["error", "all", { "nestedBinaryExpressions": false }],
 		"no-unreachable-loop": "error",
 		"block-scoped-var": "error",
@@ -101,6 +101,7 @@
 		"max-len": "off",
 		"es-x/no-symbol-prototype-description": "off"
 	},
+	"reportUnusedDisableDirectives": true,
 	"globals": {
 		"$": "readonly",
 		"jQuery": "readonly",
