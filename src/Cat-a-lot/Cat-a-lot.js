@@ -668,7 +668,7 @@ catALot = window.catALot = {
 	},
 	showProgress: function showProgress() {
 		document.body.style.cursor = 'wait';
-		this.progressDialog = $('<div>').html(msg('editing') + ' <span id="cat_a_lot_current">' + this.counterCurrent + '</span> ' + msg('of') + this.counterNeeded).dialog({
+		this.progressDialog = $('<div>').html(msg('editing') + $('<span>').attr('id', 'cat_a_lot_current').text(this.counterCurrent) + msg('of') + this.counterNeeded).dialog({
 			width: 450,
 			height: 90,
 			minHeight: 90,

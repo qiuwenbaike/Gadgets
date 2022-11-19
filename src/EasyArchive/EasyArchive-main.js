@@ -697,7 +697,7 @@ if (!window.easy_archive) {
 				zh_tw: '<div>請在本頁加入 {{Easy Archive|to=存檔位置}} 來啟用 Easy Archive。</div>'
 			};
 			easy.lang.please_enable_elaborate = {
-				en_us: "<div>You have the Easy Archive functionality enabled but your talk page hasn't been configured yet. </div><div>To take advantage of Easy Archive, add {{Easy Archive|to=[Archive location]}} template to this page.</div>",
+				en_us: '<div>You have the Easy Archive functionality enabled but your talk page hasn\'t been configured yet. </div><div>To take advantage of Easy Archive, add {{Easy Archive|to=[Archive location]}} template to this page.</div>',
 				zh_cn: '<div>您的帐户已经支持 Easy Archive，但是，为了开始使用该功能，您还需要在自己的用户讨论页面上添加模板 {{Easy Archive|to=存档位置}}。</div>',
 				zh_hk: '<div>您的帳戶已經支持 Easy Archive，但是，為了開始使用該功能，您還需要在自己的用戶討論頁面上添加模板 {{Easy Archive|to=存檔位置}}。</div>',
 				zh_tw: '<div>您的帳戶已經支持 Easy Archive，但是，為了開始使用該功能，您還需要在自己的用戶討論頁面上添加模板 {{Easy Archive|to=存檔位置}}。</div>'
@@ -769,10 +769,10 @@ if (!window.easy_archive) {
 				zh_tw: '存檔至：'
 			};
 			easy.lang.warning_stop_using = {
-				en_us: "<div>Once Easy Archive is turned off, and you want it back on, you'll have to turn it on manually.</div><div>Do you want to turn it off? <div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>Yes</button><button onclick='window.easy_archive.elaborate_notice(3163);'>No</button></div>",
-				zh_cn: "<div>停用 Easy Archive 后，如要再次启用，只能手工操作。</div><div>要现在停用 Easy Archive 吗？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>",
-				zh_hk: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>",
-				zh_tw: "<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style='height:0.5em'></div><button onclick='window.easy_archive.turn_off(1)'>是</button><button onclick='window.easy_archive.elaborate_notice(3163);'>否</button></div>"
+				en_us: '<div>Once Easy Archive is turned off, and you want it back on, you\'ll have to turn it on manually.</div><div>Do you want to turn it off? <div style="height:.5em"></div><button onclick="window.easy_archive.turn_off(1)">Yes</button><button onclick="window.easy_archive.elaborate_notice(3163);">No</button></div>',
+				zh_cn: '<div>停用 Easy Archive 后，如要再次启用，只能手工操作。</div><div>要现在停用 Easy Archive 吗？<div style="height:.5em"></div><button onclick=onclick="window.easy_archive.turn_off(1)">是</button><button onclick="window.easy_archive.elaborate_notice(3163);">否</button></div>',
+				zh_hk: '<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style="height:.5em"></div><button onclick=onclick="window.easy_archive.turn_off(1)">是</button><button onclick="window.easy_archive.elaborate_notice(3163);">否</button></div>',
+				zh_tw: '<div>停用 Easy Archive 後，如要再次啟用，則必須手動重啟。</div><div>要現在停用 Easy Archive 嗎？<div style="height:.5em"></div><button onclick=onclick="window.easy_archive.turn_off(1)">是</button><button onclick="window.easy_archive.elaborate_notice(3163);">否</button></div>'
 			};
 			easy.lang.stop_manually = {
 				en_us: '<div>Cannot turn off Easy Archive automatically. </div><div>To manually discontinue use, delete the template {{Easy Archive|to=[Archive location]}} from this page.</div>',
@@ -781,10 +781,10 @@ if (!window.easy_archive) {
 				zh_tw: '<div>經過嘗試，恕無法自動停用 Easy Archive。請手動停用。</div><div>請從本頁刪除以下模板︰{{Easy Archive|to=存檔位置}}。</div>'
 			};
 			easy.lang.change_location_to = {
-				en_us: "<div>Change archive location to: <input type='text'/></div>",
-				zh_cn: "<div>将存档地址更改为：<input type='text'/></div>",
-				zh_hk: "<div>将存檔地址更改為：<input type='text'/></div>",
-				zh_tw: "<div>将存檔地址更改為：<input type='text'/></div>"
+				en_us: '<div>Change archive location to: <input type="text"/></div>',
+				zh_cn: '<div>将存档地址更改为：<input type="text"/></div>',
+				zh_hk: '<div>将存檔地址更改為：<input type="text"/></div>',
+				zh_tw: '<div>将存檔地址更改為：<input type="text"/></div>'
 			};
 			easy.lang.change_manually = {
 				en_us: '<div>Cannot update Easy Archive location automatically. </div><div>To update manually, find the template {{Easy Archive|to=[Archive location]}} and update the location.</div>',
@@ -1169,12 +1169,12 @@ if (!window.easy_archive) {
 			// ding and its prerequisites.
 
 			if (!document.getElementById('ding')) {
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<style>#ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#ding button:active{background:rgba(255,255,255,0.6)}</style>');
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='ding'></div>");
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<style>#ding button{margin:0 .2em;background:0 0;border:.2em solid #fff;border-radius:9em;padding:0 .7em;box-sizing:border-box;color:inherit;font-weight:inherit}#ding button:active{background:rgba(255,255,255,.6)}</style>');
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<div id="ding"></div>');
 			}
 
 			if (!document.getElementById('ding_history')) {
-				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', "<div id='ding_history'></div>");
+				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<div id="ding_history"></div>');
 			}
 
 			easy.ding = function (message, type, ttl, history, persist)  // default type="info", ttl=3500, history=true, persist = false.
