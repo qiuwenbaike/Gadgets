@@ -13,7 +13,6 @@
 		"src/HotCat/HotCat.js",
 		"src/HotCat/Hotcatcheck.js",
 		"src/EasyArchive/EasyArchive-main.js",
-		"src/Popups/Popups-main.js",
-		"src/Twinkle/"
+		"src/Popups/Popups-main.js"
 	]
 }
