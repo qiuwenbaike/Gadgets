@@ -11,7 +11,7 @@
 /* eslint-disable camelcase */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 // Localizations of a few HotCat user interface texts.
 if (typeof HotCat !== 'undefined') {
 	HotCat.messages.commit = '儲存';
@@ -33,4 +33,4 @@ if (typeof HotCat !== 'undefined') {
 	HotCat.tooltips.up = '開啟以變更並顯示上層分類';
 	HotCat.multi_tooltip = '變更多個分類';
 }
-// </nowiki>
+/* </nowiki> */

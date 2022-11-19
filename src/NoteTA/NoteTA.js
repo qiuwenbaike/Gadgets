@@ -9,7 +9,7 @@
  */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 mw.hook('wikipage.content').add(function () {
 	setTimeout(function () {
 		$(function () {
@@ -185,4 +185,4 @@ mw.hook('wikipage.content').add(function () {
 		});
 	}, 0);
 });
-// </nowiki>
+/* </nowiki> */

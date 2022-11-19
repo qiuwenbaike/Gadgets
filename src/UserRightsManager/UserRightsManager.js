@@ -9,7 +9,7 @@
  */
 /* global Morebits */
 /* eslint-disable no-extra-boolean-cast */
-// <nowiki>
+/* <nowiki> */
 // Some UI code adapted from [[User:Mr. Stradivarius/gadgets/Draftify.js]]
 // Adapted from https://en.wikipedia.org/wiki/User:MusikAnimal/userRightsManager.js
 'use strict';
@@ -215,12 +215,27 @@ function showDialog() {
 		var addPromise = function addPromise(field, promise) {
 			self.pushPending();
 			promise.done(function () {
-				field.$field.append($('<span>').text('完成！').css({ 'position': 'relative', 'top': '0.5em', 'color': '#009000', 'font-weight': 'bold' }));
+				field.$field.append($('<span>').text('完成！').css({
+					'position': 'relative',
+					'top': '0.5em',
+					'color': '#009000',
+					'font-weight': 'bold'
+				}));
 			}).fail(function (obj) {
 				if (obj && obj.error && obj.error.info) {
-					field.$field.append($('<span>').text('错误：' + obj.error.info).css({ 'position': 'relative', 'top': '0.5em', 'color': '#cc0000', 'font-weight': 'bold' }));
+					field.$field.append($('<span>').text('错误：' + obj.error.info).css({
+						'position': 'relative',
+						'top': '0.5em',
+						'color': '#cc0000',
+						'font-weight': 'bold'
+					}));
 				} else {
-					field.$field.append($('<span>').text('发生未知错误。').css({ 'position': 'relative', 'top': '0.5em', 'color': '#cc0000', 'font-weight': 'bold' }));
+					field.$field.append($('<span>').text('发生未知错误。').css({
+						'position': 'relative',
+						'top': '0.5em',
+						'color': '#cc0000',
+						'font-weight': 'bold'
+					}));
 				}
 			}).always(function () {
 				promiseCount--; // FIXME: maybe we could use a self.isPending() or something
@@ -339,4 +354,4 @@ function issueTemplate(watch) {
 	});
 }
 }());
-// </nowiki>
+/* </nowiki> */

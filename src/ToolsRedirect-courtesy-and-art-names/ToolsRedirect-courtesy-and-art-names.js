@@ -8,7 +8,7 @@
  */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	var compSurnameReg,
 		prefixReg = /[字号號]\s*$/,
@@ -41,4 +41,4 @@ mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	});
 });
 
-// </nowiki>
+/* </nowiki> */

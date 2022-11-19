@@ -76,7 +76,6 @@ mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 				mm = newNow.getMinutes();
 				ss = newNow.getSeconds();
 			} catch (err) {
-				// eslint-disable-next-line no-console
 				console.log("LiveClock - error creating Date object with timezone '" + timezone + "': " + err.name);
 				timezone = 'UTC';
 				newNow = now;

@@ -6,15 +6,13 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-'use strict';
-
 /* eslint-disable no-jquery/no-sizzle */
 /* eslint-disable no-shadow */
 /* eslint-disable no-jquery/no-each-util */
 /* eslint-disable camelcase */
+'use strict';
 
-/* vim:set noexpandtab ft=javascript ts=4 sw=4: */
-// <nowiki>
+/* <nowiki> */
 (function ($, mw) {
 var _TR,
 	origPageName = mw.config.get('wgPageName'),
@@ -649,4 +647,4 @@ $.when(mw.loader.getScript('/index.php?title=MediaWiki:Gadget-ToolsRedirect-msg-
 	_TR.init();
 });
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

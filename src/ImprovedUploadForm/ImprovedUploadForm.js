@@ -9,7 +9,7 @@
 /* eslint one-var:0, vars-on-top:0, camelcase:0, curly:0, space-in-parens:0, indent:0 */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 /**
  * Enhancements for Special:Upload
  * See also: [[MediaWiki:Gadget-ImprovedUploadForm-main.js]]
@@ -39,4 +39,4 @@
     });
   }
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

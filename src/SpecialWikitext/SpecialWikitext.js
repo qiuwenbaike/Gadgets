@@ -26,7 +26,7 @@ function _typeof(obj) {
 	}, _typeof(obj);
 }
 
-// <nowiki>
+/* <nowiki> */
 (function ($, mw) {
 /* 跟[[Module:Special wikitext]]保持一致的段落。 */
 
@@ -596,4 +596,4 @@ function previewTool() {
 // oidid=65569634
 $(previewTool);
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

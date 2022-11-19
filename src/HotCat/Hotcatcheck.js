@@ -251,4 +251,4 @@ mw.loader.using([ 'mediawiki.user', 'mediawiki.util', 'jquery.cookie' ], functio
 		$('#catlinks').find('ul:first').append($('<li>').append($okLink));
 	});
 });
-// </nowiki>
+/* </nowiki> */

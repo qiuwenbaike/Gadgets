@@ -34,7 +34,7 @@ String.prototype.trim = function () {
 	return this.replace(/^\s+|\s+$/g, '');
 };
 
-// <nowiki>
+/* <nowiki> */
 var numforms = 0;
 var wikEdAutoUpdateUrl;
 var citeUserDateFormat;
@@ -1161,4 +1161,4 @@ function useUrlData(data) {
 mw.hook('mw.toolbar').add(function () {
 	refbuttons();
 });
-// </nowiki>
+/* </nowiki> */

@@ -15,7 +15,7 @@
 
 'use strict';
 
-// </nowiki>
+/* </nowiki> */
 if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.get('wgAction') === 'view') {
 	mw.loader.using([ 'jquery.tablesorter', 'mediawiki.api', 'oojs-ui-widgets' ]).then(function () {
 		function _toConsumableArray(arr) {
@@ -171,7 +171,6 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 					}).then(function () {
 						location.reload();
 					}, function (reason) {
-						// eslint-disable-next-line no-console
 						console.error(reason);
 					});
 				},
@@ -223,15 +222,9 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 				};
 			// eslint-disable-next-line no-jquery/no-sizzle
 			$('h2:has( .mw-editsection )').next().children('ul').addBack('ul').replaceWith(function () {
-				return $('<table>').attr('class', 'wikitable sortable defTable').html(
-					$('<tbody>').html(
-						$('<tr>').html(
-							[ '名称', '类型', '默认', 'Peers', '依赖项', '权限', '范围', '皮肤', '隐藏', '链接' ].map(function (ele) {
-								return $('<th>').text(ele);
-							})
-						).add($(this).children().map(insertRow))
-					)
-				).tablesorter().on('dblclick', 'td', edit).on('click', '.oo-ui-indicator-clear', deleteRow);
+				return $('<table>').attr('class', 'wikitable sortable defTable').html($('<tbody>').html($('<tr>').html([ '名称', '类型', '默认', 'Peers', '依赖项', '权限', '范围', '皮肤', '隐藏', '链接' ].map(function (ele) {
+					return $('<th>').text(ele);
+				})).add($(this).children().map(insertRow)))).tablesorter().on('dblclick', 'td', edit).on('click', '.oo-ui-indicator-clear', deleteRow);
 			});
 			btns[0].on('click', save);
 			btns[1].$element.on('click', function () {
@@ -252,4 +245,4 @@ if (mw.config.get('wgPageName') === 'MediaWiki:Gadgets-definition' && mw.config.
 		});
 	});
 }
-// </nowiki>
+/* </nowiki> */

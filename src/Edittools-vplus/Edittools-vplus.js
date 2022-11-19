@@ -9,7 +9,7 @@
 /* global customizeToolbar */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 customizeToolbar(function () {
 	this.wikiEditor('addToToolbar', {
 		sections: {
@@ -357,4 +357,4 @@ customizeToolbar(function () {
 		}
 	});
 });
-// </nowiki>
+/* </nowiki> */

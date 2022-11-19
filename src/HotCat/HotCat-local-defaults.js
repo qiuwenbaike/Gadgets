@@ -11,7 +11,7 @@
 /* eslint-disable camelcase */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 if (typeof HotCat !== 'undefined') {
 	HotCat.messages.cat_removed = '已移除[[Category:$1]]';
 	HotCat.messages.template_removed = '已移除{{[[Category:$1]]}}';
@@ -28,4 +28,4 @@ if (typeof HotCat !== 'undefined') {
 	HotCat.redir_category = '已重定向的分类';
 }
 
-// </nowiki>
+/* </nowiki> */

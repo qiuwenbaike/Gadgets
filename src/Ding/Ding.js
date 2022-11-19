@@ -50,23 +50,29 @@ function ding(message, type, ttl, history, persist) {
 		}, 500);
 	}
 	var color_sets = {
-		warning: { text: 'rgba(255,255,255,1)', background: 'rgba(221,51,51,1)' },
-		info: { text: 'rgba(255,255,255,1)', background: 'rgba(51,102,204,1)' },
-		success: { text: 'rgba(255,255,255,1)', background: 'rgba(0,175,137,1)' },
-		confusion: { text: 'rgba(0,0,0,1)', background: 'rgba(234,236,240,1)' },
-		default: { text: 'rgba(0,0,0,1)', background: 'rgba(234,236,240,1)' }
+		warning: {
+			text: 'rgba(255,255,255,1)',
+			background: 'rgba(221,51,51,1)'
+		},
+		info: {
+			text: 'rgba(255,255,255,1)',
+			background: 'rgba(51,102,204,1)'
+		},
+		success: {
+			text: 'rgba(255,255,255,1)',
+			background: 'rgba(0,175,137,1)'
+		},
+		confusion: {
+			text: 'rgba(0,0,0,1)',
+			background: 'rgba(234,236,240,1)'
+		},
+		default: {
+			text: 'rgba(0,0,0,1)',
+			background: 'rgba(234,236,240,1)'
+		}
 	};
 	var retractant = persist ? '' : "onclick='this.style.transform = \"translateY(-130%)\";setTimeout(function(){this.remove()}.bind(this), 500);' ";
-	dingEle.insertAdjacentHTML('beforeend', '<div ' +
-		retractant +
-		"style='" +
-		'position:fixed; bottom:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' +
-		'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' +
-		'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' +
-		'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " +
-		'>' +
-		message +
-		'</div>');
+	dingEle.insertAdjacentHTML('beforeend', '<div ' + retractant + "style='" + 'position:fixed; bottom:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' + 'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' + 'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' + 'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " + '>' + message + '</div>');
 	var noticeEle = dingEle.lastChild;
 	setTimeout(function () {
 		noticeEle.style.transform = 'translateY(0%)';

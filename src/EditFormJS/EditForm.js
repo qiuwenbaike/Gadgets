@@ -9,7 +9,7 @@
  */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 /**
  * 管理员注意：
  *
@@ -169,4 +169,4 @@ $(function () {
 	}
 });
 
-// </nowiki>
+/* </nowiki> */

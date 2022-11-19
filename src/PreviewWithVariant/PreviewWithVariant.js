@@ -13,7 +13,7 @@
  * @author Lt2818
  * @license MIT
  */
-// <nowiki>
+/* <nowiki> */
 'use strict';
 
 (function ($, mw) {
@@ -122,4 +122,4 @@ mw.loader.using('ext.visualEditor.desktopArticleTarget.init').then(function () {
 	mw.libs.ve.addPlugin('ext.gadget.PreviewWithVariant2017');
 });
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

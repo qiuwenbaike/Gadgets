@@ -9,7 +9,7 @@
 
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	'use strict';
 
@@ -35,4 +35,4 @@ mw.loader.using([ 'ext.gadget.ToolsRedirect' ], function () {
 	});
 });
 
-// </nowiki>
+/* </nowiki> */

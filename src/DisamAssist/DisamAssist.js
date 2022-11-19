@@ -15,7 +15,7 @@
  */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 window.DisamAssist = jQuery.extend(true, {
 	cfg: {
 		/* Categories where disambiguation pages are added (usually by a template like {{Disambiguation}} */
@@ -95,4 +95,4 @@ window.DisamAssist = jQuery.extend(true, {
 	}
 }, window.DisamAssist || {});
 mw.loader.load('/index.php?title=MediaWiki:Gadget-DisamAssist-core.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
-// </nowiki>
+/* </nowiki> */

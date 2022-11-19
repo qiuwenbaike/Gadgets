@@ -8,7 +8,7 @@
  */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 /**
  * from //en.wikipedia.org/wiki/Wikipedia:RefToolbar/2.0
  * RefToolbar
@@ -56,4 +56,4 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1) {
 	$.when(mw.loader.using([ 'user.options' ]), $.ready).done(initializeRefTools);
 }
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

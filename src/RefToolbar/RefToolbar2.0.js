@@ -58,14 +58,14 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	};
 	CiteTB.init = function () {
 		/* Main stuff, build the actual toolbar structure
-		 * 1. get the template list, make the dropdown list and set up the template dialog boxes
-		 * 2. actually build the toolbar:
-		 * * A section for cites
-		 * ** dropdown for the templates (previously defined)
-		 * ** button for named refs with a dialog box
-		 * ** button for errorcheck
-		 * 3. add the whole thing to the main toolbar
-		 */
+         * 1. get the template list, make the dropdown list and set up the template dialog boxes
+         * 2. actually build the toolbar:
+         * * A section for cites
+         * ** dropdown for the templates (previously defined)
+         * ** button for named refs with a dialog box
+         * ** button for errorcheck
+         * 3. add the whole thing to the main toolbar
+         */
 
 		if (typeof $('div[rel=cites]')[0] !== 'undefined') {
 			// Mystery IE bug workaround
@@ -742,14 +742,24 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			}
 			stuff.after(select);
 			select.before('<br>');
-			var prevlabel = $('<div>').attr({ id: 'cite-nref-preview-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-raw-preview'));
+			var prevlabel = $('<div>').attr({
+				id: 'cite-nref-preview-label',
+				style: 'display: none;'
+			}).html(mw.usability.getMsg('cite-raw-preview'));
 			select.after(prevlabel);
 			prevlabel.before('<br><br>');
 			prevlabel.after('<div id="cite-namedref-preview" style="padding: 0.5em; font-size: 110%" />');
-			var parselabel = $('<span>').attr({ id: 'cite-parsed-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-parsed-label'));
+			var parselabel = $('<span>').attr({
+				id: 'cite-parsed-label',
+				style: 'display: none;'
+			}).html(mw.usability.getMsg('cite-parsed-label'));
 			$('#cite-namedref-preview').after(parselabel);
 			parselabel.after('<div id="cite-namedref-parsed" style="padding-bottom: 0.5em; font-size: 110%" />');
-			var link = $('<a>').attr({ href: '#', id: 'cite-nref-parse', style: 'margin: 0 1em 0 1em; display: none; color: darkblue' });
+			var link = $('<a>').attr({
+				href: '#',
+				id: 'cite-nref-parse',
+				style: 'margin: 0 1em 0 1em; display: none; color: darkblue'
+			});
 			link.html(mw.usability.getMsg('cite-form-parse'));
 			$('#cite-namedref-parsed').after(link);
 			$('#cite-namedref-select').on('change', CiteTB.namedRefSelectClick);
@@ -913,7 +923,10 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	// Display the report for the error checks
 	CiteTB.displayErrors = function (errors) {
 		$('#cite-err-report').remove();
-		var table = $('<table>').attr({ id: 'cite-err-report', style: 'width: 100%; border: 1px solid #A9A9A9; background-color: #FFEFD5; padding: 0.25em; margin-top: 0.5em' });
+		var table = $('<table>').attr({
+			id: 'cite-err-report',
+			style: 'width: 100%; border: 1px solid #A9A9A9; background-color: #FFEFD5; padding: 0.25em; margin-top: 0.5em'
+		});
 		$('#editpage-copywarn').before(table);
 		var tr;
 		var tr1 = $('<tr>').css('width', '100%');
@@ -921,7 +934,10 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		var th2 = $('<th>').attr('style', 'text-align: right; width: 40%');
 		var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
-		var ad = $('<a>').attr({ id: 'cite-err-check-close', href: '#' });
+		var ad = $('<a>').attr({
+			id: 'cite-err-check-close',
+			href: '#'
+		});
 		ad.append(im);
 		th2.append(ad);
 		tr1.append(th1).append(th2);
@@ -940,8 +956,16 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			if (Object.prototype.hasOwnProperty.call(errors, e)) {
 				var err = errors[e];
 				tr = $('<tr>').css('width', '100%');
-				var td1 = $('<td>').css({ border: '1px solid black', margin: '1.5px', width: '60%' }).html(err.err);
-				var td2 = $('<td>').css({ border: '1px solid black', margin: '1.5px', width: '40%' }).html(mw.usability.getMsg(err.msg));
+				var td1 = $('<td>').css({
+					border: '1px solid black',
+					margin: '1.5px',
+					width: '60%'
+				}).html(err.err);
+				var td2 = $('<td>').css({
+					border: '1px solid black',
+					margin: '1.5px',
+					width: '40%'
+				}).html(mw.usability.getMsg(err.msg));
 				tr.append(td1).append(td2);
 				table.append(tr);
 			}

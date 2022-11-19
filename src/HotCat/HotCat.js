@@ -27,7 +27,7 @@
 
  * <=1.26: https://commons.wikimedia.org/w/index.php?title=MediaWiki:Gadget-HotCat.js&oldid=211134664
 */
-// <nowiki>
+/* <nowiki> */
 /* eslint-disable vars-on-top, one-var, camelcase, no-alert, curly */
 /* global jQuery, mediaWiki, UFUI, JSconfig, UploadForm */
 
@@ -3265,4 +3265,4 @@
 	// Use always() instead of then() to also start HotCat if the user module has problems.
 	$.when( mw.loader.using( 'user' ), $.ready ).always( run );
 }( jQuery, mediaWiki ) );
-// </nowiki>
+/* </nowiki> */

@@ -9,7 +9,7 @@
 
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 /* Generic code */
 window.customizeToolbar = function (customizer) {
 	/* Check if we are in edit mode and the required modules are available and then customize the toolbar */
@@ -218,4 +218,4 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 	});
 }
 
-// </nowiki>
+/* </nowiki> */

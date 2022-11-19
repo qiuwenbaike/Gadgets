@@ -17,7 +17,7 @@
 /* global ve */
 'use strict';
 
-// <nowiki>
+/* <nowiki> */
 (function () {
 var DATA = [ {
 	var: 'zh',
@@ -241,4 +241,4 @@ mw.hook('ve.activationComplete').add(function () {
 });
 }());
 
-// </nowiki>
+/* </nowiki> */

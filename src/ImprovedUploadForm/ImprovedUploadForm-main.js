@@ -21,7 +21,7 @@
 
 /* eslint-disable camelcase */
 /* eslint-disable no-alert */
-/* eslint-disable no-console */
+
 /* eslint-disable no-bitwise */
 /* eslint-disable no-new */
 /* eslint-disable no-eval */
@@ -31,7 +31,7 @@
 /* global hotcat_set_state, hotcat_close_form, hotcat_get_state */ // by HotCat
 /* global wgUploadLicenseObj, wgUploadWarningObj */
 
-// <nowiki>
+/* <nowiki> */
 (function ($, mw) {
 // Guard against multiple inclusions!
 if (window.UploadForm) return;
@@ -46,7 +46,7 @@ var UFConfig = {
 	// script in his monobook.js.
 
 	forcebasic: window.UploadForm_forcebasic !== undefined ? window.UploadForm_forcebasic :
-		// eslint-disable-next-line es-x/no-array-prototype-keys
+	// eslint-disable-next-line es-x/no-array-prototype-keys
 		!window.JSconfig || window.JSconfig.keys.UploadForm_newlayout ? null : true,
 	// If non-null, use the basic form
 	ownwork_author: window.UploadForm_ownwork_author !== undefined ? window.UploadForm_ownwork_author : '[[User:' + mw.config.get('wgUserName') + '|]]',
@@ -1030,11 +1030,11 @@ var UF = window.UploadForm = {
 	},
 	install: function install() {
 		if (UF.isInstalled ||
-			// Do this only once per page!
-			document.URL.indexOf('uploadformstyle=plain') > 0 ||
-			// We're disabled
-			// Also don't do anything if we're not on an upload form.
-			mw.config.get('wgCanonicalNamespace') !== 'Special' || mw.config.get('wgCanonicalSpecialPageName') !== 'Upload') return UF.removeSpinner();
+      // Do this only once per page!
+      document.URL.indexOf('uploadformstyle=plain') > 0 ||
+      // We're disabled
+      // Also don't do anything if we're not on an upload form.
+      mw.config.get('wgCanonicalNamespace') !== 'Special' || mw.config.get('wgCanonicalSpecialPageName') !== 'Upload') return UF.removeSpinner();
 		var form = document.getElementById('upload') || document.getElementById('mw-upload-form');
 		var originalDesc = document.getElementById('wpUploadDescription');
 		if (!form || !originalDesc) return; // Oops. Not good: bail out; don't do anything. (then there should be also no spinner)
@@ -1165,7 +1165,7 @@ var UF = window.UploadForm = {
 								// Author
 								result += UF.clean(UF.getOwnWorkAuthor());
 								break;
-								// default: break;
+                // default: break;
 						} // end switch
 					} // end if information for ownWork
 				}
@@ -1808,8 +1808,8 @@ var UploadFormBasic = {
 					var fields = UF.split_description(desc.value);
 					if (fields && fields.length === 4) {
 						if (!fields[1] || fields[1].search(/\S/) < 0 ||
-							// Author
-							!fields[2] || fields[2].search(/\S/) < 0 // Source
+              // Author
+              !fields[2] || fields[2].search(/\S/) < 0 // Source
 						) {
 							desc.style.backgroundColor = UF.errorColor;
 							desc.onkeyup = UF.resetBg;
@@ -2516,4 +2516,4 @@ var UploadFormFull = {
 
 UF.install();
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

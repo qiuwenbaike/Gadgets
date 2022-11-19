@@ -8,7 +8,7 @@
  * @dependency ext.gadget.SiteCommonJs
  */
 /* eslint-disable no-useless-concat */
-/* eslint-disable no-console */
+
 /* eslint-disable no-alert */
 
 'use strict';
@@ -69,7 +69,7 @@ function _arrayLikeToArray(arr, len) {
 	return arr2;
 }
 
-// <nowiki>
+/* <nowiki> */
 mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 	var RRDPage = 'Qiuwen:版本删除提报',
 		ids = [],
@@ -290,4 +290,4 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 		}
 	}
 });
-// </nowiki>
+/* </nowiki> */

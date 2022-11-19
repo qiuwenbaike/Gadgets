@@ -6,12 +6,11 @@
  * @source https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js
  * @license PD-self
  */
-'use strict';
-
 /* eslint-disable no-useless-escape */
 /* eslint-disable camelcase */
 /* eslint-disable no-control-regex */
 /* eslint-disable no-misleading-character-class */
+'use strict';
 
 // Polyfill
 // eslint-disable-next-line no-implicit-globals

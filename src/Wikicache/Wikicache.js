@@ -6,12 +6,10 @@
  * @source zh.wikipedia.org/w/index.php?oldid=65190708
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+/* eslint-disable no-jquery/no-sizzle */
 'use strict';
 
-/* eslint-disable no-console */
-/* eslint-disable no-jquery/no-sizzle */
-
-// <nowiki>
+/* <nowiki> */
 (function ($, mw) {
 window.wikiCache = {
 	version: '0.1.2',
@@ -353,4 +351,4 @@ if ([ 'zh-hant', 'zh-tw', 'zh-hk' ].indexOf(mw.config.get('wgUserVariant')) > -1
 }
 $(window.wikiCache.init);
 }(jQuery, mediaWiki));
-// </nowiki>
+/* </nowiki> */

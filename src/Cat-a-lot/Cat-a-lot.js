@@ -934,4 +934,4 @@ $.fn.catALotShiftClick = function (cb) {
 };
 }(jQuery));
 
-// </nowiki>
+/* </nowiki> */

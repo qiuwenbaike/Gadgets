@@ -16,8 +16,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-new-func */
 /* eslint-disable no-implicit-globals */
-/* eslint-disable no-console */
 /* eslint-disable no-jquery/no-sizzle */
+'use strict';
+
 /**
  * Wikiplus
  * Author: +Eridanus Sora/@妹空酱
@@ -28,7 +29,6 @@
  * https://github.com/Last-Order/MoeNotification
  */
 // 求闻百科注：统计组件已删除
-'use strict';
 
 var _createClass = (function () {
 function defineProperties(target, props) {
