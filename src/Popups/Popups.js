@@ -11,7 +11,7 @@
 (function ($, mw) {
 // The following translated strings is based on https://en.wikipedia.org/w/index.php?title=User:Lupin/strings-draft&oldid=579996170
 
-// <nowiki>
+/* <nowiki> */
 // ////////////////////////////////////////////////
 // Translatable strings
 // ////////////////////////////////////////////////
