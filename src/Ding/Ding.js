@@ -33,7 +33,7 @@ function ding(message, type, ttl, history, persist) {
 		persist = false;
 	}
 	if (!document.getElementById('ding')) {
-		document.body.insertAdjacentHTML('afterbegin', '<style>#ding button{margin: 0 0.2em; background:transparent; border:0.2em solid white; border-radius: 9em; padding: 0 0.7em; box-sizing: border-box; color: inherit; font-weight: inherit;}#ding button:active{background:rgba(255,255,255,0.6)}</style>');
+		document.body.insertAdjacentHTML('afterbegin', '<style>#ding button{margin:0 .2em;background:0 0;border:.2em solid #fff;border-radius:9em;padding:0 .7em;box-sizing:border-box;color:inherit;font-weight:inherit}#ding button:active{background:hsla(0,0%,100%,.6)}</style>');
 		document.body.insertAdjacentHTML('afterbegin', "<div id='ding'></div>");
 	}
 	if (!document.getElementById('ding_history')) {
@@ -50,11 +50,11 @@ function ding(message, type, ttl, history, persist) {
 		}, 500);
 	}
 	var color_sets = {
-		warning: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(221, 51,  51,  1)' },
-		info: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(51,  102, 204, 1)' },
-		success: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(0, 175, 137, 1)' },
-		confusion: { text: 'rgba(0, 0, 0, 1)', background: 'rgba(234, 236, 240, 1)' },
-		default: { text: 'rgba(0, 0, 0, 1)', background: 'rgba(234, 236, 240, 1)' }
+		warning: { text: 'rgba(255,255,255,1)', background: 'rgba(221,51,51,1)' },
+		info: { text: 'rgba(255,255,255,1)', background: 'rgba(51,102,204,1)' },
+		success: { text: 'rgba(255,255,255,1)', background: 'rgba(0,175,137,1)' },
+		confusion: { text: 'rgba(0,0,0,1)', background: 'rgba(234,236,240,1)' },
+		default: { text: 'rgba(0,0,0,1)', background: 'rgba(234,236,240,1)' }
 	};
 	var retractant = persist ? '' : "onclick='this.style.transform = \"translateY(-130%)\";setTimeout(function(){this.remove()}.bind(this), 500);' ";
 	dingEle.insertAdjacentHTML('beforeend', '<div ' +
