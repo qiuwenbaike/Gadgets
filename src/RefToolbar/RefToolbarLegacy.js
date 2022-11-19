@@ -1,9 +1,3 @@
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-redeclare */
-/* eslint-disable no-alert */
-/* eslint-disable no-undef */
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -13,6 +7,12 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* eslint-disable no-implicit-globals */
+/* eslint-disable block-scoped-var */
+/* eslint-disable no-redeclare */
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 
 'use strict';
 
@@ -418,7 +418,7 @@ function addRefSection() {
 		if (document.getElementById('ldr').checked) {
 			wikicode += '<references>\n\n</references>\n';
 		} else {
-			wikicode += '<references/>\n';
+			wikicode += '<references />\n';
 		}
 	} else if (document.getElementById('type-reflist').checked) {
 		if (document.getElementById('ldr').checked) {
