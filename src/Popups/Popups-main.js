@@ -279,7 +279,7 @@ $(function () {
 		return false;
 	}
 	function footnotePreview(x, navpop) {
-		setPopupHTML('<hr />' + x.innerHTML, 'popupPreview', navpop.idNumber);
+		setPopupHTML('<hr>' + x.innerHTML, 'popupPreview', navpop.idNumber);
 	}
 	function modifierPressed(evt) {
 		var mod = getValueOf('popupModifier');
@@ -553,7 +553,7 @@ $(function () {
 		if (download && _typeof(download.data) === _typeof('')) {
 			if (art.namespaceId() === pg.nsTemplateId && getValueOf('popupPreviewRawTemplates')) {
 				// FIXME compare/consolidate with diff escaping code for wikitext
-				var h = '<hr /><span style="font-family: monospace;">' + download.data.entify().split('\\n').join('<br>\\n') + '</span>';
+				var h = '<hr><span style="font-family: monospace;">' + download.data.entify().split('\\n').join('<br>\\n') + '</span>';
 				setPopupHTML(h, 'popupPreview', navpop.idNumber);
 			} else {
 				var p = prepPreviewmaker(download.data, art, navpop);
@@ -920,8 +920,8 @@ $(function () {
 		if (!shorter) {
 			s.push(viewOptions);
 		}
-		s.push('<hr />' + watch + protectDelete);
-		s.push('<hr />' + 'if(talk){<<article|shortcut=a|view article>><<editArticle|edit article>>}' + 'else{<<talk|shortcut=t|talk page>><<editTalk|edit talk>>' + '<<newTalk|shortcut=+|new topic>>}</menu>' + enddiv);
+		s.push('<hr>' + watch + protectDelete);
+		s.push('<hr>' + 'if(talk){<<article|shortcut=a|view article>><<editArticle|edit article>>}' + 'else{<<talk|shortcut=t|talk page>><<editTalk|edit talk>>' + '<<newTalk|shortcut=+|new topic>>}</menu>' + enddiv);
 
 		// user menu starts here
 		var email = '<<email|shortcut=E|email user>>';
@@ -935,7 +935,7 @@ $(function () {
 		} else {
 			s.push('if(ipuser){}else{' + email + '}');
 		}
-		s.push('<hr />' + contribs + '<<userlog|shortcut=L|user log>>');
+		s.push('<hr>' + contribs + '<<userlog|shortcut=L|user log>>');
 		s.push('if(wikimedia){<<count|shortcut=#|edit counter>>}');
 		s.push('if(admin){<menurow><<unblock|unblockShort>>|<<block|shortcut=b|block user>></menurow>}');
 		s.push('<<blocklog|shortcut=B|block log>>');
@@ -2050,7 +2050,7 @@ $(function () {
 				parse_table();
 			} else if (compareLineStringOrReg(/^----+$/)) {
 				p = 0;
-				endl('<hr />');
+				endl('<hr>');
 			} else if (compareLineStringOrReg(Insta.BLOCK_IMAGE)) {
 				p = 0;
 				parse_block_image();
@@ -3218,7 +3218,7 @@ $(function () {
 			log('listLinks returned empty list');
 			return null;
 		}
-		var html = '<hr />' + popupString('Click to disambiguate this link to:') + '<br>';
+		var html = '<hr>' + popupString('Click to disambiguate this link to:') + '<br>';
 		html += list.join(', ');
 		return html;
 	}
@@ -4058,7 +4058,7 @@ $(function () {
 		if (RegExp('^\\s*$').test(this.html)) {
 			return;
 		}
-		setPopupHTML('<hr />', 'popupPrePreviewSep', this.owner.idNumber);
+		setPopupHTML('<hr>', 'popupPrePreviewSep', this.owner.idNumber);
 		setPopupTipsAndHTML(this.html, 'popupPreview', this.owner.idNumber, {
 			owner: this.owner
 		});
@@ -4524,13 +4524,13 @@ $(function () {
 				alt = navpop.parentAnchor.childNodes[0].alt;
 			} catch (e) {}
 			if (alt) {
-				ret = ret + '<hr /><b>' + popupString('Alt text:') + '</b> ' + pg.escapeQuotesHTML(alt);
+				ret = ret + '<hr><b>' + popupString('Alt text:') + '</b> ' + pg.escapeQuotesHTML(alt);
 			}
 			if (typeof content === 'string') {
 				var p = prepPreviewmaker(content, article, navpop);
 				p.makePreview();
 				if (p.html) {
-					ret += '<hr />' + p.html;
+					ret += '<hr>' + p.html;
 				}
 				if (getValueOf('popupSummaryData')) {
 					var info = getPageInfo(content, download);
@@ -4542,7 +4542,7 @@ $(function () {
 				var art = new Title(article);
 				var encart = encodeURIComponent('File:' + art.stripNamespace());
 				var shared_url = pg.wiki.apicommonsbase + '?format=json&formatversion=2' + '&callback=pg.fn.APIsharedImagePagePreviewHTML' + '&requestid=' + navpop.idNumber + '&action=query&prop=revisions&rvprop=content&titles=' + encart;
-				ret = ret + '<hr />' + popupString('Image from Commons') + ': <a href="' + pg.wiki.commonsbase + '?title=' + encart + '">' + popupString('Description page') + '</a>';
+				ret = ret + '<hr>' + popupString('Image from Commons') + ': <a href="' + pg.wiki.commonsbase + '?title=' + encart + '">' + popupString('Description page') + '</a>';
 				mw.loader.load(shared_url);
 			}
 			showAPIPreview('imagelinks', APIimagelinksPreviewHTML(article, download), navpop.idNumber, download);
@@ -4677,7 +4677,7 @@ $(function () {
 				m--;
 			}
 		}
-		ret = '<hr />' + ret.join(', ');
+		ret = '<hr>' + ret.join(', ');
 		return ret;
 	}
 	function APIcontribsPreviewHTML(article, download, navpop) {
@@ -7122,13 +7122,13 @@ $(function () {
 		var oldlines2 = lines2.a;
 		var newlines2 = lines2.b;
 		var simpleSplit = !String.prototype.parenSplit.isNative;
-		var html = '<hr />';
+		var html = '<hr>';
 		if (getValueOf('popupDiffDates')) {
 			html += diffDatesTable(navpop);
-			html += '<hr />';
+			html += '<hr>';
 		}
-		html += shortenDiffString(diffString(oldlines2.join('\n'), newlines2.join('\n'), simpleSplit), getValueOf('popupDiffContextCharacters')).join('<hr />');
-		setPopupTipsAndHTML(html.split('\n').join('<br>') + (truncated ? '<hr /><b>' + popupString('Diff truncated for performance reasons') + '</b>' : ''), 'popupPreview', navpop.idNumber);
+		html += shortenDiffString(diffString(oldlines2.join('\n'), newlines2.join('\n'), simpleSplit), getValueOf('popupDiffContextCharacters')).join('<hr>');
+		setPopupTipsAndHTML(html.split('\n').join('<br>') + (truncated ? '<hr><b>' + popupString('Diff truncated for performance reasons') + '</b>' : ''), 'popupPreview', navpop.idNumber);
 	}
 	function diffDatesTable(navpop) {
 		var html = '<table class="popup_diff_dates">';
@@ -7620,7 +7620,7 @@ $(function () {
 		// NB redirMatch is in wikiText
 		var ret = '';
 		if (getValueOf('popupAppendRedirNavLinks') && getValueOf('popupNavLinks')) {
-			ret += '<hr />';
+			ret += '<hr>';
 			if (getValueOf('popupFixRedirs') && typeof autoEdit !== 'undefined' && autoEdit) {
 				ret += popupString('Redirects to: (Fix ');
 				log('redirLink: newTarget=' + redirMatch);
