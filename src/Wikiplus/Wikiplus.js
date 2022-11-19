@@ -130,8 +130,7 @@ function MoeNotification() {
 		});
 	};
 	this.init = function () {
-		// eslint-disable-next-line no-jquery/no-parse-html-literal
-		$('body').append('<div id="MoeNotification"></div>');
+		$('body').append($('<div>').attr('id', 'MoeNotification'));
 	};
 	if (!($('#MoeNotification').length > 0)) {
 		this.init();

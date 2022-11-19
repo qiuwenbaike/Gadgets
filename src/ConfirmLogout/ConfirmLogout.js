@@ -32,9 +32,10 @@ mw.loader.using([ 'ext.gadget.Ding', 'mediawiki.api', 'oojs-ui-windows' ]).then(
 			newDom.addEventListener('click', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
-				OO.ui.confirm($('<div>').attr({
-					class: 'oo-ui-window-foot',
-					style: 'border: .1rem solid #0645ad; display: flex; justify-content: space-evenly;'
+				OO.ui.confirm($('<div>').addClass('oo-ui-window-foot').css({
+					'border': '.1rem solid #0645ad',
+					'display': 'flex',
+					'justify-content': 'space-evenly'
 				}).html($('<span>').attr({
 					style: 'font-size :1.2rem; font-weight: 500; line-height: 1.8; padding: .4em 0'
 				}).text('您' + wgUVS('确', '確') + '定要' + wgUVS('退', '登') + '出' + wgUVS('吗', '嗎') + '？'))).then(function (confirmed) {

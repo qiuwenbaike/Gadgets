@@ -119,8 +119,7 @@ if (window.localStorage || window.globalStorage) {
 	// eslint-disable-next-line no-jquery/no-browser
 } else if (jQuery.browser.msie && parseFloat(jQuery.browser.version) < 8) {
 	// use userData
-	// eslint-disable-next-line no-jquery/no-parse-html-literal
-	jQuery.storage._userData = jQuery('<input type="hidden" id="jquery-user-data">').css('behavior', "url('#default#userData')").appendTo(jQuery('body')).get(0);
+	jQuery.storage._userData = jQuery('<input>').attr({ type: 'hidden', id: 'jquery-user-data' }).css('behavior', "url('#default#userData')").appendTo(jQuery('body')).get(0);
 	try {
 		// eslint-disable-next-line no-undef
 		ud.load('jQueryStorageIndex');

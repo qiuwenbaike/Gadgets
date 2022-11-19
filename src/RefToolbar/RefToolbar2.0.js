@@ -10,7 +10,6 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-jquery/no-trim */
-/* eslint-disable no-jquery/no-parse-html-literal */
 'use strict';
 
 // TODO: make autodate an option in the CiteTemplate object, not a preference
@@ -269,7 +268,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		if (!CiteTB.getOption('modal')) {
 			// $('#citetoolbar-namedrefs').dialog('option', 'modal', false);
 			// $('#citetoolbar-errorcheck').dialog('option', 'modal', false);
-			mw.util.addCSS('.ui-widget-overlay { display:none !important; }');
+			mw.util.addCSS('.ui-widget-overlay { display: none !important; }');
 		}
 		try {
 			$target.wikiEditor('addToToolbar', refsection);
@@ -736,21 +735,21 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			stuff.html(mw.usability.getMsg('cite-no-namedrefs'));
 		} else {
 			stuff.html(mw.usability.getMsg('cite-namedrefs-intro'));
-			var select = $('<select id="cite-namedref-select">');
-			select.append($('<option value="" />').text(mw.usability.getMsg('cite-named-refs-dropdown')));
+			var select = $('<select>').attr('id', 'cite-namedref-select');
+			select.append($('<option>').attr('value', '').text(mw.usability.getMsg('cite-named-refs-dropdown')));
 			for (i = 0; i < names.length; i++) {
 				select.append($('<option>').text(names[i].refname));
 			}
 			stuff.after(select);
 			select.before('<br />');
-			var prevlabel = $('<div id="cite-nref-preview-label" style="display:none;" />').html(mw.usability.getMsg('cite-raw-preview'));
+			var prevlabel = $('<div>').attr({ id: 'cite-nref-preview-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-raw-preview'));
 			select.after(prevlabel);
 			prevlabel.before('<br /><br />');
-			prevlabel.after('<div id="cite-namedref-preview" style="padding:0.5em; font-size:110%" />');
-			var parselabel = $('<span id="cite-parsed-label" style="display:none;" />').html(mw.usability.getMsg('cite-parsed-label'));
+			prevlabel.after('<div id="cite-namedref-preview" style="padding: 0.5em; font-size: 110%" />');
+			var parselabel = $('<span>').attr({ id: 'cite-parsed-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-parsed-label'));
 			$('#cite-namedref-preview').after(parselabel);
-			parselabel.after('<div id="cite-namedref-parsed" style="padding-bottom:0.5em; font-size:110%" />');
-			var link = $('<a href="#" id="cite-nref-parse" style="margin:0 1em 0 1em; display:none; color:darkblue" />');
+			parselabel.after('<div id="cite-namedref-parsed" style="padding-bottom: 0.5em; font-size: 110%" />');
+			var link = $('<a>').attr({ href: '#', id: 'cite-nref-parse', style: 'margin: 0 1em 0 1em; display: none; color: darkblue' });
 			link.html(mw.usability.getMsg('cite-form-parse'));
 			$('#cite-namedref-parsed').after(link);
 			$('#cite-namedref-select').on('change', CiteTB.namedRefSelectClick);
@@ -760,8 +759,8 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 
 	// Function to get the errorcheck form HTML
 	CiteTB.setupErrorCheck = function () {
-		var form = $('<div id="cite-errorcheck-heading" />').html(mw.usability.getMsg('cite-errorcheck-heading'));
-		var ul = $("<ul id='cite-errcheck-list' />");
+		var form = $('<div>').attr('id', 'cite-errorcheck-heading').html(mw.usability.getMsg('cite-errorcheck-heading'));
+		var ul = $('<ul>').attr('id', 'cite-errcheck-list');
 		var test;
 		for (var t in CiteTB.ErrorChecks) {
 			if (Object.prototype.hasOwnProperty.call(CiteTB.ErrorChecks, t)) {
@@ -850,7 +849,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		if (setting === 'closed') {
 			div.find('.cite-form-status').val('open');
 			div.find('.cite-extra-fields').show(1, function () {
-				// jQuery adds "display:block", which screws things up
+				// jQuery adds "display: block", which screws things up
 				div.find('.cite-extra-fields').css({
 					'width': '100%',
 					'background-color': 'transparent'
@@ -914,15 +913,15 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	// Display the report for the error checks
 	CiteTB.displayErrors = function (errors) {
 		$('#cite-err-report').remove();
-		var table = $('<table id="cite-err-report" style="width:100%; border:1px solid #A9A9A9; background-color:#FFEFD5; padding:0.25em; margin-top:0.5em" />');
+		var table = $('<table>').attr({ id: 'cite-err-report', style: 'width: 100%; border: 1px solid #A9A9A9; background-color: #FFEFD5; padding: 0.25em; margin-top: 0.5em' });
 		$('#editpage-copywarn').before(table);
 		var tr;
-		var tr1 = $('<tr style="width:100%" />');
-		var th1 = $('<th style="width:60%; font-size:110%" />').html(mw.usability.getMsg('cite-err-report-heading'));
-		var th2 = $('<th style="text-align:right; width:40%" />');
+		var tr1 = $('<tr>').css('width', '100%');
+		var th1 = $('<th>').attr('style', 'width: 60%; font-size: 110%').html(mw.usability.getMsg('cite-err-report-heading'));
+		var th2 = $('<th>').attr('style', 'text-align: right; width: 40%');
 		var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
-		var ad = $('<a id="cite-err-check-close" />').attr('href', '#');
+		var ad = $('<a>').attr({ id: 'cite-err-check-close', href: '#' });
 		ad.append(im);
 		th2.append(ad);
 		tr1.append(th1).append(th2);
@@ -931,8 +930,8 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 			$('#cite-err-report').remove();
 		});
 		if (errors.length === 0) {
-			tr = $('<tr style="width:100%;" />');
-			var td = $('<td style="text-align:center; margin:1.5px;" />').html(mw.usability.getMsg('cite-err-report-empty'));
+			tr = $('<tr>').css('width', '100%');
+			var td = $('<td>').attr('style', 'text-align: center; margin: 1.5px;').html(mw.usability.getMsg('cite-err-report-empty'));
 			tr.append(td);
 			table.append(tr);
 			return;
@@ -940,9 +939,9 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		for (var e in errors) {
 			if (Object.prototype.hasOwnProperty.call(errors, e)) {
 				var err = errors[e];
-				tr = $('<tr style="width:100%;" />');
-				var td1 = $('<td style="border: 1px solid black; margin:1.5px; width:60%" />').html(err.err);
-				var td2 = $('<td style="border: 1px solid black; margin:1.5px; width:40%" />').html(mw.usability.getMsg(err.msg));
+				tr = $('<tr>').css('width', '100%');
+				var td1 = $('<td>').css({ border: '1px solid black', margin: '1.5px', width: '60%' }).html(err.err);
+				var td2 = $('<td>').css({ border: '1px solid black', margin: '1.5px', width: '40%' }).html(mw.usability.getMsg(err.msg));
 				tr.append(td1).append(td2);
 				table.append(tr);
 			}
