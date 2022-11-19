@@ -20,7 +20,10 @@ window.banPage = function banPage(targetName, summary) {
 		text: '#REDIRECT [[' + targetName + ']]',
 		summary: summary,
 		minor: true
-	})).then(mw.notify('页面禁用完成，即将刷新'), location.reload());
+	})).then(function () {
+		mw.notify('页面禁用完成，即将刷新');
+		location.reload();
+	});
 };
 window.banImage = function banImage() {
 	window.banPage('File:Banned Images.svg', '禁用此图片');
