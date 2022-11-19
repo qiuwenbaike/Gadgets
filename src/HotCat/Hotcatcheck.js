@@ -120,7 +120,8 @@ mw.loader.using([ 'mediawiki.user', 'mediawiki.util', 'jquery.cookie' ], functio
 		 * So we invented a dialog that should be readable by users even with very few English skills.
 		 */
 		var prompt = function prompt() {
-			$dlgCheckCookie = $('<input type="checkbox" />').attr({
+			$dlgCheckCookie = $('<input>').attr({
+				type: 'checkbox',
 				id: 'hotCatAutoRemoveCheckCatCookie'
 			}).on('change', function () {
 				if (this.checked) {
