@@ -29,7 +29,6 @@
  * https://github.com/Last-Order/MoeNotification
  */
 // 求闻百科注：统计组件已删除
-
 var _createClass = (function () {
 function defineProperties(target, props) {
 	for (var i = 0; i < props.length; i++) {

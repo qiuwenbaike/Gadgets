@@ -616,8 +616,6 @@ $(function () {
 	 * @fileoverview
 	 * The {@link Drag} object, which enables objects to be dragged around.
 	 *
-	 * <pre>
-	 *
 	 * dom-drag.js
 	 * 09.25.2001
 	 * www.youngpup.net
@@ -629,7 +627,6 @@ $(function () {
 	 *
 	 * Copyright Aaron Boodman.
 	 * Saying stupid things daily since March 2001.
-	 * </pre>
 	 */
 
 	/**

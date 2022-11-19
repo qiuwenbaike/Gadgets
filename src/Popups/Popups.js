@@ -10,9 +10,8 @@
 
 (function ($, mw) {
 // The following translated strings is based on https://en.wikipedia.org/w/index.php?title=User:Lupin/strings-draft&oldid=579996170
-// This can help sysops to manage this Gadget, so please update this every fetch from [[en:User:Lupin/strings-draft]]
 
-// <pre><nowiki>
+// <nowiki>
 // ////////////////////////////////////////////////
 // Translatable strings
 // ////////////////////////////////////////////////
@@ -305,7 +304,7 @@ window.popupStrings = {
 	'separator': '、',
 	'comma': '，'
 };
-/* </nowiki> */</pre>
+/* </nowiki> */
 
 mw.loader.load('/index.php?title=MediaWiki:Gadget-popups-main.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
 }(jQuery, mediaWiki));
