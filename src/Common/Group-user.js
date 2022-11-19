@@ -26,7 +26,7 @@ $(function () {
 		return;
 	}
 	if (mw.config.get('wgNamespaceNumber') === 0) {
-		if (document.getElementById('disambigbox')) {
+		if (cats.indexOf('全部消歧義頁面') !== -1) {
 			addEditIntro('Template:Disambig_editintro');
 		}
 		if (cats.indexOf('在世人物') !== -1) {
