@@ -553,7 +553,7 @@ $(function () {
 		if (download && _typeof(download.data) === _typeof('')) {
 			if (art.namespaceId() === pg.nsTemplateId && getValueOf('popupPreviewRawTemplates')) {
 				// FIXME compare/consolidate with diff escaping code for wikitext
-				var h = '<hr /><span style="font-family: monospace;">' + download.data.entify().split('\\n').join('<br />\\n') + '</span>';
+				var h = '<hr /><span style="font-family: monospace;">' + download.data.entify().split('\\n').join('<br>\\n') + '</span>';
 				setPopupHTML(h, 'popupPreview', navpop.idNumber);
 			} else {
 				var p = prepPreviewmaker(download.data, art, navpop);

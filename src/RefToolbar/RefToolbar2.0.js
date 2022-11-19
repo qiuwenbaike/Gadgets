@@ -741,10 +741,10 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 				select.append($('<option>').text(names[i].refname));
 			}
 			stuff.after(select);
-			select.before('<br />');
+			select.before('<br>');
 			var prevlabel = $('<div>').attr({ id: 'cite-nref-preview-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-raw-preview'));
 			select.after(prevlabel);
-			prevlabel.before('<br /><br />');
+			prevlabel.before('<br><br>');
 			prevlabel.after('<div id="cite-namedref-preview" style="padding: 0.5em; font-size: 110%" />');
 			var parselabel = $('<span>').attr({ id: 'cite-parsed-label', style: 'display: none;' }).html(mw.usability.getMsg('cite-parsed-label'));
 			$('#cite-namedref-preview').after(parselabel);

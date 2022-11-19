@@ -272,7 +272,7 @@ catALot = window.catALot = {
 			var cats,
 				pages = result.query.pages;
 			if (pages[-1] && pages[-1].missing === '') {
-				$resultList.html('<span id="cat_a_lot_no_found">' + msg('cat-not-found') + '</span>');
+				$resultList.html('<span>').attr('id', 'cat_a_lot_no_found').text(msg('cat-not-found'));
 				document.body.style.cursor = 'auto';
 				$resultList.append('<table>');
 				catALot.createCatLinks('→', [ catALot.currentCategory ]);
@@ -515,7 +515,7 @@ catALot = window.catALot = {
 		$('.ui-dialog-content').height('auto');
 		var rep = this.domCounter.parent();
 		rep.html('<h3>' + msg('done') + '</h3>');
-		rep.append(msg('all-done') + '<br />');
+		rep.append(msg('all-done') + '<br>');
 		var close = $('<a>').text(msgPlain('return-to-page'));
 		close.click(function () {
 			catALot.progressDialog.remove();

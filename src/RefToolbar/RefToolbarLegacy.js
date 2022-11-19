@@ -306,7 +306,7 @@ function citeBook() {
 	<input type="radio" tabindex=1 name="template" id="plain" value="plain"><label for="plain">plain wikicode (experimental)</label> \
 	<input type="checkbox" tabindex=1 name="verbose" id="verbose" value="verbose"><label for="verbose">Vertical form</label> \
 	<input type="checkbox" tabindex=1 name="extraparams" id="extraparams" value="extraparams"><label for="extraparams">Extra parameters</label> \
-	<br /><input type="button" value="Add citation" onClick="makeCiteBook()"> \
+	<br><input type="button" value="Add citation" onClick="makeCiteBook()"> \
 	<input type="button" value="Preview citation" onClick="previewCitationBook()"> \
 	<img id="progress" src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" style="visibility: hidden" /> \
 	\
@@ -350,13 +350,13 @@ function showRefSectionOptions() {
 	var template = 'cite encyclopedia';
 	numforms++;
 	var form = '<div id="citediv' + numforms + '"><fieldset><legend>Add references section</legend>\
-	Headline:<br />\
-	<input id="references" name="headline" type="radio" tabindex=1 checked="checked"><label for="references">== References ==</label><br /> \
-	<input id="notes" name="headline" type="radio" tabindex=1><label for="notes">== Notes ==</label><br /> \
-	Type:<br /> \
-	<input id="type-references" name="type" type="radio" tabindex=1><label for="type-references">&lt;references/&gt;</label><br /> \
-	<input id="type-reflist" name="type" type="radio" tabindex=1 checked="checked"><label for="type-reflist">{{Reflist}}</label><br /> \
-	<input type="checkbox" tabindex=1 id="ldr"><label for="ldr">List-defined references</label> (<a href="//en.wikipedia.org/wiki/Wikipedia:Footnotes#List-defined_references" target="_blank">Info 1</a>, <a href="//en.wikipedia.org/wiki/Help:Footnotes#List-defined_references" target="_blank">Info 2</a>)<br />\
+	Headline:<br>\
+	<input id="references" name="headline" type="radio" tabindex=1 checked="checked"><label for="references">== References ==</label><br> \
+	<input id="notes" name="headline" type="radio" tabindex=1><label for="notes">== Notes ==</label><br> \
+	Type:<br> \
+	<input id="type-references" name="type" type="radio" tabindex=1><label for="type-references">&lt;references/&gt;</label><br> \
+	<input id="type-reflist" name="type" type="radio" tabindex=1 checked="checked"><label for="type-reflist">{{Reflist}}</label><br> \
+	<input type="checkbox" tabindex=1 id="ldr"><label for="ldr">List-defined references</label> (<a href="//en.wikipedia.org/wiki/Wikipedia:Footnotes#List-defined_references" target="_blank">Info 1</a>, <a href="//en.wikipedia.org/wiki/Help:Footnotes#List-defined_references" target="_blank">Info 2</a>)<br>\
 	<input type="button" value="Add references section" onClick="addRefSection()"></fieldset></div>';
 	document.getElementById('refToolFormArea').innerHTML = form;
 }
@@ -646,7 +646,7 @@ function errorCheck() {
 }
 function dispErrors() {
 	oldFormHide();
-	var form = '<div id="errorform"><fieldset><legend>Error checking</legend><b>Check for:</b><br/><input type="checkbox" id="unclosed" /> Unclosed <tt>&lt;ref&gt;</tt> tags<br/><input type="checkbox" id="samecontent" /> References with the same content<br/><input type="checkbox" id="templates" /> References not using a <a href="//en.wikipedia.org/wiki/Wikipedia:Citation_templates">citation template</a><br/><input type="checkbox" id="repeated" /> Multiple references with the same name<br/><input type="checkbox" id="undef" /> Usage of undefined named references<br/><input type="button" id="errorchecksubmit" value="Check for selected errors" onclick="doErrorCheck()"/></fieldset></div>';
+	var form = '<div id="errorform"><fieldset><legend>Error checking</legend><b>Check for:</b><br><input type="checkbox" id="unclosed" /> Unclosed <tt>&lt;ref&gt;</tt> tags<br><input type="checkbox" id="samecontent" /> References with the same content<br><input type="checkbox" id="templates" /> References not using a <a href="//en.wikipedia.org/wiki/Wikipedia:Citation_templates">citation template</a><br><input type="checkbox" id="repeated" /> Multiple references with the same name<br><input type="checkbox" id="undef" /> Usage of undefined named references<br><input type="button" id="errorchecksubmit" value="Check for selected errors" onclick="doErrorCheck()"/></fieldset></div>';
 	document.getElementById('citeselect').innerHTML += form;
 }
 function doErrorCheck() {
