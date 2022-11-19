@@ -1,9 +1,10 @@
 /**
  * SPDX-License-Identifier: CC-BY-NC-SA-4.0
- * _addText: '{{Gadget Header}}{{cc-by-nc-sa-4.0|attribution=[https://llwiki.org/zh/User:Bhsd Bhsd]（[https://llwiki.org/zh/MediaWiki:Gadget-definitions.css 作品来源]）}}'
+ * _addText: '{{Gadget Header|cc-by-nc-sa-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Definitions.css
  * @source https://llwiki.org/zh/MediaWiki:Gadget-definitions.css
+ * @author Bhsd <https://llwiki.org/zh/User:Bhsd>
  * @license <https://creativecommons.org/licenses/by-nc-sa/4.0/>
  */
 .defTable span > a {

@@ -1,11 +1,12 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ * _addText: '{{Gadget Header|license1=CC-BY-SA-4.0}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-HotCat.js
  * @source commons.wikimedia.org/w/index.php?title=MediaWiki:Gadget-HotCat.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+// 求闻百科注：由GFDL-1.3、CC-BY-3.0迁移至CC-BY-SA-3.0，并升级至CC-BY-SA-4.0
 /**
  * HotCat V2.43
 

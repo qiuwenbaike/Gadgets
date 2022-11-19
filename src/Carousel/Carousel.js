@@ -1,9 +1,10 @@
 /**
  * SPDX-License-Identifier: MIT
- * _addText: '{{Gadget Header}}{{MIT|year=2006-2018|author=Jan Sorgalla}}'
+ * _addText: '{{Gadget Header|2=MIT}}'
  *
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Carousel.js
  * @source http://sorgalla.com/jcarousel/
+ * @author Jan Sorgalla
  * @license MIT
  */
 /*! jCarousel - v0.3.9 - 2018-07-30

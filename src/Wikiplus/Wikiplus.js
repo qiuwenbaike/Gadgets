@@ -1,6 +1,6 @@
 /**
  * SPDX-License-Identifier: CC-BY-SA-4.0 + Apache-2.0
- * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}{{Apache-2.0}}'
+ * _addText: '{{Gadget Header|license1=CC-BY-SA-4.0|license2=Apache-2.0}}'
  *
  * @source https://github.com/Wikiplus/Wikiplus/blob/master/Main.js
  * @author Eridanus Sora (妹空酱)
