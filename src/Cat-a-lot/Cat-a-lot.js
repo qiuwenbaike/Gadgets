@@ -1,3 +1,4 @@
+/* eslint-disable no-jquery/no-parse-html-literal */
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -21,10 +22,8 @@
  *
  * READ THIS PAGE IF YOU WANT TO TRANSLATE OR USE THIS ON ANOTHER SITE:
  * http://commons.wikimedia.org/wiki/MediaWiki:Gadget-Cat-a-lot.js/translating
- * <nowiki>
  */
-
-/* jshint curly:false, unused:true, unused:true, forin:false, smarttabs:true, loopfunc:true, browser:true */
+/* <nowiki> */
 (function ($, mw) {
 'use strict';
 
@@ -107,30 +106,26 @@ catALot = window.catALot = {
 	init: function init() {
 		this._initSettings();
 		$body = $(document.body);
-		$container = $('<div>').attr('id', 'cat_a_lot').appendTo($body);
-		$dataContainer = $('<div').attr('id', 'cat_a_lot_data').appendTo($container);
+		$container = $('<div id="cat_a_lot"></div>').appendTo($body);
+		$dataContainer = $('<div id="cat_a_lot_data"></div>').appendTo($container);
 		$searchInputContainer = $('<div>').appendTo($dataContainer);
-		$searchInput = $('<input>').attr({
-			type: 'text',
-			id: 'cat_a_lot_searchcatname',
-			placeholder: msgPlain('enter-name')
-		}).appendTo($searchInputContainer);
-		$resultList = $('<div>').attr('id', 'cat_a_lot_category_list').appendTo($dataContainer);
-		$markCounter = $('<div>').attr('id', 'cat_a_lot_mark_counter').appendTo($dataContainer);
-		$selections = $('<div>').attr('id', 'cat_a_lot_selections').text(msgPlain('select')).appendTo($dataContainer);
-		$selectAll = $('<a>').attr('id', 'cat_a_lot_select_all').text(msgPlain('all')).appendTo($selections.append(' '));
-		$selectNone = $('<a>').attr('id', 'cat_a_lot_select_none').text(msgPlain('none')).appendTo($selections.append(' • '));
-		$settingsWrapper = $('<div>').attr('id', 'cat_a_lot_settings').appendTo($dataContainer);
-		$settingsLink = $('<a>').attr('id', 'cat_a_lot_config_settings').text(msgPlain('config-settings')).appendTo($settingsWrapper);
-		$head = $('<div>').attr('id', 'cat_a_lot_head').appendTo($container);
-		$link = $('<a>').attr('id', 'cat_a_lot_toggle').text('Cat-a-lot').appendTo($head);
+		$searchInput = $('<input type="text" id="cat_a_lot_searchcatname" />').attr('placeholder', msgPlain('enter-name')).appendTo($searchInputContainer);
+		$resultList = $('<div id="cat_a_lot_category_list"></div>').appendTo($dataContainer);
+		$markCounter = $('<div id="cat_a_lot_mark_counter"> </div>').appendTo($dataContainer);
+		$selections = $('<div id="cat_a_lot_selections"></div>').text(msgPlain('select')).appendTo($dataContainer);
+		$selectAll = $('<a id="cat_a_lot_select_all"></a>').text(msgPlain('all')).appendTo($selections.append(' '));
+		$selectNone = $('<a id="cat_a_lot_select_none"></a>').text(msgPlain('none')).appendTo($selections.append(' • '));
+		$settingsWrapper = $('<div id="cat_a_lot_settings"></div>').appendTo($dataContainer);
+		$settingsLink = $('<a id="cat_a_lot_config_settings"></a>').text(msgPlain('config-settings')).appendTo($settingsWrapper);
+		$head = $('<div id="cat_a_lot_head"></div>').appendTo($container);
+		$link = $('<a id="cat_a_lot_toggle"></a>').text('Cat-a-lot').appendTo($head);
 		if (!this.searchmode) {
-			$removeLink = $('<a>').attr('id', 'cat_a_lot_remove').html(msg('remove-from-cat')).appendTo($selections).on('click', function () {
+			$removeLink = $('<a id="cat_a_lot_remove"></a>').html(msg('remove-from-cat')).appendTo($selections).on('click', function () {
 				catALot.remove();
 			});
 		}
 		if (mw.util.getParamValue('withJS') === 'MediaWiki:Gadget-Cat-a-lot.js' && !mw.util.getParamValue('withCSS') || mw.loader.getState('ext.gadget.Cat-a-lot') === 'registered') {
-			mw.loader.load('/index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css&smaxage=3600&maxage=3600', 'text/css');
+			return mw.loader.load('index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css', 'text/css');
 		}
 		var reCat = new RegExp('^\\s*' + catALot.localizedRegex(nsCat, 'Category') + ':', '');
 		$searchInput.on('keypress', function (e) {
@@ -272,17 +267,16 @@ catALot = window.catALot = {
 			var cats,
 				pages = result.query.pages;
 			if (pages[-1] && pages[-1].missing === '') {
-				$resultList.html('<span>').attr('id', 'cat_a_lot_no_found').text(msg('cat-not-found'));
+				$resultList.html('<span id="cat_a_lot_no_found">' + msg('cat-not-found') + '</span>');
 				document.body.style.cursor = 'auto';
 				$resultList.append('<table>');
 				catALot.createCatLinks('→', [ catALot.currentCategory ]);
 				return;
 			}
 			// there should be only one, but we don't know its ID
+			// eslint-disable-next-line guard-for-in
 			for (var id in pages) {
-				if (Object.prototype.hasOwnProperty.call(pages, id)) {
-					cats = pages[id].categories;
-				}
+				cats = pages[id].categories;
 			}
 			for (var i = 0; i < cats.length; i++) {
 				catALot.parentCats.push(cats[i].title.replace(/^[^:]+:/, ''));
@@ -303,8 +297,7 @@ catALot = window.catALot = {
 			}
 			var regex_name = '';
 			for (var i = 0; i < name.length; i++) {
-				// eslint-disable-next-line unicorn/prefer-string-slice
-				var initial = name.substr(i, 1);
+				var initial = name.slice(i, 1);
 				var ll = initial.toLowerCase();
 				var ul = initial.toUpperCase();
 				if (ll === ul) {
@@ -334,7 +327,7 @@ catALot = window.catALot = {
 		if (this._variantCache[category] !== undefined) {
 			return this._variantCache[category];
 		}
-		[ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ].forEach(function (idx, variant) {
+		$.each([ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ], function (idx, variant) {
 			var r = $($.ajax({
 				url: baseUrl + variant,
 				async: false
@@ -396,6 +389,7 @@ catALot = window.catALot = {
 			return text.replace(/\{\{\s*[Ch]eck categories\s*(\|?.*?)\}\}/, '');
 		}
 		return text;
+
 	},
 	editCategories: function editCategories(result, file, targetcat, mode) {
 		var otext, starttimestamp, timestamp;
@@ -409,12 +403,11 @@ catALot = window.catALot = {
 		var pages = result.query.pages;
 
 		// there should be only one, but we don't know its ID
+		// eslint-disable-next-line guard-for-in
 		for (var id in pages) {
-			if (Object.prototype.hasOwnProperty.call(pages, id)) {
-				otext = pages[id].revisions[0]['*'];
-				starttimestamp = pages[id].starttimestamp;
-				timestamp = pages[id].revisions[0].timestamp;
-			}
+			otext = pages[id].revisions[0]['*'];
+			starttimestamp = pages[id].starttimestamp;
+			timestamp = pages[id].revisions[0].timestamp;
 		}
 		var sourcecat = currentCat;
 		// Check if that file is already in that category
@@ -515,7 +508,7 @@ catALot = window.catALot = {
 		$('.ui-dialog-content').height('auto');
 		var rep = this.domCounter.parent();
 		rep.html('<h3>' + msg('done') + '</h3>');
-		rep.append(msg('all-done') + '<br>');
+		rep.append(msg('all-done') + '<br />');
 		var close = $('<a>').text(msgPlain('return-to-page'));
 		close.click(function () {
 			catALot.progressDialog.remove();
@@ -582,6 +575,7 @@ catALot = window.catALot = {
 			} else if (params.title) {
 				this.connectionError.push(params.title);
 				this.updateCounter();
+
 			}
 		};
 		var doCall = function doCall() {
@@ -616,14 +610,14 @@ catALot = window.catALot = {
 				catALot.updateCats($(this).closest('tr').data('cat'));
 			});
 			if (this.searchmode) {
-				$add = $('<a>').attr('class', 'cat_a_lot_action').text(msgPlain('add')).on('click', function () {
+				$add = $('<a class="cat_a_lot_action"></a>').text(msgPlain('add')).on('click', function () {
 					catALot.addHere($(this).closest('tr').data('cat'));
 				});
 			} else {
-				$move = $('<a>').attr('class', 'cat_a_lot_move').text(msgPlain('move')).on('click', function () {
+				$move = $('<a class="cat_a_lot_move"></a>').text(msgPlain('move')).on('click', function () {
 					catALot.moveHere($(this).closest('tr').data('cat'));
 				});
-				$copy = $('<a>').attr('class', 'cat_a_lot_action').text(msgPlain('copy')).on('click', function () {
+				$copy = $('<a class="cat_a_lot_action"></a>').text(msgPlain('copy')).on('click', function () {
 					catALot.copyHere($(this).closest('tr').data('cat'));
 				});
 			}
@@ -663,12 +657,12 @@ catALot = window.catALot = {
 	updateCats: function updateCats(newcat) {
 		document.body.style.cursor = 'wait';
 		this.currentCategory = newcat;
-		$resultList.html($('<div>').attr('class', 'cat_a_lot_loading')).text(msgPlain('loading'));
+		$resultList.html('<div class="cat_a_lot_loading"></div>').text(msgPlain('loading'));
 		this.getCategoryList();
 	},
 	showProgress: function showProgress() {
 		document.body.style.cursor = 'wait';
-		this.progressDialog = $('<div>').html(msg('editing') + $('<span>').attr('id', 'cat_a_lot_current').text(this.counterCurrent) + msg('of') + this.counterNeeded).dialog({
+		this.progressDialog = $('<div>').html(msg('editing') + ' <span id="cat_a_lot_current">' + this.counterCurrent + '</span> ' + msg('of') + this.counterNeeded).dialog({
 			width: 450,
 			height: 90,
 			minHeight: 90,
