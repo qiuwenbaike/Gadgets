@@ -7695,7 +7695,6 @@ $(function () {
 		var uN = l.article.userName();
 		var tool = getValueOf('popupEditCounterTool');
 		var url;
-		var defaultToolUrl = '//tools.wmflabs.org/supercount/index.php?user=$1&project=$2.$3';
 		switch (tool) {
 			case 'custom':
 				url = simplePrintf(getValueOf('popupEditCounterUrl'), [ encodeURIComponent(uN), toolDbName() ]);
@@ -7705,9 +7704,8 @@ $(function () {
 			case 'interiot': // no longer available
 				/* fall through */
 			case 'supercount':
-			default:
-				var theWiki = pg.wiki.hostname.split('.');
-				url = simplePrintf(defaultToolUrl, [ encodeURIComponent(uN), theWiki[0], theWiki[1] ]);
+			default: // no longer available
+				break;
 		}
 		return generalNavLink({
 			url: url,
