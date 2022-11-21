@@ -256,14 +256,14 @@ sup.reference a {
 .hlist dl,
 .hlist ol,
 .hlist ul {
-	margin: 0;
+	margin: 0 !important;
 }
 
 .hlist dd,
 .hlist dt,
 .hlist li {
 	display: inline;
-	margin: 0;
+	margin: 0 !important;
 }
 
 /* Display nested lists inline */

@@ -243,9 +243,7 @@
 .navbox .hlist dd,
 .navbox .hlist dt,
 .navbox .hlist li {
-	margin-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0 !important;
 }
 
 .navbox .hlist td dl,
