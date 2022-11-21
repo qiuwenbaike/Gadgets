@@ -245,11 +245,13 @@
 .navbox td.hlist ol,
 .navbox td.hlist ul {
 	padding: 0.125em 0;	   /* Adjust hlist padding in navboxes */
+	margin: 0;
 }
 
 .navbox .hlist dd,
 .navbox .hlist dt,
 .navbox .hlist li {
+	margin: 0;
 	/* white-space: nowrap; */
 	/* Nowrap list items in navboxes */
 }
