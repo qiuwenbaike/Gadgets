@@ -248,6 +248,10 @@ sup.reference a {
 }
 
 /* Style for horizontal lists (separator following item) */
+.hlist {
+	margin-left: 0 !important;
+}
+
 .skin-modern .hlist dl,
 .skin-vector .hlist dl {
 	line-height: 1.5em;
