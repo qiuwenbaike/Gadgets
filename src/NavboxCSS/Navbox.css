@@ -237,6 +237,16 @@
 }
 
 /* Style for horizontal lists (separator following item) */
+.navbox .hlist dl,
+.navbox .hlist ol,
+.navbox .hlist ul,
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li {
+	margin-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
 
 .navbox .hlist td dl,
 .navbox .hlist td ol,
@@ -245,13 +255,11 @@
 .navbox td.hlist ol,
 .navbox td.hlist ul {
 	padding: 0.125em 0;	   /* Adjust hlist padding in navboxes */
-	margin: 0;
 }
 
 .navbox .hlist dd,
 .navbox .hlist dt,
 .navbox .hlist li {
-	margin: 0;
 	/* white-space: nowrap; */
 	/* Nowrap list items in navboxes */
 }
