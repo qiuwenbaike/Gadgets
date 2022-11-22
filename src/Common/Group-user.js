@@ -36,7 +36,7 @@ $(function () {
 			break;
 		case 4:
 			if (cats.indexOf('求闻百科方针完整列表') !== -1) {
-				addEditIntro('Template:Policy editintro');
+				addEditIntro('Template:Policy_editintro');
 			}
 			break;
 		case 8:
