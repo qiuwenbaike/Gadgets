@@ -9,8 +9,6 @@
  */
 /* global HotCat */
 /* eslint-disable camelcase */
-'use strict';
-
 /* <nowiki> */
 // Localizations of a few HotCat user interface texts.
 if (typeof HotCat !== 'undefined') {
