@@ -17,7 +17,7 @@
  */
 $(function () {
 	function addEditIntro(name) {
-		$('.mw-editsection, #ca-edit').find('a').each(function (i, el) {
+		$('.mw-editsection, #ca-edit, #ca-addsection').find('a').each(function (i, el) {
 			el.href = $(this).attr('href') + '&editintro=' + name;
 		});
 	}
