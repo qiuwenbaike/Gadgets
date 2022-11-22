@@ -40,7 +40,6 @@ $(function () {
 			}
 			break;
 		case 8:
-		case 828:
 			if (cats.indexOf('CC-BY-NC-SA-4.0') !== -1) {
 				addEditIntro('Template:NonCommercial_editintro');
 			}
