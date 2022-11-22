@@ -28,7 +28,6 @@
  * @author: Mr.Z-man
  * @author: Kaldari
  */
-/* jshint browser: true, camelcase: true, curly: true, eqeqeq: true */
 (function ($, mw) {
 'use strict';
 

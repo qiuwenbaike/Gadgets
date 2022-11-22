@@ -7423,7 +7423,7 @@ $(function () {
 				title = popupString('sinceMeHint');
 				break;
 		}
-		jsUrl = 'javascript:' + onClick; // jshint ignore:line
+		jsUrl = 'javascript:' + onClick;
 		onClick += ';return false;';
 		return generalNavLink({
 			url: jsUrl,
@@ -7436,7 +7436,7 @@ $(function () {
 		});
 	}
 	function popupMenuLink(l) {
-		var jsUrl = simplePrintf('javascript:pg.fn.%s()', [ l.id ]); // jshint ignore:line
+		var jsUrl = simplePrintf('javascript:pg.fn.%s()', [ l.id ]);
 		var title = popupString(simplePrintf('%sHint', [ l.id ]));
 		var onClick = simplePrintf('pg.fn.%s();return false;', [ l.id ]);
 		return generalNavLink({

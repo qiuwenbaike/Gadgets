@@ -6,7 +6,6 @@
  * @source https://zh.wikipedia.org/w/index.php?title=MediaWiki:Gadget-refToolbarBase.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* jshint asi: true */
 /* global CiteTB */
 /* eslint-disable no-undef */
 /* eslint-disable no-redeclare */

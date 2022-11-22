@@ -339,7 +339,6 @@ _TR = {
 			loaded[pagename] = true;
 		}
 		function onClickFix(evt) {
-			/* jshint validthis: true */
 			var entry = $(this).parents('dd, p').first();
 			evt.preventDefault();
 			self.clickAction(entry, self.fix);
@@ -567,7 +566,6 @@ _TR = {
 			return title || null;
 		});
 		function onClickCreate(evt) {
-			/* jshint validthis: true */
 			var entry = $(this).parents('p:first');
 			evt.preventDefault();
 			self.clickAction(entry, self.create);
