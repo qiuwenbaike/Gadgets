@@ -246,6 +246,12 @@
 	margin: 0 !important;
 }
 
+.navbox .hlist dl,
+.navbox .hlist ol,
+.navbox .hlist ul,
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li,
 .navbox .hlist td dl,
 .navbox .hlist td ol,
 .navbox .hlist td ul,
