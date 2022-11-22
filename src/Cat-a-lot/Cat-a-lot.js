@@ -389,7 +389,6 @@ catALot = window.catALot = {
 			return text.replace(/\{\{\s*[Ch]eck categories\s*(\|?.*?)\}\}/, '');
 		}
 		return text;
-
 	},
 	editCategories: function editCategories(result, file, targetcat, mode) {
 		var otext, starttimestamp, timestamp;
@@ -575,7 +574,6 @@ catALot = window.catALot = {
 			} else if (params.title) {
 				this.connectionError.push(params.title);
 				this.updateCounter();
-
 			}
 		};
 		var doCall = function doCall() {

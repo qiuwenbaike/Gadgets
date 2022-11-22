@@ -7,6 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.HotCat
  */
+'use strict';
+
 /* global HotCat */
 /* eslint-disable camelcase */
 /* <nowiki> */
