@@ -8,7 +8,6 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable no-jquery/no-each-util */
-/* eslint-disable default-case */
 /* eslint-disable camelcase */
 'use strict';
 
@@ -445,6 +444,8 @@ catALot = window.catALot = {
 				text = text.replace(this.regexBuilder(sourcecat), '');
 				comment = msgPlain('summary-remove').replace('$1', sourcecat);
 				break;
+			default:
+				break;
 		}
 		if (text === otext) {
 			this.notFound.push(file[0]);
@@ -490,6 +491,8 @@ catALot = window.catALot = {
 				break;
 			case 'remove':
 				label.append('<br>' + msg('removed-cat'));
+				break;
+			default:
 				break;
 		}
 	},
@@ -773,6 +776,8 @@ catALot = window.catALot = {
 				case 'account-publicly':
 					_saveToJS();
 					break;
+				default:
+					break;
 			}
 		});
 	},
@@ -844,6 +849,8 @@ if (nsNumber === -1 && mw.config.get('wgCanonicalSpecialPageName') === 'Search' 
 			case 'zh-my':
 			case 'zh-sg':
 				lang = 'zh-hans';
+				break;
+			default:
 				break;
 		}
 		$.ajax({

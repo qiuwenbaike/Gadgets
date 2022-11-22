@@ -25,22 +25,27 @@ $(function () {
 	if (!cats) {
 		return;
 	}
-	if (mw.config.get('wgNamespaceNumber') === 0) {
-		if (cats.indexOf('全部消歧義頁面') !== -1) {
-			addEditIntro('Template:Disambig_editintro');
-		}
-		if (cats.indexOf('在世人物') !== -1) {
-			addEditIntro('Template:BLP_editintro');
-		}
-		// if (cats.some(function(cat) {return /\d{4}年台灣電視劇集/.test(cat)})) addEditIntro('Template:TVdrama_editintro');
-	} else if (mw.config.get('wgNamespaceNumber') === 4) {
-		if (cats.indexOf('求闻百科方针完整列表') !== -1) {
-			addEditIntro('Template:Policy editintro');
-		}
-	} else if (mw.config.get('wgNamespaceNumber') === 8 || mw.config.get('wgNamespaceNumber') === 828) {
-		if (cats.indexOf('CC-BY-NC-SA-4.0') !== -1) {
-			addEditIntro('Template:NonCommercial_editintro');
-		}
+	switch (mw.config.get('wgNamespaceNumber')) {
+		case 0:
+			if (cats.indexOf('全部消歧義頁面') !== -1) {
+				addEditIntro('Template:Disambig_editintro');
+			}
+			if (cats.indexOf('在世人物') !== -1) {
+				addEditIntro('Template:BLP_editintro');
+			}
+			break;
+		case 4:
+			if (cats.indexOf('求闻百科方针完整列表') !== -1) {
+				addEditIntro('Template:Policy editintro');
+			}
+			break;
+		case 8:
+		case 828:
+			if (cats.indexOf('CC-BY-NC-SA-4.0') !== -1) {
+				addEditIntro('Template:NonCommercial_editintro');
+			}
+			break;
+		default:
 	}
 });
 $(function () {
