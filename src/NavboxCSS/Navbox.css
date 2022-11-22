@@ -264,8 +264,7 @@
 .navbox .hlist dd,
 .navbox .hlist dt,
 .navbox .hlist li {
-	/* white-space: nowrap; */
-	/* Nowrap list items in navboxes */
+	white-space: nowrap;	/* Nowrap list items in navboxes */
 }
 
 .navbox .hlist dd dl,
