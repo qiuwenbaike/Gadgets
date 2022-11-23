@@ -44,6 +44,13 @@
 	padding: 0.625em 0;
 }
 
+/* 标题居中 */
+.navbox-above,
+.navbox-below,
+.navbox-title {
+	text-align: center;
+}
+
 .navbox-sole-row {
 	grid-column: 1 / 3;
 	padding-left: 0;
