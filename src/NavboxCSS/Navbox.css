@@ -56,6 +56,10 @@
 	padding-left: 0;
 }
 
+.navbox-title {
+	padding-left: 1em;
+}
+
 .navbox-group {
 	font-weight: bold;
 	/* max-width: 9em; */
