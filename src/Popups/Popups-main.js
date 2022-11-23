@@ -6,6 +6,10 @@
  * @source https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadget-popups.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+/* eslint-disable camelcase */
+/* eslint-disable no-useless-call */
+/* eslint-disable no-useless-concat */
+/* eslint-disable no-shadow */
 
 'use strict';
 
@@ -14,10 +18,10 @@
 function _typeof(obj) {
 	'@babel/helpers - typeof';
 
-	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef, no-shadow
+	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef
 	return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
 		return typeof obj;
-		// eslint-disable-next-line no-shadow
+
 	} : function (obj) {
 		// eslint-disable-next-line no-undef
 		return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
@@ -26,19 +30,6 @@ function _typeof(obj) {
 }
 
 // STARTFILE: main.js
-// **********************************************************************
-// **																   **
-// **			 changes to this file affect many users.			   **
-// **		   please discuss on the talk page before editing		   **
-// **																   **
-// **********************************************************************
-// **																   **
-// ** if you do edit this file, be sure that your editor recognizes it **
-// ** as utf8, or the weird and wonderful characters in the namespaces **
-// **   below will be completely broken. You can check with the show   **
-// **			changes button before submitting the edit.		       **
-// **					  test: مدیا מיוחד Мэдыя					  **
-// **																   **
 // **********************************************************************
 /* eslint-env browser */
 
@@ -106,12 +97,12 @@ $(function () {
 	function setupTooltips(container, remove, force, popData) {
 		log('setupTooltips, container=' + container + ', remove=' + remove);
 		if (!container) {
-			// <NOLITE>
+
 			// the main initial call
 			if (getValueOf('popupOnEditSelection') && document && document.editform && document.editform.wpTextbox1) {
 				document.editform.wpTextbox1.onmouseup = doSelectionPopup;
 			}
-			// </NOLITE>
+
 			// article/content is a structure-dependent thing
 			container = defaultPopupsContainer();
 		}
@@ -213,10 +204,10 @@ $(function () {
 			};
 			np.addHook(setMaxWidth, 'unhide', 'before');
 		}
-		// <NOLITE>
+
 		np.addHook(addPopupShortcuts, 'unhide', 'after');
 		np.addHook(rmPopupShortcuts, 'hide', 'before');
-		// </NOLITE>
+
 	}
 
 	function removeModifierKeyHandler(a) {
@@ -371,11 +362,10 @@ $(function () {
 			}, 150);
 		}
 
-		// <NOLITE>
 		if (getValueOf('popupRedlinkRemoval') && a.className === 'new') {
 			setPopupHTML('<br>' + popupRedlinkHTML(article), 'popupRedlink', a.navpopup.idNumber);
 		}
-		// </NOLITE>
+
 	}
 
 	function debugData(navpopup) {
@@ -417,19 +407,19 @@ $(function () {
 			history = null;
 		var params = parseParams(a.href);
 		var oldid = typeof params.oldid === 'undefined' ? null : params.oldid;
-		// <NOLITE>
+
 		if (shouldShow(a, 'popupPreviewDiffs')) {
 			diff = params.diff;
 		}
 		if (shouldShow(a, 'popupPreviewHistory')) {
 			history = params.action === 'history';
 		}
-		// </NOLITE>
+
 		a.navpopup.pending = 0;
 		var referenceElement = footnoteTarget(a);
 		if (referenceElement) {
 			footnotePreview(referenceElement, a.navpopup);
-			// <NOLITE>
+
 		} else if (diff || diff === 0) {
 			loadDiff(article, oldid, diff, a.navpopup);
 		} else if (history) {
@@ -443,7 +433,7 @@ $(function () {
 			article.namespaceId() === pg.nsImageId && (shouldShow(a, 'imagePopupsForImages') || !anchorContainsImage(a))) {
 			loadAPIPreview('imagepagepreview', article, a.navpopup);
 			loadImage(article, a.navpopup);
-			// </NOLITE>
+
 		} else {
 			if (article.namespaceId() === pg.nsCategoryId && shouldShow(a, 'popupCategoryMembers')) {
 				loadAPIPreview('category', article, a.navpopup);
@@ -489,10 +479,10 @@ $(function () {
 		}
 		navpop.redir++;
 		navpop.redirTarget = target;
-		// <NOLITE>
+
 		var warnRedir = redirLink(target, navpop.article);
 		setPopupHTML(warnRedir, 'popupWarnRedir', navpop.idNumber);
-		// </NOLITE>
+
 		navpop.article = target;
 		fillEmptySpans({
 			redir: true,
@@ -528,7 +518,6 @@ $(function () {
 		var navpop = download.owner;
 		var art = navpop.redirTarget || navpop.originalArticle;
 
-		// <NOLITE>
 		makeFixDabs(wikiText, navpop);
 		if (getValueOf('popupSummaryData')) {
 			getPageInfo(wikiText, download);
@@ -543,7 +532,6 @@ $(function () {
 		if (imagePage) {
 			loadImage(Title.fromWikiText(imagePage), navpop);
 		}
-		// </NOLITE>
 
 		if (getValueOf('popupPreviews')) {
 			insertArticlePreview(download, art, navpop);
@@ -769,7 +757,7 @@ $(function () {
 	// ENDFILE: domdrag.js
 
 	// STARTFILE: structures.js
-	// <NOLITE>
+
 	pg.structures.original = {};
 	pg.structures.original.popupLayout = function () {
 		return [ 'popupError', 'popupImage', 'popupTopLinks', 'popupTitle', 'popupUserData', 'popupData', 'popupOtherLinks', 'popupRedir', [ 'popupWarnRedir', 'popupRedirTopLinks', 'popupRedirTitle', 'popupRedirData', 'popupRedirOtherLinks' ], 'popupMiscTools', [ 'popupRedlink' ], 'popupPrePreviewSep', 'popupPreview', 'popupSecondPreview', 'popupPreviewMore', 'popupPostPreview', 'popupFixDab' ];
@@ -823,8 +811,8 @@ $(function () {
 		var historystr = '<<history|shortcut=h>>';
 		var watchstr = '<<unwatch|unwatchShort>>|<<watch|shortcut=w|watchThingy>>';
 		str += '<br>if(talk){' + editOldidStr + '|<<new|shortcut=+>>' + '*' + historystr + '*' + watchstr + '*' + '<b><<article|shortcut=a>></b>|<<editArticle|edit>>' + '}else{' +
-	// not a talk page
-	editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
+    // not a talk page
+    editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
 
 		// misc links
 		str += '<br><<whatLinksHere|shortcut=l>>*<<relatedChanges|shortcut=r>>';
@@ -960,7 +948,6 @@ $(function () {
 	};
 	pg.structures.shortmenus.popupRedirTopLinks = pg.structures.shortmenus.popupTopLinks;
 
-	// </NOLITE>
 	pg.structures.lite = {};
 	pg.structures.lite.popupLayout = function () {
 		return [ 'popupTitle', 'popupPreview' ];
@@ -973,7 +960,7 @@ $(function () {
 	// ENDFILE: structures.js
 
 	// STARTFILE: autoedit.js
-	// <NOLITE>
+
 	function substitute(data, cmdBody) {
 		// alert('sub\nfrom: '+cmdBody.from+'\nto: '+cmdBody.to+'\nflags: '+cmdBody.flags);
 		var fromRe = RegExp(cmdBody.from, cmdBody.flags);
@@ -1062,10 +1049,10 @@ $(function () {
 
 	/*eslint-disable*/
   function skipToEnd(str, sep) {
-	return {
-	  segment: str,
-	  remainder: ''
-	};
+    return {
+      segment: str,
+      remainder: ''
+    };
   }
   /* eslint-enable */
 
@@ -1209,7 +1196,6 @@ $(function () {
 		}
 	}
 
-	// </NOLITE>
 	// ENDFILE: autoedit.js
 
 	// STARTFILE: downloader.js
@@ -1793,7 +1779,7 @@ $(function () {
 			ps(parse_image(sh()));
 		}
 		function parse_image(str) {
-			// <NOLITE>
+
 			// get what's in between "[[Image:" and "]]"
 			var tag = str.substring(str.indexOf(':') + 1, str.length - 2);
 			var width;
@@ -1866,7 +1852,7 @@ $(function () {
 				filename = tag;
 			}
 			return '';
-			// </NOLITE>
+
 		}
 
 		function parse_inline_nowiki(str) {
@@ -1907,7 +1893,7 @@ $(function () {
 			return html + parse_inline_wiki(str.slice(lastend));
 		}
 		function parse_inline_images(str) {
-			// <NOLITE>
+
 			var start,
 				substart = 0,
 				nestlev = 0;
@@ -1944,7 +1930,6 @@ $(function () {
 				}
 			}
 
-			// </NOLITE>
 			return str;
 		}
 
@@ -2077,7 +2062,7 @@ $(function () {
 	// ENDFILE: livepreview.js
 
 	// STARTFILE: pageinfo.js
-	// <NOLITE>
+
 	function popupFilterPageSize(data) {
 		return formatBytes(data.length);
 	}
@@ -2213,7 +2198,7 @@ $(function () {
 	function formatBytes(num) {
 		return num > 949 ? Math.round(num / 100) / 10 + popupString('kB') : num + '&nbsp;' + popupString('bytes');
 	}
-	// </NOLITE>
+
 	// ENDFILE: pageinfo.js
 
 	// STARTFILE: titles.js
@@ -2490,7 +2475,7 @@ $(function () {
 		}
 		return safeDecodeURI(this.value);
 	};
-	// <NOLITE>
+
 	Title.prototype.toUserName = function (withNs) {
 		if (this.namespaceId() !== pg.nsUserId && this.namespaceId() !== pg.nsUsertalkId) {
 			this.value = null;
@@ -2533,7 +2518,7 @@ $(function () {
 		this.value = null;
 		return null;
 	};
-	// </NOLITE>
+
 	// Return canonical, localized namespace
 	Title.prototype.namespace = function () {
 		return mw.config.get('wgFormattedNamespaces')[this.namespaceId()];
@@ -2549,7 +2534,7 @@ $(function () {
 		} // mainspace
 		return namespaceId;
 	};
-	// <NOLITE>
+
 	Title.prototype.talkPage = function () {
 		var t = new Title(this.value);
 		t.toTalkPage();
@@ -2603,7 +2588,7 @@ $(function () {
 	Title.prototype.isIpUser = function () {
 		return pg.re.ipUser.test(this.userName());
 	};
-	// </NOLITE>
+
 	Title.prototype.stripNamespace = function () {
 		// returns a string, not a Title
 		var n = this.value.indexOf(':');
@@ -2627,8 +2612,8 @@ $(function () {
 			this.anchor = '';
 			return;
 		}
-		this.value = value.substring(0, anch).split('_').join(' ');
-		this.anchor = value.substring(anch + 1);
+		this.value = value.slice(0, Math.max(0, anch)).split('_').join(' ');
+		this.anchor = value.slice(Math.max(0, anch + 1));
 		this.ns = null; // wait until namespace() is called
 	};
 
@@ -2729,7 +2714,6 @@ $(function () {
 	// TESTS //
 	// /////////
 
-	// <NOLITE>
 	function isDisambig(data, article) {
 		if (!getValueOf('popupAllDabsStubs') && article.namespace()) {
 			return false;
@@ -2783,7 +2767,7 @@ $(function () {
 		}
 		return false;
 	}
-	// </NOLITE>
+
 	function isPopupLink(a) {
 		// NB for performance reasons, TOC links generally return true
 		// they should be stripped out later
@@ -2962,8 +2946,6 @@ $(function () {
 
 	// Source: http://aktuell.de.selfhtml.org/artikel/javascript/utf8b64/utf8.htm
 
-	// <NOLITE>
-
 	function getJsObj(json) {
 		try {
 			var json_ret = JSON.parse(json);
@@ -2990,8 +2972,6 @@ $(function () {
 		}
 		return null;
 	}
-
-	// </NOLITE>
 
 	function upcaseFirst(str) {
 		if (_typeof(str) !== _typeof('') || str === '') {
@@ -3139,7 +3119,7 @@ $(function () {
 	// ENDFILE: tools.js
 
 	// STARTFILE: dab.js
-	// <NOLITE>
+
 	// ////////////////////////////////////////////////
 	// Dab-fixing code
 	//
@@ -3234,7 +3214,7 @@ $(function () {
 			summary: simplePrintf(getValueOf('popupRedlinkSummary'), [ article.toString() ])
 		});
 	}
-	// </NOLITE>
+
 	// ENDFILE: dab.js
 
 	// STARTFILE: htmloutput.js
@@ -3268,11 +3248,9 @@ $(function () {
 		return null;
 	}
 
-	// <NOLITE>
 	function setPopupTrailer(str, id) {
 		return setPopupHTML(str, 'popupData', id);
 	}
-	// </NOLITE>
 
 	// args.navpopup is mandatory
 	// optional: args.redir, args.redirTarget
@@ -3934,92 +3912,90 @@ $(function () {
 		return this.esWiki2HtmlPart(this.data);
 	};
 
-	// <NOLITE>
 	/** Test function for debugging preview problems one step at a time. */
 	/*eslint-disable */
   function previewSteps(txt) {
-	try {
-	  txt = txt || document.editform.wpTextbox1.value;
-	} catch (err) {
-	  if (pg.cache.pages.length > 0) {
-		txt = pg.cache.pages[pg.cache.pages.length - 1].data;
-	  } else {
-		alert('provide text or use an edit page');
-	  }
-	}
-	txt = txt.substring(0, 10000);
-	var base = pg.wiki.articlebase + Title.fromURL(document.location.href).urlString();
-	var p = new Previewmaker(txt, base, pg.current.link.navpopup);
-	if (this.owner.article.namespaceId() !== pg.nsTemplateId) {
-	  p.killComments();
-	  if (!confirm('done killComments(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killDivs();
-	  if (!confirm('done killDivs(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killGalleries();
-	  if (!confirm('done killGalleries(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killBoxTemplates();
-	  if (!confirm('done killBoxTemplates(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  if (getValueOf('popupPreviewKillTemplates')) {
-		p.killTemplates();
-		if (!confirm('done killTemplates(). Continue?\n---\n' + p.data)) {
-		  return;
-		}
-	  } else {
-		p.killMultilineTemplates();
-		if (!confirm('done killMultilineTemplates(). Continue?\n---\n' + p.data)) {
-		  return;
-		}
-	  }
-	  p.killTables();
-	  if (!confirm('done killTables(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killImages();
-	  if (!confirm('done killImages(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killHTML();
-	  if (!confirm('done killHTML(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killChunks();
-	  if (!confirm('done killChunks(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.mopup();
-	  if (!confirm('done mopup(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.firstBit();
-	  if (!confirm('done firstBit(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	  p.killBadWhitespace();
-	  if (!confirm('done killBadWhitespace(). Continue?\n---\n' + p.data)) {
-		return;
-	  }
-	}
-	p.html = wiki2html(p.data, base); // needs livepreview
-	p.fixHTML();
-	if (!confirm('done fixHTML(). Continue?\n---\n' + p.html)) {
-	  return;
-	}
-	p.stripLongTemplates();
-	if (!confirm('done stripLongTemplates(). Continue?\n---\n' + p.html)) {
-	  return;
-	}
-	alert('finished preview - end result follows.\n---\n' + p.html);
+    try {
+      txt = txt || document.editform.wpTextbox1.value;
+    } catch (err) {
+      if (pg.cache.pages.length > 0) {
+        txt = pg.cache.pages[pg.cache.pages.length - 1].data;
+      } else {
+        alert('provide text or use an edit page');
+      }
+    }
+    txt = txt.substring(0, 10000);
+    var base = pg.wiki.articlebase + Title.fromURL(document.location.href).urlString();
+    var p = new Previewmaker(txt, base, pg.current.link.navpopup);
+    if (this.owner.article.namespaceId() !== pg.nsTemplateId) {
+      p.killComments();
+      if (!confirm('done killComments(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killDivs();
+      if (!confirm('done killDivs(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killGalleries();
+      if (!confirm('done killGalleries(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killBoxTemplates();
+      if (!confirm('done killBoxTemplates(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      if (getValueOf('popupPreviewKillTemplates')) {
+        p.killTemplates();
+        if (!confirm('done killTemplates(). Continue?\n---\n' + p.data)) {
+          return;
+        }
+      } else {
+        p.killMultilineTemplates();
+        if (!confirm('done killMultilineTemplates(). Continue?\n---\n' + p.data)) {
+          return;
+        }
+      }
+      p.killTables();
+      if (!confirm('done killTables(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killImages();
+      if (!confirm('done killImages(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killHTML();
+      if (!confirm('done killHTML(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killChunks();
+      if (!confirm('done killChunks(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.mopup();
+      if (!confirm('done mopup(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.firstBit();
+      if (!confirm('done firstBit(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+      p.killBadWhitespace();
+      if (!confirm('done killBadWhitespace(). Continue?\n---\n' + p.data)) {
+        return;
+      }
+    }
+    p.html = wiki2html(p.data, base); // needs livepreview
+    p.fixHTML();
+    if (!confirm('done fixHTML(). Continue?\n---\n' + p.html)) {
+      return;
+    }
+    p.stripLongTemplates();
+    if (!confirm('done stripLongTemplates(). Continue?\n---\n' + p.html)) {
+      return;
+    }
+    alert('finished preview - end result follows.\n---\n' + p.html);
   }
   /* eslint-enable */
-	// </NOLITE>
 
 	/**
 	 * Works around livepreview bugs.
@@ -4696,7 +4672,6 @@ $(function () {
 		}
 	}
 
-	// </NOLITE>
 	// ENDFILE: querypreview.js
 
 	// STARTFILE: debug.js
@@ -4705,7 +4680,7 @@ $(function () {
 	// //////////////////////////////////////////////////////////////////
 
 	function setupDebugging() {
-		// <NOLITE>
+
 		if (window.popupDebug) {
 			// popupDebug is set from .version
 			window.log = function (x) {
@@ -4717,12 +4692,12 @@ $(function () {
 			};
 			log('Initializing logger');
 		} else {
-			// </NOLITE>
+
 			window.log = function () {};
 			window.errlog = function () {};
-			// <NOLITE>
+
 		}
-		// </NOLITE>
+
 	}
 	// ENDFILE: debug.js
 
@@ -4870,7 +4845,6 @@ $(function () {
 		return split.join('');
 	}
 
-	// </NOLITE>
 	// ENDFILE: images.js
 
 	// STARTFILE: namespaces.js
@@ -4890,7 +4864,7 @@ $(function () {
 		var r = 'redirect';
 		var R = 'REDIRECT';
 		var redirLists = {
-			// <NOLITE>
+
 			'ar': [ R, 'تحويل' ],
 			'be': [ r, 'перанакіраваньне' ],
 			'bg': [ r, 'пренасочване', 'виж' ],
@@ -4924,7 +4898,7 @@ $(function () {
 			'uk': [ R, 'ПЕРЕНАПРАВЛЕННЯ', 'ПЕРЕНАПР' ],
 			'vi': [ r, 'đổi' ],
 			'zh': [ R, '重定向' ] // no comma
-			// </NOLITE>
+
 		};
 
 		var redirList = redirLists[pg.wiki.lang] || [ r, R ];
@@ -4962,7 +4936,7 @@ $(function () {
 	// ENDFILE: namespaces.js
 
 	// STARTFILE: selpop.js
-	// <NOLITE>
+
 	function getEditboxSelection() {
 		// see http://www.webgurusforum.com/8/12/0
 		var editbox;
@@ -5030,7 +5004,7 @@ $(function () {
 		div.ranSetupTooltipsAlready = false;
 		popTipsSoonFn('selectionPreview')();
 	}
-	// </NOLITE>
+
 	// ENDFILE: selpop.js
 
 	// STARTFILE: navpopup.js
@@ -5787,14 +5761,14 @@ $(function () {
 	// ENDFILE: navpopup.js
 
 	// STARTFILE: diff.js
-	// <NOLITE>
+
 	/*
-	 * Javascript Diff Algorithm
-	 *  By John Resig (http://ejohn.org/) and Lupin
-	 *
-	 * More Info:
-	 *  http://ejohn.org/projects/javascript-diff-algorithm/
-	 */
+   * Javascript Diff Algorithm
+   *  By John Resig (http://ejohn.org/) and Lupin
+   *
+   * More Info:
+   *  http://ejohn.org/projects/javascript-diff-algorithm/
+   */
 
 	function delFmt(x) {
 		if (!x.length) {
@@ -6008,7 +5982,7 @@ $(function () {
 			n: n
 		};
 	}
-	// </NOLITE>
+
 	// ENDFILE: diff.js
 
 	// STARTFILE: init.js
@@ -6117,25 +6091,23 @@ $(function () {
 			}
 		});
 
-		// <NOLITE>
 		var im = nsReImage();
 		// note: tries to get images in infobox templates too, e.g. movie pages, album pages etc
-		//					  (^|\[\[)image: *([^|\]]*[^|\] ]) *
-		//					  (^|\[\[)image: *([^|\]]*[^|\] ])([^0-9\]]*([0-9]+) *px)?
-		//														$4 = 120 as in 120px
+		//                    (^|\[\[)image: *([^|\]]*[^|\] ]) *
+		//                    (^|\[\[)image: *([^|\]]*[^|\] ])([^0-9\]]*([0-9]+) *px)?
+		//                                                    $4 = 120 as in 120px
 		pg.re.image = RegExp('(^|\\[\\[)' + im + ': *([^|\\]]*[^|\\] ])' + '([^0-9\\]]*([0-9]+) *px)?|(?:\\n *[|]?|[|]) *' + '(' + getValueOf('popupImageVarsRegexp') + ')' + ' *= *(?:\\[\\[ *)?(?:' + im + ':)?' + '([^|]*?)(?:\\]\\])? *[|]? *\\n', 'img');
 		pg.re.imageBracketCount = 6;
 		pg.re.category = RegExp('\\[\\[' + nsRe(pg.nsCategoryId) + ': *([^|\\]]*[^|\\] ]) *', 'i');
 		pg.re.categoryBracketCount = 1;
 		pg.re.ipUser = RegExp('^' +
-	// IPv6
-	'(?::(?::|(?::[0-9A-Fa-f]{1,4}){1,7})|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6}::|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){7})' +
-	// IPv4
-	'|(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}' + '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$');
+    // IPv6
+    '(?::(?::|(?::[0-9A-Fa-f]{1,4}){1,7})|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6}::|[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){7})' +
+    // IPv4
+    '|(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}' + '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$');
 		pg.re.stub = RegExp(getValueOf('popupStubRegexp'), 'im');
 		pg.re.disambig = RegExp(getValueOf('popupDabRegexp'), 'im');
 
-		// </NOLITE>
 		// FIXME replace with general parameter parsing function, this is daft
 		pg.re.oldid = RegExp('[?&]oldid=([^&]*)');
 		pg.re.diff = RegExp('[?&]diff=([^&]*)');
@@ -6235,7 +6207,7 @@ $(function () {
 	// ENDFILE: init.js
 
 	// STARTFILE: navlinks.js
-	// <NOLITE>
+
 	// ////////////////////////////////////////////////
 	// navlinks... let the fun begin
 	//
@@ -6262,8 +6234,8 @@ $(function () {
 		var historystr = '<<history|shortcut=h>>|<<editors|shortcut=E|>>';
 		var watchstr = '<<unwatch|unwatchShort>>|<<watch|shortcut=w|watchThingy>>';
 		str += '<br>if(talk){' + editOldidStr + '|<<new|shortcut=+>>' + '*' + historystr + '*' + watchstr + '*' + '<b><<article|shortcut=a>></b>|<<editArticle|edit>>' + '}else{' +
-	// not a talk page
-	editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
+    // not a talk page
+    editOldidStr + '*' + historystr + '*' + watchstr + '*' + '<b><<talk|shortcut=t>></b>|<<editTalk|edit>>|<<newTalk|shortcut=+|new>>}';
 
 		// misc links
 		str += '<br><<whatLinksHere|shortcut=l>>*<<relatedChanges|shortcut=r>>*<<move|shortcut=m>>';
@@ -6772,11 +6744,11 @@ $(function () {
 	//
 	//  end navlinks
 	// ////////////////////////////////////////////////
-	// </NOLITE>
+
 	// ENDFILE: navlinks.js
 
 	// STARTFILE: shortcutkeys.js
-	// <NOLITE>
+
 	function popupHandleKeypress(evt) {
 		var keyCode = window.event ? window.event.keyCode : evt.keyCode ? evt.keyCode : evt.which;
 		if (!keyCode || !pg.current.link || !pg.current.link.navpopup) {
@@ -6855,11 +6827,11 @@ $(function () {
 		}
 		return ret.replace(RegExp('^(.*?)(title=")(.*?)(".*)$', 'i'), '$1$2$3 [' + key + ']$4');
 	}
-	// </NOLITE>
+
 	// ENDFILE: shortcutkeys.js
 
 	// STARTFILE: diffpreview.js
-	// <NOLITE>
+
 	// lets jump through hoops to find the rev ids we need to retrieve
 	function loadDiff(article, oldid, diff, navpop) {
 		navpop.diffData = {
@@ -7145,11 +7117,11 @@ $(function () {
 		});
 		return simplePrintf('<tr><td>%s</td><td>%s</td></tr>', [ revlink, txt ]);
 	}
-	// </NOLITE>
+
 	// ENDFILE: diffpreview.js
 
 	// STARTFILE: links.js
-	// <NOLITE>
+
 	// ///////////////////
 	// LINK GENERATION //
 	// ///////////////////
@@ -7704,7 +7676,8 @@ $(function () {
 			case 'interiot': // no longer available
 				/* fall through */
 			case 'supercount':
-			default: // no longer available
+			default:
+				// no longer available
 				break;
 		}
 		return generalNavLink({
@@ -7826,7 +7799,7 @@ $(function () {
 		// pg.misc.historyInfo=histInfo;
 		return histInfo;
 	}
-	// </NOLITE>
+
 	// ENDFILE: links.js
 
 	// STARTFILE: options.js
@@ -7856,13 +7829,13 @@ $(function () {
 
 	/*eslint-disable */
   function useDefaultOptions() {
-	// for testing
-	for (var p in pg.optionDefault) {
-	  pg.option[p] = pg.optionDefault[p];
-	  if (typeof window[p] !== 'undefined') {
-		delete window[p];
-	  }
-	}
+    // for testing
+    for (var p in pg.optionDefault) {
+      pg.option[p] = pg.optionDefault[p];
+      if (typeof window[p] !== 'undefined') {
+        delete window[p];
+      }
+    }
   }
   /* eslint-enable */
 
@@ -7926,7 +7899,6 @@ $(function () {
 			second: '2-digit'
 		});
 
-		// <NOLITE>
 		// images
 		newOption('popupImages', true);
 		newOption('imagePopupsForImages', true);
@@ -7955,7 +7927,6 @@ $(function () {
 		newOption('popupLastEditLink', true);
 		newOption('popupEditCounterTool', 'supercount');
 		newOption('popupEditCounterUrl', '');
-		// </NOLITE>
 
 		// previews etc
 		newOption('popupPreviews', true);
@@ -7970,7 +7941,6 @@ $(function () {
 		newOption('popupPreviewButton', false);
 		newOption('popupPreviewButtonEvent', 'click');
 
-		// <NOLITE>
 		// diffs
 		newOption('popupPreviewDiffs', true);
 		newOption('popupDiffMaxLines', 100);
@@ -7990,10 +7960,10 @@ $(function () {
 		newOption('popupFixRedirsSummary', popupString('defaultpopupFixRedirsSummary'));
 		newOption('popupRedlinkSummary', popupString('defaultpopupRedlinkSummary'));
 		newOption('popupRmDabLinkSummary', popupString('defaultpopupRmDabLinkSummary'));
-		// </NOLITE>
+
 		// misc
 		newOption('popupHistoryLimit', 50);
-		// <NOLITE>
+
 		newOption('popupFilters', [ popupFilterStubDetect, popupFilterDisambigDetect, popupFilterPageSize, popupFilterCountLinks, popupFilterCountImages, popupFilterCountCategories, popupFilterLastModified ]);
 		newOption('extraPopupFilters', []);
 		newOption('popupOnEditSelection', 'cursor');
@@ -8005,7 +7975,6 @@ $(function () {
 		newOption('popupContribsPreviewLimit', 25);
 		newOption('popupRevDelUrl', '//en.wikipedia.org/wiki/Wikipedia:Revision_deletion');
 		newOption('popupShowGender', true);
-		// </NOLITE>
 
 		// new windows
 		newOption('popupNewWindows', false);
@@ -8023,7 +7992,7 @@ $(function () {
 	// ENDFILE: options.js
 
 	// STARTFILE: strings.js
-	// <NOLITE>
+
 	// ////////////////////////////////////////////////
 	// Translatable strings
 	// ////////////////////////////////////////////////
@@ -8304,7 +8273,6 @@ $(function () {
 		return simplePrintf(popupString(str), subs);
 	}
 
-	// </NOLITE>
 	// ENDFILE: strings.js
 
 	// STARTFILE: run.js

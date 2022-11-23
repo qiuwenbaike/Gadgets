@@ -17,11 +17,8 @@
 // strict mode where possible
 
 if (!window.easy_archive) {
-
 	window.easy_archive = {};
-
 	(function (object) {
-
 		var x = 2019;
 		var y = 3;
 		var z = 2;
@@ -29,24 +26,22 @@ if (!window.easy_archive) {
 		var status = 'se';
 		var build = 89;
 		var version_delim = '.';
-
-		var version =
-			x.toString(10) + version_delim +
-			y.toString(10) + version_delim +
-			z.toString(10) + (more ? version_delim + more.toString(10) : '');
-
+		var version = x.toString(10) + version_delim + y.toString(10) + version_delim + z.toString(10) + (more ? version_delim + more.toString(10) : '');
 		var iteration = status + build.toString(10);
-
 		var ver = version + ' / ' + iteration;
-
 		object.version = version;
 		object.iteration = iteration;
 		object.build = build;
 		object.ver = ver;
-		object.version_parsed = { x: x, y: y, z: z, more: more, status: status, build: build };
-
-	}(window.easy_archive));
-
+		object.version_parsed = {
+			x: x,
+			y: y,
+			z: z,
+			more: more,
+			status: status,
+			build: build
+		};
+	})(window.easy_archive);
 	(function (ele, txt, time, condition) {
 		if (!condition) {
 			return;
@@ -54,24 +49,21 @@ if (!window.easy_archive) {
 		ele.innerHTML = '';
 		(function (ele, txt, time) {
 			txt = txt.split('');
-			var len = txt.length, rate = time / len;
+			var len = txt.length,
+				rate = time / len;
 			for (var i = 0; i < len; i++) {
 				setTimeout(function () {
 					ele.innerHTML += txt.shift();
 				}, i * rate);
 			}
-		}(ele, txt, time));
-	}(document.getElementById('easy_archive'), window.easy_archive.ver, 400, document.getElementById('8c23b4144bd58c689e192c6ab912a3b75c76f6849977518b8bedefd5e347d67f')));
-
+		})(ele, txt, time);
+	})(document.getElementById('easy_archive'), window.easy_archive.ver, 400, document.getElementById('8c23b4144bd58c689e192c6ab912a3b75c76f6849977518b8bedefd5e347d67f'));
 	(function (easy) {
-
 		'use strict';
 
 		// Go repo
-		var Go = (function () {
-
+		var Go = function () {
 			var Go;
-
 			try {
 				if ('// testing whether browser has full ES6 support by checking arrow function, default parameter and rest parameter.') {
 					new Function('(t, x=9, ...a) => [t, x, ...a];');
@@ -79,22 +71,29 @@ if (!window.easy_archive) {
 						throw 0;
 					}
 				}
-				Go = (function () {
-					var Go = function (...fns) {
+				Go = function () {
+					var Go = function () {
 						this.task = new Promise(function (resolve) {
 							return resolve();
-						}); this.chain(...fns);
+						});
+						this.chain(...arguments);
 					};
 					var chain = function (go, fn) {
 						var f2 = function (x) {
 							return 0;
-						}; var promise = new Promise(function (reso, reje) {
+						};
+						var promise = new Promise(function (reso, reje) {
 							f2 = function (x) {
 								return fn(reso, reje);
 							};
-						}); go.task.then(f2); go.task = promise;
+						});
+						go.task.then(f2);
+						go.task = promise;
 					};
-					Go.prototype.chain = function (...fns) {
+					Go.prototype.chain = function () {
+						for (var _len = arguments.length, fns = new Array(_len), _key = 0; _key < _len; _key++) {
+							fns[_key] = arguments[_key];
+						}
 						for (var i = 0; i < fns.length; i++) {
 							if (typeof fns[i] === 'function') {
 								chain(this, fns[i]);
@@ -103,29 +102,26 @@ if (!window.easy_archive) {
 							} else {
 								throw new TypeError('Cannot chain non-function and non-arrays to a Go instance.');
 							}
-						} return this;
+						}
+						return this;
 					};
 					return Go;
-				}());
+				}();
 			} catch (e) {
 				Go = function () {};
 				Go.prototype.chain = function (f) {
 					f();
 				};
 			}
-
 			return Go;
-
-		}());
-
+		}();
 		var go = new Go();
-
 		if (!('mw' in window)) {
 			throw new Error('Easy Archive cannot function without mw object.');
 		}
 
 		// minified code dependency functions
-		var Pare_str = (function () {
+		var Pare_str = function () {
 			'use strict';
 
 			function Pare_str(pare_string, config) {
@@ -133,46 +129,36 @@ if (!window.easy_archive) {
 				this.left = '(';
 				this.delim = ':';
 				this.right = ')';
-
 				if (typeof config !== 'string') {
 					config = String(config);
 				}
-
 				if (pare_string.length > 6 && /[@#%][sS][eE][tT]/.test(pare_string.slice(0, 4)) && config.indexOf('ignore-set') === -1) {
 					this.left = pare_string[4];
 					this.delim = pare_string[5];
 					this.right = pare_string[6];
-
 					if (this.left === this.right || this.left === this.delim || this.right === this.delim) {
 						throw new SyntaxError("Pound set statement has repetitive characters. E.g. '#set|:|' is illegal.");
 					}
 				}
 			}
-
 			Pare_str.prototype.find = function (lookup_key) {
 				lookup_key = this.left + lookup_key + this.delim;
-
 				if (this.str.indexOf(lookup_key) === -1) {
 					return null;
 				}
-
 				return this.str.split(lookup_key)[1].split(this.right)[0];
-
 			};
-
-			Pare_str.prototype.new = function (new_key, new_value) // will not check for existance
+			Pare_str.prototype.new = function (new_key, new_value)
+			// will not check for existance
 			{
-				if (new_key.indexOf(this.left) !== -1 || new_key.indexOf(this.right) !== -1 || new_key.indexOf(this.delim) !== -1 ||
-					new_value.indexOf(this.left) !== -1 || new_value.indexOf(this.right) !== -1) {
+				if (new_key.indexOf(this.left) !== -1 || new_key.indexOf(this.right) !== -1 || new_key.indexOf(this.delim) !== -1 || new_value.indexOf(this.left) !== -1 || new_value.indexOf(this.right) !== -1) {
 					throw new Error("Pare_str: Illegal key or value. Key mustn't have any bound or delimiter, value mustn't have any bound.");
 				}
-
 				this.str = this.left + new_key + this.delim + new_value + this.right + this.str;
-
 				return this;
 			};
-
-			Pare_str.prototype.update = function (lookup_key, new_value) // will create if not exist
+			Pare_str.prototype.update = function (lookup_key, new_value)
+			// will create if not exist
 			{
 				if (this.find(lookup_key) === null) {
 					this.new(lookup_key, new_value);
@@ -184,10 +170,8 @@ if (!window.easy_archive) {
 					new_str = new_str.join(this.left + lookup_key + this.delim);
 					this.str = new_str;
 				}
-
 				return this;
 			};
-
 			function intep(celldata) {
 				if (/^\$[fF]alse$/.test(celldata)) {
 					return false;
@@ -200,18 +184,14 @@ if (!window.easy_archive) {
 				}
 				return celldata;
 			}
-
 			Pare_str.prototype.intep = function (lookup_key) {
 				return intep(this.find(lookup_key));
 			};
-
 			return Pare_str;
-
-		}());
+		}();
 
 		// common repo.
-		var expose = (function () {
-
+		var expose = function () {
 			var glb = {
 				url: mw.config.values.wgServer,
 				p: mw.config.values.wgPageName,
@@ -220,22 +200,16 @@ if (!window.easy_archive) {
 				ut: 'User_talk:' + mw.config.values.wgUserName,
 				t: null
 			};
-
 			glb.a = glb.url + '/api.php';
-
 			loadTokenSilently();
-
 			function ding(a, b) {}
-
 			var eur = encodeURIComponent;
-
 			function asyncGet(url, fn) {
 				var a = new XMLHttpRequest();
 				a.onreadystatechange = fn;
 				a.open('GET', url, true);
 				a.send(null);
 			}
-
 			function asyncPost(url, body, fn) {
 				var z1 = 'Content-Type';
 				var z2 = 'application/x-www-form-urlencoded';
@@ -245,7 +219,6 @@ if (!window.easy_archive) {
 				a.setRequestHeader(z1, z2);
 				a.send(body);
 			}
-
 			function loadTokenSilently() {
 				var f = function () {
 					if (this.readyState === 4) {
@@ -256,31 +229,27 @@ if (!window.easy_archive) {
 				asyncPost(glb.a, z, f);
 				setTimeout(loadTokenSilently, 1800000);
 			}
-
 			function takeToken() {
 				if (glb.t) {
 					return glb.t;
 				}
-
 				loadTokenSilently();
 				return false;
-
 			}
-
-			function getPage(a, fn)		// a: pagename / fn: function for execution
+			function getPage(a, fn)
+			// a: pagename / fn: function for execution
 			{
 				// ding("Requesting page: "+a,1);
 				var z = 'action=query&prop=revisions&rvprop=ids|flags|timestamp|user|userid|size|comment|tags|content&format=json&titles=';
 				asyncPost(glb.a, z + eur(a), fn);
 			}
-
-			function getPageSection(a, b, fn)		// a: pagename / b: section id numeric / fn: function for execution
+			function getPageSection(a, b, fn)
+			// a: pagename / b: section id numeric / fn: function for execution
 			{
 				ding('Requesting page: ' + a + ' in section: ' + b, 1);
 				var z = 'action=query&prop=revisions&rvprop=content&format=json&titles=';
 				asyncPost(glb.a, z + eur(a) + '&rvsection=' + eur(b), fn);
 			}
-
 			function pickPageContent(a) {
 				if (typeof a === 'string') {
 					var b = JSON.parse(a);
@@ -292,38 +261,32 @@ if (!window.easy_archive) {
 					} else {
 						return false;
 					}
-				} else		// from now on pick functions will only work with string inputs. DO NOT parse pages before passing them into pick functions.
-				{
-					return false;
-				}
+				} else
+					// from now on pick functions will only work with string inputs. DO NOT parse pages before passing them into pick functions.
+					{
+						return false;
+					}
 			}
-
 			function tellPageExist(a) {
 				try {
 					a = JSON.parse(a);
 				} catch (e) {
 					return false;
 				}
-
 				if (typeof a !== 'object') {
 					return false;
 				}
-
 				if (!('query' in a)) {
 					return false;
 				}
-
 				if (!('pages' in a.query)) {
 					return false;
 				}
-
 				if (-1 in a.query.pages) {
 					return false;
 				}
-
 				return true;
 			}
-
 			function edit(a, b, c, d, f) {
 				// ding("Requesting page edit for: "+a+" Summary: "+c,1);
 				var fn = typeof f === 'function' ? function () {
@@ -334,14 +297,13 @@ if (!window.easy_archive) {
 					if (this.readyState === 4) {
 						ding('Following page edited: ' + a + ' Detail: ' + this.responseText);
 					}
-				};		// from now on, f is definable.
+				}; // from now on, f is definable.
 				if (!d) {
 					d = takeToken();
 				}
 				var z = 'action=edit&format=json&title=';
 				asyncPost(glb.a, z + eur(a) + '&text=' + eur(b) + '&summary=' + eur(c) + '&token=' + eur(d), fn);
 			}
-
 			function editPro(a, b, c, d, e, f) {
 				// ding("Requesting page edit for: "+a+" in section: "+b+" Summary: "+d,1);
 				var fn = typeof f === 'function' ? function () {
@@ -356,12 +318,10 @@ if (!window.easy_archive) {
 				var z = 'action=edit&format=json&title=';
 				asyncPost(glb.a, z + eur(a) + '&section=' + eur(b) + '&text=' + eur(c) + '&summary=' + eur(d) + '&token=' + eur(e), fn);
 			}
-
 			function editAppend(a, b, c, d, fn) {
 				var f = function () {
 					if (this.readyState === 4) {
 						var original_content;
-
 						if (tellPageExist(this.responseText) === false) {
 							original_content = '';
 						} else {
@@ -372,67 +332,40 @@ if (!window.easy_archive) {
 				};
 				getPage(a, f);
 			}
-
 			function archive_section(page_name, section, to, callback, summary) {
 				getPageSection(page_name, section, function () {
 					var doneness = 0;
-
 					function done() {
 						doneness++;
 						if (doneness === 2) {
 							callback();
 						}
 					}
-
 					if (this.readyState === 4) {
 						editAppend(to, '\n\n' + pickPageContent(this.responseText), summary, takeToken(), done);
 						editPro(page_name, section.toString(), '', summary, takeToken(), done);
 					}
 				});
 			}
-
 			function delete_section(page_name, section, callback, summary) {
 				editPro(page_name, section.toString(), '', summary, takeToken(), callback);
 			}
-
 			return {
 				a: archive_section,
 				d: delete_section
 			};
-
-		}());
+		}();
 
 		// default settings:
-		easy.settings_string =
-			'#set%|?									 \n' +
-			'display section delete link   %sec-del|1?   \n' +
-			'display section archive line  %sec-arc|1?   \n' +
-			'display control bar at top	%top-bar|0?   \n' +
-			'archive location			  %arc-loc|?	\n' +
-			'subsection effectiveness	  %sub-sec|2?   \n' +
-			'confirm action				%confirm|0?   \n' +
-			'is this data initialized	  %data-init|0? \n';
+		easy.settings_string = '#set%|?									 \n' + 'display section delete link	 %sec-del|1?	 \n' + 'display section archive line	%sec-arc|1?	 \n' + 'display control bar at top	%top-bar|0?	 \n' + 'archive location				%arc-loc|?	\n' + 'subsection effectiveness		%sub-sec|2?	 \n' + 'confirm action				%confirm|0?	 \n' + 'is this data initialized		%data-init|0? \n';
 		easy.settings = new Pare_str(easy.settings_string);
 		easy.my_user_talk = null;
-
 		try {
 			easy.never_enable_on_these_pages_regex = window.external_config.easy_archive.never_enable_on_these_pages_regex;
 		} catch (e) {
 			easy.never_enable_on_these_pages_regex = [];
 		}
-
-		easy.dis_support_these_pages_regex = [
-			/^File:.*$/,
-			/^MediaWiki:.*$/,
-			/^Module:.*$/,
-			/^Category:.*$/,
-			/^Template:.*$/,
-			/^Special:.*$/,
-			/^User:.*\/?.*\.js$/,
-			/^User:.*\/?.*\.css$/,
-			/^User:.*\/?.*\.json$/
-		];
-
+		easy.dis_support_these_pages_regex = [/^File:.*$/, /^MediaWiki:.*$/, /^Module:.*$/, /^Category:.*$/, /^Template:.*$/, /^Special:.*$/, /^User:.*\/?.*\.js$/, /^User:.*\/?.*\.css$/, /^User:.*\/?.*\.json$/];
 		var settings_span_collection = document.getElementsByClassName('easy_archive_data_point_collection');
 		var settings_span = settings_span_collection[0];
 		var settings = settings_span ? new Pare_str(settings_span.innerHTML) : new Pare_str('');
@@ -440,7 +373,6 @@ if (!window.easy_archive) {
 			easy.settings_string = settings_span.innerHTML;
 			easy.settings = new Pare_str(easy.settings_string);
 		}
-
 		try {
 			var settings_archive_link = settings.find('sec-arc').indexOf('1') !== -1;
 			var settings_delete_link = settings.find('sec-del').indexOf('1') !== -1;
@@ -452,44 +384,68 @@ if (!window.easy_archive) {
 
 		// language selection logic
 
-		var accepted_language = (function () {
-
+		var accepted_language = function () {
 			var PREVENT_INFINITE_LOOP = 1000;
-
 			var accepted_languages_dict = {
-
 				// lang_code
-				'de': 'de_de', 'dech': 'de_ch', 'dede': 'de_de', 'deli': 'de_li',
-				'en': 'en_us', 'enau': 'en_au', 'enca': 'en_ca', 'enhk': 'en_hk', 'ennz': 'en_nz', 'enuk': 'en_uk', 'enus': 'en_us',
+				'de': 'de_de',
+				'dech': 'de_ch',
+				'dede': 'de_de',
+				'deli': 'de_li',
+				'en': 'en_us',
+				'enau': 'en_au',
+				'enca': 'en_ca',
+				'enhk': 'en_hk',
+				'ennz': 'en_nz',
+				'enuk': 'en_uk',
+				'enus': 'en_us',
 				'fi': 'fi_fi',
-				'fr': 'fr_fr', 'frch': 'fr_ch', 'frfr': 'fr_fr',
-				'sv': 'sv_se', 'svse': 'sv_se', 'svfi': 'sv_fi',
-				'zh': 'zh_cn', 'zhcn': 'zh_cn', 'zhhk': 'zh_hk', 'zhtw': 'zh_tw', 'zhsg': 'zh_cn',
-
+				'fr': 'fr_fr',
+				'frch': 'fr_ch',
+				'frfr': 'fr_fr',
+				'sv': 'sv_se',
+				'svse': 'sv_se',
+				'svfi': 'sv_fi',
+				'zh': 'zh_cn',
+				'zhcn': 'zh_cn',
+				'zhhk': 'zh_hk',
+				'zhtw': 'zh_tw',
+				'zhsg': 'zh_cn',
 				// country code
-				'au': 'en_au',  // english  of commonwealth of australia
-				'ca': 'en_ca',  // english  of canada
-				'ch': 'de_ch',  // deutsch  of swiss confederation
-				'cn': 'zh_cn',  // zhongwen of chinese mainland
+				'au': 'en_au',
+				// english	of commonwealth of australia
+				'ca': 'en_ca',
+				// english	of canada
+				'ch': 'de_ch',
+				// deutsch	of swiss confederation
+				'cn': 'zh_cn',
+				// zhongwen of chinese mainland
 				/**
-				 * "de" : "de_de",  // deutsch  of fed republic of germany
-				 * "fi" : "fi_fi",  // finnish  of finland
-				 * "fr" : "fr_fr",  // francais of french republic
+				 * "de" : "de_de",	// deutsch	of fed republic of germany
+				 * "fi" : "fi_fi",	// finnish	of finland
+				 * "fr" : "fr_fr",	// francais of french republic
 				 */
-				'hk': 'zh_hk',  // zhongwen of hong kong s.a.r.
-				'li': 'de_li',  // deutsch  of principality of liechtenstein
-				'nz': 'en_us',  // english  of new-zealand
-				'tw': 'zh_tw',  // zhongwen of taiwan
-				'sg': 'zh_cn',  // zhongwen of singapore
-				'se': 'sv_se',  // svenska  of sweden
-				'uk': 'en_uk',  // english  of the united kingdom of g.b. and n.i.
-				'us': 'en_us',  // english  of the u.s. of a.
+				'hk': 'zh_hk',
+				// zhongwen of hong kong s.a.r.
+				'li': 'de_li',
+				// deutsch	of principality of liechtenstein
+				'nz': 'en_us',
+				// english	of new-zealand
+				'tw': 'zh_tw',
+				// zhongwen of taiwan
+				'sg': 'zh_cn',
+				// zhongwen of singapore
+				'se': 'sv_se',
+				// svenska	of sweden
+				'uk': 'en_uk',
+				// english	of the united kingdom of g.b. and n.i.
+				'us': 'en_us',
+				// english	of the u.s. of a.
 
 				// non-standard raw lang code
 				'zh-hans': 'zh_cn',
-				'zh-hant': 'zh_hk',
+				'zh-hant': 'zh_hk'
 			};
-
 			var Language_proximity_group = class {
 				constructor(desc) {
 					this.parent = null;
@@ -497,7 +453,6 @@ if (!window.easy_archive) {
 					this.sub_groups = [];
 					this.languages = [];
 				}
-
 				all() {
 					var all_codes = [];
 					for (var i = 0; i < this.languages.length; i++) {
@@ -508,7 +463,6 @@ if (!window.easy_archive) {
 					}
 					return all_codes;
 				}
-
 				add_one(item) {
 					if (typeof item === 'string' && this.languages.indexOf(item) === -1) {
 						this.languages.push(item);
@@ -519,7 +473,6 @@ if (!window.easy_archive) {
 					}
 					return this;
 				}
-
 				add() {
 					for (var i = 0; i < arguments.length; i++) {
 						this.add_one(arguments[i]);
@@ -551,9 +504,7 @@ if (!window.easy_archive) {
 
 					// desired language is not in this group
 					return null;
-
 				}
-
 			};
 
 			// define friends
@@ -568,25 +519,17 @@ if (!window.easy_archive) {
 			var group_finnish = new Language_proximity_group('fi').add('fi_fi');
 			var group_north_eu = new Language_proximity_group('european_northern').add(group_swedish, group_finnish);
 			var group_european = new Language_proximity_group('european').add(group_english, group_french, group_german, group_north_eu);
-
 			var group_zh_hans = new Language_proximity_group('zh_hans').add('zh_cn', 'zh_sg', 'zh_mo');
 			var group_zh_hant = new Language_proximity_group('zh_hant').add('zh_hk', 'zh_tw');
 			var group_zh = new Language_proximity_group('zh').add(group_zh_hans, group_zh_hant);
 			var group_cjk = new Language_proximity_group('cjk').add(group_zh);
 			var group_asian = new Language_proximity_group('asian').add(group_cjk);
-
 			var group_world = new Language_proximity_group('world').add(group_asian, group_european);
-
-			var accepted_languages = function (raw_lang_code, all_acceptable_codes = null) {
+			var accepted_languages = function (raw_lang_code) {
+				let all_acceptable_codes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 				var processed_lang_code = String(raw_lang_code).toLowerCase().replace(/[^a-z]/g, '').slice(0, 4);
 				var processed_lang_code_short = processed_lang_code.slice(0, 2);
-
-				var best_match =
-					accepted_languages_dict[raw_lang_code] ||
-					accepted_languages_dict[processed_lang_code] ||
-					accepted_languages_dict[processed_lang_code_short] ||
-					null;
-
+				var best_match = accepted_languages_dict[raw_lang_code] || accepted_languages_dict[processed_lang_code] || accepted_languages_dict[processed_lang_code_short] || null;
 				if (all_acceptable_codes === null || typeof all_acceptable_codes !== 'object' || !all_acceptable_codes instanceof Array || all_acceptable_codes.length === 0 || all_acceptable_codes.indexOf(best_match) !== -1) {
 					return best_match;
 				}
@@ -596,7 +539,6 @@ if (!window.easy_archive) {
 				//	 does not contain best match
 				//	 has at least 1 entry
 				var current_group = group_world.group_of(best_match);
-
 				if (current_group === null) {
 					return all_acceptable_codes[0];
 				}
@@ -608,7 +550,6 @@ if (!window.easy_archive) {
 						if (all_acceptable_codes.indexOf(close_match_group[i]) !== -1) {
 							return close_match_group[i];
 						}
-
 					}
 					if (current_group.parent) {
 						current_group = current_group.parent;
@@ -618,30 +559,25 @@ if (!window.easy_archive) {
 				}
 				console.log('[warning][peculiarity] produced at accepted_languages.js:175, forced jump out of a suspected 1k loop that should not happen. This indicates that a faulty language proximity group has one/multiple parent pointer(s) that formed a circle.');
 				return all_acceptable_codes[0];
-
 			};
-
 			return accepted_languages;
-
-		}());
-
+		}();
 		var raw_lang_code = mw.config.values.wgUserLanguage || window.wgUserLanguage || navigator.language;
-
-		easy.lang_code = accepted_language(raw_lang_code, [ 'en_us', 'zh_cn', 'zh_hk', 'zh_tw' ]);
+		easy.lang_code = accepted_language(raw_lang_code, ['en_us', 'zh_cn', 'zh_hk', 'zh_tw']);
 
 		// ... lang done
 
 		// identify if Easy Archive can be used on the page - compatibility
 
 		easy.on_user_talk = mw.config.values.wgNamespaceNumber === 3;
-		easy.my_user_talk = easy.on_user_talk && (function () {
+		easy.my_user_talk = easy.on_user_talk && function () {
 			var page_name = mw.config.values.wgPageName.split(':');
 			page_name[0] = '';
 			page_name = page_name.join('');
 			page_name = page_name.split('/')[0];
 			var user_name = mw.config.values.wgUserName;
 			return user_name.split('_').join('').split(' ').join('') === page_name.split('_').join('').split(' ').join('');
-		}());
+		}();
 		easy.has_template = settings.find('data-init') === '1';
 		easy.others_user_talk = easy.my_user_talk === false && easy.on_user_talk === true;
 		easy.on_article = mw.config.values.wgNamespaceNumber === 0;
@@ -651,6 +587,7 @@ if (!window.easy_archive) {
 
 		(function () {
 			'use strict';
+
 			if (!easy.lang) {
 				easy.lang = {};
 			}
@@ -715,13 +652,15 @@ if (!window.easy_archive) {
 				zh_tw: '存檔最舊${1}'
 			};
 			easy.lang.arc_old = {
-				en_us: 'Archive oldest ${1} topic${2}',  // ${2} = 's' if plural
+				en_us: 'Archive oldest ${1} topic${2}',
+				// ${2} = 's' if plural
 				zh_cn: '存档最旧${1}个',
 				zh_hk: '存檔最舊${1}個',
 				zh_tw: '存檔最舊${1}個'
 			};
 			easy.lang.arc_all_but = {
-				en_us: 'Archive all but ${1} topic${2}',  // ${2} = 's' if plural
+				en_us: 'Archive all but ${1} topic${2}',
+				// ${2} = 's' if plural
 				zh_cn: '只留下${1}个最新',
 				zh_hk: '只留最新${1}個',
 				zh_tw: '只留最新${1}個'
@@ -918,11 +857,8 @@ if (!window.easy_archive) {
 				zh_hk: '在本頁停用 Easy Archive。',
 				zh_tw: '在本頁停用 Easy Archive。'
 			};
-
-		}());
-
+		})();
 		(function () {
-
 			function looker_upper(object, namelist) {
 				for (var i = 0; i < namelist.length; i++) {
 					if (namelist[i] in object) {
@@ -933,39 +869,30 @@ if (!window.easy_archive) {
 				}
 				return object;
 			}
-
-			var arc_sum = looker_upper(window, [ 'external_config.easy_archive.user_custom_archive_summary' ]);
-			var del_sum = looker_upper(window, [ 'external_config.easy_archive.user_custom_delete_summary' ]);
-
+			var arc_sum = looker_upper(window, ['external_config.easy_archive.user_custom_archive_summary']);
+			var del_sum = looker_upper(window, ['external_config.easy_archive.user_custom_delete_summary']);
 			function sanitize_html(string) {
-				return string
-					.replace(/&/g, '&amp;')
-					.replace(/</g, '&lt;')
-					.replace(/>/g, '&gt;')
-					.replace(/'/g, '&apos;')
-					.replace(/"/g, '&quot;');
+				return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&apos;').replace(/"/g, '&quot;');
 			}
 
 			// multi language selector definition
 
-			var ml = function (tag, para_list, lang_code) // multi-lang
+			var ml = function (tag, para_list, lang_code)
+			// multi-lang
 			{
 				'use strict';
 
 				if (window.language_code_overwrite) {
 					lang_code = window.language_code_overwrite;
 				}
-
 				if (!lang_code) {
 					lang_code = easy.lang_code;
 				}
 				if (!para_list) {
 					para_list = [];
 				}
-
 				try {
 					var lang_content = easy.lang[tag][lang_code];
-
 					for (var has_unfulfilled_para = true, i = 0; has_unfulfilled_para; i++) {
 						var search = '${' + (i + 1) + '}';
 						if (lang_content.indexOf(search) === -1) {
@@ -978,13 +905,11 @@ if (!window.easy_archive) {
 							}
 						}
 					}
-
 					return lang_content;
 				} catch (e) {
 					return '(!) undefined language content';
 				}
 			};
-
 			function actual_section(nominal_section_number) {
 				var less = 0;
 				for (var i = 0; i < nominal_section_number; i++) {
@@ -1001,7 +926,6 @@ if (!window.easy_archive) {
 
 			function report_doneness_ui(section_number, doneness_type, to, ongoing_or_done) {
 				var tag_ding, tag_section, ding_type, ding_ttl;
-
 				if (ongoing_or_done === 'ongoing') {
 					ding_type = 'info';
 					ding_ttl = 'long';
@@ -1023,10 +947,9 @@ if (!window.easy_archive) {
 						tag_section = 'already_archived';
 					}
 				}
-
 				var actions = {
 					ding: function () {
-						ding(ml(tag_ding, [ section_number.toString(), to ]), ding_type, ding_ttl, false, false);
+						ding(ml(tag_ding, [section_number.toString(), to]), ding_type, ding_ttl, false, false);
 					},
 					section_link: function () {
 						var node = document.getElementsByClassName('easy-archive-section-id-span-order-' + section_number)[0];
@@ -1039,11 +962,8 @@ if (!window.easy_archive) {
 						node.style.color = 'rgba(0,0,0,0.5)';
 					}
 				};
-
 				return actions;
-
 			}
-
 			var delete_section_core = function (section_number, nominal, callback) {
 				var actual_section_number = actual_section(section_number);
 				report_doneness_ui(nominal, 'delete', '', 'ongoing').ding();
@@ -1054,14 +974,12 @@ if (!window.easy_archive) {
 					typeof callback === 'function' ? callback() : void null;
 				}, del_sum || ml('delete_summary'));
 			};
-
 			easy.delete_section = function (section_number, nominal) {
 				report_doneness_ui(nominal, 'delete', '', 'ongoing').section_link();
 				go.chain(function (reso) {
 					delete_section_core(section_number, nominal, reso);
 				});
 			};
-
 			var archive_section_core = function (section_number, nominal, callback) {
 				var actual_section_number = actual_section(section_number);
 				var to = easy.settings.find('arc-loc');
@@ -1073,7 +991,6 @@ if (!window.easy_archive) {
 					typeof callback === 'function' ? callback() : void null;
 				}, arc_sum || ml('archive_summary'));
 			};
-
 			easy.archive_section = function (section_number, nominal) {
 				var to = easy.settings.find('arc-loc');
 				report_doneness_ui(nominal, 'archive', to, 'ongoing').section_link();
@@ -1081,21 +998,18 @@ if (!window.easy_archive) {
 					archive_section_core(section_number, nominal, reso);
 				});
 			};
-
 			easy.archive_sections = function (starting_section_number, count) {
-
 				if (starting_section_number < 1) {
 					return;
-				}  // cannot allow section 0 archiving. much less anything negative.
+				} // cannot allow section 0 archiving. much less anything negative.
 
-				for (var i = starting_section_number; i < (count + starting_section_number); i++) {
-					easy.ding(ml('loading_section_i', [ i ]), 'info');
+				for (var i = starting_section_number; i < count + starting_section_number; i++) {
+					easy.ding(ml('loading_section_i', [i]), 'info');
 				}
 				setTimeout(function () {
-					easy.ding(ml('done_section_i', [ starting_section_number, sanitize_html(settings.find('arc-loc')) ]), 'success');
+					easy.ding(ml('done_section_i', [starting_section_number, sanitize_html(settings.find('arc-loc'))]), 'success');
 				}, 1000);
 			};
-
 			easy.mass_archive_all = function () {
 				easy.mass_archive_percentage(1);
 			};
@@ -1105,56 +1019,50 @@ if (!window.easy_archive) {
 			easy.mass_archive_leave_latest = function (amount_to_leave_behind) {
 				easy.mass_archive_oldest(easy.section_count - amount_to_leave_behind);
 			};
-
 			easy.mass_archive_oldest = function (amount_to_archive) {
 				if (amount_to_archive > easy.section_count) {
 					amount_to_archive = easy.section_count;
 				} else if (amount_to_archive < 0) {
 					amount_to_archive = 0;
 				}
-
 				easy.archive_sections(1, amount_to_archive);
 			};
-
 			easy.turn_off = function (stage) {
 				'use strict';
+
 				if (stage === 0) {
 					easy.elaborate_notice(227);
 				} else if (stage === 1) {
 					easy.elaborate_notice(27);
 				}
 			};
-
 			easy.change_location = function (para) {
 				'use strict';
+
 				if (para === 0) {
 					easy.elaborate_notice(395);
 				} else {
 					easy.elaborate_notice(37);
 				}
 			};
-
 			easy.elaborate_notice = function (notice_tag_acronym) {
 				// acronym scheme: refer to qwerty keyboard layout. (p=9)
 
 				var notice_tag_dictionary = {
-					27: [ 'stop_manually', 'warning' ],
-					37: [ 'change_manually', 'warning' ],
-					227: [ 'warning_stop_using', 'warning', 'long', false, true ],
-					395: [ 'change_location_to', 'info', 'long', false, true ],
-					933: [ 'please_enable_elaborate' ],
-					953: [ 'others_talk_elaborate' ],
-					3163: [ 'cancelled', 'warning', 1000 ],
-					3165: [ 'easy_archive_has_been_stopped', 'warning', 3000 ],
-					3959: [ 'enable_on_generic_page' ],
-					9219: [ 'problem_with_archive_location_main_space', 'warning', 'long', false, false, [ sanitize_html(easy.settings.find('arc-loc')) ] ],
-					9220: [ 'problem_with_archive_location_same_page', 'warning', 'long', false, false, [ sanitize_html(easy.settings.find('arc-loc')) ] ],
-					9623: [ 'page_not_supported_elaborate' ]
-
+					27: ['stop_manually', 'warning'],
+					37: ['change_manually', 'warning'],
+					227: ['warning_stop_using', 'warning', 'long', false, true],
+					395: ['change_location_to', 'info', 'long', false, true],
+					933: ['please_enable_elaborate'],
+					953: ['others_talk_elaborate'],
+					3163: ['cancelled', 'warning', 1000],
+					3165: ['easy_archive_has_been_stopped', 'warning', 3000],
+					3959: ['enable_on_generic_page'],
+					9219: ['problem_with_archive_location_main_space', 'warning', 'long', false, false, [sanitize_html(easy.settings.find('arc-loc'))]],
+					9220: ['problem_with_archive_location_same_page', 'warning', 'long', false, false, [sanitize_html(easy.settings.find('arc-loc'))]],
+					9623: ['page_not_supported_elaborate']
 				};
-
 				var notice_set = notice_tag_dictionary[notice_tag_acronym] ? notice_tag_dictionary[notice_tag_acronym] : false;
-
 				if (notice_set !== false) {
 					var ntag = notice_set[0];
 					var ntype = notice_set[1];
@@ -1172,40 +1080,32 @@ if (!window.easy_archive) {
 				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<style>#ding button{margin:0 .2em;background:0 0;border:.2em solid #fff;border-radius:9em;padding:0 .7em;box-sizing:border-box;color:inherit;font-weight:inherit}#ding button:active{background:rgba(255,255,255,.6)}</style>');
 				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<div id="ding"></div>');
 			}
-
 			if (!document.getElementById('ding_history')) {
 				document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<div id="ding_history"></div>');
 			}
-
-			easy.ding = function (message, type, ttl, history, persist)  // default type="info", ttl=3500, history=true, persist = false.
+			easy.ding = function (message, type, ttl, history, persist)
+			// default type="info", ttl=3500, history=true, persist = false.
 			{
 				if (!type) {
 					type = 'info';
 				}
-
 				if (typeof ttl === 'number' && ttl < 1) {
 					ttl = 1;
 				}
-
 				if (!ttl) {
 					ttl = 3500;
 				}
-
 				if (ttl === 'long') {
 					ttl = 'long';
 				}
-
 				if (!history) {
 					history = true;
 				}
-
 				if (!persist) {
 					persist = false;
 				}
-
 				var ding_ele = document.getElementById('ding');
 				var ding_hist_ele = document.getElementById('ding_history');
-
 				if (ding_ele.lastChild) {
 					var previous_ding = ding_ele.lastChild;
 					previous_ding.style.transform = 'translateY(-130%)';
@@ -1213,40 +1113,37 @@ if (!window.easy_archive) {
 						previous_ding.remove();
 					}, 500);
 				}
-
 				if (message === false || message === null || message === 0 || typeof message === 'undefined') {
 					return;
 				}
-
 				var color_sets = {
-					warning: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(221, 51,  51,  1)' },
-					info: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(51,  102, 204, 1)' },
-					success: { text: 'rgba(255, 255, 255, 1)', background: 'rgba(0,   175, 137, 1)' },
-					confusion: { text: 'rgba(0,   0,   0,   1)', background: 'rgba(234, 236, 240, 1)' },
-					default: { text: 'rgba(0,   0,   0,   1)', background: 'rgba(234, 236, 240, 1)' }
+					warning: {
+						text: 'rgba(255, 255, 255, 1)',
+						background: 'rgba(221, 51,	51,	1)'
+					},
+					info: {
+						text: 'rgba(255, 255, 255, 1)',
+						background: 'rgba(51,	102, 204, 1)'
+					},
+					success: {
+						text: 'rgba(255, 255, 255, 1)',
+						background: 'rgba(0,	 175, 137, 1)'
+					},
+					confusion: {
+						text: 'rgba(0,	 0,	 0,	 1)',
+						background: 'rgba(234, 236, 240, 1)'
+					},
+					default: {
+						text: 'rgba(0,	 0,	 0,	 1)',
+						background: 'rgba(234, 236, 240, 1)'
+					}
 				};
-
 				if (!color_sets[type]) {
 					type = 'confusion';
 				}
-
 				var retractant = persist ? '' : "onclick='this.style.transform = \"translateY(-130%)\";setTimeout(function(){this.remove()}.bind(this), 500);' ";
-
-				ding_ele.insertAdjacentHTML('beforeend',
-					'<div ' +
-					retractant +
-					"style='" +
-					'position:fixed; top:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' +
-					'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' +
-					'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' +
-					'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " +
-					'>' +
-					message +
-					'</div>'
-				);
-
+				ding_ele.insertAdjacentHTML('beforeend', '<div ' + retractant + "style='" + 'position:fixed; top:0; left:0; right:0; margin: 0 0 auto 0; height: auto; line-height: 1.4em; ' + 'padding: 0.6em 2em; opacity: 1; text-align: center; z-index: 9999; font-size: 86%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); ' + 'font-weight: bold; transform: translateY(-130%); transition: all 0.2s;' + 'background: ' + color_sets[type].background + '; color:' + color_sets[type].text + "; ' " + '>' + message + '</div>');
 				var notice_ele = ding_ele.lastChild;
-
 				setTimeout(function () {
 					notice_ele.style.transform = 'translateY(0%)';
 				}, 10);
@@ -1258,15 +1155,20 @@ if (!window.easy_archive) {
 						notice_ele.remove();
 					}, ttl + 510);
 				}
-
 			};
-
 			var ding = easy.ding;
 
 			// real deal here
 			// interface injection - prepare
 
-			var i = 0, for_loop_sentinel, j = 0, escape_counter, ele, element_for_manipulation, nominal, actual;
+			var i = 0,
+				for_loop_sentinel,
+				j = 0,
+				escape_counter,
+				ele,
+				element_for_manipulation,
+				nominal,
+				actual;
 			var pipe_html = '<span style="margin:0 0.2em; opacity:0.7">|</span>';
 			var section_delete_interface_inhibit = easy.settings.find('sec-del') === '0' || easy.settings.find('data-init') === '0';
 			var section_archive_interface_inhibit = easy.settings.find('sec-arc') === '0' || easy.settings.find('data-init') === '0';
@@ -1274,13 +1176,14 @@ if (!window.easy_archive) {
 			var section_delete_interface_html;
 			var section_archive_interface_html;
 			var section_id_span_html = '<span class="easy-archive-section-id-span easy-archive-section-id-span-order-@@" style="display: none;">section</span>';
-
 			var footer_info_ele, position_of_insertion;
 			if (document.getElementById('footer-info')) {
 				footer_info_ele = document.getElementById('footer-info');
 				position_of_insertion = 'afterbegin';
 			} else {
-				footer_info_ele = { insertAdjacentHTML: function () {} };
+				footer_info_ele = {
+					insertAdjacentHTML: function () {}
+				};
 				position_of_insertion = '';
 			}
 
@@ -1288,23 +1191,23 @@ if (!window.easy_archive) {
 
 			if (easy.on_article || easy.on_hist_version) {
 				// insert no interface on an article page or a history version.
-			} else if ((function (black_list) {
+			} else if (function (black_list) {
 				for (var i = 0; i < black_list.length; i++) {
 					if (black_list[i].test(mw.config.values.wgPageName)) {
 						return true;
 					}
 				}
 				return false;
-			})(easy.never_enable_on_these_pages_regex)) {
+			}(easy.never_enable_on_these_pages_regex)) {
 				// insert no interface if the page name is blacklisted.
-			} else if ((function (black_list) {
+			} else if (function (black_list) {
 				for (var i = 0; i < black_list.length; i++) {
 					if (black_list[i].test(mw.config.values.wgPageName)) {
 						return true;
 					}
 				}
 				return false;
-			})(easy.dis_support_these_pages_regex)) {
+			}(easy.dis_support_these_pages_regex)) {
 				// insert not supported notice if the page name indicates that it is not supported.
 
 				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(9623)'>" + ml('page_not_supported') + '</a></li>');
@@ -1317,58 +1220,35 @@ if (!window.easy_archive) {
 				if (/.+:.+/.test(easy.settings.find('arc-loc')) !== true) {
 					easy.elaborate_notice(9219);
 				}
-
 				var normal_function_inject_interface = function () {
-
 					var editSectionCollection = document.getElementsByClassName('mw-editsection');
-
 					for (i = 0; i < editSectionCollection.length; i++) {
-
 						ele = editSectionCollection[i];
 						var ve = /[&?]veaction=edit/.test(ele.childNodes[1].href);
 						var child_node_number = ve ? 3 : 1;
-
-						if (
-							(ele.parentNode.tagName.toLowerCase() === 'h2') &&
-							(ele.parentNode.id !== 'firstHeading') &&
-							decodeURIComponent(ele.childNodes[child_node_number].href.split(/[?&]title=/)[1].split('&')[0]) === mw.config.values.wgPageName
-						) {
-
+						if (ele.parentNode.tagName.toLowerCase() === 'h2' && ele.parentNode.id !== 'firstHeading' && decodeURIComponent(ele.childNodes[child_node_number].href.split(/[?&]title=/)[1].split('&')[0]) === mw.config.values.wgPageName) {
 							actual = parseInt(ele.childNodes[child_node_number].href.split(/[&?]section=/)[1].split('&')[0]);
-
 							nominal = i - j + 1;
-
-							section_delete_interface_html = section_delete_interface_inhibit ? '' : pipe_html +
-								'<a href="javascript:window.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
-							section_archive_interface_html = section_archive_interface_inhibit ? '' : pipe_html +
-								'<a href="javascript:window.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
-
-							ele.childNodes[child_node_number].insertAdjacentHTML('afterend',
-								section_delete_interface_html + section_archive_interface_html + section_id_span_html.replace('@@', nominal.toString()));
+							section_delete_interface_html = section_delete_interface_inhibit ? '' : pipe_html + '<a href="javascript:window.easy_archive.delete_section(' + actual + ', ' + nominal + ')">' + ml('delete') + '</a>';
+							section_archive_interface_html = section_archive_interface_inhibit ? '' : pipe_html + '<a href="javascript:window.easy_archive.archive_section(' + actual + ', ' + nominal + ')">' + ml('archive') + '</a>';
+							ele.childNodes[child_node_number].insertAdjacentHTML('afterend', section_delete_interface_html + section_archive_interface_html + section_id_span_html.replace('@@', nominal.toString()));
 						} else {
 							j++;
 						}
 					}
-
 					easy.section_count = i - j + 1;
-
-					footer_info_ele.insertAdjacentHTML(position_of_insertion,
-						'<li>' + ml('supports') + ml('left_par_split') +
-						//	 "<a href='javascript:window.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
-						//	 "<a href='javascript:window.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
-						"<a href='javascript:window.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' +
-						ml('right_par') + ml('full_stop_split') + '</li>' +
-						'<li>' + ml('archive_path_colon_split') + "<a href='/wiki/" + sanitize_html(easy.settings.find('arc-loc')) + "'" + '>' + sanitize_html(easy.settings.find('arc-loc'))
-						//	 + "</a>（<a href='javascript:window.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
+					footer_info_ele.insertAdjacentHTML(position_of_insertion, '<li>' + ml('supports') + ml('left_par_split') +
+					//	 "<a href='javascript:window.easy_archive.mass_archive_all()'>" + ml("arc_all") + "</a>" + pipe_html +
+					//	 "<a href='javascript:window.easy_archive.mass_archive_percentage(0.5)'>" + ml("arc_old_percent", ["50%"]) + "</a>" + pipe_html +
+					//	 "<a href='javascript:window.easy_archive.mass_archive_oldest(5)'>" + ml("arc_old", ["5", "s"]) + "</a>" + pipe_html +
+					//	 "<a href='javascript:window.easy_archive.mass_archive_leave_latest(5)'>" + ml("arc_all_but", ["5", "s"]) + "</a>" + pipe_html +
+					//	 "<a href='javascript:window.easy_archive.turn_to_settings()'>" + ml("settings") + "</a>" + pipe_html +
+					"<a href='javascript:window.easy_archive.turn_off(0)'>" + ml('stop_using') + '</a>' + ml('right_par') + ml('full_stop_split') + '</li>' + '<li>' + ml('archive_path_colon_split') + "<a href='/wiki/" + sanitize_html(easy.settings.find('arc-loc')) + "'" + '>' + sanitize_html(easy.settings.find('arc-loc'))
+					//	 + "</a>（<a href='javascript:window.easy_archive.change_location(0)'>" + ml("change") + "</a>）"
 					);
-
 				};
 
 				normal_function_inject_interface();
-
 			} else if (easy.others_user_talk === true) {
 				// others user talk.
 
@@ -1377,22 +1257,20 @@ if (!window.easy_archive) {
 				// a generic page that did not enable easy archive.
 
 				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(3959)'>" + ml('to_enable') + '</a></li>');
-			} else // then assert: (easy.my_user_talk === true), (easy.has_template === false).
-			{
-				// my user talk -- installed easy archive but lacking template.
+			} else
+				// then assert: (easy.my_user_talk === true), (easy.has_template === false).
+				{
+					// my user talk -- installed easy archive but lacking template.
 
-				footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(933)'>" + ml('please_enable') + '</a></li>');
-			}
-
-			var nominal_sections = (function (count) {
+					footer_info_ele.insertAdjacentHTML(position_of_insertion, "<li id='easy_archive_enable_notice'><a style='color:inherit' href='javascript:window.easy_archive.elaborate_notice(933)'>" + ml('please_enable') + '</a></li>');
+				}
+			var nominal_sections = function (count) {
 				var arr = new Array(count);
 				for (var i = 0; i < count; i++) {
 					arr[i] = false;
 				}
 				return arr;
-			}(easy.section_count));
-
-		}());
-
-	}(window.easy_archive));
+			}(easy.section_count);
+		})();
+	})(window.easy_archive);
 }
