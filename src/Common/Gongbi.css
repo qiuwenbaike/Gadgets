@@ -1,0 +1,47 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gongbi.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 隐去Logo */
+.mw-wiki-logo.fallback {
+	height: 0 !important;
+}
+
+#p-logo {
+	display: none !important;
+}
+
+/* “权限错误”页面提示 */
+ul.permissions-errors {
+	margin: auto !important;
+}
+
+ul.permissions-errors li {
+	list-style-type: none !important;
+}
+
+#ca-viewsource {
+	display: none;
+}
+
+/* 移动端宽度判断 */
+
+@media screen and ( max-width: 850px ) {
+	.skin-gongbi .nomobile {
+		display: none;
+	}
+}
+
+@media screen and ( min-width: 850px ) {
+	.skin-gongbi .mobileonly,
+	.skin-gongbi .onlymobile {
+		display: none;
+	}
+}
+
+/*
+ * Page-specific rules
+ */

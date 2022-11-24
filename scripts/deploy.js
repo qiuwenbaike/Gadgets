@@ -556,6 +556,14 @@ const deployTargets = [
 		target: 'MediaWiki:Common.js'
 	},
 	{
+		file: 'src/Common/Gongbi.css',
+		target: 'MediaWiki:Gongbi.css'
+	},
+	{
+		file: 'src/Common/Vector.css',
+		target: 'MediaWiki:Vector.css'
+	},
+	{
 		file: 'src/Common/Print.css',
 		target: 'MediaWiki:Print.css',
 	},

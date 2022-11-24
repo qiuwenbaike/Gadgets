@@ -1,0 +1,23 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Vector.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 这里放置的CSS将影响使用Vector皮肤的用户 */
+.skin--responsive #mw-panel {
+	background-image: none !important;
+}
+
+#footer-places li {
+	float: none;
+	display: inline-block;
+	line-height: 1;
+}
+
+/* Enlarge font-size for zh fonts */
+.skin-vector .mw-body-content {
+	/* stylelint-disable-next-line unit-disallowed-list */
+	font-size: 1rem;
+}
