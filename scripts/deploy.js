@@ -527,6 +527,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-History-disclaimer.js'
 	},
 	{
+		file: 'src/History-disclaimer/History-disclaimer.css',
+		target: 'MediaWiki:Gadget-History-disclaimer.css'
+	},
+	{
 		file: 'src/Report/Report.js',
 		target: 'MediaWiki:Gadget-Report.js'
 	},
