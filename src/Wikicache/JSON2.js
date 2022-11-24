@@ -6,10 +6,6 @@
  * @source https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js
  * @license PD-self
  */
-/* eslint-disable no-useless-escape */
-/* eslint-disable camelcase */
-/* eslint-disable no-control-regex */
-/* eslint-disable no-misleading-character-class */
 'use strict';
 
 // Polyfill
@@ -183,17 +179,19 @@ if ((typeof JSON === 'undefined' ? 'undefined' : _typeof(JSON)) !== 'object') {
 (function () {
 'use strict';
 
-var rx_one = /^[\],:{}\s]*$/;
-var rx_two = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g;
-var rx_three = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
-var rx_four = /(?:^|:|,)(?:\s*\[)+/g;
-var rx_escapable = /[\\"\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
-var rx_dangerous = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+var rxOne = /^[\],:{}\s]*$/;
+var rxTwo = /\\(?:["\\/bfnrt]|u[0-9a-fA-F]{4})/g;
+var rxThree = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/g;
+var rxFour = /(?:^|:|,)(?:\s*\[)+/g;
+// eslint-disable-next-line no-control-regex, no-misleading-character-class
+var rxEscapable = /[\\"\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+// eslint-disable-next-line no-control-regex, no-misleading-character-class
+var rxDangerous = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
 function f(n) {
 	// Format integers to have at least two digits.
 	return n < 10 ? '0' + n : n;
 }
-function this_value() {
+function thisValue() {
 	return this.valueOf();
 }
 // Polyfill
@@ -203,11 +201,11 @@ if (typeof Date.prototype.toJSON !== 'function') {
 		return isFinite(this.valueOf()) ? this.getUTCFullYear() + '-' + f(this.getUTCMonth() + 1) + '-' + f(this.getUTCDate()) + 'T' + f(this.getUTCHours()) + ':' + f(this.getUTCMinutes()) + ':' + f(this.getUTCSeconds()) + 'Z' : null;
 	};
 	// eslint-disable-next-line no-extend-native
-	Boolean.prototype.toJSON = this_value;
+	Boolean.prototype.toJSON = thisValue;
 	// eslint-disable-next-line no-extend-native
-	Number.prototype.toJSON = this_value;
+	Number.prototype.toJSON = thisValue;
 	// eslint-disable-next-line no-extend-native
-	String.prototype.toJSON = this_value;
+	String.prototype.toJSON = thisValue;
 }
 var gap;
 var indent;
@@ -219,8 +217,8 @@ function quote(string) {
 	// Otherwise we must also replace the offending characters with safe escape
 	// sequences.
 
-	rx_escapable.lastIndex = 0;
-	return rx_escapable.test(string) ? '"' + string.replace(rx_escapable, function (a) {
+	rxEscapable.lastIndex = 0;
+	return rxEscapable.test(string) ? '"' + string.replace(rxEscapable, function (a) {
 		var c = meta[a];
 		return typeof c === 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
 	}) + '"' : '"' + string + '"';
@@ -462,9 +460,9 @@ if (typeof JSON.parse !== 'function') {
 		// incorrectly, either silently deleting them, or treating them as line endings.
 
 		text = String(text);
-		rx_dangerous.lastIndex = 0;
-		if (rx_dangerous.test(text)) {
-			text = text.replace(rx_dangerous, function (a) {
+		rxDangerous.lastIndex = 0;
+		if (rxDangerous.test(text)) {
+			text = text.replace(rxDangerous, function (a) {
 				return '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
 			});
 		}
@@ -482,7 +480,7 @@ if (typeof JSON.parse !== 'function') {
 		// we look to see that the remaining characters are only whitespace or "]" or
 		// "," or ":" or "{" or "}". If that is so, then the text is safe for eval.
 
-		if (rx_one.test(text.replace(rx_two, '@').replace(rx_three, ']').replace(rx_four, ''))) {
+		if (rxOne.test(text.replace(rxTwo, '@').replace(rxThree, ']').replace(rxFour, ''))) {
 			// In the third stage we use the eval function to compile the text into a
 			// JavaScript structure. The "{" operator is subject to a syntactic ambiguity
 			// in JavaScript: it can begin a block or an object literal. We wrap the text
