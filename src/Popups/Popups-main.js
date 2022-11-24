@@ -6,10 +6,6 @@
  * @source https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadget-popups.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-/* eslint-disable camelcase */
-/* eslint-disable no-useless-call */
-/* eslint-disable no-useless-concat */
-/* eslint-disable no-shadow */
 
 'use strict';
 
@@ -661,8 +657,8 @@ $(function () {
 	 * Initialises the Drag instance by telling it which object you want to be draggable, and what
 	 * you want to drag it by.
 	 *
-	 * @param {DOMElement} o The "handle" by which <code>oRoot</code> is dragged.
-	 * @param {DOMElement} oRoot The object which moves when <code>o</code> is dragged, or <code>o</code> if omitted.
+	 * @param o The "handle" by which <code>oRoot</code> is dragged.
+	 * @param oRoot The object which moves when <code>o</code> is dragged, or <code>o</code> if omitted.
 	 */
 	Drag.prototype.init = function (o, oRoot) {
 		var dragObj = this;
@@ -849,7 +845,7 @@ $(function () {
 	copyStructure('fancy', 'fancy2');
 	pg.structures.fancy2.popupTopLinks = function (x) {
 		// hack out the <br> at the end and put one at the beginning
-		return '<br>' + pg.structures.fancy.popupTopLinks(x).replace(RegExp('<br>$', 'i'), '');
+		return '<br>' + pg.structures.fancy.popupTopLinks(x).replace(/<br>$/i, '');
 	};
 	pg.structures.fancy2.popupLayout = function () {
 		// move toplinks to after the title
@@ -961,6 +957,7 @@ $(function () {
 
 	function substitute(data, cmdBody) {
 		// alert('sub\nfrom: '+cmdBody.from+'\nto: '+cmdBody.to+'\nflags: '+cmdBody.flags);
+		// eslint-disable-next-line es-x/no-regexp-prototype-flags
 		var fromRe = RegExp(cmdBody.from, cmdBody.flags);
 		return data.replace(fromRe, cmdBody.to);
 	}
@@ -1273,6 +1270,7 @@ $(function () {
 		 */
 		this.async = true;
 	}
+	// eslint-disable-next-line no-new
 	new Downloader();
 
 	/** Submits the http request. */
@@ -1376,7 +1374,7 @@ $(function () {
 	 * Creates a new {@link Downloader} and prepares it for action.
 	 *
 	 * @param {string} url The url to download
-	 * @param {integer} id The ID of the {@link Downloader} object
+	 * @param {@integer} id The ID of the {@link Downloader} object
 	 * @param {Function} callback The callback function invoked on success
 	 * @return {String/Downloader} the {@link Downloader} object created, or 'ohdear' if an unsupported browser
 	 */
@@ -1419,7 +1417,7 @@ $(function () {
 	 * The supplied data is put into a {@link Downloader} as if it had downloaded it.
 	 *
 	 * @param {string} url The url.
-	 * @param {integer} id The ID.
+	 * @param {@integer} id The ID.
 	 * @param {Function} callback The callback, which is invoked immediately as <code>callback(d)</code>,
 	 * where <code>d</code> is the new {@link Downloader}.
 	 * @param {string} data The (cached) data.
@@ -1438,7 +1436,7 @@ $(function () {
 	 * Starts a download.
 	 *
 	 * @param {string} url The url to download
-	 * @param {integer} id The ID of the {@link Downloader} object
+	 * @param {@integer} id The ID of the {@link Downloader} object
 	 * @param {Function} callback The callback function invoked on success
 	 * @return {String/Downloader} the {@link Downloader} object created, or 'ohdear' if an unsupported browser
 	 */
@@ -1644,9 +1642,7 @@ $(function () {
 						ps('</ul>');
 					} else if (pi === '#') {
 						ps('</ol>');
-					}
-					// close a dl only if the new item is not a dl item (:, ; or empty)
-					else if ($.inArray(l_match[1].charAt(prevPos), [ '', '*', '#' ])) {
+					} else if ($.inArray(l_match[1].charAt(prevPos), [ '', '*', '#' ])) { // close a dl only if the new item is not a dl item (:, ; or empty)
 						ps('</dl>');
 					}
 				}
@@ -1658,9 +1654,7 @@ $(function () {
 						ps('<ul>');
 					} else if (li === '#') {
 						ps('<ol>');
-					}
-					// open a new dl only if the prev item is not a dl item (:, ; or empty)
-					else if ($.inArray(prev.charAt(matchPos), [ '', '*', '#' ])) {
+					} else if ($.inArray(prev.charAt(matchPos), [ '', '*', '#' ])) { // open a new dl only if the prev item is not a dl item (:, ; or empty)
 						ps('<dl>');
 					}
 				}
@@ -1751,9 +1745,7 @@ $(function () {
 				if (compareLineStringOrReg('|')) {
 					if (!tc) {
 						break;
-					}
-					// we're at the outer-most level (no nested tables), skip to td parse
-					else if (charAtPoint(1) === '}') {
+					} else if (charAtPoint(1) === '}') { // we're at the outer-most level (no nested tables), skip to td parse
 						tc--;
 					}
 				} else if (!tc && compareLineStringOrReg('!')) {
@@ -2081,7 +2073,7 @@ $(function () {
 		var now = new Date();
 		var age = now - lastmod;
 		if (lastmod && getValueOf('popupLastModified')) {
-			return tprintf('%s old', [ formatAge(age) ]).replace(RegExp(' ', 'g'), '&nbsp;');
+			return tprintf('%s old', [ formatAge(age) ]).replace(/ /g, '&nbsp;');
 		}
 		return '';
 	}
@@ -2818,10 +2810,10 @@ $(function () {
 
 	// Schematic for a getWiki call
 	//
-	//			 getPageWithCaching
+	//             getPageWithCaching
 	// eslint-disable-next-line no-tabs
 	//					|
-	//	 false		|		 true
+	//     false        |         true
 	// getPage<-[findPictureInCache]->-onComplete(a fake download)
 	//   \.
 	//  (async)->addPageToCache(download)->-onComplete(download)
@@ -2993,7 +2985,7 @@ $(function () {
 	/* eslint-disable no-unused-vars */
 	function nextOne(array, value) {
 		// NB if the array has two consecutive entries equal
-		//	then this will loop on successive calls
+		// then this will loop on successive calls
 		var i = findInArray(array, value);
 		if (i < 0) {
 			return null;
@@ -3139,14 +3131,13 @@ $(function () {
 	function listLinks(wikitext, oldTarget, titleToEdit) {
 		// mediawiki strips trailing spaces, so we do the same
 		// testcase: https://en.wikipedia.org/w/index.php?title=Radial&oldid=97365633
-		var reg = RegExp('\\[\\[([^|]*?) *(\\||\\]\\])', 'gi');
+		var reg = /\[\[([^|]*?) *(\||\]\])/gi;
 		var ret = [];
 		var splitted = wikitext.parenSplit(reg);
 		// ^[a-z]+ should match interwiki links, hopefully (case-insensitive)
 		// and ^[a-z]* should match those and [[:Category...]] style links too
-		var omitRegex = RegExp('^[a-z]*:|^[Ss]pecial:|^[Ii]mage|^[Cc]ategory');
+		var omitRegex = /^[a-z]*:|^[Ss]pecial:|^[Ii]mage|^[Cc]ategory/;
 		var friendlyCurrentArticleName = oldTarget.toString();
-		var wikPos = getValueOf('popupDabWiktionary');
 		for (var i = 1; i < splitted.length; i = i + 3) {
 			if (_typeof(splitted[i]) === _typeof('string') && splitted[i].length > 0 && !omitRegex.test(splitted[i])) {
 				ret.push(retargetDab(splitted[i], oldTarget, friendlyCurrentArticleName, titleToEdit));
@@ -3154,16 +3145,6 @@ $(function () {
 		} /* for loop */
 
 		ret = rmDupesFromSortedList(ret.sort());
-		if (wikPos) {
-			var wikTarget = 'wiktionary:' + friendlyCurrentArticleName.replace(RegExp('^(.+)\\s+[(][^)]+[)]\\s*$'), '$1');
-			var meth;
-			if (wikPos.toLowerCase() === 'first') {
-				meth = 'unshift';
-			} else {
-				meth = 'push';
-			}
-			ret[meth](retargetDab(wikTarget, oldTarget, friendlyCurrentArticleName, titleToEdit));
-		}
 		ret.push(changeLinkTargetLink({
 			newTarget: null,
 			text: popupString('remove this link').split(' ').join('&nbsp;'),
@@ -3364,7 +3345,7 @@ $(function () {
 			if (_typeof(list[i]) === _typeof('')) {
 				ret += emptySpanHTML(list[i], navpop.idNumber, 'div');
 			} else if (_typeof(list[i]) === _typeof([]) && list[i].length > 0) {
-				ret = ret.parenSplit(RegExp('(</[^>]*?>$)')).join(makeEmptySpans(list[i], navpop));
+				ret = ret.parenSplit(/(<\/[^>]*?>$)/).join(makeEmptySpans(list[i], navpop));
 			} else if (_typeof(list[i]) === _typeof({}) && list[i].nodeType) {
 				ret += emptySpanHTML(list[i].name, navpop.idNumber, list[i].nodeType);
 			}
@@ -3521,7 +3502,7 @@ $(function () {
 	 * @class The Previewmaker class. Use an instance of this to generate short previews from Wikitext.
 	 * @param {string} wikiText The Wikitext source of the page we wish to preview.
 	 * @param {string} baseUrl The url we should prepend when creating relative urls.
-	 * @param {Navpopup} owner The navpop associated to this preview generator
+	 * @param {@Navpopup} owner The navpop associated to this preview generator
 	 */
 	function Previewmaker(wikiText, baseUrl, owner) {
 		/** The wikitext which is manipulated to generate the preview. */
@@ -3544,7 +3525,7 @@ $(function () {
 	 */
 	Previewmaker.prototype.killComments = function () {
 		// this also kills one trailing newline, eg [[diamyo]]
-		this.data = this.data.replace(RegExp('^<!--[^$]*?-->\\n|\\n<!--[^$]*?-->(?=\\n)|<!--[^$]*?-->', 'g'), '');
+		this.data = this.data.replace(/^<!--[^$]*?-->\n|\n<!--[^$]*?-->(?=\n)|<!--[^$]*?-->/g, '');
 	};
 
 	/**
@@ -3552,14 +3533,14 @@ $(function () {
 	 */
 	Previewmaker.prototype.killDivs = function () {
 		// say goodbye, divs (can be nested, so use * not *?)
-		this.data = this.data.replace(RegExp('< *div[^>]* *>[\\s\\S]*?< */ *div *>', 'gi'), '');
+		this.data = this.data.replace(/< *div[^>]* *>[\s\S]*?< *\/ *div *>/gi, '');
 	};
 
 	/**
 	 * @private
 	 */
 	Previewmaker.prototype.killGalleries = function () {
-		this.data = this.data.replace(RegExp('< *gallery[^>]* *>[\\s\\S]*?< */ *gallery *>', 'gi'), '');
+		this.data = this.data.replace(/< *gallery[^>]* *>[\s\S]*?< *\/ *gallery *>/gi, '');
 	};
 
 	/**
@@ -3649,11 +3630,11 @@ $(function () {
 	Previewmaker.prototype.killBoxTemplates = function () {
 		// taxobox removal... in fact, there's a saudiprincebox_begin, so let's be more general
 		// also, have float_begin, ... float_end
-		this.kill(RegExp('[{][{][^{}\\s|]*?(float|box)[_ ](begin|start)', 'i'), /[}][}]\s*/, '{{');
+		this.kill(/[{][{][^{}\s|]*?(float|box)[_ ](begin|start)/i, /[}][}]\s*/, '{{');
 
 		// infoboxes etc
 		// from Zyxw/popups.js: kill frames too
-		this.kill(RegExp('[{][{][^{}\\s|]*?(infobox|elementbox|frame)[_ ]', 'i'), /[}][}]\s*/, '{{');
+		this.kill(/[{][{][^{}\s|]*?(infobox|elementbox|frame)[_ ]/i, /[}][}]\s*/, '{{');
 	};
 
 	/**
@@ -3673,7 +3654,7 @@ $(function () {
 		this.kill('{|', /[|]}\s*/, '{|');
 		this.kill(/<table.*?>/i, /<\/table.*?>/i, /<table.*?>/i);
 		// remove lines starting with a pipe for the hell of it (?)
-		this.data = this.data.replace(RegExp('^[|].*$', 'mg'), '');
+		this.data = this.data.replace(/^[|].*$/mg, '');
 	};
 
 	/**
@@ -3700,7 +3681,7 @@ $(function () {
 		this.kill(/<ref\b[^/>]*?>/i, /<\/ref>/i);
 
 		// let's also delete entire lines starting with <. it's worth a try.
-		this.data = this.data.replace(RegExp('(^|\\n) *<.*', 'g'), '\n');
+		this.data = this.data.replace(/(^|\n) *<.*/g, '\n');
 
 		// and those pesky html tags, but not <nowiki> or <blockquote>
 		var splitted = this.data.parenSplit(/(<[\w\W]*?(?:>|$|(?=<)))/);
@@ -3725,7 +3706,7 @@ $(function () {
 	Previewmaker.prototype.killChunks = function () {
 		// heuristics alert
 		// chunks of italic text? you crazy, man?
-		var italicChunkRegex = new RegExp("((^|\\n)\\s*:*\\s*''[^']([^']|'''|'[^']){20}(.|\\n[^\\n])*''[.!?\\s]*\\n)+", 'g');
+		var italicChunkRegex = /((^|\n)\s*:*\s*''[^']([^']|'''|'[^']){20}(.|\n[^\n])*''[.!?\s]*\n)+/g;
 		// keep stuff separated, though, so stick in \n (fixes [[Union Jack]]?
 		this.data = this.data.replace(italicChunkRegex, '\n');
 	};
@@ -3735,14 +3716,14 @@ $(function () {
 	 */
 	Previewmaker.prototype.mopup = function () {
 		// we simply *can't* be doing with horizontal rules right now
-		this.data = this.data.replace(RegExp('^-{4,}', 'mg'), '');
+		this.data = this.data.replace(/^-{4,}/mg, '');
 
 		// no indented lines
-		this.data = this.data.replace(RegExp('(^|\\n) *:[^\\n]*', 'g'), '');
+		this.data = this.data.replace(/(^|\n) *:[^\n]*/g, '');
 
 		// replace __TOC__, __NOTOC__ and whatever else there is
 		// this'll probably do
-		this.data = this.data.replace(RegExp('^__[A-Z_]*__ *$', 'gmi'), '');
+		this.data = this.data.replace(/^__[A-Z_]*__ *$/gmi, '');
 	};
 
 	/**
@@ -3753,11 +3734,11 @@ $(function () {
 		// / first we "normalize" section headings, removing whitespace after, adding before
 		var d = this.data;
 		if (getValueOf('popupPreviewCutHeadings')) {
-			this.data = this.data.replace(RegExp('\\s*(==+[^=]*==+)\\s*', 'g'), '\n\n$1 ');
+			this.data = this.data.replace(/\s*(==+[^=]*==+)\s*/g, '\n\n$1 ');
 			// / then we want to get rid of paragraph breaks whose text ends badly
-			this.data = this.data.replace(RegExp('([:;]) *\\n{2,}', 'g'), '$1\n');
-			this.data = this.data.replace(RegExp('^[\\s\\n]*'), '');
-			var stuff = RegExp('^([^\\n]|\\n[^\\n\\s])*').exec(this.data);
+			this.data = this.data.replace(/([:;]) *\n{2,}/g, '$1\n');
+			this.data = this.data.replace(/^[\s\n]*/, '');
+			var stuff = /^([^\n]|\n[^\n\s])*/.exec(this.data);
 			if (stuff) {
 				d = stuff[0];
 			}
@@ -3766,15 +3747,15 @@ $(function () {
 			}
 
 			// / now put \n\n after sections so that bullets and numbered lists work
-			d = d.replace(RegExp('(==+[^=]*==+)\\s*', 'g'), '$1\n\n');
+			d = d.replace(/(==+[^=]*==+)\s*/g, '$1\n\n');
 		}
 
 		// Split sentences. Superfluous sentences are RIGHT OUT.
 		// note: exactly 1 set of parens here needed to make the slice work
 		d = d.parenSplit(RegExp('([!?.]+["' + "'" + ']*\\s)', 'g'));
 		// leading space is bad, mmkay?
-		d[0] = d[0].replace(RegExp('^\\s*'), '');
-		var notSentenceEnds = RegExp('([^.][a-z][.] *[a-z]|etc|sic|Dr|Mr|Mrs|Ms|St|no|op|cit|\\[[^\\]]*|\\s[A-Zvclm])$', 'i');
+		d[0] = d[0].replace(/^\s*/, '');
+		var notSentenceEnds = /([^.][a-z][.] *[a-z]|etc|sic|Dr|Mr|Mrs|Ms|St|no|op|cit|\[[^\]]*|\s[A-Zvclm])$/i;
 		d = this.fixSentenceEnds(d, notSentenceEnds);
 		this.fullLength = d.join('').length;
 		var n = this.maxSentences;
@@ -3826,7 +3807,7 @@ $(function () {
 	 */
 	Previewmaker.prototype.killBadWhitespace = function () {
 		// also cleans up isolated '''', eg [[Suntory Sungoliath]]
-		this.data = this.data.replace(RegExp("^ *'+ *$", 'gm'), '');
+		this.data = this.data.replace(/^ *'+ *$/gm, '');
 	};
 
 	/**
@@ -4026,7 +4007,7 @@ $(function () {
 		if (_typeof(this.html) !== _typeof('')) {
 			return;
 		}
-		if (RegExp('^\\s*$').test(this.html)) {
+		if (/^\s*$/.test(this.html)) {
 			return;
 		}
 		setPopupHTML('<hr>', 'popupPrePreviewSep', this.owner.idNumber);
@@ -4059,9 +4040,9 @@ $(function () {
 	 */
 	Previewmaker.prototype.stripLongTemplates = function () {
 		// operates on the HTML!
-		this.html = this.html.replace(RegExp('^.{0,1000}[{][{][^}]*?(<(p|br)( /)?>\\s*){2,}([^{}]*?[}][}])?', 'gi'), '');
+		this.html = this.html.replace(/^.{0,1000}[{][{][^}]*?(<(p|br)( \/)?>\s*){2,}([^{}]*?[}][}])?/gi, '');
 		this.html = this.html.split('\n').join(' '); // workaround for <pre> templates
-		this.html = this.html.replace(RegExp('[{][{][^}]*<pre>[^}]*[}][}]', 'gi'), '');
+		this.html = this.html.replace(/[{][{][^}]*<pre>[^}]*[}][}]/gi, '');
 	};
 
 	/**
@@ -4069,7 +4050,7 @@ $(function () {
 	 */
 	Previewmaker.prototype.killMultilineTemplates = function () {
 		this.kill('{{{', '}}}');
-		this.kill(RegExp('\\s*[{][{][^{}]*\\n'), '}}', '{{');
+		this.kill(/\s*[{][{][^{}]*\n/, '}}', '{{');
 	};
 	// ENDFILE: previewmaker.js
 
@@ -4816,7 +4797,7 @@ $(function () {
 		var matched = null;
 		var match;
 		// strip html comments, used by evil bots :-(
-		var t = removeMatchesUnless(wikiText, RegExp('(<!--[\\s\\S]*?-->)'), 1, RegExp('^<!--[^[]*popup', 'i'));
+		var t = removeMatchesUnless(wikiText, /(<!--[\s\S]*?-->)/, 1, /^<!--[^[]*popup/i);
 		while (match = pg.re.image.exec(t)) {
 			// now find a sane image name - exclude templates by seeking {
 			var m = match[2] || match[6];
@@ -4911,7 +4892,7 @@ $(function () {
 			pg.re.interwiki = RegExp('^' + pg.wiki.interwiki + ':');
 		} else {
 			pg.wiki.interwiki = null;
-			pg.re.interwiki = RegExp('^$');
+			pg.re.interwiki = /^$/;
 		}
 	}
 
@@ -5159,7 +5140,7 @@ $(function () {
 	 * Sets the x and y coordinates stored and takes appropriate action,
 	 * running hooks as appropriate.
 	 *
-	 * @param {Integer} x, y Screen coordinates to set
+	 * @param {@integer} x, y Screen coordinates to set
 	 */
 	Mousetracker.prototype.setPosition = function (x, y) {
 		this.x = x;
@@ -5341,9 +5322,9 @@ $(function () {
 		this.mainDiv = null;
 		this.createMainDiv();
 
-		//	if (!init || typeof init.popups_draggable=='undefined' || init.popups_draggable) {
-		//		this.makeDraggable(true);
-		//	}
+		// if (!init || typeof init.popups_draggable=='undefined' || init.popups_draggable) {
+		//  this.makeDraggable(true);
+		// }
 	}
 
 	/**
@@ -5367,8 +5348,8 @@ $(function () {
 	 * Repositions popup using CSS style.
 	 *
 	 * @private
-	 * @param {integer} x x-coordinate (px)
-	 * @param {integer} y y-coordinate (px)
+	 * @param {@integer} x x-coordinate (px)
+	 * @param {@integer} y y-coordinate (px)
 	 * @param {boolean} noLimitHor Don't call {@link #limitHorizontalPosition}
 	 */
 	Navpopup.prototype.reposition = function (x, y, noLimitHor) {
@@ -5405,10 +5386,10 @@ $(function () {
 		var w = this.width;
 		var cWidth = document.body.clientWidth;
 
-		//	log('limitHorizontalPosition: x='+x+
-		//			', this.left=' + this.left +
-		//			', this.width=' + this.width +
-		//			', cWidth=' + cWidth);
+		// log('limitHorizontalPosition: x='+x+
+		//  ', this.left=' + this.left +
+		//  ', this.width=' + this.width +
+		//  ', cWidth=' + cWidth);
 
 		if (x + w >= cWidth || x > 0 && this.maxWidth && this.width < this.maxWidth && this.height > this.width && x > cWidth - this.maxWidth) {
 			// This is a very nasty hack. There has to be a better way!
@@ -5468,7 +5449,7 @@ $(function () {
 	 * stabilised (checking every <code>time</code>/2 milliseconds) and runs the
 	 * {@link #show} method if it has.
 	 *
-	 * @param {integer} time The minimum time (ms) before the popup may be shown.
+	 * @param {@integer} time The minimum time (ms) before the popup may be shown.
 	 */
 	Navpopup.prototype.showSoonIfStable = function (time) {
 		log('showSoonIfStable, time=' + time);
@@ -5709,8 +5690,8 @@ $(function () {
 	 * Checks if the point (x,y) is within {@link #fuzz} of the
 	 * {@link #mainDiv}.
 	 *
-	 * @param {integer} x x-coordinate (px)
-	 * @param {integer} y y-coordinate (px)
+	 * @param {@integer} x x-coordinate (px)
+	 * @param {@integer} y y-coordinate (px)
 	 * @type boolean
 	 */
 	Navpopup.prototype.isWithin = function (x, y) {
@@ -5728,7 +5709,7 @@ $(function () {
 	/**
 	 * Adds a download to {@link #downloads}.
 	 *
-	 * @param {Downloader} download
+	 * @param {@Downloader} download
 	 */
 	Navpopup.prototype.addDownload = function (download) {
 		if (!download) {
@@ -5800,7 +5781,7 @@ $(function () {
 		return count;
 	}
 	function shortenDiffString(str, context) {
-		var re = RegExp('(<del[\\s\\S]*?</del>|<ins[\\s\\S]*?</ins>)');
+		var re = /(<del[\s\S]*?<\/del>|<ins[\s\S]*?<\/ins>)/;
 		var splitted = str.parenSplit(re);
 		var ret = [ '' ];
 		for (var i = 0; i < splitted.length; i += 2) {
@@ -5825,7 +5806,7 @@ $(function () {
 		return ret;
 	}
 	function diffString(o, n, simpleSplit) {
-		var splitRe = RegExp('([[]{2}|[\\]]{2}|[{]{2,3}|[}]{2,3}|[|]|=|<|>|[*:]+|\\s|\\b)');
+		var splitRe = /([[]{2}|[\]]{2}|[{]{2,3}|[}]{2,3}|[|]|=|<|>|[*:]+|\s|\b)/;
 
 		//  We need to split the strings o and n first, and entify() the parts
 		//  individually, so that the HTML entities are never cut apart. (AxelBoldt)
@@ -5991,9 +5972,9 @@ $(function () {
 			pg.wiki.hostname = location.hostname; // use in preference to location.hostname for flexibility (?)
 		}
 
-		pg.wiki.wikimedia = RegExp('(wiki([pm]edia|source|books|news|quote|versity|species|voyage|data)|metawiki|wiktionary|mediawiki)[.]org').test(pg.wiki.hostname);
-		pg.wiki.wikia = RegExp('[.]wikia[.]com$', 'i').test(pg.wiki.hostname);
-		pg.wiki.isLocal = RegExp('^localhost').test(pg.wiki.hostname);
+		pg.wiki.wikimedia = /(wiki([pm]edia|source|books|news|quote|versity|species|voyage|data)|metawiki|wiktionary|mediawiki)[.]org/.test(pg.wiki.hostname);
+		pg.wiki.wikia = /[.]wikia[.]com$/i.test(pg.wiki.hostname);
+		pg.wiki.isLocal = /^localhost/.test(pg.wiki.hostname);
 		pg.wiki.commons = pg.wiki.wikimedia && pg.wiki.hostname !== 'commons.wikimedia.org' ? 'commons.wikimedia.org' : null;
 		pg.wiki.lang = mw.config.get('wgContentLanguage');
 		var port = location.port ? ':' + location.port : '';
@@ -6107,8 +6088,8 @@ $(function () {
 		pg.re.disambig = RegExp(getValueOf('popupDabRegexp'), 'im');
 
 		// FIXME replace with general parameter parsing function, this is daft
-		pg.re.oldid = RegExp('[?&]oldid=([^&]*)');
-		pg.re.diff = RegExp('[?&]diff=([^&]*)');
+		pg.re.oldid = /[?&]oldid=([^&]*)/;
+		pg.re.diff = /[?&]diff=([^&]*)/;
 	}
 
 	// ////////////////////////////////////////////////
@@ -6251,14 +6232,14 @@ $(function () {
 	function expandConditionalNavlinkString(s, article, z, recursionCount) {
 		var oldid = z.oldid,
 			rcid = z.rcid,
+			// eslint-disable-next-line no-shadow
 			diff = z.diff;
 		// nested conditionals (up to 10 deep) are ok, hopefully! (work from the inside out)
 		if (_typeof(recursionCount) !== _typeof(0)) {
 			recursionCount = 0;
 		}
-		var conditionalSplitRegex = RegExp(
-			// (1	 if	\\(	(2	2)	\\)	  {(3	3)}  (4   else	  {(5	 5)}  4)1)
-			'(;?\\s*if\\s*\\(\\s*([\\w]*)\\s*\\)\\s*\\{([^{}]*)\\}(\\s*else\\s*\\{([^{}]*?)\\}|))', 'i');
+		//                              (1     if    \\(    (2    2)    \\)    {(3    3)}  (4   else    {(5    5)}  4)1)
+		var conditionalSplitRegex = /(;?\s*if\s*\(\s*([\w]*)\s*\)\s*\{([^{}]*)\}(\s*else\s*\{([^{}]*?)\}|))/i;
 		var splitted = s.parenSplit(conditionalSplitRegex);
 		// $1: whole conditional
 		// $2: test condition
@@ -6304,6 +6285,7 @@ $(function () {
 					testResult = !!(typeof diff !== 'undefined' && diff);
 					break;
 			}
+			// eslint-disable-next-line default-case
 			switch (testResult) {
 				case null:
 					ret += splitted[i];
@@ -6326,7 +6308,7 @@ $(function () {
 	}
 	function navlinkStringToArray(s, article, params) {
 		s = expandConditionalNavlinkString(s, article, params);
-		var splitted = s.parenSplit(RegExp('<<(.*?)>>'));
+		var splitted = s.parenSplit(/<<(.*?)>>/);
 		var ret = [];
 		for (var i = 0; i < splitted.length; ++i) {
 			if (i % 2) {
@@ -6375,9 +6357,9 @@ $(function () {
 	}
 
 	// navlinkString: * becomes the separator
-	//				<<foo|bar=baz|fubar>> becomes a foo-link with attribute bar='baz'
-	//									  and visible text 'fubar'
-	//				if(test){...} and if(test){...}else{...} work too (nested ok)
+	//              <<foo|bar=baz|fubar>> becomes a foo-link with attribute bar='baz'
+	//                                      and visible text 'fubar'
+	//              if(test){...} and if(test){...}else{...} work too (nested ok)
 
 	function navlinkStringToHTML(s, article, params) {
 		// limitAlert(navlinkStringToHTML, 5, 'navlinkStringToHTML\n' + article + '\n' + (typeof article));
@@ -6390,13 +6372,13 @@ $(function () {
 				html += navlinkSubstituteHTML(p[i]);
 				menudepth += navlinkDepth('menu', p[i]);
 				menurowdepth += navlinkDepth('menurow', p[i]);
-				//			if (menudepth === 0) {
-				//				tagType='span';
-				//			} else if (menurowdepth === 0) {
-				//				tagType='li';
-				//			} else {
-				//				tagType = null;
-				//			}
+				// if (menudepth === 0) {
+				//  tagType='span';
+				// } else if (menurowdepth === 0) {
+				//  tagType='li';
+				// } else {
+				//  tagType = null;
+				// }
 			} else if (typeof p[i].type !== 'undefined' && p[i].type === 'navlinkTag') {
 				if (menudepth > 0 && menurowdepth === 0) {
 					html += '<li class="popup_menu_item">' + p[i].html() + '</li>';
@@ -6823,7 +6805,7 @@ $(function () {
 		if (key === ' ') {
 			key = popupString('spacebar');
 		}
-		return ret.replace(RegExp('^(.*?)(title=")(.*?)(".*)$', 'i'), '$1$2$3 [' + key + ']$4');
+		return ret.replace(/^(.*?)(title=")(.*?)(".*)$/i, '$1$2$3 [' + key + ']$4');
 	}
 
 	// ENDFILE: shortcutkeys.js
@@ -7028,8 +7010,7 @@ $(function () {
 				// it's a row we need
 				if (b[i].paired) {
 					bbb.push(b[i].text);
-				} // joined; partner should be in aa
-				else {
+				} else { // joined; partner should be in aa
 					bbb.push(b[i]);
 				}
 			}
@@ -7039,8 +7020,7 @@ $(function () {
 				// it's a row we need
 				if (a[i].paired) {
 					aaa.push(a[i].text);
-				} // joined; partner should be in aa
-				else {
+				} else { // joined; partner should be in aa
 					aaa.push(a[i]);
 				}
 			}
@@ -7125,7 +7105,7 @@ $(function () {
 	// ///////////////////
 
 	// titledDiffLink --> titledWikiLink --> generalLink
-	// wikiLink	   --> titledWikiLink --> generalLink
+	// wikiLink --> titledWikiLink --> generalLink
 	// editCounterLink --> generalLink
 
 	// TODO Make these functions return Element objects, not just raw HTML strings.
@@ -7515,7 +7495,7 @@ $(function () {
 		return ret;
 	}
 	function appendParamsToLink(linkstr, params) {
-		var sp = linkstr.parenSplit(RegExp('(href="[^"]+?)"', 'i'));
+		var sp = linkstr.parenSplit(/(href="[^"]+?)"/i);
 		if (sp.length < 2) {
 			return null;
 		}
@@ -7540,7 +7520,7 @@ $(function () {
 		var chs = cA.charAt(0).toUpperCase();
 		chs = '[' + chs + chs.toLowerCase() + ']';
 		var currentArticleRegexBit = chs + cA.slice(1);
-		currentArticleRegexBit = currentArticleRegexBit.split(RegExp('(?:[_ ]+|%20)', 'g')).join('(?:[_ ]+|%20)').split('\\(').join('(?:%28|\\()').split('\\)').join('(?:%29|\\))'); // why does this need to match encoded strings ? links in the document ?
+		currentArticleRegexBit = currentArticleRegexBit.split(/(?:[_ ]+|%20)/g).join('(?:[_ ]+|%20)').split('\\(').join('(?:%28|\\()').split('\\)').join('(?:%29|\\))'); // why does this need to match encoded strings ? links in the document ?
 		// leading and trailing space should be ignored, and anchor bits optional:
 		currentArticleRegexBit = '\\s*(' + currentArticleRegexBit + '(?:#[^\\[\\|]*)?)\\s*';
 		// e.g. Computer (archaic) -> \s*([Cc]omputer[_ ](?:%2528|\()archaic(?:%2528|\)))\s*
@@ -7901,7 +7881,7 @@ $(function () {
 		newOption('popupImages', true);
 		newOption('imagePopupsForImages', true);
 		newOption('popupNeverGetThumbs', false);
-		// newOption('popupImagesToggleSize',	   true);
+		// newOption('popupImagesToggleSize', true);
 		newOption('popupThumbAction', 'imagepage'); // 'sizetoggle');
 		newOption('popupImageSize', 60);
 		newOption('popupImageSizeLarge', 200);
@@ -7917,7 +7897,6 @@ $(function () {
 		newOption('popupRedlinkAutoClick', 'wpDiff');
 		newOption('popupWatchDisambiggedPages', null);
 		newOption('popupWatchRedirredPages', null);
-		newOption('popupDabWiktionary', 'last');
 
 		// navlinks
 		newOption('popupNavLinks', true);
@@ -8282,10 +8261,8 @@ $(function () {
 	// The old addOnloadHook did something similar to the below
 	if (document.readyState === 'complete') {
 		autoEdit();
-	}
-	// will setup popups
-	else {
-		$(window).on('load', autoEdit);
+	} else {
+		$(window).on('load', autoEdit); // will setup popups
 	}
 
 	// Support for MediaWiki's live preview, VisualEditor's saves and Echo's flyout.
