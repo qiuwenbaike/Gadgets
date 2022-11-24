@@ -53,7 +53,9 @@ span.mw-collapsible-toggle,
 span#coordinates,
 span.toctoggle,
 th .sortkey,
-td .sortkey .noprint {
+td .sortkey .noprint,
+#scrollUpButton,
+#scrollDownButton {
 	display: none !important;
 }
 

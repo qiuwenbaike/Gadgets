@@ -28,13 +28,14 @@ $(function () {
 	}
 	var $scrollDownButton = $('<img>').attr({
 		src: scrollButtonIcon,
-		id: 'scrollDownButton'
+		id: 'scrollDownButton',
+		alt: '滚动至页底'
 	}).css({
 		'cursor': 'pointer',
 		'opacity': 0.7,
 		'position': 'fixed',
 		'display': 'none',
-		'right': '18px',
+		'right': '8px',
 		'user-select': 'none',
 		'width': '32px',
 		'height': '32px',
@@ -48,13 +49,14 @@ $(function () {
 	}).attr('draggable', 'false').appendTo('body');
 	var $scrollUpButton = $('<img>').attr({
 		src: scrollButtonIcon,
-		id: 'scrollUpButton'
+		id: 'scrollUpButton',
+		alt: '滚动至页顶'
 	}).css({
 		'cursor': 'pointer',
 		'opacity': 0.7,
 		'position': 'fixed',
 		'display': 'none',
-		'right': '18px',
+		'right': '8px',
 		'width': '32px',
 		'height': '32px',
 		'user-select': 'none'
