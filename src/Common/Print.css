@@ -85,14 +85,6 @@ table.collapsible tr {
 	display: table-row !important;
 }
 
-/* Hiding some items when printing with Simple skin */
-.skin-simple div#column-one,
-.skin-simple div#f-poweredbyico,
-.skin-simple div#f-copyrightico,
-.skin-simple .editsection {
-	display: none;
-}
-
 /* Restoring font size */
 body.skin-vector #bodyContent {
 	font-size: 0.8em !important;
