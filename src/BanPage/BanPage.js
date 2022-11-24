@@ -42,15 +42,17 @@ window.banPage = function banPage() {
 	});
 };
 $(function () {
+	var banPageTitle = '禁用此';
 	switch (mw.config.get('wgNamespaceNumber')) {
 		case 6:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此图片');
+			banPageTitle += '图片';
 			break;
 		case 10:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此模板');
+			banPageTitle += '模板';
 			break;
 		default:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此页面');
+			banPageTitle += '页面';
 			break;
 	}
+	mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', banPageTitle);
 });
