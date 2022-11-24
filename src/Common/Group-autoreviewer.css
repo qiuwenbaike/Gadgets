@@ -1,0 +1,35 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Group-autoreviewer.css
+ * @source zh.wikipedia.org/wiki/MediaWiki:sysop.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 此处的 CSS 将只会影响巡查豁免者 */
+/* Show hidden items that have class="autoreviewer-show". */
+div.autoreviewer-show,
+p.autoreviewer-show {
+	display: block !important;
+}
+
+span.autoreviewer-show,
+small.autoreviewer-show {
+	display: inline !important;
+}
+
+table.autoreviewer-show {
+	display: table !important;
+}
+
+tr.autoreviewer-show {
+	display: table-row !important;
+}
+
+td.autoreviewer-show {
+	display: table-cell !important;
+}
+
+li.autoreviewer-show {
+	display: list-item !important;
+}

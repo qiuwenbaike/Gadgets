@@ -2,11 +2,37 @@
  * SPDX-License-Identifier: CC-BY-SA-4.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
  *
- * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Group-sysop.css
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Group-steward.css
  * @source zh.wikipedia.org/wiki/MediaWiki:sysop.css
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* 此处的 CSS 将只会影响管理员 */
+/* 此处的 CSS 将只会影响裁决委员 */
+/* Show hidden items that have class="steward-show". */
+div.steward-show,
+p.steward-show {
+	display: block !important;
+}
+
+span.steward-show,
+small.steward-show {
+	display: inline !important;
+}
+
+table.steward-show {
+	display: table !important;
+}
+
+tr.steward-show {
+	display: table-row !important;
+}
+
+td.steward-show {
+	display: table-cell !important;
+}
+
+li.steward-show {
+	display: list-item !important;
+}
 /* Show hidden items that have class="sysop-show". */
 div.sysop-show,
 p.sysop-show {

@@ -571,6 +571,26 @@ const deployTargets = [
 		file: 'src/Common/Group-sysop.css',
 		target: 'MediaWiki:Group-sysop.css',
 	},
+	{
+		file: 'src/Common/Group-senioreditor.css',
+		target: 'MediaWiki:Group-senioreditor.css',
+	},
+	{
+		file: 'src/Common/Group-steward.css',
+		target: 'MediaWiki:Group-steward.css',
+	},
+	{
+		file: 'src/Common/Group-autoreviewer.css',
+		target: 'MediaWiki:Group-autoreviewer.css',
+	},
+	{
+		file: 'src/Common/Group-patroller.css',
+		target: 'MediaWiki:Group-patroller.css',
+	},
+	{
+		file: 'src/Common/Group-transwiki.css',
+		target: 'MediaWiki:Group-transwiki.css',
+	},
 ];
 
 class Deploy {

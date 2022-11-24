@@ -1,0 +1,35 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Group-senioreditor.css
+ * @source zh.wikipedia.org/wiki/MediaWiki:sysop.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 此处的 CSS 将只会影响巡查豁免者 */
+/* Show hidden items that have class="senioreditor-show". */
+div.senioreditor-show,
+p.senioreditor-show {
+	display: block !important;
+}
+
+span.senioreditor-show,
+small.senioreditor-show {
+	display: inline !important;
+}
+
+table.senioreditor-show {
+	display: table !important;
+}
+
+tr.senioreditor-show {
+	display: table-row !important;
+}
+
+td.senioreditor-show {
+	display: table-cell !important;
+}
+
+li.senioreditor-show {
+	display: list-item !important;
+}

@@ -1,0 +1,35 @@
+/**
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
+ *
+ * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Group-transwiki.css
+ * @source zh.wikipedia.org/wiki/MediaWiki:sysop.css
+ * @license <https://creativecommons.org/licenses/by-sa/4.0/>
+ */
+/* 此处的 CSS 将只会影响跨站导入者 */
+/* Show hidden items that have class="transwiki-show". */
+div.transwiki-show,
+p.transwiki-show {
+	display: block !important;
+}
+
+span.transwiki-show,
+small.transwiki-show {
+	display: inline !important;
+}
+
+table.transwiki-show {
+	display: table !important;
+}
+
+tr.transwiki-show {
+	display: table-row !important;
+}
+
+td.transwiki-show {
+	display: table-cell !important;
+}
+
+li.transwiki-show {
+	display: list-item !important;
+}
