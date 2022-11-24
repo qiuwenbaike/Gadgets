@@ -8,6 +8,11 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* <nowiki> */
+html,
+body {
+	font-family: serif;
+}
+
 /* Do not print:
    0: AdvancedSiteNotices
    1: When in mainspace: Article message boxes,
