@@ -10,8 +10,7 @@
 
 /* History disclaimer */
 $(function (mw) {
-	mw.loader.load('/index.php?title=MediaWiki:Gadget-History-disclaimer.css&action=raw&ctype=text/css', 'text/css');
 	if ((mw.config.get('wgCurRevisionId') || -1) > 0 && (mw.config.get('wgRevisionId') || -1) > 0 && (mw.config.get('wgCurRevisionId') || -1) > (mw.config.get('wgRevisionId') || -1)) {
-		$('<div>').attr('id', 'history-disclaimer').appendTo($('body'));
+		$('<div>').attr('id', 'historyDisclaimer').appendTo($('body'));
 	}
 }(mediaWiki));
