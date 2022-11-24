@@ -22,7 +22,7 @@ window.banPage = function banPage(targetName, summary) {
 		minor: true
 	})).then(function () {
 		mw.notify('页面禁用完成，即将刷新');
-		window.location = mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.config.get('wgPageName');
+		window.location.href = mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.config.get('wgPageName');
 	});
 };
 window.banImage = function banImage() {
