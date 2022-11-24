@@ -43,7 +43,8 @@ function luaCheck(inputString, contentModel) {
 		case 'sanitized-css':
 			return luaGetCSSwikitext(inputString);
 		default:
-			return ''; // 若不是json、js、css則返回空字串
+			// 若不是json、js、css則返回空字串
+			return '';
 	}
 }
 // 合併多個wikitext字串，並以換行分隔

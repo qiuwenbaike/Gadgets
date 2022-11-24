@@ -23,7 +23,6 @@
  */
 $(function () {
 	var scrollButtonIcon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCAxMy4yMjkgMTMuMjI5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjYuNjE0IiBjeT0iNi42MTQiIHI9IjUuOTU3IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMzNmMiIHN0cm9rZS13aWR0aD0iMS4zMTUiLz48cGF0aCBkPSJNNS44NjYgMTAuMjY0aDEuNDk3VjUuMTdsMS45NDEgMi4xNzcgMS4wMTUtLjg5LTMuNjc0LTMuODFoLS4wNjFMMi45MSA2LjQ1NmwxLjAyNy44OSAxLjkzLTIuMTc3WiIgZmlsbD0iIzM2YyIgc3Ryb2tlLXdpZHRoPSIuMzA5MTkyIi8+PC9zdmc+';
-
 	var $scrollDownButton = $('<img>').attr({
 		src: scrollButtonIcon,
 		id: 'scrollDownButton',
