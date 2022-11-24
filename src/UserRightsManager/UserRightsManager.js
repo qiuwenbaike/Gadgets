@@ -8,12 +8,11 @@
  * @dependency ext.gadget.SiteCommonJs, ext.gadget.morebits, mediawiki.api, oojs-ui
  */
 /* global Morebits */
-/* eslint-disable no-extra-boolean-cast */
-/* <nowiki> */
-// Some UI code adapted from [[User:Mr. Stradivarius/gadgets/Draftify.js]]
-// Adapted from https://en.wikipedia.org/wiki/User:MusikAnimal/userRightsManager.js
 'use strict';
 
+// Adapted from https://en.wikipedia.org/wiki/User:MusikAnimal/userRightsManager.js
+
+/* <nowiki> */
 (function () {
 var pagePermissions = {
 	'Qiuwen:权限申请/申请巡查回退权': 'patroller',
@@ -180,7 +179,7 @@ function showDialog() {
 		}), new OO.ui.FieldLayout(this.closingRemarksInput, {
 			label: wgULS('关闭请求留言', '關閉請求留言')
 		}) ];
-		if (!!templates[permission]) {
+		if (templates[permission]) {
 			formElements.push(new OO.ui.FieldLayout(this.watchTalkPageCheckbox, {
 				label: wgULS('监视用户讨论页', '監視用戶討論頁')
 			}));
@@ -208,7 +207,7 @@ function showDialog() {
 	};
 	Dialog.prototype.onSubmit = function () {
 		var self = this,
-			promiseCount = !!templates[permission] ? 3 : 2;
+			promiseCount = templates[permission] ? 3 : 2;
 		self.actions.setAbilities({
 			submit: false
 		});
@@ -252,13 +251,13 @@ function showDialog() {
 		self.submitFieldset.addItems([ self.markAsDoneProgressField ]);
 		self.changeRightsProgressField.setLabel('授予权限...');
 		self.submitFieldset.addItems([ self.changeRightsProgressField ]);
-		if (!!templates[permission]) {
+		if (templates[permission]) {
 			self.issueTemplateProgressField.setLabel('发送通知...');
 			self.submitFieldset.addItems([ self.issueTemplateProgressField ]);
 		}
 		addPromise(self.markAsDoneProgressField, markAsDone('\n:' + this.closingRemarksInput.getValue())).then(function (data) {
 			addPromise(self.changeRightsProgressField, assignPermission(this.rightsChangeSummaryInput.getValue(), data.edit.newrevid, this.expiryInput.getValue())).then(function () {
-				if (!!templates[permission]) {
+				if (templates[permission]) {
 					addPromise(self.issueTemplateProgressField, issueTemplate(this.watchTalkPageCheckbox.isSelected()));
 				}
 			}.bind(this));

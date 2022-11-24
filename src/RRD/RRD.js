@@ -7,10 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  * @dependency ext.gadget.SiteCommonJs
  */
-/* eslint-disable no-useless-concat */
-
 /* eslint-disable no-alert */
-
 'use strict';
 
 // Polyfill
@@ -102,6 +99,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 		for (var i = 0; i < ids.length; ++i) {
 			rrdArr.push('|id' + (i + 1) + ' = ' + ids[i]);
 		}
+		// eslint-disable-next-line no-useless-concat
 		rrdArr.push('}}\n--~~' + '~~');
 		$.ajax({
 			url: mw.util.wikiScript('api'),
@@ -111,6 +109,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 				action: 'edit',
 				title: RRDPage,
 				section: 'new',
+				// eslint-disable-next-line no-useless-concat
 				sectiontitle: '版本删除提报（{{' + 'subst:#time:Y-m-d H:i:s|+8 hours}}）',
 				summary: msg.editSummary,
 				text: rrdArr.join('\n'),
@@ -158,7 +157,7 @@ mw.loader.using([ 'jquery.ui', 'mediawiki.util' ], function () {
 			alert(msg.errNoRevisionProvided);
 			return null;
 		}
-		var html = '<div id="rrdConfig">' + msg.hideItems + '<br>' + '<div style="float:left;padding:0 5px;">' + '<input name="content" id="rrdHideContent" type="checkbox" value="content" checked>' + '<label for="rrdHideContent" id="rrd-content">' + (log ? msg.hideLog : msg.hideContent) + '</label>' + '</div><div style="float:left;padding:0 5px;">' + '<input name="username" id="rrdHideUsername" type="checkbox" value="username">' + '<label for="rrdHideUsername" id="rrd-username">' + msg.hideUsername + '</label>' + '</div><div style="float:left;padding:0 5px;">' + '<input name="summary" id="rrdHideSummary" type="checkbox" value="summary">' + '<label for="rrdHideSummary" id="rrd-summary">' + msg.hideSummary + '</label>' + '</div><br><br>' + msg.hideReason + '<br>' + '<select name="rrdReason" id="rrdReason">' + '<option value=' + msg.hideReasonRD1 + '>' + 'RD1：' + msg.hideReasonRD1 + '</option>' + '<option value=' + msg.hideReasonRD2 + '>' + 'RD2：' + msg.hideReasonRD2 + '</option>' + '<option value=' + msg.hideReasonRD3 + '>' + 'RD3：' + msg.hideReasonRD3 + '</option>' + '<option value=' + msg.hideReasonRD4 + '>' + 'RD4：' + msg.hideReasonRD4 + '</option>' + '<option value=' + msg.hideReasonRD5 + '>' + 'RD5：' + msg.hideReasonRD5 + '</option>' + '<option value="">' + msg.hideReasonOther + '</option>' + '</select>' + '<br><br>' + msg.otherReasons + '<br>' + '<textarea name="otherReasons" id="rrdOtherReasons" rows=4></textarea>' + '</div>';
+		var html = '<div id="rrdConfig">' + msg.hideItems + '<br><div style="float: left; padding: 0 5px"><input name="content" id="rrdHideContent" type="checkbox" value="content" checked><label for="rrdHideContent" id="rrd-content">' + (log ? msg.hideLog : msg.hideContent) + '</label></div><div style="float: left; padding: 0 5px"><input name="username" id="rrdHideUsername" type="checkbox" value="username"><label for="rrdHideUsername" id="rrd-username">' + msg.hideUsername + '</label></div><div style="float: left; padding: 0 5px"><input name="summary" id="rrdHideSummary" type="checkbox" value="summary"><label for="rrdHideSummary" id="rrd-summary">' + msg.hideSummary + '</label></div><br><br>' + msg.hideReason + '<br><select name="rrdReason" id="rrdReason"><option value=' + msg.hideReasonRD1 + '>RD1：' + msg.hideReasonRD1 + '</option><option value=' + msg.hideReasonRD2 + '>RD2：' + msg.hideReasonRD2 + '</option><option value=' + msg.hideReasonRD3 + '>RD3：' + msg.hideReasonRD3 + '</option><option value=' + msg.hideReasonRD4 + '>RD4：' + msg.hideReasonRD4 + '</option><option value=' + msg.hideReasonRD5 + '>RD5：' + msg.hideReasonRD5 + '</option><option value="">' + msg.hideReasonOther + '</option></select><br><br>' + msg.otherReasons + '<br><textarea name="otherReasons" id="rrdOtherReasons" rows=4></textarea></div>';
 		if (dl) {
 			dl.html(html).dialog('open');
 			loadConfig();

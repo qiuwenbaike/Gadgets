@@ -6,10 +6,9 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-ToolsRedirect.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
+/* eslint-disable camelcase, no-shadow */
 /* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-shadow */
 /* eslint-disable no-jquery/no-each-util */
-/* eslint-disable camelcase */
 'use strict';
 
 /* <nowiki> */

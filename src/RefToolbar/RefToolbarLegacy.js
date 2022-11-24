@@ -6,14 +6,7 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:RefToolbarLegacy.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* eslint-disable no-implicit-globals */
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-redeclare */
-/* eslint-disable no-alert */
-/* eslint-disable no-undef */
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-
+/* eslint-disable block-scoped-var, camelcase, no-alert, no-implicit-globals, no-redeclare, no-undef, no-unused-vars */
 'use strict';
 
 // Polyfill

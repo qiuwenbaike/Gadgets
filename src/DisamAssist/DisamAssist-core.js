@@ -6,14 +6,10 @@
  * @source es.wikipedia.org/wiki/Usuario:Qwertyytrewqqwerty/DisamAssist.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
-/* eslint-disable no-alert */
+/* eslint-disable no-alert, no-unused-vars, no-use-before-define, no-shadow  */
 /* eslint-disable no-jquery/no-in-array */
 /* eslint-disable no-jquery/no-grep */
 /* eslint-disable no-jquery/no-each-util */
-/* eslint-disable unicorn/prefer-string-slice */
 'use strict';
 
 /*
@@ -658,15 +654,15 @@ var getCanonicalTitle = function getCanonicalTitle(title) {
 var extractContext = function extractContext(text, link) {
 	var contextStart = link.start - cfg.radius;
 	var contextEnd = link.end + cfg.radius;
-	var contextPrev = text.substring(contextStart, link.start);
+	var contextPrev = text.slice(contextStart, link.start);
 	if (contextStart > 0) {
 		contextPrev = txt.ellipsis + contextPrev;
 	}
-	var contextNext = text.substring(link.end, contextEnd);
+	var contextNext = text.slice(link.end, contextEnd);
 	if (contextEnd < text.length) {
 		contextNext = contextNext + txt.ellipsis;
 	}
-	return [ contextPrev, text.substring(link.start, link.end), contextNext ];
+	return [ contextPrev, text.slice(link.start, link.end), contextNext ];
 };
 
 /* Extract the prefixed page name from a link */

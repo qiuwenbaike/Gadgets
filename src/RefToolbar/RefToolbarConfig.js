@@ -36,11 +36,7 @@
 * This may slow loading the named refs and error check dialogs.
 */
 /* global CiteTB */
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-undef */
-/* eslint-disable no-new */
-/* eslint-disable camelcase */
-
+/* eslint-disable block-scoped-var, camelcase, no-new, no-undef */
 'use strict';
 
 CiteTB.Options = {

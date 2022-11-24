@@ -6,21 +6,13 @@
  * @author Eridanus Sora (妹空酱)
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* eslint-disable block-scoped-var */
-/* eslint-disable camelcase */
+/* eslint-disable block-scoped-var, camelcase, no-implicit-globals, no-new-func, no-shadow, no-script-url, no-unused-vars */
 /* eslint-disable es-x/no-array-prototype-includes */
 /* eslint-disable es-x/no-string-prototype-includes */
-/* eslint-disable no-script-url */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-new-func */
-/* eslint-disable no-implicit-globals */
-/* eslint-disable no-jquery/no-sizzle */
 'use strict';
 
 /**
- * Wikiplus
+ * Wikiplus (Statistics module removed)
  * Author: +Eridanus Sora/@妹空酱
  * Github: https://github.com/Last-Order/Wikiplus
  */
@@ -28,7 +20,6 @@
  * 依赖组件: MoeNotification
  * https://github.com/Last-Order/MoeNotification
  */
-// 求闻百科注：统计组件已删除
 var _createClass = (function () {
 function defineProperties(target, props) {
 	for (var i = 0; i < props.length; i++) {
@@ -1071,7 +1062,11 @@ $(function () {
 						$(topBtn).find('a').addClass('mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit-base20 mw-ui-icon-with-label-desktop').css('vertical-align', 'middle');
 					}
 					if ($('#ca-edit').length > 0 && $('#Wikiplus-Edit-TopBtn').length === 0) {
-						mw.config.get('skin') === 'minerva' ? $('#ca-edit').parent().after(topBtn) : $('#ca-edit').after(topBtn);
+						if (mw.config.get('skin') === 'minerva') {
+							$('#ca-edit').parent().after(topBtn);
+						} else {
+							$('#ca-edit').after(topBtn);
+						}
 						$('#Wikiplus-Edit-TopBtn').on('click', function () {
 							checkRight();
 							self.initQuickEditInterface($(this)); // 直接把DOM传递给下一步
@@ -1111,7 +1106,11 @@ $(function () {
 									name: sectionName,
 									target: sectionTargetName
 								});
-								mw.config.get('skin') === 'minerva' ? $(this).append(_sectionBtn) : $(this).find('.mw-editsection-bracket').last().before(_sectionBtn);
+								if (mw.config.get('skin') === 'minerva') {
+									$(this).append(_sectionBtn);
+								} else {
+									$(this).find('.mw-editsection-bracket').last().before(_sectionBtn);
+								}
 							} catch (e) {
 								throwError('fail_to_init_quickedit');
 							}
@@ -1765,7 +1764,9 @@ $(function () {
 					mw.hook('wikipage.content').add(function (item) {
 						if (item.attr('id') === 'mw-content-text') {
 							self.initQuickEdit(); // 加载快速编辑
-							!self.getSetting('disableEditEveryWhere') && self.editEveryWhere(); // 任意编辑
+							if (!self.getSetting('disableEditEveryWhere')) {
+								self.editEveryWhere(); // 任意编辑
+							}
 						}
 					});
 
@@ -1794,6 +1795,7 @@ $(function () {
 				console.log('正在加载Wikiplus ' + this.version);
 				// 载入CSS
 				$('head').append('<link>');
+				// eslint-disable-next-line no-jquery/no-sizzle
 				$('head').children(':last').attr({
 					rel: 'stylesheet',
 					type: 'text/css',

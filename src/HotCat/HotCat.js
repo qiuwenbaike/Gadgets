@@ -6,9 +6,7 @@
  * @source commons.wikimedia.org/w/index.php?title=MediaWiki:Gadget-HotCat.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-// 求闻百科注：由GFDL-1.3、CC-BY-3.0迁移至CC-BY-SA-3.0，并升级至CC-BY-SA-4.0
-/* eslint-disable unicorn/prefer-string-slice */
-/* eslint-disable no-shadow */
+/* eslint-disable camelcase, no-alert, no-shadow */
 'use strict';
 
 /**
@@ -33,7 +31,6 @@
  * <=1.26: https://commons.wikimedia.org/w/index.php?title=MediaWiki:Gadget-HotCat.js&oldid=211134664
  */
 /* <nowiki> */
-/* eslint-disable camelcase, no-alert, curly */
 /* global UFUI, JSconfig, UploadForm */
 (function ($, mw) {
 // Don't use mw.config.get() as that takes a copy of the config, and so doesn't
@@ -45,9 +42,9 @@ var conf = $.extend({}, mw.config.values, {
 });
 
 // Guard against double inclusions (in old IE/Opera element ids become window properties)
-if (window.HotCat && !window.HotCat.nodeName || conf.wgAction === 'edit')
-// Not on edit mode
-	return;
+if (window.HotCat && !window.HotCat.nodeName || conf.wgAction === 'edit') {
+	return; // Not on edit mode
+}
 
 // Configuration stuff.
 var HC = window.HotCat = {
@@ -211,16 +208,24 @@ var HC = window.HotCat = {
 	dont_add_to_watchlist: false,
 	shortcuts: null,
 	addShortcuts: function (map) {
-		if (!map) return;
+		if (!map) {
+			return;
+		}
 		window.HotCat.shortcuts = window.HotCat.shortcuts || {};
 		for (var k in map) {
 			// eslint-disable-next-line no-prototype-builtins
-			if (!map.hasOwnProperty(k) || typeof k !== 'string') continue;
+			if (!map.hasOwnProperty(k) || typeof k !== 'string') {
+				continue;
+			}
 			var v = map[k];
-			if (typeof v !== 'string') continue;
+			if (typeof v !== 'string') {
+				continue;
+			}
 			k = k.replace(/^\s+|\s+$/g, '');
 			v = v.replace(/^\s+|\s+$/g, '');
-			if (!k.length || !v.length) continue;
+			if (!k.length || !v.length) {
+				continue;
+			}
 			window.HotCat.shortcuts[k] = v;
 		}
 	}
@@ -239,14 +244,19 @@ function LoadTrigger(needed) {
 	self.queue = [];
 	self.needed = needed;
 	self.register = function (callback) {
-		if (self.needed <= 0) callback(); // Execute directly
-		else self.queue.push(callback);
+		if (self.needed <= 0) {
+			callback(); // Execute directly
+		} else {
+			self.queue.push(callback);
+		}
 	};
 	self.loaded = function () {
 		self.needed--;
 		if (self.needed === 0) {
 			// Run queued callbacks once
-			for (var i = 0; i < self.queue.length; i++) self.queue[i]();
+			for (var i = 0; i < self.queue.length; i++) {
+				self.queue[i]();
+			}
 			self.queue = [];
 		}
 	};
@@ -292,7 +302,9 @@ loadJS('MediaWiki:Gadget-HotCat-local-defaults.js', loadTrigger.loaded);
 if (conf.wgUserLanguage !== 'en') {
 	// Lupo: somebody thought it would be a good idea to add this. So the default is true, and you have to set it to false
 	// explicitly if you're not on Commons and don't want that.
-	if (window.hotcat_translations_from_commons === undefined) window.hotcat_translations_from_commons = true;
+	if (window.hotcat_translations_from_commons === undefined) {
+		window.hotcat_translations_from_commons = true;
+	}
 
 	// Localization hook to localize HotCat messages, tooltips, and engine names for wgUserLanguage.
 	if (window.hotcat_translations_from_commons && conf.wgServer.indexOf('//commons') < 0) {
@@ -332,7 +344,9 @@ var formattedNamespaces = conf.wgFormattedNamespaces;
 var namespaceIds = conf.wgNamespaceIds;
 function autoLocalize(namespaceNumber, fallback) {
 	function createRegexpStr(name) {
-		if (!name || !name.length) return '';
+		if (!name || !name.length) {
+			return '';
+		}
 		var regex_name = '';
 		for (var i = 0; i < name.length; i++) {
 			var initial = name.charAt(i),
@@ -349,7 +363,9 @@ function autoLocalize(namespaceNumber, fallback) {
 	fallback = fallback.toLowerCase();
 	var canonical = formattedNamespaces[String(namespaceNumber)].toLowerCase();
 	var regexp = createRegexpStr(canonical);
-	if (fallback && canonical !== fallback) regexp += '|' + createRegexpStr(fallback);
+	if (fallback && canonical !== fallback) {
+		regexp += '|' + createRegexpStr(fallback);
+	}
 	if (namespaceIds) {
 		for (var cat_name in namespaceIds) {
 			if (typeof cat_name === 'string' && cat_name.toLowerCase() !== canonical && cat_name.toLowerCase() !== fallback && namespaceIds[cat_name] === namespaceNumber) {
@@ -361,24 +377,32 @@ function autoLocalize(namespaceNumber, fallback) {
 }
 HC.category_canonical = formattedNamespaces['14'];
 HC.category_regexp = autoLocalize(14, 'category');
-if (formattedNamespaces['10']) HC.template_regexp = autoLocalize(10, 'template');
+if (formattedNamespaces['10']) {
+	HC.template_regexp = autoLocalize(10, 'template');
+}
 
 // Utility functions. Yes, this duplicates some functionality that also exists in other places, but
 // to keep this whole stuff in a single file not depending on any other on-wiki JavaScripts, we re-do
 // these few operations here.
 function make(arg, literal) {
-	if (!arg) return null;
+	if (!arg) {
+		return null;
+	}
 	return literal ? document.createTextNode(arg) : document.createElement(arg);
 }
 function param(name, uri) {
 	uri = uri || document.location.href;
 	var re = new RegExp('[&?]' + name + '=([^&#]*)');
 	var m = re.exec(uri);
-	if (m && m.length > 1) return decodeURIComponent(m[1]);
+	if (m && m.length > 1) {
+		return decodeURIComponent(m[1]);
+	}
 	return null;
 }
 function title(href) {
-	if (!href) return null;
+	if (!href) {
+		return null;
+	}
 	var script = conf.wgScript + '?';
 	if (href.indexOf(script) === 0 || href.indexOf(conf.wgServer + script) === 0 || conf.wgServer.slice(0, 2) === '//' && href.indexOf(document.location.protocol + conf.wgServer + script) === 0) {
 		// href="/w/index.php?title=..."
@@ -386,18 +410,26 @@ function title(href) {
 	}
 	// href="/wiki/..."
 	var prefix = conf.wgArticlePath.replace('$1', '');
-	if (href.indexOf(prefix)) prefix = conf.wgServer + prefix; // Fully expanded URL?
+	if (href.indexOf(prefix)) {
+		prefix = conf.wgServer + prefix;
+	} // Fully expanded URL?
 
-	if (href.indexOf(prefix) && prefix.slice(0, 2) === '//') prefix = document.location.protocol + prefix; // Protocol-relative wgServer?
+	if (href.indexOf(prefix) && prefix.slice(0, 2) === '//') {
+		prefix = document.location.protocol + prefix;
+	} // Protocol-relative wgServer?
 
-	if (href.indexOf(prefix) === 0) return decodeURIComponent(href.slice(prefix.length));
+	if (href.indexOf(prefix) === 0) {
+		return decodeURIComponent(href.slice(prefix.length));
+	}
 	return null;
 }
 function hasClass(elem, name) {
 	return (' ' + elem.className + ' ').indexOf(' ' + name + ' ') >= 0;
 }
 function capitalize(str) {
-	if (!str || !str.length) return str;
+	if (!str || !str.length) {
+		return str;
+	}
 	return str.slice(0, 1).toUpperCase() + str.slice(1);
 }
 function wikiPagePath(pageName) {
@@ -426,9 +458,13 @@ function substituteFactory(options) {
     '(?:' + indicator + '(?!(?:[' + indicator + lbrace + ']|\\d))(\\S+?)\\b)', 'g');
 	// Replace $1, $2, or ${key1}, ${key2}, or $key1, $key2 by values from map. $$ is replaced by a single $.
 	return function (str, map) {
-		if (!map) return str;
+		if (!map) {
+			return str;
+		}
 		return str.replace(re, function (match, prefix, idx, key, alpha) {
-			if (prefix === lead) return lead;
+			if (prefix === lead) {
+				return lead;
+			}
 			var k = alpha || key || idx;
 			var replacement = typeof map[k] === 'function' ? map[k](match, k) : map[k];
 			return typeof replacement === 'string' ? replacement : replacement || match;
@@ -464,7 +500,9 @@ function find_category(wikitext, category, once) {
 		var initial = cat_name.slice(0, 1);
 		cat_regex = new RegExp('\\[\\[' + wikiTextBlankOrBidi + '(' + HC.category_regexp + ')' + wikiTextBlankOrBidi + ':' + wikiTextBlankOrBidi + (initial === '\\' || !HC.capitalizePageNames ? initial : '[' + initial.toUpperCase() + initial.toLowerCase() + ']') + cat_name.slice(1).replace(wikiTextBlankRE, wikiTextBlank) + wikiTextBlankOrBidi + '(\\|.*?)?\\]\\]', 'g');
 	}
-	if (once) return cat_regex.exec(wikitext);
+	if (once) {
+		return cat_regex.exec(wikitext);
+	}
 	var copiedtext = wikitext.replace(/<!--(\s|\S)*?-->/g, replaceByBlanks).replace(/<nowiki>(\s|\S)*?<\/nowiki>/g, replaceByBlanks);
 	var result = [];
 	var curr_match = null;
@@ -484,7 +522,9 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 		// Search in copiedtext to avoid that we insert inside an HTML comment or a nowiki "element".
 		var index = -1;
 		findCatsRE.lastIndex = 0;
-		while (findCatsRE.exec(copiedtext) !== null) index = findCatsRE.lastIndex;
+		while (findCatsRE.exec(copiedtext) !== null) {
+			index = findCatsRE.lastIndex;
+		}
 		if (index < 0) {
 			// Find the index of the first interlanguage link...
 			var match = null;
@@ -496,7 +536,9 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 			} else {
 				match = interlanguageRE.exec(copiedtext);
 			}
-			if (match) index = match.index;
+			if (match) {
+				index = match.index;
+			}
 			return {
 				idx: index,
 				onCat: false
@@ -513,7 +555,9 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 		// Position of removed category;
 		keyChange = toRemove && toAdd && toRemove === toAdd && toAdd.length,
 		matches;
-	if (key) key = '|' + key;
+	if (key) {
+		key = '|' + key;
+	}
 	// Remove
 	if (toRemove && toRemove.length) {
 		matches = find_category(wikitext, toRemove);
@@ -533,17 +577,25 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 		}
 		if (toAdd) {
 			// nameSpace = matches[ 0 ].match[ 1 ] || nameSpace; Canonical namespace should be always preferred
-			if (key === null) key = matches[0].match[2];
+			if (key === null) {
+				key = matches[0].match[2];
+			}
 			// Remember the category key, if any.
 		}
 		// Remove whitespace (properly): strip whitespace, but only up to the next line feed.
 		// If we then have two linefeeds in a row, remove one. Otherwise, if we have two non-
 		// whitespace characters, insert a blank.
 		var i = before.length - 1;
-		while (i >= 0 && before.charAt(i) !== '\n' && before.substr(i, 1).search(/\s/) >= 0) i--;
+		while (i >= 0 && before.charAt(i) !== '\n' && before.slice(i, i + 1).search(/\s/) >= 0) {
+			i--;
+		}
 		var j = 0;
-		while (j < after.length && after.charAt(j) !== '\n' && after.substr(j, 1).search(/\s/) >= 0) j++;
-		if (i >= 0 && before.charAt(i) === '\n' && (!after.length || j < after.length && after.charAt(j) === '\n')) i--;
+		while (j < after.length && after.charAt(j) !== '\n' && after.slice(j, j + 1).search(/\s/) >= 0) {
+			j++;
+		}
+		if (i >= 0 && before.charAt(i) === '\n' && (!after.length || j < after.length && after.charAt(j) === '\n')) {
+			i--;
+		}
 		if (i >= 0) {
 			before = before.slice(0, Math.max(0, i + 1));
 		} else {
@@ -558,7 +610,9 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 			before += ' ';
 		}
 		cat_point = before.length;
-		if (cat_point === 0 && after.length && after.slice(0, 1) === '\n') after = after.slice(1);
+		if (cat_point === 0 && after.length && after.slice(0, 1) === '\n') {
+			after = after.slice(1);
+		}
 		wikitext = before + after;
 		if (!keyChange) {
 			if (HC.template_categories[toRemove]) {
@@ -597,12 +651,16 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 				wikitext += suffix;
 			}
 		} else {
-			if (wikitext.length && wikitext.slice(wikitext.length - 1, wikitext.length - 1 + 1) !== '\n') wikitext += '\n';
+			if (wikitext.length && wikitext.slice(wikitext.length - 1, wikitext.length - 1 + 1) !== '\n') {
+				wikitext += '\n';
+			}
 			wikitext += (wikitext.length ? '\n' : '') + newcatstring;
 		}
 		if (keyChange) {
 			var k = key || '';
-			if (k.length) k = k.slice(1);
+			if (k.length) {
+				k = k.slice(1);
+			}
 			summary.push(substitute(HC.messages.cat_keychange, [ null, toAdd, k ]));
 		} else {
 			summary.push(HC.messages.cat_added.replace(/\$1/g, toAdd));
@@ -625,14 +683,17 @@ function change_category(wikitext, toRemove, toAdd, key, is_hidden) {
 // The real HotCat UI
 
 function evtKeys(e) {
-	/* eslint-disable no-bitwise */
 	var code = 0;
 	if (e.ctrlKey) {
 		// All modern browsers
 		// Ctrl-click seems to be overloaded in FF/Mac (it opens a pop-up menu), so treat cmd-click
 		// as a ctrl-click, too.
-		if (e.ctrlKey || e.metaKey) code |= 1;
-		if (e.shiftKey) code |= 2;
+		if (e.ctrlKey || e.metaKey) {
+			code = code || 1;
+		}
+		if (e.shiftKey) {
+			code = code || 2;
+		}
 	}
 	return code;
 }
@@ -678,25 +739,43 @@ function setPage(json) {
 					// Revisions are sorted by revision ID, hence [ 0 ] is the one we asked for, and possibly there's a [ 1 ] if we're
 					// not on the latest revision (edit conflicts and such).
 					pageText = page.revisions[0]['*'];
-					if (page.revisions[0].timestamp) pageTime = page.revisions[0].timestamp.replace(/\D/g, '');
-					if (page.revisions[0].revid) pageTextRevId = page.revisions[0].revid;
-					if (page.revisions.length > 1) conflictingUser = page.revisions[1].user;
+					if (page.revisions[0].timestamp) {
+						pageTime = page.revisions[0].timestamp.replace(/\D/g, '');
+					}
+					if (page.revisions[0].revid) {
+						pageTextRevId = page.revisions[0].revid;
+					}
+					if (page.revisions.length > 1) {
+						conflictingUser = page.revisions[1].user;
+					}
 				}
-				if (page.lastrevid) lastRevId = page.lastrevid;
-				if (page.starttimestamp) startTime = page.starttimestamp.replace(/\D/g, '');
+				if (page.lastrevid) {
+					lastRevId = page.lastrevid;
+				}
+				if (page.starttimestamp) {
+					startTime = page.starttimestamp.replace(/\D/g, '');
+				}
 				pageWatched = typeof page.watched === 'string';
-				if (json.query.tokens) editToken = json.query.tokens.csrftoken;
+				if (json.query.tokens) {
+					editToken = json.query.tokens.csrftoken;
+				}
 				if (page.langlinks && (!json['query-continue'] || !json['query-continue'].langlinks)) {
 					// We have interlanguage links, and we got them all.
 					var re = '';
-					for (var i = 0; i < page.langlinks.length; i++) re += (i > 0 ? '|' : '') + page.langlinks[i].lang.replace(/([\\^$.?*+()])/g, '\\$1');
-					if (re.length) interlanguageRE = new RegExp('((^|\\n\\r?)(\\[\\[\\s*(' + re + ')\\s*:[^\\]]+\\]\\]\\s*))+$');
+					for (var i = 0; i < page.langlinks.length; i++) {
+						re += (i > 0 ? '|' : '') + page.langlinks[i].lang.replace(/([\\^$.?*+()])/g, '\\$1');
+					}
+					if (re.length) {
+						interlanguageRE = new RegExp('((^|\\n\\r?)(\\[\\[\\s*(' + re + ')\\s*:[^\\]]+\\]\\]\\s*))+$');
+					}
 				}
 			}
 		}
 		// Siteinfo
 		if (json.query.general) {
-			if (json.query.general.time && !startTime) startTime = json.query.general.time.replace(/\D/g, '');
+			if (json.query.general.time && !startTime) {
+				startTime = json.query.general.time.replace(/\D/g, '');
+			}
 			if (HC.capitalizePageNames === null) {
 				// ResourceLoader's JSParser doesn't like .case, so override eslint.
 				// eslint-disable-next-line dot-notation
@@ -711,13 +790,17 @@ function setPage(json) {
 			minorEdits = json.query.userinfo.options.minordefault === 1;
 			// If the user has the "All edits are minor" preference enabled, we should honor that
 			// for single category changes, no matter what the site configuration is.
-			if (minorEdits) HC.single_minor = true;
+			if (minorEdits) {
+				HC.single_minor = true;
+			}
 		}
 	}
 }
 var saveInProgress = false;
 function initiateEdit(doEdit, failure) {
-	if (saveInProgress) return;
+	if (saveInProgress) {
+		return;
+	}
 	saveInProgress = true;
 	var oldButtonState;
 	if (commitButton) {
@@ -726,7 +809,9 @@ function initiateEdit(doEdit, failure) {
 	}
 	function fail() {
 		saveInProgress = false;
-		if (commitButton) commitButton.disabled = oldButtonState;
+		if (commitButton) {
+			commitButton.disabled = oldButtonState;
+		}
 		failure.apply(this, arguments);
 	}
 
@@ -740,10 +825,12 @@ function initiateEdit(doEdit, failure) {
 }
 function multiChangeMsg(count) {
 	var msg = HC.messages.multi_change;
-	if (typeof msg !== 'string' && msg.length) if (mw.language && mw.language.convertPlural) {
-		msg = mw.language.convertPlural(count, msg);
-	} else {
-		msg = msg[msg.length - 1];
+	if (typeof msg !== 'string' && msg.length) {
+		if (mw.language && mw.language.convertPlural) {
+			msg = mw.language.convertPlural(count, msg);
+		} else {
+			msg = msg[msg.length - 1];
+		}
 	}
 	return substitute(msg, [ null, String(count) ]);
 }
@@ -762,10 +849,14 @@ function performChanges(failure, singleEditor) {
 		return;
 	}
 	// Backwards compatibility after message change (added $2 to cat_keychange)
-	if (HC.messages.cat_keychange.indexOf('$2') < 0) HC.messages.cat_keychange += '"$2"';
+	if (HC.messages.cat_keychange.indexOf('$2') < 0) {
+		HC.messages.cat_keychange += '"$2"';
+	}
 
 	// More backwards-compatibility with earlier HotCat versions:
-	if (!HC.messages.short_catchange) HC.messages.short_catchange = '[[' + HC.category_canonical + ':$1]]';
+	if (!HC.messages.short_catchange) {
+		HC.messages.short_catchange = '[[' + HC.category_canonical + ':$1]]';
+	}
 
 	// Create a form and submit it. We don't use the edit API (api.php?action=edit) because
 	// (a) sensibly reporting back errors like edit conflicts is always a hassle, and
@@ -786,10 +877,14 @@ function performChanges(failure, singleEditor) {
 		// merge the changes. We just need to make sure that we do present a diff view if it's a self edit conflict.
 		commitForm.wpEditToken.value = editToken;
 		action = commitForm.wpDiff;
-		if (action) action.name = action.value = 'wpSave';
+		if (action) {
+			action.name = action.value = 'wpSave';
+		}
 	} else {
 		action = commitForm.wpSave;
-		if (action) action.name = action.value = 'wpDiff';
+		if (action) {
+			action.name = action.value = 'wpDiff';
+		}
 	}
 	var result = {
 			text: pageText
@@ -832,7 +927,9 @@ function performChanges(failure, singleEditor) {
 	if (error !== null) {
 		// Do not commit if there were errors
 		action = commitForm.wpSave;
-		if (action) action.name = action.value = 'wpDiff';
+		if (action) {
+			action.name = action.value = 'wpDiff';
+		}
 	}
 	// Fill in the form and submit it
 	commitForm.wpMinoredit.checked = minorEdits;
@@ -849,20 +946,26 @@ function performChanges(failure, singleEditor) {
 			commitForm.wpAutoSummary.value = HC.changeTag;
 		}
 		if (changes === 1) {
-			if (result.summary && result.summary.length) commitForm.wpSummary.value = HC.messages.prefix + result.summary.join(HC.messages.separator) + HC.messages.using;
+			if (result.summary && result.summary.length) {
+				commitForm.wpSummary.value = HC.messages.prefix + result.summary.join(HC.messages.separator) + HC.messages.using;
+			}
 			commitForm.wpMinoredit.checked = HC.single_minor || minorEdits;
 		} else if (changes) {
 			var summary = [];
 			var shortSummary = [];
 			// Deleted
-			for (i = 0; i < deleted.length; i++) summary.push('−' + substitute(HC.messages.short_catchange, [ null, deleted[i] ]));
+			for (i = 0; i < deleted.length; i++) {
+				summary.push('−' + substitute(HC.messages.short_catchange, [ null, deleted[i] ]));
+			}
 			if (deleted.length === 1) {
 				shortSummary.push('−' + substitute(HC.messages.short_catchange, [ null, deleted[0] ]));
 			} else if (deleted.length) {
 				shortSummary.push('− ' + multiChangeMsg(deleted.length));
 			}
 			// Added
-			for (i = 0; i < added.length; i++) summary.push('+' + substitute(HC.messages.short_catchange, [ null, added[i] ]));
+			for (i = 0; i < added.length; i++) {
+				summary.push('+' + substitute(HC.messages.short_catchange, [ null, added[i] ]));
+			}
 			if (added.length === 1) {
 				shortSummary.push('+' + substitute(HC.messages.short_catchange, [ null, added[0] ]));
 			} else if (added.length) {
@@ -888,7 +991,9 @@ function performChanges(failure, singleEditor) {
 			}
 			if (summary.length) {
 				summary = summary.join(HC.messages.separator);
-				if (summary.length > 200 - HC.messages.prefix.length - HC.messages.using.length) summary = shortSummary.join(HC.messages.separator);
+				if (summary.length > 200 - HC.messages.prefix.length - HC.messages.using.length) {
+					summary = shortSummary.join(HC.messages.separator);
+				}
 				commitForm.wpSummary.value = HC.messages.prefix + summary + HC.messages.using;
 			}
 		}
@@ -896,7 +1001,9 @@ function performChanges(failure, singleEditor) {
 	commitForm.wpTextbox1.value = result.text;
 	commitForm.wpStarttime.value = serverTime || currentTimestamp();
 	commitForm.wpEdittime.value = pageTime || commitForm.wpStarttime.value;
-	if (selfEditConflict) commitForm.oldid.value = String(pageTextRevId || conf.wgCurRevisionId);
+	if (selfEditConflict) {
+		commitForm.oldid.value = String(pageTextRevId || conf.wgCurRevisionId);
+	}
 
 	// Submit the form in a way that triggers onsubmit events: commitForm.submit() doesn't.
 	commitForm.hcCommit.click();
@@ -911,14 +1018,18 @@ function resolveOne(page, toResolve) {
 		is_missing = typeof page.missing === 'string',
 		i;
 	for (i = 0; i < toResolve.length; i++) {
-		if (i && toResolve[i].dabInputCleaned !== page.title.slice(Math.max(0, page.title.indexOf(':') + 1))) continue;
+		if (i && toResolve[i].dabInputCleaned !== page.title.slice(Math.max(0, page.title.indexOf(':') + 1))) {
+			continue;
+		}
 		// Note: the server returns in page an NFC normalized Unicode title. If our input was not NFC normalized, we may not find
 		// any entry here. If we have only one editor to resolve (the most common case, I presume), we may simply skip the check.
 		toResolve[i].currentHidden = is_hidden;
 		toResolve[i].inputExists = !is_missing;
 		toResolve[i].icon.src = is_missing ? HC.existsNo : HC.existsYes;
 	}
-	if (is_missing) return;
+	if (is_missing) {
+		return;
+	}
 	if (!is_redir && cats && (HC.disambig_category || HC.redir_category)) {
 		for (var c = 0; c < cats.length; c++) {
 			var cat = cats[c].title;
@@ -935,8 +1046,12 @@ function resolveOne(page, toResolve) {
 			}
 		}
 	}
-	if (!is_redir && !is_dab) return;
-	if (!lks || !lks.length) return;
+	if (!is_redir && !is_dab) {
+		return;
+	}
+	if (!lks || !lks.length) {
+		return;
+	}
 	var titles = [];
 	for (i = 0; i < lks.length; i++) {
 		if (
@@ -948,12 +1063,18 @@ function resolveOne(page, toResolve) {
 			var match = lks[i].title;
 			match = match.slice(Math.max(0, match.indexOf(':') + 1));
 			// Exclude blacklisted categories.
-			if (!HC.blacklist || !HC.blacklist.test(match)) titles.push(match);
+			if (!HC.blacklist || !HC.blacklist.test(match)) {
+				titles.push(match);
+			}
 		}
 	}
-	if (!titles.length) return;
+	if (!titles.length) {
+		return;
+	}
 	for (i = 0; i < toResolve.length; i++) {
-		if (i && toResolve[i].dabInputCleaned !== page.title.slice(Math.max(0, page.title.indexOf(':') + 1))) continue;
+		if (i && toResolve[i].dabInputCleaned !== page.title.slice(Math.max(0, page.title.indexOf(':') + 1))) {
+			continue;
+		}
 		toResolve[i].inputExists = true; // Might actually be wrong if it's a redirect pointing to a non-existing category
 		toResolve[i].icon.src = HC.existsYes;
 		if (titles.length > 1) {
@@ -964,7 +1085,9 @@ function resolveOne(page, toResolve) {
 	}
 }
 function resolveRedirects(toResolve, params) {
-	if (!params || !params.query || !params.query.pages) return;
+	if (!params || !params.query || !params.query.pages) {
+		return;
+	}
 	for (var p in params.query.pages) {
 		if (Object.prototype.hasOwnProperty.call(params.query.pages, p)) {
 			resolveOne(params.query.pages[p], toResolve);
@@ -989,19 +1112,29 @@ function resolveMulti(toResolve, callback) {
 		v = replaceShortcuts(v, HC.shortcuts);
 		toResolve[i].dabInputCleaned = v;
 		args += encodeURIComponent('Category:' + v);
-		if (i + 1 < toResolve.length) args += '%7C';
+		if (i + 1 < toResolve.length) {
+			args += '%7C';
+		}
 	}
 	$.getJSON(conf.wgServer + conf.wgScriptPath + '/api.php?' + args, function (json) {
 		resolveRedirects(toResolve, json);
 		callback(toResolve);
 	}).fail(function (req) {
-		if (!req) noSuggestions = true;
+		if (!req) {
+			noSuggestions = true;
+		}
 		callback(toResolve);
 	});
 }
 function makeActive(which) {
-	if (which.is_active) return;
-	for (var i = 0; i < editors.length; i++) if (editors[i] !== which) editors[i].inactivate();
+	if (which.is_active) {
+		return;
+	}
+	for (var i = 0; i < editors.length; i++) {
+		if (editors[i] !== which) {
+			editors[i].inactivate();
+		}
+	}
 	which.is_active = true;
 	if (which.dab) {
 		showDab(which);
@@ -1015,7 +1148,9 @@ function makeActive(which) {
 			which.showsList = false;
 			var v = actualValue.split('|');
 			which.lastRealInput = which.lastInput = v[0];
-			if (v.length > 1) which.currentKey = v[1];
+			if (v.length > 1) {
+				which.currentKey = v[1];
+			}
 			if (which.lastSelection) {
 				which.lastSelection = {
 					start: v[0].length,
@@ -1023,7 +1158,9 @@ function makeActive(which) {
 				};
 			}
 		}
-		if (which.showsList) which.displayList();
+		if (which.showsList) {
+			which.displayList();
+		}
 		if (which.lastSelection) {
 			if (is_webkit) {
 				// WebKit (Safari, Chrome) has problems selecting inside focus()
@@ -1047,7 +1184,11 @@ function showDab(which) {
 }
 function multiSubmit() {
 	var toResolve = [];
-	for (var i = 0; i < editors.length; i++) if (editors[i].state === CategoryEditor.CHANGE_PENDING || editors[i].state === CategoryEditor.OPEN) toResolve.push(editors[i]);
+	for (var i = 0; i < editors.length; i++) {
+		if (editors[i].state === CategoryEditor.CHANGE_PENDING || editors[i].state === CategoryEditor.OPEN) {
+			toResolve.push(editors[i]);
+		}
+	}
 	if (!toResolve.length) {
 		initiateEdit(function (failure) {
 			performChanges(failure);
@@ -1066,9 +1207,13 @@ function multiSubmit() {
 				dontChange = true;
 			} else {
 				if (resolved[i].dab) {
-					if (!firstDab) firstDab = resolved[i];
+					if (!firstDab) {
+						firstDab = resolved[i];
+					}
 				} else {
-					if (resolved[i].acceptCheck(true)) resolved[i].commit();
+					if (resolved[i].acceptCheck(true)) {
+						resolved[i].commit();
+					}
 				}
 			}
 		}
@@ -1084,7 +1229,9 @@ function multiSubmit() {
 	});
 }
 function setMultiInput() {
-	if (commitButton || onUpload) return;
+	if (commitButton || onUpload) {
+		return;
+	}
 	commitButton = make('input');
 	commitButton.type = 'button';
 	commitButton.value = HC.messages.commit;
@@ -1096,7 +1243,9 @@ function setMultiInput() {
 	}
 }
 function checkMultiInput() {
-	if (!commitButton) return;
+	if (!commitButton) {
+		return;
+	}
 	var hasChanges = false;
 	for (var i = 0; i < editors.length; i++) {
 		if (editors[i].state !== CategoryEditor.UNCHANGED) {
@@ -1116,20 +1265,26 @@ var suggestionEngines = {
 				var key = queryResult[0].slice(Math.max(0, queryResult[0].indexOf(':') + 1));
 				var titles = queryResult[1];
 				var exists = false;
-				if (!cat_prefix) cat_prefix = new RegExp('^(' + HC.category_regexp + '):');
+				if (!cat_prefix) {
+					cat_prefix = new RegExp('^(' + HC.category_regexp + '):');
+				}
 				for (var i = 0; i < titles.length; i++) {
 					cat_prefix.lastIndex = 0;
 					var m = cat_prefix.exec(titles[i]);
 					if (m && m.length > 1) {
 						titles[i] = titles[i].slice(Math.max(0, titles[i].indexOf(':') + 1)); // rm namespace
-						if (key === titles[i]) exists = true;
+						if (key === titles[i]) {
+							exists = true;
+						}
 					} else {
 						titles.splice(i, 1); // Nope, it's not a category after all.
 						i--;
 					}
 				}
 				titles.exists = exists;
-				if (queryKey !== key) titles.normalized = key;
+				if (queryKey !== key) {
+					titles.normalized = key;
+				}
 				// Remember the NFC normalized key we got back from the server
 				return titles;
 			}
@@ -1141,7 +1296,9 @@ var suggestionEngines = {
 		handler: function (queryResult) {
 			if (queryResult && queryResult.query && queryResult.query.allpages) {
 				var titles = queryResult.query.allpages;
-				for (var i = 0; i < titles.length; i++) titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1)); // rm namespace
+				for (var i = 0; i < titles.length; i++) {
+					titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1));
+				} // rm namespace
 
 				return titles;
 			}
@@ -1159,7 +1316,9 @@ var suggestionEngines = {
 						title = title.slice(Math.max(0, title.indexOf(':') + 1));
 						var titles = [ title ];
 						titles.exists = true;
-						if (queryKey !== title) titles.normalized = title;
+						if (queryKey !== title) {
+							titles.normalized = title;
+						}
 						// NFC
 						return titles;
 					}
@@ -1173,7 +1332,9 @@ var suggestionEngines = {
 		handler: function (queryResult) {
 			if (queryResult && queryResult.query && queryResult.query.categorymembers) {
 				var titles = queryResult.query.categorymembers;
-				for (var i = 0; i < titles.length; i++) titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1)); // rm namespace
+				for (var i = 0; i < titles.length; i++) {
+					titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1));
+				} // rm namespace
 
 				return titles;
 			}
@@ -1187,7 +1348,9 @@ var suggestionEngines = {
 				for (var p in queryResult.query.pages) {
 					if (queryResult.query.pages[p].categories) {
 						var titles = queryResult.query.pages[p].categories;
-						for (var i = 0; i < titles.length; i++) titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1)); // rm namespace
+						for (var i = 0; i < titles.length; i++) {
+							titles[i] = titles[i].title.slice(Math.max(0, titles[i].title.indexOf(':') + 1));
+						} // rm namespace
 
 						return titles;
 					}
@@ -1306,7 +1469,9 @@ CategoryEditor.prototype = {
 			this.linkSpan.appendChild(lk);
 			span = make(newDOM ? 'li' : 'span');
 			span.className = 'noprint';
-			if (is_rtl) span.dir = 'rtl';
+			if (is_rtl) {
+				span.dir = 'rtl';
+			}
 			span.appendChild(this.linkSpan);
 			if (after) {
 				after.parentNode.insertBefore(span, after.nextSibling);
@@ -1317,7 +1482,9 @@ CategoryEditor.prototype = {
 			this.undelLink = null;
 			this.catLink = null;
 		} else {
-			if (is_rtl) span.dir = 'rtl';
+			if (is_rtl) {
+				span.dir = 'rtl';
+			}
 			this.isAddCategory = false;
 			this.catLink = span.firstChild;
 			this.originalCategory = after;
@@ -1325,7 +1492,9 @@ CategoryEditor.prototype = {
 			this.originalExists = !hasClass(this.catLink, 'new');
 			// Create change and del links
 			this.makeLinkSpan();
-			if (!this.originalExists && this.upDownLinks) this.upDownLinks.style.display = 'none';
+			if (!this.originalExists && this.upDownLinks) {
+				this.upDownLinks.style.display = 'none';
+			}
 			span.appendChild(this.linkSpan);
 		}
 		this.originalHidden = is_hidden;
@@ -1342,7 +1511,9 @@ CategoryEditor.prototype = {
 		this.lastSavedKey = this.originalKey;
 		this.lastSavedExists = this.originalExists;
 		this.lastSavedHidden = this.originalHidden;
-		if (this.catLink && this.currentKey) this.catLink.title = this.currentKey;
+		if (this.catLink && this.currentKey) {
+			this.catLink.title = this.currentKey;
+		}
 		editors[editors.length] = this;
 	},
 	makeLinkSpan: function () {
@@ -1400,7 +1571,9 @@ CategoryEditor.prototype = {
 		this.linkSpan.appendChild(this.undelLink);
 	},
 	invokeSuggestions: function (dont_autocomplete) {
-		if (this.engine && suggestionConfigs[this.engine] && suggestionConfigs[this.engine].temp && !dont_autocomplete) this.engine = HC.suggestions; // Reset to a search upon input
+		if (this.engine && suggestionConfigs[this.engine] && suggestionConfigs[this.engine].temp && !dont_autocomplete) {
+			this.engine = HC.suggestions;
+		} // Reset to a search upon input
 
 		this.state = CategoryEditor.CHANGE_PENDING;
 		var self = this;
@@ -1430,11 +1603,17 @@ CategoryEditor.prototype = {
 			//   detected by a keyDown IME with a keyUp of space, tab, escape, or return.
 			text.onkeyup = function (evt) {
 				var key = evt.keyCode || 0;
-				if (self.ime && self.lastKey === IME && !self.usesComposition && (key === TAB || key === RET || key === ESC || key === SPACE)) self.ime = false;
-				if (self.ime) return true;
+				if (self.ime && self.lastKey === IME && !self.usesComposition && (key === TAB || key === RET || key === ESC || key === SPACE)) {
+					self.ime = false;
+				}
+				if (self.ime) {
+					return true;
+				}
 				if (key === UP || key === DOWN || key === PGUP || key === PGDOWN) {
 					// In case a browser doesn't generate keypress events for arrow keys...
-					if (self.keyCount === 0) return self.processKey(evt);
+					if (self.keyCount === 0) {
+						return self.processKey(evt);
+					}
 				} else {
 					if (key === ESC && self.lastKey !== IME) {
 						if (!self.resetKeySelection()) {
@@ -1463,10 +1642,14 @@ CategoryEditor.prototype = {
 					// Note: Safari 4 (530.17) propagates ESC out of an IME composition (observed at least on Win XP).
 					self.ime = false;
 				}
-				if (self.ime) return true;
+				if (self.ime) {
+					return true;
+				}
 
 				// Handle return explicitly, to override the default form submission to be able to check for ctrl
-				if (key === RET) return self.accept(evt);
+				if (key === RET) {
+					return self.accept(evt);
+				}
 
 				// Inhibit default behavior of ESC (revert to last real input in FF: we do that ourselves)
 				return key === ESC ? evtKill(evt) : true;
@@ -1516,10 +1699,14 @@ CategoryEditor.prototype = {
 		if (!noSuggestions) {
 			list = make('select');
 			list.onclick = function () {
-				if (self.highlightSuggestion(0)) self.textchange(false, true);
+				if (self.highlightSuggestion(0)) {
+					self.textchange(false, true);
+				}
 			};
 			list.ondblclick = function (e) {
-				if (self.highlightSuggestion(0)) self.accept(e);
+				if (self.highlightSuggestion(0)) {
+					self.accept(e);
+				}
 			};
 			list.onchange = function () {
 				self.highlightSuggestion(0);
@@ -1542,7 +1729,9 @@ CategoryEditor.prototype = {
 					if (suggestionConfigs[key].show) {
 						var opt = make('option');
 						opt.value = key;
-						if (key === this.engine) opt.selected = true;
+						if (key === this.engine) {
+							opt.selected = true;
+						}
 						opt.appendChild(make(suggestionConfigs[key].name, true));
 						engineSelector.appendChild(opt);
 					}
@@ -1563,12 +1752,16 @@ CategoryEditor.prototype = {
 				try {
 					label = UFUI.getLabel(id, true);
 					// Extract the plain text. IE doesn't know that Node.TEXT_NODE === 3
-					while (label && label.nodeType !== 3) label = label.firstChild;
+					while (label && label.nodeType !== 3) {
+						label = label.firstChild;
+					}
 				} catch (ex) {
 					label = null;
 				}
 			}
-			if (!label || !label.data) return defaultText;
+			if (!label || !label.data) {
+				return defaultText;
+			}
 			return label.data;
 		}
 
@@ -1594,9 +1787,15 @@ CategoryEditor.prototype = {
 		// then the engine selector may overlap the input field.
 		span.appendChild(make('\xa0', true));
 		span.style.whiteSpace = 'nowrap';
-		if (list) span.appendChild(list);
-		if (this.engineSelector) span.appendChild(this.engineSelector);
-		if (!noSuggestions) span.appendChild(this.icon);
+		if (list) {
+			span.appendChild(list);
+		}
+		if (this.engineSelector) {
+			span.appendChild(this.engineSelector);
+		}
+		if (!noSuggestions) {
+			span.appendChild(this.icon);
+		}
 		span.appendChild(OK);
 		span.appendChild(cancel);
 		form.appendChild(span);
@@ -1617,9 +1816,15 @@ CategoryEditor.prototype = {
 				}
 			}
 		}
-		if (!this.form) this.makeForm();
-		if (this.list) this.list.style.display = 'none';
-		if (this.engineSelector) this.engineSelector.style.display = 'none';
+		if (!this.form) {
+			this.makeForm();
+		}
+		if (this.list) {
+			this.list.style.display = 'none';
+		}
+		if (this.engineSelector) {
+			this.engineSelector.style.display = 'none';
+		}
 		this.currentCategory = this.lastSavedCategory;
 		this.currentExists = this.lastSavedExists;
 		this.currentHidden = this.lastSavedHidden;
@@ -1636,7 +1841,9 @@ CategoryEditor.prototype = {
 		};
 		this.showsList = false;
 		// Display the form
-		if (this.catLink) this.catLink.style.display = 'none';
+		if (this.catLink) {
+			this.catLink.style.display = 'none';
+		}
 		this.linkSpan.style.display = 'none';
 		this.form.style.display = 'inline';
 		this.ok.disabled = false;
@@ -1650,7 +1857,9 @@ CategoryEditor.prototype = {
 	show: function (evt, engine, readOnly) {
 		var result = this.display(evt);
 		var v = this.lastSavedCategory;
-		if (!v.length) return result;
+		if (!v.length) {
+			return result;
+		}
 		this.text.readOnly = !!readOnly;
 		this.engine = engine;
 		this.textchange(false, true); // do autocompletion, force display of suggestions
@@ -1674,20 +1883,26 @@ CategoryEditor.prototype = {
 		// Close, re-display link
 		this.inactivate();
 		this.form.style.display = 'none';
-		if (this.catLink) this.catLink.style.display = '';
+		if (this.catLink) {
+			this.catLink.style.display = '';
+		}
 		this.linkSpan.style.display = '';
 		this.state = this.originalState;
 		this.currentCategory = this.lastSavedCategory;
 		this.currentKey = this.lastSavedKey;
 		this.currentExists = this.lastSavedExists;
 		this.currentHidden = this.lastSavedHidden;
-		if (this.catLink) if (this.currentKey && this.currentKey.length) {
-			this.catLink.title = this.currentKey;
-		} else {
-			this.catLink.title = '';
+		if (this.catLink) {
+			if (this.currentKey && this.currentKey.length) {
+				this.catLink.title = this.currentKey;
+			} else {
+				this.catLink.title = '';
+			}
 		}
 		if (this.state === CategoryEditor.UNCHANGED) {
-			if (this.catLink) this.catLink.style.backgroundColor = 'transparent';
+			if (this.catLink) {
+				this.catLink.style.backgroundColor = 'transparent';
+			}
 		} else {
 			if (!onUpload) {
 				try {
@@ -1701,7 +1916,9 @@ CategoryEditor.prototype = {
 	removeEditor: function () {
 		if (!newDOM) {
 			var next = this.span.nextSibling;
-			if (next) next.parentNode.removeChild(next);
+			if (next) {
+				next.parentNode.removeChild(next);
+			}
 		}
 		if (this.span && this.span.parentNode) {
 			this.span.parentNode.removeChild(this.span);
@@ -1737,23 +1954,33 @@ CategoryEditor.prototype = {
 			this.catLink.title = this.currentKey || '';
 			this.catLink.className = this.currentExists ? '' : 'new';
 			this.catLink.style.backgroundColor = 'transparent';
-			if (this.upDownLinks) this.upDownLinks.style.display = this.currentExists ? '' : 'none';
+			if (this.upDownLinks) {
+				this.upDownLinks.style.display = this.currentExists ? '' : 'none';
+			}
 			checkMultiInput();
 		}
 		return evtKill(evt);
 	},
 	inactivate: function () {
-		if (this.list) this.list.style.display = 'none';
-		if (this.engineSelector) this.engineSelector.style.display = 'none';
+		if (this.list) {
+			this.list.style.display = 'none';
+		}
+		if (this.engineSelector) {
+			this.engineSelector.style.display = 'none';
+		}
 		this.is_active = false;
 	},
 	acceptCheck: function (dontCheck) {
 		this.sanitizeInput();
 		var value = this.text.value.split('|');
 		var key = null;
-		if (value.length > 1) key = value[1];
+		if (value.length > 1) {
+			key = value[1];
+		}
 		var v = value[0].replace(/_/g, ' ').replace(/^\s+|\s+$/g, '');
-		if (HC.capitalizePageNames) v = capitalize(v);
+		if (HC.capitalizePageNames) {
+			v = capitalize(v);
+		}
 		this.lastInput = v;
 		v = replaceShortcuts(v, HC.shortcuts);
 		if (!v.length) {
@@ -1770,6 +1997,7 @@ CategoryEditor.prototype = {
 		return true;
 	},
 	accept: function (evt) {
+		// eslint-disable-next-line no-bitwise
 		this.noCommit = (evtKeys(evt) & 1) !== 0;
 		var result = evtKill(evt);
 		if (this.acceptCheck()) {
@@ -1837,7 +2065,9 @@ CategoryEditor.prototype = {
 				} catch (ex) {}
 			}
 		}
-		if (this.upDownLinks) this.upDownLinks.style.display = this.lastSavedExists ? '' : 'none';
+		if (this.upDownLinks) {
+			this.upDownLinks.style.display = this.lastSavedExists ? '' : 'none';
+		}
 		this.linkSpan.style.display = '';
 		this.state = CategoryEditor.CHANGED;
 		checkMultiInput();
@@ -1860,6 +2090,7 @@ CategoryEditor.prototype = {
 		}
 	},
 	remove: function (evt) {
+		// eslint-disable-next-line no-bitwise
 		this.doRemove(evtKeys(evt) & 1);
 		return evtKill(evt);
 	},
@@ -1926,20 +2157,30 @@ CategoryEditor.prototype = {
 	// Internal operations
 
 	selectEngine: function (engineName) {
-		if (!this.engineSelector) return;
-		for (var i = 0; i < this.engineSelector.options.length; i++) this.engineSelector.options[i].selected = this.engineSelector.options[i].value === engineName;
+		if (!this.engineSelector) {
+			return;
+		}
+		for (var i = 0; i < this.engineSelector.options.length; i++) {
+			this.engineSelector.options[i].selected = this.engineSelector.options[i].value === engineName;
+		}
 	},
 	sanitizeInput: function () {
 		var v = this.text.value || '';
 		v = v.replace(/^(\s|_)+/, ''); // Trim leading blanks and underscores
 		var re = new RegExp('^(' + HC.category_regexp + '):');
-		if (re.test(v)) v = v.slice(Math.max(0, v.indexOf(':') + 1)).replace(/^(\s|_)+/, '');
+		if (re.test(v)) {
+			v = v.slice(Math.max(0, v.indexOf(':') + 1)).replace(/^(\s|_)+/, '');
+		}
 		v = v.replace(/\u200E$/, ''); // Trim ending left-to-right mark
-		if (HC.capitalizePageNames) v = capitalize(v);
+		if (HC.capitalizePageNames) {
+			v = capitalize(v);
+		}
 
 		// Only update the input field if there is a difference. Various browsers otherwise
 		// reset the selection and cursor position after each value re-assignment.
-		if (this.text.value !== null && this.text.value !== v) this.text.value = v;
+		if (this.text.value !== null && this.text.value !== v) {
+			this.text.value = v;
+		}
 	},
 	makeCall: function (url, callbackObj, engine, queryKey, cleanKey) {
 		var cb = callbackObj,
@@ -1950,12 +2191,22 @@ CategoryEditor.prototype = {
 		function done() {
 			cb.callsMade++;
 			if (cb.callsMade === cb.nofCalls) {
-				if (cb.exists) cb.allTitles.exists = true;
-				if (cb.normalized) cb.allTitles.normalized = cb.normalized;
-				if (!cb.dontCache && !suggestionConfigs[cb.engineName].cache[z]) suggestionConfigs[cb.engineName].cache[z] = cb.allTitles;
+				if (cb.exists) {
+					cb.allTitles.exists = true;
+				}
+				if (cb.normalized) {
+					cb.allTitles.normalized = cb.normalized;
+				}
+				if (!cb.dontCache && !suggestionConfigs[cb.engineName].cache[z]) {
+					suggestionConfigs[cb.engineName].cache[z] = cb.allTitles;
+				}
 				thisObj.text.readOnly = false;
-				if (!cb.cancelled) thisObj.showSuggestions(cb.allTitles, cb.noCompletion, v, cb.engineName);
-				if (cb === thisObj.callbackObj) thisObj.callbackObj = null;
+				if (!cb.cancelled) {
+					thisObj.showSuggestions(cb.allTitles, cb.noCompletion, v, cb.engineName);
+				}
+				if (cb === thisObj.callbackObj) {
+					thisObj.callbackObj = null;
+				}
 				cb = undefined;
 			}
 		}
@@ -1967,12 +2218,18 @@ CategoryEditor.prototype = {
 				} else {
 					cb.allTitles = cb.allTitles.concat(titles);
 				}
-				if (titles.exists) cb.exists = true;
-				if (titles.normalized) cb.normalized = titles.normalized;
+				if (titles.exists) {
+					cb.exists = true;
+				}
+				if (titles.normalized) {
+					cb.normalized = titles.normalized;
+				}
 			}
 			done();
 		}).fail(function (req) {
-			if (!req) noSuggestions = true;
+			if (!req) {
+				noSuggestions = true;
+			}
 			cb.dontCache = true;
 			done();
 		});
@@ -1992,8 +2249,12 @@ CategoryEditor.prototype = {
 		} else {
 			this.currentKey = null;
 		}
-		if (this.lastInput === v && !force) return; // No change
-		if (this.lastInput !== v) checkMultiInput();
+		if (this.lastInput === v && !force) {
+			return;
+		} // No change
+		if (this.lastInput !== v) {
+			checkMultiInput();
+		}
 		this.lastInput = v;
 		this.lastRealInput = v;
 
@@ -2001,9 +2262,15 @@ CategoryEditor.prototype = {
 		this.ok.disabled = v.length && HC.blacklist && HC.blacklist.test(v);
 		if (noSuggestions) {
 			// No Ajax: just make sure the list is hidden
-			if (this.list) this.list.style.display = 'none';
-			if (this.engineSelector) this.engineSelector.style.display = 'none';
-			if (this.icon) this.icon.style.display = 'none';
+			if (this.list) {
+				this.list.style.display = 'none';
+			}
+			if (this.engineSelector) {
+				this.engineSelector.style.display = 'none';
+			}
+			if (this.icon) {
+				this.icon.style.display = 'none';
+			}
 			return;
 		}
 		if (!v.length) {
@@ -2017,7 +2284,9 @@ CategoryEditor.prototype = {
 			this.showSuggestions([]);
 			return;
 		}
-		if (this.callbackObj) this.callbackObj.cancelled = true;
+		if (this.callbackObj) {
+			this.callbackObj.cancelled = true;
+		}
 		var engineName = suggestionConfigs[this.engine] ? this.engine : 'combined';
 		dont_autocomplete = dont_autocomplete || suggestionConfigs[engineName].noCompletion;
 		if (suggestionConfigs[engineName].cache[cleanKey]) {
@@ -2045,23 +2314,39 @@ CategoryEditor.prototype = {
 		this.text.readOnly = false;
 		this.dab = null;
 		this.showsList = false;
-		if (!this.list) return;
+		if (!this.list) {
+			return;
+		}
 		if (noSuggestions) {
-			if (this.list) this.list.style.display = 'none';
-			if (this.engineSelector) this.engineSelector.style.display = 'none';
-			if (this.icon) this.icon.style.display = 'none';
+			if (this.list) {
+				this.list.style.display = 'none';
+			}
+			if (this.engineSelector) {
+				this.engineSelector.style.display = 'none';
+			}
+			if (this.icon) {
+				this.icon.style.display = 'none';
+			}
 			this.inputExists = true; // Default...
 			return;
 		}
 		this.engineName = engineName;
 		if (engineName) {
-			if (!this.engineSelector) this.engineName = null;
+			if (!this.engineSelector) {
+				this.engineName = null;
+			}
 		} else {
-			if (this.engineSelector) this.engineSelector.style.display = 'none';
+			if (this.engineSelector) {
+				this.engineSelector.style.display = 'none';
+			}
 		}
 		if (queryKey) {
-			if (this.lastInput.indexOf(queryKey)) return;
-			if (this.lastQuery && this.lastInput.indexOf(this.lastQuery) === 0 && this.lastQuery.length > queryKey.length) return;
+			if (this.lastInput.indexOf(queryKey)) {
+				return;
+			}
+			if (this.lastQuery && this.lastInput.indexOf(this.lastQuery) === 0 && this.lastQuery.length > queryKey.length) {
+				return;
+			}
 		}
 		this.lastQuery = queryKey;
 
@@ -2088,24 +2373,38 @@ CategoryEditor.prototype = {
 				}
 			}
 			titles.sort(function (a, b) {
-				if (a === b) return 0;
-				if (a.indexOf(b) === 0) return 1;
+				if (a === b) {
+					return 0;
+				}
+				if (a.indexOf(b) === 0) {
+					return 1;
+				}
 				// a begins with b: a > b
-				if (b.indexOf(a) === 0) return -1;
+				if (b.indexOf(a) === 0) {
+					return -1;
+				}
 				// b begins with a: a < b
 				// Opensearch may return stuff not beginning with the search prefix!
 				var prefixMatchA = a.indexOf(vNormalized) === 0 ? 1 : 0;
 				var prefixMatchB = b.indexOf(vNormalized) === 0 ? 1 : 0;
-				if (prefixMatchA !== prefixMatchB) return prefixMatchB - prefixMatchA;
+				if (prefixMatchA !== prefixMatchB) {
+					return prefixMatchB - prefixMatchA;
+				}
 
 				// Case-insensitive prefix match!
 				var aLow = a.toLowerCase(),
 					bLow = b.toLowerCase();
 				prefixMatchA = aLow.indexOf(vLow) === 0 ? 1 : 0;
 				prefixMatchB = bLow.indexOf(vLow) === 0 ? 1 : 0;
-				if (prefixMatchA !== prefixMatchB) return prefixMatchB - prefixMatchA;
-				if (a < b) return -1;
-				if (b < a) return 1;
+				if (prefixMatchA !== prefixMatchB) {
+					return prefixMatchB - prefixMatchA;
+				}
+				if (a < b) {
+					return -1;
+				}
+				if (b < a) {
+					return 1;
+				}
 				return 0;
 			});
 			// Remove duplicates and self-references
@@ -2117,10 +2416,16 @@ CategoryEditor.prototype = {
 			}
 		}
 		if (!titles || !titles.length) {
-			if (this.list) this.list.style.display = 'none';
-			if (this.engineSelector) this.engineSelector.style.display = 'none';
+			if (this.list) {
+				this.list.style.display = 'none';
+			}
+			if (this.engineSelector) {
+				this.engineSelector.style.display = 'none';
+			}
 			if (engineName && suggestionConfigs[engineName] && !suggestionConfigs[engineName].temp) {
-				if (this.icon) this.icon.src = HC.existsNo;
+				if (this.icon) {
+					this.icon.src = HC.existsNo;
+				}
 				this.inputExists = false;
 			}
 			return;
@@ -2136,12 +2441,16 @@ CategoryEditor.prototype = {
 			this.lastInput = firstTitle;
 			if (titles.length === 1) {
 				this.list.style.display = 'none';
-				if (this.engineSelector) this.engineSelector.style.display = 'none';
+				if (this.engineSelector) {
+					this.engineSelector.style.display = 'none';
+				}
 				return;
 			}
 		}
 		// (Re-)fill the list
-		while (this.list.firstChild) this.list.removeChild(this.list.firstChild);
+		while (this.list.firstChild) {
+			this.list.removeChild(this.list.firstChild);
+		}
 		for (i = 0; i < titles.length; i++) {
 			var opt = make('option');
 			opt.appendChild(make(titles[i], true));
@@ -2154,11 +2463,15 @@ CategoryEditor.prototype = {
 		this.showsList = true;
 		if (!this.is_active) {
 			this.list.style.display = 'none';
-			if (this.engineSelector) this.engineSelector.style.display = 'none';
+			if (this.engineSelector) {
+				this.engineSelector.style.display = 'none';
+			}
 			return;
 		}
 		var nofItems = this.list.options.length > HC.listSize ? HC.listSize : this.list.options.length;
-		if (nofItems <= 1) nofItems = 2;
+		if (nofItems <= 1) {
+			nofItems = 2;
+		}
 		this.list.size = nofItems;
 		this.list.style.align = is_rtl ? 'right' : 'left';
 		this.list.style.zIndex = 5;
@@ -2178,14 +2491,18 @@ CategoryEditor.prototype = {
 		}
 		// Approximate calculation of maximum list size
 		var maxListHeight = listh;
-		if (nofItems < HC.listSize) maxListHeight = listh / nofItems * HC.listSize;
+		if (nofItems < HC.listSize) {
+			maxListHeight = listh / nofItems * HC.listSize;
+		}
 		function viewport(what) {
 			if (is_webkit && !document.evaluate) {
 				// Safari < 3.0
 				return window['inner' + what];
 			}
 			var s = 'client' + what;
-			if (window.opera) return document.body[s];
+			if (window.opera) {
+				return document.body[s];
+			}
 			return (document.documentElement ? document.documentElement[s] : 0) || document.body[s] || 0;
 		}
 		function scroll_offset(what) {
@@ -2197,8 +2514,12 @@ CategoryEditor.prototype = {
 				// IE >= 8: 0 at the far right, then increasingly positive values.
 				// Webkit: scrollWidth - clientWidth at the far right, then down to zero.
 				// Opera: don't know...
-				if (result < 0) result = -result;
-				if (!is_webkit) result = scroll_offset('Width') - viewport('Width') - result;
+				if (result < 0) {
+					result = -result;
+				}
+				if (!is_webkit) {
+					result = scroll_offset('Width') - viewport('Width') - result;
+				}
 
 				// Now all have webkit behavior, i.e. zero if at the leftmost edge.
 			}
@@ -2252,10 +2573,14 @@ CategoryEditor.prototype = {
 			// The list might extend beyond the upper border of the page. Let's avoid that by placing it
 			// below the input text field.
 			nt = this.text.offsetHeight + offset + 1;
-			if (this.engineName) this.engineSelector.style.top = this.text.offsetHeight + 'px';
+			if (this.engineName) {
+				this.engineSelector.style.top = this.text.offsetHeight + 'px';
+			}
 		} else {
 			nt = -listh - offset - 1;
-			if (this.engineName) this.engineSelector.style.top = -(offset + 1) + 'px';
+			if (this.engineName) {
+				this.engineSelector.style.top = -(offset + 1) + 'px';
+			}
 		}
 		this.list.style.top = nt + 'px';
 		this.list.style.width = ''; // No fixed width (yet)
@@ -2293,19 +2618,29 @@ CategoryEditor.prototype = {
 			} else if (right > scroll + view_w) {
 				relative_offset = -(right - scroll - view_w);
 			}
-			if (is_rtl) relative_offset = -relative_offset;
-			if (relative_offset) this.list.style[anchor] = nl + relative_offset + 'px';
+			if (is_rtl) {
+				relative_offset = -relative_offset;
+			}
+			if (relative_offset) {
+				this.list.style[anchor] = nl + relative_offset + 'px';
+			}
 		}
 	},
 	autoComplete: function (newVal, actVal, normalizedActVal, key, dontModify) {
-		if (newVal === actVal) return true;
-		if (dontModify || this.ime || !this.canSelect()) return false;
+		if (newVal === actVal) {
+			return true;
+		}
+		if (dontModify || this.ime || !this.canSelect()) {
+			return false;
+		}
 
 		// If we can't select properly or an IME composition is ongoing, autocompletion would be a major annoyance to the user.
 		if (newVal.indexOf(actVal)) {
 			// Maybe it'll work with the normalized value (NFC)?
 			if (normalizedActVal && newVal.indexOf(normalizedActVal) === 0) {
-				if (this.lastRealInput === actVal) this.lastRealInput = normalizedActVal;
+				if (this.lastRealInput === actVal) {
+					this.lastRealInput = normalizedActVal;
+				}
 				actVal = normalizedActVal;
 			} else {
 				return false;
@@ -2323,7 +2658,9 @@ CategoryEditor.prototype = {
 	},
 	setSelection: function (from, to) {
 		// this.text must be focused (at least on IE)
-		if (!this.text.value) return;
+		if (!this.text.value) {
+			return;
+		}
 		if (this.text.setSelectionRange) {
 			// e.g. khtml
 			this.text.setSelectionRange(from, to);
@@ -2415,19 +2752,27 @@ CategoryEditor.prototype = {
 		return true;
 	},
 	highlightSuggestion: function (dir) {
-		if (noSuggestions || !this.list || this.list.style.display === 'none') return false;
+		if (noSuggestions || !this.list || this.list.style.display === 'none') {
+			return false;
+		}
 		var curr = this.list.selectedIndex;
 		var tgt = -1;
 		if (dir === 0) {
-			if (curr < 0 || curr >= this.list.options.length) return false;
+			if (curr < 0 || curr >= this.list.options.length) {
+				return false;
+			}
 			tgt = curr;
 		} else {
 			tgt = curr < 0 ? 0 : curr + dir;
 			tgt = tgt < 0 ? 0 : tgt;
-			if (tgt >= this.list.options.length) tgt = this.list.options.length - 1;
+			if (tgt >= this.list.options.length) {
+				tgt = this.list.options.length - 1;
+			}
 		}
 		if (tgt !== curr || dir === 0) {
-			if (curr >= 0 && curr < this.list.options.length && dir !== 0) this.list.options[curr].selected = false;
+			if (curr >= 0 && curr < this.list.options.length && dir !== 0) {
+				this.list.options[curr].selected = false;
+			}
 			this.list.options[tgt].selected = true;
 			// Get current input text
 			var v = this.text.value.split('|');
@@ -2435,17 +2780,23 @@ CategoryEditor.prototype = {
 			var completed = this.autoComplete(this.list.options[tgt].text, this.lastRealInput, null, key, false);
 			if (!completed || this.list.options[tgt].text === this.lastRealInput) {
 				this.text.value = this.list.options[tgt].text + key;
-				if (this.canSelect()) this.setSelection(this.list.options[tgt].text.length, this.list.options[tgt].text.length);
+				if (this.canSelect()) {
+					this.setSelection(this.list.options[tgt].text.length, this.list.options[tgt].text.length);
+				}
 			}
 			this.lastInput = this.list.options[tgt].text;
 			this.inputExists = true; // Might be wrong if from a dab list...
-			if (this.icon) this.icon.src = HC.existsYes;
+			if (this.icon) {
+				this.icon.src = HC.existsYes;
+			}
 			this.state = CategoryEditor.CHANGE_PENDING;
 		}
 		return true;
 	},
 	resetKeySelection: function () {
-		if (noSuggestions || !this.list || this.list.style.display === 'none') return false;
+		if (noSuggestions || !this.list || this.list.style.display === 'none') {
+			return false;
+		}
 		var curr = this.list.selectedIndex;
 		if (curr >= 0 && curr < this.list.options.length) {
 			this.list.options[curr].selected = false;
@@ -2480,13 +2831,17 @@ function initialize() {
 	HC.suggest_delay = window.hotcat_suggestion_delay || config.HotCatSuggestionDelay || HC.suggest_delay;
 	HC.editbox_width = window.hotcat_editbox_width || config.HotCatEditBoxWidth || HC.editbox_width;
 	HC.suggestions = window.hotcat_suggestions || config.HotCatSuggestions || HC.suggestions;
-	if (typeof HC.suggestions !== 'string' || !suggestionConfigs[HC.suggestions]) HC.suggestions = 'combined';
+	if (typeof HC.suggestions !== 'string' || !suggestionConfigs[HC.suggestions]) {
+		HC.suggestions = 'combined';
+	}
 	HC.fixed_search = window.hotcat_suggestions_fixed !== undefined ? !!window.hotcat_suggestions_fixed : config.HotCatFixedSuggestions !== undefined ? config.HotCatFixedSuggestions : HC.fixed_search;
 	HC.single_minor = window.hotcat_single_changes_are_minor !== undefined ? !!window.hotcat_single_changes_are_minor : config.HotCatMinorSingleChanges !== undefined ? config.HotCatMinorSingleChanges : HC.single_minor;
 	HC.bg_changed = window.hotcat_changed_background || config.HotCatChangedBackground || HC.bg_changed;
 	HC.use_up_down = window.hotcat_use_category_links !== undefined ? !!window.hotcat_use_category_links : config.HotCatUseCategoryLinks !== undefined ? config.HotCatUseCategoryLinks : HC.use_up_down;
 	HC.listSize = window.hotcat_list_size || config.HotCatListSize || HC.listSize;
-	if (conf.wgDBname !== 'commonswiki') HC.changeTag = config.HotCatChangeTag || '';
+	if (conf.wgDBname !== 'commonswiki') {
+		HC.changeTag = config.HotCatChangeTag || '';
+	}
 
 	// The next whole shebang is needed, because manual tags get not submitted except of save
 	if (HC.changeTag) {
@@ -2496,7 +2851,9 @@ function initialize() {
 		// Returns true if minor change
 		var isMinorChange = function () {
 			var newTxt = eForm.wpTextbox1;
-			if (!newTxt) return;
+			if (!newTxt) {
+				return;
+			}
 			newTxt = newTxt.value;
 			var oldLines = oldTxt.match(/^.*$/gm),
 				newLines = newTxt.match(/^.*$/gm),
@@ -2555,7 +2912,9 @@ function initialize() {
 				$(eForm).append($ct);
 				oldTxt = eForm.wpTextbox1.value;
 				$('#wpSave').one('click', function () {
-					if ($ct.val()) sum.value = sum.value.replace(HC.messages.using || HC.messages.prefix, '');
+					if ($ct.val()) {
+						sum.value = sum.value.replace(HC.messages.using || HC.messages.prefix, '');
+					}
 				});
 				var removeChangeTag = function () {
 					$(eForm.wpTextbox1).add(sum).one('input', function () {
@@ -2574,12 +2933,18 @@ function initialize() {
 	}
 	// Numeric input, make sure we have a numeric value
 	HC.listSize = parseInt(HC.listSize, 10);
-	if (isNaN(HC.listSize) || HC.listSize < 5) HC.listSize = 5;
+	if (isNaN(HC.listSize) || HC.listSize < 5) {
+		HC.listSize = 5;
+	}
 	HC.listSize = Math.min(HC.listSize, 30); // Max size
 
 	// Localize search engine names
 	if (HC.engine_names) {
-		for (var key in HC.engine_names) if (suggestionConfigs[key] && HC.engine_names[key]) suggestionConfigs[key].name = HC.engine_names[key];
+		for (var key in HC.engine_names) {
+			if (suggestionConfigs[key] && HC.engine_names[key]) {
+				suggestionConfigs[key].name = HC.engine_names[key];
+			}
+		}
 	}
 	// Catch both native RTL and "faked" RTL through [[MediaWiki:Rtl.js]]
 	is_rtl = hasClass(document.body, 'rtl');
@@ -2612,7 +2977,9 @@ function closeForm() {
 			edit.sanitizeInput();
 			var value = edit.text.value.split('|');
 			var key = null;
-			if (value.length > 1) key = value[1];
+			if (value.length > 1) {
+				key = value[1];
+			}
 			var v = value[0].replace(/_/g, ' ').replace(/^\s+|\s+$/g, '');
 			if (!v.length) {
 				edit.cancel();
@@ -2631,9 +2998,13 @@ function setup_upload() {
 	var ip = document.getElementById('mw-htmlform-description') || document.getElementById('wpDestFile');
 	if (!ip) {
 		ip = document.getElementById('wpDestFile');
-		while (ip && ip.nodeName.toLowerCase() !== 'table') ip = ip.parentNode;
+		while (ip && ip.nodeName.toLowerCase() !== 'table') {
+			ip = ip.parentNode;
+		}
 	}
-	if (!ip) return;
+	if (!ip) {
+		return;
+	}
 	var reupload = document.getElementById('wpForReUpload');
 	var destFile = document.getElementById('wpDestFile');
 	if (reupload && !!reupload.value || destFile && (destFile.disabled || destFile.readOnly)) {
@@ -2687,14 +3058,18 @@ function setup_upload() {
 						do_submit = oldSubmit.apply(form, arguments);
 					}
 				}
-				if (!do_submit) return false;
+				if (!do_submit) {
+					return false;
+				}
 				closeForm();
 				// Copy the categories
 				var eb = document.getElementById('wpUploadDescription') || document.getElementById('wpDesc');
 				var addedOne = false;
 				for (var i = 0; i < editors.length; i++) {
 					var t = editors[i].currentCategory;
-					if (!t) continue;
+					if (!t) {
+						continue;
+					}
 					var key = editors[i].currentKey;
 					var new_cat = '[[' + HC.category_canonical + ':' + t + (key ? '|' + key : '') + ']]';
 					// Only add if not already present
@@ -2715,16 +3090,24 @@ function setup_upload() {
 }
 var cleanedText = null;
 function isOnPage(span) {
-	if (span.firstChild.nodeType !== Node.ELEMENT_NODE) return null;
+	if (span.firstChild.nodeType !== Node.ELEMENT_NODE) {
+		return null;
+	}
 	var catTitle = title(span.firstChild.getAttribute('href'));
-	if (!catTitle) return null;
+	if (!catTitle) {
+		return null;
+	}
 	catTitle = catTitle.slice(catTitle.indexOf(':') + 1).replace(/_/g, ' ');
-	if (HC.blacklist && HC.blacklist.test(catTitle)) return null;
+	if (HC.blacklist && HC.blacklist.test(catTitle)) {
+		return null;
+	}
 	var result = {
 		title: catTitle,
 		match: [ '', '', '' ]
 	};
-	if (pageText === null) return result;
+	if (pageText === null) {
+		return result;
+	}
 	if (cleanedText === null) {
 		cleanedText = pageText.replace(/<!--(\s|\S)*?-->/g, '').replace(/<nowiki>(\s|\S)*?<\/nowiki>/g, '');
 	}
@@ -2738,7 +3121,9 @@ function findByClass(scope, tag, className) {
 	return result && result.length ? result[0] : null;
 }
 function setup(additionalWork) {
-	if (initialized) return;
+	if (initialized) {
+		return;
+	}
 	initialized = true;
 	if (setupTimeout) {
 		window.clearTimeout(setupTimeout);
@@ -2754,7 +3139,9 @@ function setup(additionalWork) {
 		var footer = null;
 		if (!hiddenCats) {
 			footer = findByClass(document, 'div', 'printfooter');
-			if (!footer) return; // Don't know where to insert the category line
+			if (!footer) {
+				return;
+			} // Don't know where to insert the category line
 		}
 
 		catLine = make('div');
@@ -2782,7 +3169,9 @@ function setup(additionalWork) {
 			container.insertBefore(catLine, hiddenCats);
 		}
 	} // end if catLine exists
-	if (is_rtl) catLine.dir = 'rtl';
+	if (is_rtl) {
+		catLine.dir = 'rtl';
+	}
 
 	// Create editors for all existing categories
 
@@ -2797,7 +3186,9 @@ function setup(additionalWork) {
 		}
 		// Copy cats, otherwise it'll also magically contain our added spans as it is a live collection!
 		var copyCats = new Array(cats.length);
-		for (i = 0; i < cats.length; i++) copyCats[i] = cats[i];
+		for (i = 0; i < cats.length; i++) {
+			copyCats[i] = cats[i];
+		}
 		for (i = 0; i < copyCats.length; i++) {
 			var test = isOnPage(copyCats[i]);
 			if (test !== null && test.match !== null && line) {
@@ -2813,13 +3204,17 @@ function setup(additionalWork) {
 	new CategoryEditor(newDOM ? catLine.getElementsByTagName('ul')[0] : catLine, null, null, lastSpan !== null, false);
 	if (!onUpload) {
 		if (pageText !== null && hiddenCats) {
-			if (is_rtl) hiddenCats.dir = 'rtl';
+			if (is_rtl) {
+				hiddenCats.dir = 'rtl';
+			}
 			createEditors(hiddenCats, true);
 		}
 		// And finally add the "multi-mode" span. (Do this at the end, otherwise it ends up in the list above.)
 		var enableMulti = make('span');
 		enableMulti.className = 'noprint';
-		if (is_rtl) enableMulti.dir = 'rtl';
+		if (is_rtl) {
+			enableMulti.dir = 'rtl';
+		}
 		catLine.insertBefore(enableMulti, catLine.firstChild.nextSibling);
 		enableMulti.appendChild(make('\xa0', true)); // nbsp
 		multiSpan = make('span');
@@ -2835,12 +3230,16 @@ function setup(additionalWork) {
 		lk.style.cursor = 'pointer';
 	}
 	cleanedText = null;
-	if (additionalWork instanceof Function) additionalWork();
+	if (additionalWork instanceof Function) {
+		additionalWork();
+	}
 	mw.hook('hotcat.ready').fire(); // Execute registered callback functions
 	$('body').trigger('hotcatSetupCompleted');
 }
 function createCommitForm() {
-	if (commitForm) return;
+	if (commitForm) {
+		return;
+	}
 	var formContainer = make('div');
 	formContainer.style.display = 'none';
 	document.body.appendChild(formContainer);
@@ -2852,7 +3251,9 @@ function getPage() {
 	// We know we have an article here.
 	if (!conf.wgArticleId) {
 		// Doesn't exist yet. Disable on non-existing User pages -- might be a global user page.
-		if (conf.wgNamespaceNumber === 2) return;
+		if (conf.wgNamespaceNumber === 2) {
+			return;
+		}
 		pageText = '';
 		pageTime = null;
 		setup(createCommitForm);
@@ -2873,14 +3274,18 @@ function getPage() {
 
 function setState(state) {
 	var cats = state.split('\n');
-	if (!cats.length) return null;
+	if (!cats.length) {
+		return null;
+	}
 	if (initialized && editors.length === 1 && editors[0].isAddCategory) {
 		// Insert new spans and create new editors for them.
 		var newSpans = [];
 		var before = editors.length === 1 ? editors[0].span : null;
 		var i;
 		for (i = 0; i < cats.length; i++) {
-			if (!cats[i].length) continue;
+			if (!cats[i].length) {
+				continue;
+			}
 			var cat = cats[i].split('|');
 			var key = cat.length > 1 ? cat[1] : null;
 			cat = cat[0];
@@ -2890,9 +3295,13 @@ function setState(state) {
 			lk.title = cat;
 			var span = make('span');
 			span.appendChild(lk);
-			if (!i) catLine.insertBefore(make(' ', true), before);
+			if (!i) {
+				catLine.insertBefore(make(' ', true), before);
+			}
 			catLine.insertBefore(span, before);
-			if (before && i + 1 < cats.length) parent.insertBefore(make(' | ', true), before);
+			if (before && i + 1 < cats.length) {
+				parent.insertBefore(make(' | ', true), before);
+			}
 			newSpans.push({
 				element: span,
 				title: cat,
@@ -2900,7 +3309,9 @@ function setState(state) {
 			});
 		}
 		// And change the last one...
-		if (before) before.parentNode.insertBefore(make(' | ', true), before);
+		if (before) {
+			before.parentNode.insertBefore(make(' | ', true), before);
+		}
 		for (i = 0; i < newSpans.length; i++) {
 			// eslint-disable-next-line no-new
 			new CategoryEditor(catLine, newSpans[i].element, newSpans[i].title, newSpans[i].key);
@@ -2914,7 +3325,9 @@ function getState() {
 		var text = editors[i].currentCategory;
 		var key = editors[i].currentKey;
 		if (text && text.length) {
-			if (key !== null) text += '|' + key;
+			if (key !== null) {
+				text += '|' + key;
+			}
 			if (result === null) {
 				result = text;
 			} else {
@@ -2930,15 +3343,21 @@ function really_run() {
 		setup_upload();
 		setup(function () {
 			// Check for state restoration once the setup is done otherwise, but before signalling setup completion
-			if (window.UploadForm && UploadForm.previous_hotcat_state) UploadForm.previous_hotcat_state = setState(UploadForm.previous_hotcat_state);
+			if (window.UploadForm && UploadForm.previous_hotcat_state) {
+				UploadForm.previous_hotcat_state = setState(UploadForm.previous_hotcat_state);
+			}
 		});
 	} else {
-		if (!conf.wgIsArticle || conf.wgAction !== 'view' || param('diff') !== null || param('oldid') !== null || !can_edit() || HC.disable()) return;
+		if (!conf.wgIsArticle || conf.wgAction !== 'view' || param('diff') !== null || param('oldid') !== null || !can_edit() || HC.disable()) {
+			return;
+		}
 		getPage();
 	}
 }
 function run() {
-	if (HC.started) return;
+	if (HC.started) {
+		return;
+	}
 	HC.started = true;
 	loadTrigger.register(really_run);
 }

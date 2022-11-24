@@ -1,4 +1,3 @@
-/* eslint-disable no-jquery/no-parse-html-literal */
 /**
  * SPDX-License-Identifier: CC-BY-SA-3.0
  * _addText: '{{Gadget Header|license=CC-BY-SA-4.0}}'
@@ -7,8 +6,9 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:Gadget-Cat-a-lot.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-/* eslint-disable no-jquery/no-each-util */
 /* eslint-disable camelcase */
+/* eslint-disable no-jquery/no-each-util */
+/* eslint-disable no-jquery/no-parse-html-literal */
 'use strict';
 
 /**

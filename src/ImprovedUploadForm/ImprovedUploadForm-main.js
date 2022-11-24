@@ -6,7 +6,6 @@
  * @source commons.wikimedia.org/wiki/MediaWiki:UploadForm.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-// 求闻百科注：由GFDL-1.3、CC-BY-3.0迁移至CC-BY-SA-3.0，并升级至CC-BY-SA-4.0
 'use strict';
 
 /**
@@ -16,18 +15,9 @@
  * License: Quadruple licensed GFDL, GPL, LGPL and Creative Commons Attribution 3.0 (CC-BY-3.0)
  * Choose whichever license of these you like best :-)
  */
-/* eslint-disable no-useless-concat */
-/* eslint-disable max-statements-per-line */
+/* eslint-disable camelcase, curly, max-statements-per-line, no-alert, no-bitwise, no-eval, no-new, no-useless-concat */
 /* eslint-disable no-jquery/no-sizzle */
-
-/* eslint-disable camelcase */
-/* eslint-disable no-alert */
-
-/* eslint-disable no-bitwise */
-/* eslint-disable no-new */
-/* eslint-disable no-eval */
-/* eslint-disable curly */
-/* UFUtils, UFUI, UFHelp, UploadForm are made global */ // UFUI is used by HotCat
+/* UFUtils, UFUI, UFHelp, UploadForm are made global (UFUI is used by HotCat) */
 /* global Buttons, EditTools, LanguageHandler, Tooltip, TextCleaner, UIElements, FormRestorer */
 /* global hotcat_set_state, hotcat_close_form, hotcat_get_state */ // by HotCat
 /* global wgUploadLicenseObj, wgUploadWarningObj */
