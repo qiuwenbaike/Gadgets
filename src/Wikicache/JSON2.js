@@ -15,8 +15,6 @@
 // Polyfill
 // eslint-disable-next-line no-implicit-globals
 function _typeof(obj) {
-	'@babel/helpers - typeof';
-
 	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef, no-shadow
 	return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
 		return typeof obj;
