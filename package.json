@@ -10,7 +10,9 @@
 		"eslint:fix": "eslint . --fix",
 		"stylelint": "stylelint src/**/*.css",
 		"stylelint:fix": "stylelint src/**/*.css --fix",
-		"babel": "babel -d src src && eslint . --fix",
+		"lint": "eslint . && stylelint src/**/*.css",
+		"lint:fix": "eslint . --fix && stylelint src/**/*.css --fix",
+		"babel": "babel -d src src && eslint . --fix && stylelint src/**/*.css --fix",
 		"deploy": "node scripts/deploy.js"
 	},
 	"devDependencies": {
