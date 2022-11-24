@@ -361,13 +361,13 @@ cite {
 	font-style: normal;
 }
 
-@media screen and ( max-width: 768px ) {
+@media screen and ( max-width: 850px ) {
 	.nomobile {
 		display: none;
 	}
 }
 
-@media screen and ( min-width: 768px ) {
+@media screen and ( min-width: 850px ) {
 	.mobileonly,
 	.onlymobile {
 		display: none;
@@ -573,7 +573,7 @@ big {
 	margin: 1em auto;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 850px ) {
 	.fileinfotpl-type-information {
 		max-width: 100%;
 		width: 100%;

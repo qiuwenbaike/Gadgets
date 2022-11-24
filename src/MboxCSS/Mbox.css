@@ -315,7 +315,7 @@ body.mediawiki .mbox-small-left {
 }
 
 /* Style for mboxes on small-screen pages */
-@media screen and ( max-width: 768px ) {
+@media screen and ( max-width: 850px ) {
 	.mbox,
 	.mbox-small {
 		max-width: 100%;
