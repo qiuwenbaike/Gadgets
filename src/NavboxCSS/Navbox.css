@@ -294,12 +294,13 @@
 }
 
 /* 适配手机版hlist显示 */
-.skin-minerva .content ul.hlist,
-.skin-minerva .content ol.hlist,
-.skin-minerva .content .hlist ul,
-.skin-minerva .content .hlist ol {
-	padding-left: unset;
-}
+/* .skin-minerva .content ul.hlist,
+ * .skin-minerva .content ol.hlist,
+ * .skin-minerva .content .hlist ul,
+ * .skin-minerva .content .hlist ol {
+ * 	padding-left: unset;
+ * }
+ */
 
 /* 变量部分，请忽略下方所有的编辑器报错 */
 :root {

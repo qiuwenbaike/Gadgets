@@ -43,8 +43,7 @@ mw.loader.load('/index.php?title=MediaWiki:Gadget-ImprovedUploadForm-Tooltips.js
 var UFConfig = {
 	// Configuration. These can be set by a user in their user js. The typeof checks
 	// are not really needed when this script is globally enabled, but until then, we have to be
-	// careful not to overwrite a user's settings if he defines these first and then includes this
-	// script in his monobook.js.
+	// careful not to overwrite a user's settings if he defines these first.
 
 	forcebasic: window.UploadForm_forcebasic !== undefined ? window.UploadForm_forcebasic :
 	// eslint-disable-next-line es-x/no-array-prototype-keys
@@ -378,7 +377,7 @@ var UFHelp = window.UFHelp = {
 		border: '1px solid #88A',
 		backgroundColor: '#f7f8ff',
 		padding: '0.3em',
-		fontSize: mw.config.get('skin') === 'monobook' || mw.config.get('skin') === 'modern' ? '127%' : 'auto'
+		fontSize: 'auto'
 		// Scale up to default text size
 	},
 
@@ -2193,8 +2192,7 @@ var UploadFormFull = {
 			}
 		}
 
-		// Init the field states. Cannot be done earlier, otherwise definitions in user's
-		// monobook.js (or modern.js, or ...) won't be taken aboard.
+		// Init the field states. Cannot be done earlier, otherwise definitions in user's JS won't be taken aboard.
 		UploadFormFull.field_state = {
 			wpSource: {
 				height: UFConfig.source_field_size

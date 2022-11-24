@@ -37,7 +37,7 @@
  * 5. Add the following code to your wiki's [[MediaWiki:Gadgets-definition]]:
  *
  *     * UTCLiveClock[ResourceLoader|type=general|dependencies=mediawiki.util,mediawiki.api|peers=UTCLiveClock-pagestyles]|UTCLiveClock.js|UTCLiveClock.css
- *     * UTCLiveClock-pagestyles[hidden|skins=vector,monobook]|UTCLiveClock-pagestyles.css
+ *     * UTCLiveClock-pagestyles[hidden|skins=vector]|UTCLiveClock-pagestyles.css
  *
  *
  * To set the timezone used to one other than UTC, set window.LiveClockTimeZone to
@@ -109,7 +109,6 @@ mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 		// effect of the p-personal menu jumping to the left when the JavaScript
 		// loads.
 		$('.client-js > body.skin-vector #p-personal ul').css('margin-right', 'initial');
-		$('.client-js > body.skin-monobook #p-personal ul').css('margin-right', 'initial');
 
 		// Add the portlet link.
 		var node = mw.util.addPortletLink('p-personal', mw.util.getUrl(null, {

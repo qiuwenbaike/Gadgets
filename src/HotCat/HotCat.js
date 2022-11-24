@@ -2599,24 +2599,7 @@ function initialize() {
 }
 function can_edit() {
 	var container = null;
-	switch (mw.config.get('skin')) {
-		case 'cologneblue':
-			container = document.getElementById('quickbar');
-			/* fall through */
-		case 'standard':
-		case 'nostalgia':
-			if (!container) container = document.getElementById('topbar');
-			var lks = container.getElementsByTagName('a');
-			for (var i = 0; i < lks.length; i++) {
-				if (param('title', lks[i].href) === conf.wgPageName && param('action', lks[i].href) === 'edit') {
-					return true;
-				}
-			}
-			return false;
-		default:
-			// all modern skins:
-			return document.getElementById('ca-edit') !== null;
-	}
+	return document.getElementById('ca-edit') !== null;
 }
 
 // Legacy stuff

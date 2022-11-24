@@ -6436,7 +6436,6 @@ $(function () {
 			case 'history':
 			case 'whatLinksHere':
 			case 'userPage':
-			case 'monobook':
 			case 'userTalk':
 			case 'talk':
 			case 'article':
@@ -6458,8 +6457,6 @@ $(function () {
 			case 'newUserTalk':
 			case 'editUserTalk':
 			case 'userPage':
-			case 'monobook':
-			case 'editMonobook':
 			case 'blocklog':
 				this.article = this.article.userName(true);
 				/* fall through */
@@ -6467,9 +6464,6 @@ $(function () {
 			case 'deletelog':
 			case 'protectlog':
 				delete this.oldid;
-		}
-		if (this.id === 'editMonobook' || this.id === 'monobook') {
-			this.article.append('/monobook.js');
 		}
 		if (this.id !== 'mainlink') {
 			// FIXME anchor handling should be done differently with Title object
@@ -6621,8 +6615,6 @@ $(function () {
 				break;
 			case 'userPage':
 			case 'article':
-			case 'monobook':
-			case 'editMonobook':
 			case 'editArticle':
 				delete this.oldid;
 				// alert(this.id+'\n'+this.article + '\n'+ typeof this.article);

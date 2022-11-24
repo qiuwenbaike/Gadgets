@@ -21,7 +21,6 @@ body.ltr h1.firstHeading .mw-editsection-bracket:not( :first-of-type ) {
 	color: #555;
 }
 
-/* For desktop Minerva skin T190989 */
 .page-heading .mw-editsection a {
 	display: inline-block;
 	font-size: 1em;
