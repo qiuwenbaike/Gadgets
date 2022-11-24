@@ -8,8 +8,24 @@
 /* eslint-disable no-script-url */
 'use strict';
 
-window.banPage = function banPage(targetName, summary) {
-	var api = new mw.Api();
+window.banPage = function banPage() {
+	var api = new mw.Api(),
+		targetName = '',
+		summary = '禁用此';
+	switch (mw.config.get('wgNamespaceNumber')) {
+		case 6:
+			targetName += 'File:Banned Images.svg';
+			summary += '图片';
+			break;
+		case 10:
+			targetName += 'Template:Void';
+			summary += '模板';
+			break;
+		default:
+			targetName += 'Qiuwen:首页';
+			summary += '页面';
+			break;
+	}
 	api.edit(mw.config.get('wgPageName'), function () {
 		return {
 			text: '#REDIRECT [[' + targetName + ']]',
@@ -28,13 +44,13 @@ window.banPage = function banPage(targetName, summary) {
 $(function () {
 	switch (mw.config.get('wgNamespaceNumber')) {
 		case 6:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("File:Banned Images.svg", "禁用此图片");', '禁用此图片');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此图片');
 			break;
 		case 10:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("Template:Void", "禁用此模板");', '禁用此模板');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此模板');
 			break;
 		default:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("Qiuwen:首页", "禁用此页面");', '禁用此页面');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此页面');
 			break;
 	}
 });
