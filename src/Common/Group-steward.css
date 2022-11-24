@@ -33,6 +33,34 @@ td.steward-show {
 li.steward-show {
 	display: list-item !important;
 }
+
+/* Show hidden items that have class="senioreditor-show". */
+div.senioreditor-show,
+p.senioreditor-show {
+	display: block !important;
+}
+
+span.senioreditor-show,
+small.senioreditor-show {
+	display: inline !important;
+}
+
+table.senioreditor-show {
+	display: table !important;
+}
+
+tr.senioreditor-show {
+	display: table-row !important;
+}
+
+td.senioreditor-show {
+	display: table-cell !important;
+}
+
+li.senioreditor-show {
+	display: list-item !important;
+}
+
 /* Show hidden items that have class="sysop-show". */
 div.sysop-show,
 p.sysop-show {
