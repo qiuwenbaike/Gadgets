@@ -2598,7 +2598,6 @@ function initialize() {
 	}
 }
 function can_edit() {
-	var container = null;
 	return document.getElementById('ca-edit') !== null;
 }
 
