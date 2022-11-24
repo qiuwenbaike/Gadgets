@@ -25,25 +25,16 @@ window.banPage = function banPage(targetName, summary) {
 		window.location.href = mw.config.get('wgServer') + mw.config.get('wgScript') + '?title=' + mw.config.get('wgPageName');
 	});
 };
-window.banImage = function banImage() {
-	window.banPage('File:Banned Images.svg', '禁用此图片');
-};
-window.banTemplate = function banTemplate() {
-	window.banPage('Template:Void', '禁用此模板');
-};
-window.banArticle = function banArticle() {
-	window.banPage('Qiuwen:首页', '禁用此页面');
-};
 $(function () {
 	switch (mw.config.get('wgNamespaceNumber')) {
 		case 6:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banImage();', '禁用此图片');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("File:Banned Images.svg", "禁用此图片");', '禁用此图片');
 			break;
 		case 10:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banTemplate();', '禁用此模板');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("Template:Void", "禁用此模板");', '禁用此模板');
 			break;
 		default:
-			mw.util.addPortletLink('p-cactions', 'javascript:window.banArticle();', '禁用此页面');
+			mw.util.addPortletLink('p-cactions', 'javascript:window.banPage("Qiuwen:首页", "禁用此页面");', '禁用此页面');
 			break;
 	}
 });
