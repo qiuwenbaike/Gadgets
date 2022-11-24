@@ -123,7 +123,7 @@ catALot = window.catALot = {
 			});
 		}
 		if (mw.util.getParamValue('withJS') === 'MediaWiki:Gadget-Cat-a-lot.js' && !mw.util.getParamValue('withCSS') || mw.loader.getState('ext.gadget.Cat-a-lot') === 'registered') {
-			return mw.loader.load('index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css', 'text/css');
+			return mw.loader.load('/index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css', 'text/css');
 		}
 		var reCat = new RegExp('^\\s*' + catALot.localizedRegex(nsCat, 'Category') + ':', '');
 		$searchInput.on('keypress', function (e) {
