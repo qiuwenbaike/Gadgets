@@ -223,7 +223,7 @@
 	justify-content: flex-end;
 }
 
-@media screen and ( max-width: 850px ) {
+@media screen and ( max-width: 768px ) {
 	.mobileplainbox > .navbox-group {
 		text-align: center;
 		justify-content: center;

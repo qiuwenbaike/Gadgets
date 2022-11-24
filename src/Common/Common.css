@@ -356,18 +356,18 @@ sup.reference a {
 	background: none;
 }
 
-/* 解决cite定位内文字显示为斜体的问题 */
+/* 解决<cite>定位内文字显示为斜体的问题 */
 cite {
 	font-style: normal;
 }
 
-@media screen and ( max-width: 850px ) {
+@media screen and ( max-width: 768px ) {
 	.nomobile {
 		display: none;
 	}
 }
 
-@media screen and ( min-width: 850px ) {
+@media screen and ( min-width: 768px ) {
 	.mobileonly,
 	.onlymobile {
 		display: none;
@@ -573,7 +573,7 @@ big {
 	margin: 1em auto;
 }
 
-@media ( max-width: 850px ) {
+@media ( max-width: 768px ) {
 	.fileinfotpl-type-information {
 		max-width: 100%;
 		width: 100%;
