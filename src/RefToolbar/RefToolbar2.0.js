@@ -6,9 +6,7 @@
  * @source https://zh.wikipedia.org/wiki/MediaWiki:RefToolbar.js
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* eslint-disable block-scoped-var */
-/* eslint-disable no-redeclare */
-/* eslint-disable no-use-before-define */
+/* eslint-disable block-scoped-var, no-redeclare, no-use-before-define */
 /* eslint-disable no-jquery/no-trim */
 'use strict';
 

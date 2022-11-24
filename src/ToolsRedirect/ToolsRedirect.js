@@ -7,8 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable camelcase, no-shadow */
-/* eslint-disable no-jquery/no-sizzle */
-/* eslint-disable no-jquery/no-each-util */
+/* eslint-disable no-jquery/no-sizzle, no-jquery/no-each-util */
 'use strict';
 
 /* <nowiki> */

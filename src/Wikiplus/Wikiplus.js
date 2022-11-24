@@ -7,8 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* eslint-disable block-scoped-var, camelcase, no-implicit-globals, no-new-func, no-shadow, no-script-url, no-unused-vars */
-/* eslint-disable es-x/no-array-prototype-includes */
-/* eslint-disable es-x/no-string-prototype-includes */
+/* eslint-disable es-x/no-array-prototype-includes, es-x/no-string-prototype-includes */
 'use strict';
 
 /**

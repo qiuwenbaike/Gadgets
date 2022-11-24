@@ -7,9 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* global CiteTB */
-/* eslint-disable no-undef */
-/* eslint-disable no-redeclare */
-/* eslint-disable block-scoped-var */
+/* eslint-disable block-scoped-var, no-undef, no-redeclare */
 /* eslint-disable no-jquery/no-in-array */
 'use strict';
 
