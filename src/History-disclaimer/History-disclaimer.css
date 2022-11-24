@@ -27,25 +27,15 @@
 	}
 }
 
-.skin-vector #history-disclaimer {
-	inset: 5em 0 0 11.5em;
-}
-
+.skin-vector #history-disclaimer,
 .skin-vector-legacy #history-disclaimer {
 	inset: 5em 0 0 10em;
 }
 
-.skin-vector-disable-max-width .mw-checkbox-hack-checkbox:checked ~ .skin-vector #history-disclaimer {
-	inset: 5em 0 0 11.5em;
-}
-
 @media screen and ( max-width: 768px ) {
-	.skin-vector #history-disclaimer {
-		inset: 5em 0 0;
-	}
-
+	.skin-vector #history-disclaimer,
 	.skin-vector-legacy #history-disclaimer {
-		inset: 50em 0 0;
+		inset: 5em 0 0;
 	}
 }
 
