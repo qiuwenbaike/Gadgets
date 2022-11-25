@@ -7,7 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable camelcase */
-/* eslint-disable no-jquery/no-parse-html-literal, no-jquery/no-each-util */
+/* eslint-disable no-jquery/no-each-util */
 'use strict';
 
 /**
@@ -190,7 +190,6 @@ catALot = window.catALot = {
 	findAllLabels: function findAllLabels() {
 		// It's possible to allow any kind of pages as well but what happens if you click on "select all" and don't expect it
 		if (this.searchmode) {
-			// eslint-disable-next-line no-jquery/no-sizzle
 			this.labels = $('table.searchResultImage').find('tr>td:eq(1)');
 			if (this.settings.editpages) {
 				this.labels = this.labels.add('div.mw-search-result-heading');

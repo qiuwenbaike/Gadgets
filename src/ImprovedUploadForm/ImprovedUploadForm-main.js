@@ -16,7 +16,6 @@
  * Choose whichever license of these you like best :-)
  */
 /* eslint-disable camelcase, curly, max-statements-per-line, no-alert, no-bitwise, no-eval, no-new, no-useless-concat */
-/* eslint-disable no-jquery/no-sizzle */
 /* UFUtils, UFUI, UFHelp, UploadForm are made global (UFUI is used by HotCat) */
 /* global Buttons, EditTools, LanguageHandler, Tooltip, TextCleaner, UIElements, FormRestorer */
 /* global hotcat_set_state, hotcat_close_form, hotcat_get_state */ // by HotCat

@@ -135,7 +135,7 @@ mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 		});
 
 		// Show the clock.
-		// eslint-disable-next-line no-jquery/no-sizzle
+
 		showTime($(node).find('a:first'));
 	}
 	$(liveClock);

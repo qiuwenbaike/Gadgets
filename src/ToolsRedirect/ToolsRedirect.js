@@ -7,7 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable camelcase, no-shadow */
-/* eslint-disable no-jquery/no-sizzle, no-jquery/no-each-util */
+/* eslint-disable no-jquery/no-each-util */
 'use strict';
 
 /* <nowiki> */
@@ -24,7 +24,6 @@ var _TR,
 	SUFFIX_REPLACE = 1,
 	SUFFIX_SETDEFAULT = 2,
 	_nsCanonPrefix = origPageName.split(':')[0] + ':',
-	// eslint-disable-next-line no-jquery/no-map-util
 	_nsPrefixPattern = $.map(mw.config.get('wgNamespaceIds'), function (nsid, text) {
 		return nsid === nsNumber ? text : null;
 	}).join('|');

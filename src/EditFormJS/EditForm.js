@@ -131,7 +131,6 @@ mw.loader.using('oojs-ui-core', function () {
 		} catch (e) {
 			return;
 		}
-		// eslint-disable-next-line no-jquery/no-sizzle
 		if (!$('#wikiPreview, #wikiDiff').is(':visible')) {
 			if (saveButton.isDisabled()) {
 				return;

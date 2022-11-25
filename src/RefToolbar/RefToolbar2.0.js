@@ -912,7 +912,6 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 	// MISC FUNCTIONS
 	// Determine which template form is open, and get the template object for it
 	CiteTB.getOpenTemplate = function () {
-		// eslint-disable-next-line no-jquery/no-sizzle
 		var dialogs = $('.ui-dialog-content.ui-widget-content:visible');
 		var templatename = $(dialogs[0]).find('.cite-template').val();
 		return CiteTB.Templates[templatename];

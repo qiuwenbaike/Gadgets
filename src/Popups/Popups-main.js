@@ -2788,8 +2788,7 @@ $(function () {
   // Schematic for a getWiki call
   //
   //             getPageWithCaching
-  // eslint-disable-next-line no-tabs
-  //					|
+  //                  |
   //     false        |         true
   // getPage<-[findPictureInCache]->-onComplete(a fake download)
   //   \.

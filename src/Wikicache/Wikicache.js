@@ -6,7 +6,7 @@
  * @source zh.wikipedia.org/w/index.php?oldid=65190708
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
-/* eslint-disable no-jquery/no-sizzle */
+
 'use strict';
 
 /* <nowiki> */

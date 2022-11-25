@@ -130,17 +130,14 @@ mw.loader.using([ 'mediawiki.user', 'mediawiki.util', 'jquery.cookie' ], functio
 				}
 			});
 			$textHintNode = $('<ul>');
-			// eslint-disable-next-line no-jquery/no-constructor-attributes
 			$('<li>').append($('<a>', {
 				href: '#',
 				text: 'Disable this feature.'
 			}).data('addText', '\nwindow.HotCatAutoRemoveCheckCatOptOut = true;').on('click', _addToJS)).appendTo($textHintNode);
-			// eslint-disable-next-line no-jquery/no-constructor-attributes
 			$('<li>').append($('<a>', {
 				href: '#',
 				text: 'Remove {{check categories}} when editing using HotCat without prompting.'
 			}).data('addText', '\nwindow.HotCatAutoRemoveCheckCat = true;').on('click', _addToJS)).appendTo($textHintNode);
-			// eslint-disable-next-line no-jquery/no-constructor-attributes
 			$permaSaveHint = createNotifyArea($('<span>', {
 				text: 'Save these setting in your common.js: '
 			}).append($textHintNode), 'ui-icon-info', 'ui-state-highlight');
@@ -189,7 +186,6 @@ mw.loader.using([ 'mediawiki.user', 'mediawiki.util', 'jquery.cookie' ], functio
 	});
 
 	// Add OK-Link to the cats panel
-	// eslint-disable-next-line no-jquery/no-constructor-attributes
 	var $okLink = $('<a>', {
 		href: '#',
 		html: '<s>{{Check categories}}</s>',
@@ -252,7 +248,6 @@ mw.loader.using([ 'mediawiki.user', 'mediawiki.util', 'jquery.cookie' ], functio
 		});
 	});
 	$(function () {
-		// eslint-disable-next-line no-jquery/no-sizzle
 		$('#catlinks').find('ul:first').append($('<li>').append($okLink));
 	});
 });

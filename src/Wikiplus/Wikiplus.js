@@ -1794,7 +1794,6 @@ $(function () {
 				console.log('正在加载Wikiplus ' + this.version);
 				// 载入CSS
 				$('head').append('<link>');
-				// eslint-disable-next-line no-jquery/no-sizzle
 				$('head').children(':last').attr({
 					rel: 'stylesheet',
 					type: 'text/css',

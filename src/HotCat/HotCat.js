@@ -2885,7 +2885,7 @@ function initialize() {
 			};
 			cArr = except(oldLines, newLines);
 			if (cArr.length) {
-				// eslint-disable-next-line no-jquery/no-grep
+
 				cArr = $.grep(cArr, function (c) {
 					// eslint-disable-next-line no-jquery/no-trim
 					c = $.trim(c);

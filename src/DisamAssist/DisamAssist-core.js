@@ -8,7 +8,7 @@
  */
 /* eslint-disable no-alert, no-unused-vars, no-use-before-define, no-shadow  */
 /* eslint-disable no-jquery/no-in-array */
-/* eslint-disable no-jquery/no-grep */
+
 /* eslint-disable no-jquery/no-each-util */
 'use strict';
 
