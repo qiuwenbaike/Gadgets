@@ -28,7 +28,7 @@
 	}
 }
 
-@media screen and ( max-width: 850px ) {
+@media screen and ( max-width: 768px ) {
 	.skin-gongbi #historyDisclaimer {
 		inset: 0 0 0;
 	}

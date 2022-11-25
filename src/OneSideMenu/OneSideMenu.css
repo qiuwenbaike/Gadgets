@@ -7,7 +7,7 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
 /* One-sided navigation menu */
-@media ( min-width: 850px ) {
+@media ( min-width: 768px ) {
 	#mw-content-block {
 		display: block;
 	}
