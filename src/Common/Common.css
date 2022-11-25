@@ -126,6 +126,7 @@ ol.references .mw-extended-references {
 	margin-left: 1.25em;
 	margin-bottom: 0.3em;
 }
+
 /* Make the list of references smaller */
 ol.references,
 div.reflist {
@@ -555,6 +556,7 @@ big {
 #mwe-upwiz-upload-ctrl-flickr-container {
 	display: none;
 }
+
 /* 文件信息页面 */
 .licensetpl_wrapper,
 .licensetpl_metadata {
@@ -702,7 +704,6 @@ tt span.bot {
 	/* stylelint-disable-next-line declaration-property-unit-disallowed-list */
 	font-size: 12px;
 }
-/* tt span.unpatrolled */
 
 /* 用于封禁类模板，如Template:Uw-block1 */
 div.user-block {
