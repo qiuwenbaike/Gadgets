@@ -22,12 +22,12 @@ dfn {
 
 body,
 input {
-	font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body:lang( zh-hant ),
 input:lang( zh-hant ) {
-	font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Source Han Sans TC', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Source Han Sans TC', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 .mw-editfont-monospace,
@@ -50,7 +50,7 @@ kbd,
 pre,
 samp,
 tt {
-	font-family: 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', 'Source Han Mono SC', monospace;
+	font-family: 'Noto Mono', 'Source Han Mono SC', 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', monospace;
 }
 
 .content code:lang( zh-hant ),
@@ -66,7 +66,7 @@ kbd:lang( zh-hant ),
 pre:lang( zh-hant ),
 samp:lang( zh-hant ),
 tt:lang( zh-hant ) {
-	font-family: 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', 'Source Han Mono TC', monospace;
+	font-family: 'Noto Mono', 'Source Han Mono TC', 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', monospace;
 }
 
 .mw-body h1,
@@ -82,7 +82,7 @@ tt:lang( zh-hant ) {
 #p-logo-text a,
 .mw-logo-wordmark,
 #mw-site-navigation .sidebar-chunk h3 {
-	font-family: 'Source Serif', 'Times New Roman', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
+	font-family: 'Noto Serif', 'Noto Serif SC', 'Source Serif', 'Source Han Serif SC', 'Times New Roman', 'Times', 'STSong', 'SimSun', serif;
 }
 
 .mw-body h1:lang( zh-hant ),
@@ -98,7 +98,7 @@ tt:lang( zh-hant ) {
 #p-logo-text a:lang( zh-hant ),
 .mw-logo-wordmark:lang( zh-hant ),
 #mw-site-navigation .sidebar-chunk h3:lang( zh-hant ) {
-	font-family: 'Source Serif', 'Times New Roman', 'Source Han Serif TC', 'MingLiU', 'SimSun', serif;
+	font-family: 'Noto Serif', 'Noto Serif TC', 'Source Serif', 'Source Han Serif TC', 'Times New Roman', 'Times', 'MingLiU', 'SimSun', serif;
 }
 
 .CodeMirror-wrap pre.CodeMirror-line,
@@ -792,11 +792,11 @@ input.mw-summary {
 
 /* Noarticletext */
 .noarticletext {
-	font-family: 'Source Serif', 'Source Han Serif SC', 'Times New Roman', 'Noto Serif', 'Noto Serif SC', 'STSong', 'SimSun', serif;
+	font-family: 'Noto Serif', 'Noto Serif SC', 'Source Serif', 'Source Han Serif SC', 'Times New Roman', 'Times', 'STSong', 'SimSun', serif;
 }
 
 .noarticletext:lang( zh-hant ) {
-	font-family: 'Source Serif', 'Source Han Serif TC', 'Times New Roman', 'Noto Serif', 'Noto Serif TC', 'MingLiU', 'SimSun', serif;
+	font-family: 'Noto Serif', 'Noto Serif TC', 'Source Serif', 'Source Han Serif TC', 'Times New Roman', 'Times', 'MingLiU', 'SimSun', serif;
 }
 
 .noarticletext-core {
