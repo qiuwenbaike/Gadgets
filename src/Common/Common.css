@@ -22,12 +22,12 @@ dfn {
 
 body,
 input {
-	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body:lang( zh-hant ),
 input:lang( zh-hant ) {
-	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Source Han Sans TC', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Han Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 .mw-editfont-monospace,
@@ -50,7 +50,7 @@ kbd,
 pre,
 samp,
 tt {
-	font-family: 'Noto Mono', 'Source Han Mono SC', 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', monospace;
+	font-family: 'Noto Mono', 'Source Code Pro', 'Source Han Mono SC', 'Consolas', 'Monaco', 'Courier', monospace;
 }
 
 .content code:lang( zh-hant ),
@@ -66,7 +66,7 @@ kbd:lang( zh-hant ),
 pre:lang( zh-hant ),
 samp:lang( zh-hant ),
 tt:lang( zh-hant ) {
-	font-family: 'Noto Mono', 'Source Han Mono TC', 'Consolas', 'Monaco', 'Courier', 'Source Code Pro', monospace;
+	font-family: 'Noto Mono', 'Source Code Pro', 'Source Han Mono TC', 'Consolas', 'Monaco', 'Courier', monospace;
 }
 
 .mw-body h1,
@@ -482,8 +482,12 @@ big {
  */
 /* Gadgets-definition大字号 */
 .rootpage-MediaWiki_Gadgets-definition .mw-parser-output li {
-	font-family: monospace;
+	font-family: 'Noto Mono', 'Source Code Pro', 'Source Han Mono SC', 'Consolas', 'Monaco', 'Courier', monospace;
 	font-size: 1.2em;
+}
+
+.rootpage-MediaWiki_Gadgets-definition:lang( zh-hant ) .mw-parser-output li {
+	font-family: 'Noto Mono', 'Source Code Pro', 'Source Han Mono TC', 'Consolas', 'Monaco', 'Courier', monospace;
 }
 
 /* [[Special:小工具]]行距 */
