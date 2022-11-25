@@ -103,7 +103,7 @@ mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 	function liveClock() {
 		// Set CSS styles. We do this here instead of on the CSS page because some
 		// wikis load this page directly, without loading the accompanying CSS.
-		mw.util.addCSS('#utcdate a { font-weight:bolder; font-size:120%; }');
+		mw.util.addCSS('#utcdate a{font-weight:bolder;font-size:120%}');
 
 		// Reset whitespace that was set in the peer CSS gadget; this prevents the
 		// effect of the p-personal menu jumping to the left when the JavaScript
