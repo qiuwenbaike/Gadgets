@@ -42,17 +42,5 @@ window.banPage = function banPage() {
 	});
 };
 $(function () {
-	var banPageTitle = '禁用此';
-	switch (mw.config.get('wgNamespaceNumber')) {
-		case 6:
-			banPageTitle += '图片';
-			break;
-		case 10:
-			banPageTitle += '模板';
-			break;
-		default:
-			banPageTitle += '页面';
-			break;
-	}
-	mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', banPageTitle);
+	mw.util.addPortletLink('p-cactions', 'javascript:window.banPage();', '禁用此页面');
 });

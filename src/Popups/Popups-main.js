@@ -12,15 +12,14 @@
 // Polyfill
 // eslint-disable-next-line no-implicit-globals
 function _typeof(obj) {
-	// eslint-disable-next-line no-return-assign, no-func-assign, no-undef
-	return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
-		return typeof obj;
-
-	} : function (obj) {
-		// eslint-disable-next-line no-undef
-		return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
-		// eslint-disable-next-line no-sequences
-	}, _typeof(obj);
+  // eslint-disable-next-line no-return-assign, no-func-assign, no-undef
+  return _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    // eslint-disable-next-line no-undef
+    return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
+    // eslint-disable-next-line no-sequences
+  }, _typeof(obj);
 }
 
 // STARTFILE: main.js
