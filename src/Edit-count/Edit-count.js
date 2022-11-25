@@ -10,6 +10,6 @@
 
 (function (a) {
 if (a !== null) {
-	mw.loader.addStyleTag('#pt-mycontris>a::after, .menu__item--userContributions>span>span::after, #mw-mf-page-left .menu__item--userContributions>span::after {content: " (' + a + ')"}');
+	mw.loader.addStyleTag('#mw-mf-page-left .menu__item--userContributions>span::after,#pt-mycontris>a::after,.menu__item--userContributions>span>span::after{content:"（' + a + '）"}');
 }
 }(mw.config.get('wgUserEditCount')));
