@@ -8,7 +8,6 @@
  */
 /* global CiteTB */
 /* eslint-disable block-scoped-var, no-undef, no-redeclare */
-/* eslint-disable no-jquery/no-in-array */
 'use strict';
 
 if (window.CiteTB === undefined) {
@@ -80,6 +79,7 @@ window.citeTemplate = function (templatename, shortform, basicfields, expandedfi
 				field = fieldobj.field.replace('<N>', incrval.toString());
 				labelfield = fieldobj.field.replace('<N>', '');
 			}
+			// eslint-disable-next-line no-jquery/no-in-array
 			if ($.inArray(field, CiteTB.getOption('autodate fields')) !== -1) {
 				var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/7/7b/Nuvola_apps_date.svg/20px-Nuvola_apps_date.svg.png');
 				im.attr('alt', mw.usability.getMsg('cite-insert-date')).attr('title', mw.usability.getMsg('cite-insert-date'));

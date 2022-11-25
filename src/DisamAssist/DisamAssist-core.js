@@ -7,9 +7,8 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable no-alert, no-unused-vars, no-use-before-define, no-shadow  */
-/* eslint-disable no-jquery/no-in-array */
+/* eslint-disable no-jquery/no-in-array, no-jquery/no-each-util */
 
-/* eslint-disable no-jquery/no-each-util */
 'use strict';
 
 /*
