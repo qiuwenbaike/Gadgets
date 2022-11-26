@@ -19,24 +19,27 @@
 }
 
 .skin-gongbi #historyDisclaimer {
-	inset: 0 15em 0 13em;
+	inset: 5em 15em 0 13em;
 }
 
 @media screen and ( max-width: 1200px ) {
 	.skin-gongbi #historyDisclaimer {
-		inset: 0 0 0 13em;
+		inset: 5em 0 0 13em;
 	}
 }
 
 @media screen and ( max-width: 768px ) {
 	.skin-gongbi #historyDisclaimer {
-		inset: 0 0 0;
+		inset: 0;
 	}
 }
 
-.skin-vector #historyDisclaimer,
+.skin-vector #historyDisclaimer {
+	inset: 0 0 0 12em;
+}
+
 .skin-vector-legacy #historyDisclaimer {
-	inset: 0 0 0 10em;
+	inset: 0 0 0 12em;
 }
 
 @media screen and ( max-width: 768px ) {
@@ -47,7 +50,7 @@
 }
 
 .skin-write #historyDisclaimer {
-	inset: 0 0 0 15.25em;
+	inset: 0 0 0 16.25em;
 }
 
 @media screen and ( max-width: 1024px ) {
