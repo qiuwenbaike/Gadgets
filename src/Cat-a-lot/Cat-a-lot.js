@@ -7,7 +7,6 @@
  * @license <https://creativecommons.org/licenses/by-sa/4.0>
  */
 /* eslint-disable camelcase */
-/* eslint-disable no-jquery/no-each-util */
 'use strict';
 
 /**
@@ -123,7 +122,7 @@ catALot = window.catALot = {
 			});
 		}
 		if (mw.util.getParamValue('withJS') === 'MediaWiki:Gadget-Cat-a-lot.js' && !mw.util.getParamValue('withCSS') || mw.loader.getState('ext.gadget.Cat-a-lot') === 'registered') {
-			return mw.loader.load('/index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css', 'text/css');
+			mw.loader.load('/index.php?title=MediaWiki:Gadget-Cat-a-lot.css&action=raw&ctype=text/css&smaxage=3600&maxage=3600', 'text/css');
 		}
 		var reCat = new RegExp('^\\s*' + catALot.localizedRegex(nsCat, 'Category') + ':', '');
 		$searchInput.on('keypress', function (e) {
@@ -154,7 +153,7 @@ catALot = window.catALot = {
 						namespace: nsCat
 					}, function (data) {
 						if (data[1]) {
-							response($(data[1]).map(function (index, item) {
+							response($(data[1]).map(function (_index, item) {
 								return item.replace(reCat, '');
 							}));
 						}
@@ -266,7 +265,7 @@ catALot = window.catALot = {
 			if (pages[-1] && pages[-1].missing === '') {
 				$resultList.html('<span id="cat_a_lot_no_found">' + msg('cat-not-found') + '</span>');
 				document.body.style.cursor = 'auto';
-				$resultList.append('<table>');
+				$resultList.append('<table></table>');
 				catALot.createCatLinks('→', [ catALot.currentCategory ]);
 				return;
 			}
@@ -294,7 +293,7 @@ catALot = window.catALot = {
 			}
 			var regex_name = '';
 			for (var i = 0; i < name.length; i++) {
-				var initial = name.slice(i, 1);
+				var initial = name.slice(i, i + 1);
 				var ll = initial.toLowerCase();
 				var ul = initial.toUpperCase();
 				if (ll === ul) {
@@ -324,7 +323,7 @@ catALot = window.catALot = {
 		if (this._variantCache[category] !== undefined) {
 			return this._variantCache[category];
 		}
-		[ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ].forEach(function (idx, variant) {
+		[ 'zh-hans', 'zh-hant', 'zh-cn', 'zh-tw', 'zh-hg', 'zh-mo' ].forEach(function (_idx, variant) {
 			var r = $($.ajax({
 				url: baseUrl + variant,
 				async: false
@@ -349,7 +348,8 @@ catALot = window.catALot = {
 
 		// escape regexp metacharacters (= any ASCII punctuation except _)
 		category = [];
-		$.each(variants, function (idx, variant) {
+		// eslint-disable-next-line no-jquery/no-each-util
+		$.each(variants, function (_idx, variant) {
 			variant = mw.RegExp.escape(variant);
 			// any sequence of spaces and underscores should match any other
 			variant = variant.replace(/[\s_]+/g, '[\\s_]+');
@@ -421,6 +421,7 @@ catALot = window.catALot = {
 		var comment;
 
 		// Fix text
+		// eslint-disable-next-line default-case
 		switch (mode) {
 			case 'add':
 				text += '\n[[' + this.localCatName + ':' + targetcat + ']]\n';
@@ -441,8 +442,6 @@ catALot = window.catALot = {
 			case 'remove':
 				text = text.replace(this.regexBuilder(sourcecat), '');
 				comment = msgPlain('summary-remove').replace('$1', sourcecat);
-				break;
-			default:
 				break;
 		}
 		if (text === otext) {
@@ -477,6 +476,7 @@ catALot = window.catALot = {
 	},
 	markAsDone: function markAsDone(label, mode, targetcat) {
 		label.addClass('cat_a_lot_markAsDone');
+		// eslint-disable-next-line default-case
 		switch (mode) {
 			case 'add':
 				label.append('<br>' + msg('added-cat', targetcat));
@@ -489,8 +489,6 @@ catALot = window.catALot = {
 				break;
 			case 'remove':
 				label.append('<br>' + msg('removed-cat'));
-				break;
-			default:
 				break;
 		}
 	},
@@ -598,6 +596,7 @@ catALot = window.catALot = {
 		var domlist = $resultList.find('table');
 		for (var i = 0; i < list.length; i++) {
 			var $tr = $('<tr>');
+
 			// eslint-disable-next-line no-shadow
 			var $link = $('<a>'),
 				$add,
@@ -639,7 +638,7 @@ catALot = window.catALot = {
 	showCategoryList: function showCategoryList() {
 		var thiscat = [ this.currentCategory ];
 		$resultList.empty();
-		$resultList.append('<table>');
+		$resultList.append('<table></table>');
 		this.createCatLinks('↑', this.parentCats);
 		this.createCatLinks('→', thiscat);
 		this.createCatLinks('↓', this.subCats);
@@ -661,7 +660,7 @@ catALot = window.catALot = {
 	},
 	showProgress: function showProgress() {
 		document.body.style.cursor = 'wait';
-		this.progressDialog = $('<div>').html(msg('editing') + ' <span id="cat_a_lot_current">' + this.counterCurrent + '</span> ' + msg('of') + this.counterNeeded).dialog({
+		this.progressDialog = $('<div></div>').html(msg('editing') + ' <span id="cat_a_lot_current">' + this.counterCurrent + '</span> ' + msg('of') + this.counterNeeded).dialog({
 			width: 450,
 			height: 90,
 			minHeight: 90,
@@ -714,7 +713,7 @@ catALot = window.catALot = {
 		});
 	},
 	_manageSettings: function _manageSettings() {
-		window.mw.libs.SettingsUI(this.defaults, 'Cat-A-Lot').show().done(function (s, verbose, loc, settingsOut, $dlg) {
+		window.mw.libs.SettingsUI(this.defaults, 'Cat-A-Lot').show().done(function (_s, _verbose, loc, settingsOut, $dlg) {
 			var mustRestart = false,
 				_restart = function _restart() {
 					if (!mustRestart) {
@@ -741,7 +740,7 @@ catALot = window.catALot = {
 						'margin-top': Math.round(7 * oldHeight / 16)
 					}).appendTo($dlg);
 					$dlg.parent().find('.ui-dialog-buttonpane button').button('option', 'disabled', true);
-					opt.save().done(function (text, progress) {
+					opt.save().done(function (_text, progress) {
 						$prog.progressbar({
 							value: progress
 						});
@@ -749,7 +748,7 @@ catALot = window.catALot = {
 							$dlg.dialog('close');
 							_restart();
 						});
-					}).progress(function (text, progress) {
+					}).progress(function (_text, progress) {
 						$prog.progressbar({
 							value: progress
 						});
@@ -759,13 +758,15 @@ catALot = window.catALot = {
 						$dlg.prepend($('<p>').text(text));
 					});
 				};
-			$.each(settingsOut, function (n, v) {
+			// eslint-disable-next-line no-jquery/no-each-util
+			$.each(settingsOut, function (_n, v) {
 				if (v.forcerestart && catALot.settings[v.name] !== v.value) {
 					mustRestart = true;
 				}
 				catALot.settings[v.name] = v.value;
 				window.catALotPrefs[v.name] = v.value;
 			});
+			// eslint-disable-next-line default-case
 			switch (loc) {
 				case 'page':
 					$dlg.dialog('close');
@@ -773,8 +774,6 @@ catALot = window.catALot = {
 					break;
 				case 'account-publicly':
 					_saveToJS();
-					break;
-				default:
 					break;
 			}
 		});
@@ -786,11 +785,13 @@ catALot = window.catALot = {
 		if (!window.catALotPrefs) {
 			window.catALotPrefs = {};
 		}
-		$.each(this.defaults, function (n, v) {
+		// eslint-disable-next-line no-jquery/no-each-util
+		$.each(this.defaults, function (_n, v) {
 			v.value = catALot.settings[v.name] = window.catALotPrefs[v.name] || v.default;
 			v.label = msgPlain(v.label_i18n);
 			if (v.select_i18n) {
 				v.select = {};
+				// eslint-disable-next-line no-jquery/no-each-util
 				$.each(v.select_i18n, function (i18nk, val) {
 					v.select[msgPlain(i18nk)] = val;
 				});
@@ -836,6 +837,7 @@ if (nsNumber === -1 && mw.config.get('wgCanonicalSpecialPageName') === 'Search' 
 	var loadingLocalizations = 1;
 	var loadLocalization = function loadLocalization(lang, cb) {
 		loadingLocalizations++;
+		// eslint-disable-next-line default-case
 		switch (lang) {
 			case 'zh-hk':
 			case 'zh-mo':
@@ -847,8 +849,6 @@ if (nsNumber === -1 && mw.config.get('wgCanonicalSpecialPageName') === 'Search' 
 			case 'zh-my':
 			case 'zh-sg':
 				lang = 'zh-hans';
-				break;
-			default:
 				break;
 		}
 		$.ajax({
