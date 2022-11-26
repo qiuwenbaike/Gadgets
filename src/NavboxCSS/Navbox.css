@@ -251,22 +251,40 @@
 }
 
 /* Style for horizontal lists (separator following item) */
-.navbox .hlist :is( dl, ol, ul, dd, dt, li ) {
+.navbox .hlist dl,
+.navbox .hlist ol,
+.navbox .hlist ul,
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li {
 	margin: 0 !important;
 }
 
-.navbox .hlist :is( dl, ol, ul, dd, dt, li ),
-.navbox .hlist td :is( dl, ol, ul ),
-.navbox td.hlist :is( dl, ol, ul ) {
+.navbox .hlist dl,
+.navbox .hlist ol,
+.navbox .hlist ul,
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li,
+.navbox .hlist td dl,
+.navbox .hlist td ol,
+.navbox .hlist td ul,
+.navbox td.hlist dl,
+.navbox td.hlist ol,
+.navbox td.hlist ul {
 	padding: 0.125em 0;	   /* Adjust hlist padding in navboxes */
 }
 
-.navbox .hlist :is( dd, dt, li ) {
+.navbox .hlist dd,
+.navbox .hlist dt,
+.navbox .hlist li {
 	white-space: nowrap;	/* Nowrap list items in navboxes */
 }
 
-.navbox .hlist :is( dd, dt ) dl,
-.navbox .hlist li :is( ol, ul ) {
+.navbox .hlist dd dl,
+.navbox .hlist dt dl,
+.navbox .hlist li ol,
+.navbox .hlist li ul {
 	white-space: normal;	  /* But allow parent list items to be wrapped */
 }
 

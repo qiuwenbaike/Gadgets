@@ -257,21 +257,34 @@ sup.reference a {
 	line-height: 1.5em;
 }
 
-.hlist :is( dl, ol, ul ) {
-	display: inline-block;
+.hlist dl,
+.hlist ol,
+.hlist ul {
 	margin: 0 !important;
 	padding-left: 0;
 }
 
-.hlist :is( dd, dt, li ) {
+.hlist dd,
+.hlist dt,
+.hlist li {
 	display: inline;
 	margin: 0 !important;
 }
 
 /* Display nested lists inline */
 .hlist.inline,
-.hlist.inline :is( dl, ol, ul ),
-.hlist :is( dl, ol, ul ) :is( dl, ol, ul ) {
+.hlist.inline dl,
+.hlist.inline ol,
+.hlist.inline ul,
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
 	display: inline;
 }
 
@@ -280,26 +293,35 @@ sup.reference a {
 	content: ' :';
 }
 
-.hlist :is( dd, li ):after {
+.hlist dd:after,
+.hlist li:after {
 	content: ' · ';
 	font-weight: bold;
 }
 
-.hlist :is( dd, dt, li ):last-child:after {
+.hlist dd:last-child:after,
+.hlist dt:last-child:after,
+.hlist li:last-child:after {
 	content: none;
 }
 
 /* for IE 8 */
-.hlist :is( dd, dt, li ).nopunct:after {
+.hlist dd.nopunct:after,
+.hlist dt.nopunct:after,
+.hlist li.nopunct:after {
 	content: none;
 }
 
 /* Add parens around nested lists */
-.hlist :is( dl, ol, ul ) :is( dl, ol, ul ):before {
+.hlist dl dl:before,
+.hlist ol ol:before,
+.hlist ul ul:before {
 	content: '（';
 }
 
-.hlist :is( dl, ol, ul ) :is( dl, ol, ul ):after {
+.hlist dl dl:after,
+.hlist ol ol:after,
+.hlist ul ul:after {
 	content: '）';
 }
 
