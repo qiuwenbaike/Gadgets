@@ -22,12 +22,12 @@ dfn {
 
 body,
 input {
-	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body:lang( zh-hant ),
 input:lang( zh-hant ) {
-	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Han Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Han Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'STHeiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 .mw-editfont-monospace,
@@ -475,6 +475,18 @@ big {
 	background-position: center;
 	background-repeat: no-repeat;
 	padding-right: 13px;
+}
+
+/* [[Template:僻字]] */
+.inline-unihan {
+	border-bottom: 1px dotted;
+	font-variant: normal;
+	cursor: help;
+	font-family: 'Noto Sans', 'Noto Sans SC', 'Source Sans 3', 'Source Sans Pro', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, 'Plangothic P1', 'Plangothic P2', '方正宋体S-超大字符集', '方正宋体S-超大字符集(SIP)', '文泉驿等宽正黑', 'BabelStone Han', 'HanaMinB', 'FZSong-Extended', 'Arial Unicode MS', 'Code2002', 'DFSongStd', 'unifont', sans-serif;
+}
+
+.inline-unihan:lang( zh-hant ) {
+	font-family: 'Noto Sans', 'Noto Sans TC', 'Source Sans 3', 'Source Han Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'STHeiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, 'Plangothic P1', 'Plangothic P2', '方正宋体S-超大字符集', '方正宋体S-超大字符集(SIP)', '文泉驿等宽正黑', 'BabelStone Han', 'HanaMinB', 'FZSong-Extended', 'Arial Unicode MS', 'Code2002', 'DFSongStd', 'unifont', sans-serif;
 }
 
 /*
