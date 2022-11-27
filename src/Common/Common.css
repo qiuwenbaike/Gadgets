@@ -846,6 +846,11 @@ ul.permissions-errors li {
 	list-style-type: none !important;
 }
 
+ul.permissions-errors + hr {
+	border: 0;
+	margin: 0;
+}
+
 /* 不允许被保护的页面查看源代码 */
 #ca-viewsource {
 	display: none;
