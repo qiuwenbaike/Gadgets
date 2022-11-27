@@ -156,6 +156,10 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-InPageEdit-load.js'
 	},
 	{
+		file: 'src/InPageEdit/InPageEdit.css',
+		target: 'MediaWiki:Gadget-InPageEdit.css'
+	},
+	{
 		file: 'src/Wikicache/Wikicache-load.js',
 		target: 'MediaWiki:Gadget-Wikicache-load.js'
 	},
