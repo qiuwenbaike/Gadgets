@@ -564,6 +564,10 @@ const deployTargets = [
 		target: 'MediaWiki:Vector.css'
 	},
 	{
+		file: 'src/Common/Write.css',
+		target: 'MediaWiki:Write.css'
+	},
+	{
 		file: 'src/Common/Print.css',
 		target: 'MediaWiki:Print.css',
 	},
