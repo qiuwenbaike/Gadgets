@@ -14,19 +14,6 @@
 	display: none !important;
 }
 
-/* “权限错误”页面提示 */
-ul.permissions-errors {
-	margin: auto !important;
-}
-
-ul.permissions-errors li {
-	list-style-type: none !important;
-}
-
-#ca-viewsource {
-	display: none;
-}
-
 /*
  * Page-specific rules
  */
