@@ -7,4 +7,4 @@
  */
 'use strict';
 
-mw.loader.load('/index.php?title=MediaWiki:Gadget-InPageEdit.js&action=raw&ctype=text/javascript&smaxage=3600&maxage=3600');
+mw.loader.load('https://unpkg.com/mediawiki-inpageedit');
