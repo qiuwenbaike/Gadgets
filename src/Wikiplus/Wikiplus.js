@@ -124,7 +124,7 @@ function MoeNotification() {
 		});
 	};
 	this.init = function () {
-		$('body').append('<div id="MoeNotification"></div>');
+		$('body').append($('<div>').attr('id', 'MoeNotification'));
 	};
 	if (!($('#MoeNotification').length > 0)) {
 		this.init();
@@ -1291,7 +1291,6 @@ $(function () {
 										var useTime = Date.now() - timer;
 										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
 										$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(String(i18n('edit_success')).replace(/\$1/ig, useTime.toString()));
-										self.sendStatistic(sectionTargetName, useTime);
 										window.onclose = window.onbeforeunload = undefined; // 取消页面关闭确认
 										setTimeout(function () {
 											location.reload();
@@ -1318,7 +1317,6 @@ $(function () {
 												var useTime = Date.now() - timer;
 												$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
 												$('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(String(i18n('edit_success')).replace(/\$1/ig, String(useTime)));
-												self.sendStatistic(sectionTargetName, useTime);
 												window.onclose = window.onbeforeunload = undefined; // 取消页面关闭确认
 												setTimeout(function () {
 													location.reload();
