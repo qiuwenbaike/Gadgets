@@ -34,8 +34,3 @@ body.ns-subject:not( .ext-discussiontools-replytool-enabled ):not( .ext-discussi
 .hansect > ol > *:not( ul ):not( ol ):not( li ) {
 	margin-left: 0;
 }
-
-/* 讨论页不缩进 */
-body.ns-talk .mw-parser-output > p {
-	text-indent: 0;
-}
