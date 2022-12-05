@@ -43,20 +43,17 @@ return function (Constructor, protoProps, staticProps) {
 	return Constructor;
 };
 }());
-
 function _classCallCheck(instance, Constructor) {
 	if (!(instance instanceof Constructor)) {
 		throw new TypeError('Cannot call a class as a function');
 	}
 }
-
 function MoeNotification() {
 	var self = this;
 	this.display = function () {
 		var text = arguments.length <= 0 || arguments[0] === undefined ? '喵~' : arguments[0];
 		var type = arguments.length <= 1 || arguments[1] === undefined ? 'success' : arguments[1];
 		var callback = arguments.length <= 2 || arguments[2] === undefined ? function () {} : arguments[2];
-
 		$('#MoeNotification').append($('<div>').addClass('MoeNotification-notice').addClass('MoeNotification-notice-' + type).append('<span>' + text + '</span>'));
 		$('#MoeNotification').find('.MoeNotification-notice').last().fadeIn(300);
 		self.bind();
@@ -130,7 +127,6 @@ function MoeNotification() {
 		this.init();
 	}
 }
-
 $(function () {
 	var i18nData = {};
 	var scriptPath = location.protocol + '//wikiplus-app.com';
@@ -387,6 +383,7 @@ $(function () {
 					localStorage.Wikiplus_i18nCache = JSON.stringify(i18nData); // 更新缓存
 				}
 			},
+
 			error: function error(e) {
 				console.log('无法加载语言' + language);
 			}
@@ -410,7 +407,6 @@ $(function () {
 		} else if (i18nData['en-us'][key]) {
 			return i18nData['en-us'][key];
 		}
-
 	}
 	/**
 	 * 获得错误信息
@@ -645,13 +641,11 @@ $(function () {
 				number: errorList[name].number,
 				message: i18n('unknownerror')
 			};
-
 		}
 		return {
 			number: errorList.unknown_error_name.number,
 			message: errorList.unknown_error_name.message
 		};
-
 	}
 	/**
 	 * 抛出错误
@@ -678,9 +672,7 @@ $(function () {
 	var Wikipage = (function () {
 		function Wikipage() {
 			var pageName = arguments.length <= 0 || arguments[0] === undefined ? window.mw.config.get('wgPageName') : arguments[0];
-
 			_classCallCheck(this, Wikipage);
-
 			console.log('页面类构建中');
 			// 可用性和权限检测
 			if (!window.mw) {
@@ -720,7 +712,6 @@ $(function () {
 			key: 'reConstruct',
 			value: function reConstruct(title) {
 				var callback = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
 				this.init(title, callback);
 			}
 
@@ -736,7 +727,6 @@ $(function () {
 				if (callback === undefined) {
 					callback = {};
 				}
-
 				var self = this;
 				callback.success = callback.success || new Function();
 				callback.fail = callback.success || new Function();
@@ -837,7 +827,6 @@ $(function () {
 				var title = arguments.length <= 1 || arguments[1] === undefined ? this.pageName : arguments[1];
 				var callback = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 				var config = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-
 				var self = this;
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
@@ -906,7 +895,6 @@ $(function () {
 				var title = arguments.length <= 2 || arguments[2] === undefined ? this.pageName : arguments[2];
 				var config = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
 				var callback = arguments.length <= 4 || arguments[4] === undefined ? {} : arguments[4];
-
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
 				this.edit(content, title, callback, $.extend({
@@ -926,7 +914,6 @@ $(function () {
 			value: function redirectTo(target) {
 				var title = arguments.length <= 1 || arguments[1] === undefined ? this.pageName : arguments[1];
 				var callback = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
 				this.edit('#REDIRECT [[' + target + ']]', title, callback, {
@@ -947,7 +934,6 @@ $(function () {
 				var title = arguments.length <= 1 || arguments[1] === undefined ? this.pageName : arguments[1];
 				var callback = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 				var force = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
-
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
 				var data = {
@@ -972,7 +958,6 @@ $(function () {
 				var callback = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 				var title = arguments.length <= 1 || arguments[1] === undefined ? this.pageName : arguments[1];
 				var config = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
 				$.ajax({
@@ -1014,7 +999,6 @@ $(function () {
 				if (callback === undefined) {
 					callback = {};
 				}
-
 				callback.success = callback.success || new Function();
 				callback.fail = callback.fail || new Function();
 				$.ajax({
@@ -1041,21 +1025,17 @@ $(function () {
 				});
 			}
 		} ]);
-
 		return Wikipage;
 	}());
-
 	$(function () {
 		var Wikiplus = (function () {
 			_createClass(Wikiplus, [ {
 				key: 'initQuickEdit',
-
 				/**
 				 * 加载快速编辑 第一步 插入页面按钮并绑定入口事件
 				 */
 				value: function initQuickEdit() {
 					var callback = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
 					var self = this;
 					var checkRight = function checkRight() {
 						if (!mw.config.get('wgUserGroups').includes('autoconfirmed') && !mw.config.get('wgUserGroups').includes('confirmed')) {
@@ -1193,7 +1173,6 @@ $(function () {
 				key: 'displayQuickEditInterface',
 				value: function displayQuickEditInterface(obj) {
 					var message = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
-
 					var self = this;
 					var isNewPage = $('.noarticletext').length > 0;
 					var sectionNumber = obj.data('number');
@@ -1221,7 +1200,13 @@ $(function () {
 					var summaryBox = $('<input>').attr('id', 'Wikiplus-Quickedit-Summary-Input').attr('placeholder', String(i18n('summary_placehold'))); // 编辑摘要输入
 					var editSubmitBtn = $('<button>').attr('id', 'Wikiplus-Quickedit-Submit').text(i18n(isNewPage ? 'publish_page' : 'publish_change') + '(Ctrl+S)'); // 提交按钮
 					var previewSubmitBtn = $('<button>').attr('id', 'Wikiplus-Quickedit-Preview-Submit').text(String(i18n('preview'))); // 预览按钮
-					var isMinorEdit = $('<div>').append($('<input>').attr({ type: 'checkbox', id: 'Wikiplus-Quickedit-MinorEdit' })).append($('<label>').attr('for', 'Wikiplus-Quickedit-MinorEdit').text(i18n('mark_minoredit') + '(Ctrl+Shift+S)')).css({ margin: '5px 5px 5px -3px', display: 'inline' });
+					var isMinorEdit = $('<div>').append($('<input>').attr({
+						type: 'checkbox',
+						id: 'Wikiplus-Quickedit-MinorEdit'
+					})).append($('<label>').attr('for', 'Wikiplus-Quickedit-MinorEdit').text(i18n('mark_minoredit') + '(Ctrl+Shift+S)')).css({
+						margin: '5px 5px 5px -3px',
+						display: 'inline'
+					});
 					// DOM定义结束
 					var editBody = $('<div>').append(backBtn, jumpBtn, previewBox, inputBox, summaryBox, $('<br>'), isMinorEdit, editSubmitBtn, previewSubmitBtn);
 					this.createDialogBox(String(i18n('quickedit_topbtn')) + message, editBody, 1000, function () {
@@ -1395,7 +1380,6 @@ $(function () {
 								}
 								localStorage.Wikiplus_Settings = JSON.stringify(settings);
 								$('.Wikiplus-InterBox-Content').html('').append($('<div>').addClass('Wikiplus-Banner').text(i18n('wikiplus_settings_saved')));
-
 								$('.Wikiplus-InterBox').fadeOut(300, function () {
 									$(this).remove();
 								});
@@ -1569,7 +1553,6 @@ $(function () {
 					var content = arguments.length <= 1 || arguments[1] === undefined ? $('<div>') : arguments[1];
 					var width = arguments.length <= 2 || arguments[2] === undefined ? 600 : arguments[2];
 					var callback = arguments.length <= 3 || arguments[3] === undefined ? new Function() : arguments[3];
-
 					if ($('.Wikiplus-InterBox').length > 0) {
 						$('.Wikiplus-InterBox').each(function () {
 							$(this).remove();
@@ -1657,7 +1640,6 @@ $(function () {
 					var title = arguments.length <= 1 || arguments[1] === undefined ? this.kotori.pageName : arguments[1];
 					var callback = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 					var config = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-
 					callback.success = callback.success || new Function();
 					callback.fail = callback.fail || new Function();
 					var self = this;
@@ -1747,7 +1729,6 @@ $(function () {
 									return undefined;
 								}
 								return _setting()(w) || settings[key];
-
 							} catch (e) {
 								return settings[key];
 							}
@@ -1774,6 +1755,7 @@ $(function () {
 							}
 						}
 					});
+
 					this.editSettings(); // 编辑设置
 					this.simpleRedirector(); // 快速重定向
 					this.preloadEventBinding(); // 预读取
@@ -1785,10 +1767,8 @@ $(function () {
 				key: 'initAdvancedFunctions',
 				value: function initAdvancedFunctions() {}
 			} ]);
-
 			function Wikiplus() {
 				_classCallCheck(this, Wikiplus);
-
 				this.version = '2.3.11';
 				this.langVersion = '212';
 				this.releaseNote = '修正一些问题';
@@ -1817,6 +1797,7 @@ $(function () {
 					this.notice.create.success('Wikiplus ' + this.version);
 					this.notice.create.success(language === 'zh-cn' ? this.releaseNote : 'Minor bug fixes'); // 避免给其他语言用户不必要的理解困难
 				}
+
 				if (i18nData[language] === undefined) {
 					loadLanguage(language);
 				}
@@ -1829,10 +1810,8 @@ $(function () {
 					console.log('不符合加载条件 Wikiplus终止');
 				}
 			}
-
 			return Wikiplus;
 		}());
-
 		window.Wikiplus = new Wikiplus();
 	});
 });
