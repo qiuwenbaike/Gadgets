@@ -856,4 +856,37 @@ ul.permissions-errors + hr {
 	display: none;
 }
 
+/* 编辑界面“→ 前往编辑区” */
+/* Copied from .mw-ui-button */
+.mw-continue-editing {
+	background-color: #f8f9fa;
+	color: #202122;
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #a2a9b1;
+	border-radius: 0;
+	cursor: pointer;
+	vertical-align: middle;
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.28571429em;
+	text-align: center;
+	-webkit-appearance: none;
+	appearance: none;
+	min-height: 32px;
+	min-width: 4em;
+	max-width: 28.75em;
+	padding: 5px 12px;
+	-webkit-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+	transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
+}
+
+.mw-continue-editing:hover {
+	background-color: #fff;
+	color: #404244;
+	border-color: #a2a9b1;
+}
 /* </nowiki> */
