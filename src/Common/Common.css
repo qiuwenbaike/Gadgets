@@ -858,7 +858,7 @@ ul.permissions-errors + hr {
 
 /* 编辑界面“→ 前往编辑区” */
 /* Copied from .mw-ui-button */
-.mw-continue-editing {
+.mw-continue-editing a {
 	background-color: #f8f9fa;
 	color: #202122;
 	display: inline-block;
@@ -884,7 +884,7 @@ ul.permissions-errors + hr {
 	transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
 }
 
-.mw-continue-editing:hover {
+.mw-continue-editing a:hover {
 	background-color: #fff;
 	color: #404244;
 	border-color: #a2a9b1;
