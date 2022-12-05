@@ -99,8 +99,7 @@ mw.hook('wikipage.editform').add(function () {
 		}
 	}
 	function manipulateVariantConfig() {
-		// 不知道为什么，页内预览根本就不理睬wgUserVariant。
-		// 参考API请求，猜测直接改成wgUserLanguage可以修复此问题。
+		mw.config.set('wgUserVariant', getSelectedVariant() || mw.user.options.get('variant'));
 		mw.config.set('wgUserLanguage', getSelectedVariant() || mw.user.options.get('variant'));
 	}
 	$editForm.find('#wpPreview').on('click', !mw.user.options.get('uselivepreview') ? manipulateActionUrl : manipulateVariantConfig);
@@ -118,8 +117,8 @@ mw.hook('wikipage.editform').add(function () {
 });
 
 // Register 2017 wikitext editor version to VE
-mw.loader.using('ext.visualEditor.desktopArticleTarget.init').then(function () {
-	mw.libs.ve.addPlugin('ext.gadget.PreviewWithVariant2017');
-});
+// mw.loader.using( 'ext.visualEditor.desktopArticleTarget.init' ).then( function () {
+//     mw.libs.ve.addPlugin( 'ext.gadget.PreviewWithVariant2017' );
+// } );
 }(jQuery, mediaWiki));
 /* </nowiki> */
