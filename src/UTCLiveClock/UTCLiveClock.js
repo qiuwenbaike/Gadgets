@@ -127,7 +127,7 @@ mw.loader.using([ 'mediawiki.util', 'mediawiki.api' ]).then(function () {
 			}).then(function () {
 				location.reload();
 			}, function () {
-				mw.notify('Purge failed', {
+				mw.notify('清除缓存失败', {
 					type: 'error'
 				});
 			});
