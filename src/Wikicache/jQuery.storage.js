@@ -11,7 +11,6 @@
 /* ! jQuery.storage
  *
  * Support browsers: IE6+, Firefox2+, Safari4+, Chrome4+ and Opera 10.5+
- * Require json2.js(http://json.org/) before IE8
  *
  * Usage:
  *   set: $.storage( foo, bar )

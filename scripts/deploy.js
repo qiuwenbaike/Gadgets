@@ -168,10 +168,6 @@ const deployTargets = [
 		target: 'MediaWiki:Gadget-Wikicache.js'
 	},
 	{
-		file: 'src/Wikicache/JSON2.js',
-		target: 'MediaWiki:Gadget-JSON2.js'
-	},
-	{
 		file: 'src/Wikicache/jQuery.storage.js',
 		target: 'MediaWiki:Gadget-jQuery.storage.js'
 	},
