@@ -5,7 +5,6 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Wikicache-load.js
  * @source zh.wikipedia.org/w/index.php?oldid=16537574
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
- * @dependency ext.gadget.SiteCommonJs
  */
 'use strict';
 
