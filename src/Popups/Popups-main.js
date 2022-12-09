@@ -8231,7 +8231,7 @@ $(function () {
     function dynamicContentHandler($content) {
       // Try to detect the hook fired on initial page load and disregard
       // it, we already hook to onload (possibly to different parts of
-      // page - it's configurable) and running twice might be bad. Ugly…
+      // page - it's configurable) and running twice might be bad. Ugly……
       if ($content.attr('id') === 'mw-content-text') {
         if (once) {
           once = false;
