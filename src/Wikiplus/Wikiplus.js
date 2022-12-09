@@ -212,7 +212,7 @@ $(function () {
 		mark_minoredit: '标记为小编辑',
 		onclose_confirm: '[Wikiplus] 您确认要关闭/刷新页面吗？这会导致您的编辑数据丢失',
 		fail_to_get_wikitext_when_edit: '无法获得页面文本以编辑',
-		cant_parse_wikitext: '无法解析维基文本',
+		cant_parse_wikitext: '无法解析wikitext',
 		loading_preview: '正在读取预览',
 		submitting_edit: '正在提交编辑',
 		edit_success: '编辑成功 用时$1ms',
@@ -946,7 +946,7 @@ $(function () {
 			}
 
 			/**
-			 * 获得页面维基文本
+			 * 获得页面wikitext
 			 *
 			 * @param {Object} callback 回调函数
 			 * @param {string} title 页面标题 默认为当前页面
@@ -986,7 +986,7 @@ $(function () {
 			/**
 			 * 解析Wikitext
 			 *
-			 * @param {string} wikitext 维基文本
+			 * @param {string} wikitext wikitext
 			 * @param {Object} callback 回调函数
 			 * @param {Object} config 设置
 			 */
