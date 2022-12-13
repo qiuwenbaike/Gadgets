@@ -47,7 +47,7 @@ window.wikiCache = {
 	_settings: {
 		'autosave-interval': 60
 	},
-	_style: '.wikicache-dialog{font-size:1em}.wikicache-notice{position:fixed;left:0;top:0;height:1.6em;font-size:.8em;line-height:1.6em;white-space:nowrap;border-bottom:1px solid #a7d7f9;border-right:1px solid #a7d7f9;display:none}.wikicache-notice .ui-dialog-titlebar-close{float:right;display:inline-block}.wikicache-dialog a,.wikicache-notice a{color:#0645ad}.wikicache-dialog a:visited,.wikicache-notice a:visited{color:#0b0080}.wikicache-error-message{background:url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_(Red).svg/48px-Cross_Mark_(Red).svg.png") no-repeat 0;padding-left:60px;min-height:48px}',
+	_style: '.wikicache-dialog{font-size:1em}.wikicache-notice{position:fixed;left:0;bottom:0;height:1.6em;font-size:.8em;line-height:1.6em;white-space:nowrap;border-bottom:1px solid #a7d7f9;border-right:1px solid #a7d7f9;display:none}.wikicache-notice .ui-dialog-titlebar-close{float:right;display:inline-block}.wikicache-dialog a,.wikicache-notice a{color:#0645ad}.wikicache-dialog a:visited,.wikicache-notice a:visited{color:#0b0080}.wikicache-error-message{background:url("https://upload.qiuwenbaike.cn/images/thumb/0/09/Cross_Mark_(Red).svg/48px-Cross_Mark_(Red).svg.png") no-repeat 0;padding-left:60px;min-height:48px}',
 	_autoSaveArea: {
 		'#wpTextbox1': function wpTextbox1(el, val) {
 			if (val) {
