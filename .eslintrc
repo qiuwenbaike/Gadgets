@@ -25,7 +25,8 @@
 		"src/Carousel/Carousel.js",
 		"src/Wikiplus/Wikiplus-highlight.js",
 		"src/EasyArchive/EasyArchive-main.js",
-		"src/Popups/Popups-main.js"
+		"src/Popups/Popups-main.js",
+		"src/InPageEdit/InPageEdit.js"
 	],
 	"rules": {
 		"no-console": "off",

@@ -7,4 +7,4 @@
  */
 'use strict';
 
-mw.loader.load('https://cdn.jsdelivr.net/npm/mediawiki-inpageedit');
+mw.loader.load('/index.php?title=MediaWiki:Gadget-InPageEdit.js&action=raw&ctype=text/css&smaxage=3600&maxage=3600');
