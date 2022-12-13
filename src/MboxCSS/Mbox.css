@@ -350,7 +350,6 @@ body.mediawiki .mbox-small-left {
 
 	.mbox-text {
 		padding: 1vh 2vw;
-		width: 90vw;
 		flex: 1 1 90vw;
 	}
 }
