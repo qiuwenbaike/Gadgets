@@ -36,8 +36,8 @@
  *
  * 5. Add the following code to your wiki's [[MediaWiki:Gadgets-definition]]:
  *
- *     * UTCLiveClock[ResourceLoader|type=general|dependencies=mediawiki.util,mediawiki.api|peers=UTCLiveClock-pagestyles]|UTCLiveClock.js|UTCLiveClock.css
- *     * UTCLiveClock-pagestyles[hidden|skins=vector]|UTCLiveClock-pagestyles.css
+ * * UTCLiveClock[ResourceLoader|type=general|dependencies=mediawiki.util,mediawiki.api|peers=UTCLiveClock-pagestyles]|UTCLiveClock.js|UTCLiveClock.css
+ * * UTCLiveClock-pagestyles[hidden|skins=vector]|UTCLiveClock-pagestyles.css
  *
  *
  * To set the timezone used to one other than UTC, set window.LiveClockTimeZone to
