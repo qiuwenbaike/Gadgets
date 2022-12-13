@@ -322,6 +322,7 @@ body.mediawiki .mbox-small-left {
 	.mbox-small {
 		max-width: 100%;
 		width: 100%;
+		font-size: 0.9em;
 	}
 
 	.mbox-image,
