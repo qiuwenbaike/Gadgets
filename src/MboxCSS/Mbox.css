@@ -82,11 +82,6 @@
 	width: 1px;
 }
 
-.mbox-image a > img,
-.mbox-imageright a > img {
-	max-width: unset !important;
-}
-
 /* Styles per type */
 .mbox-notice {
 	border-left-color: #36c;
@@ -331,17 +326,31 @@ body.mediawiki .mbox-small-left {
 
 	.mbox-image,
 	.mbox-imageright {
-		flex: 1 0 10vw;
+		flex: 1 0 6vw;
 	}
 
 	.mbox-image img,
 	.mbox-imageright img {
-		max-width: 10vw;
+		max-width: 6vw;
+	}
+
+	.mbox-image {				  /* The left image cell */
+		padding: 2px 0 2px 2vw;	  /* 2vw left, 0px right */
+	}
+
+	.mbox-imageright {			/* The right image cell */
+		padding: 2px 2vw 2px 0;	/* 0px left, 2vw right */
 	}
 
 	.mbox.licensetpl .mbox-image,
 	.mbox.licensetpl .mbox-imageright {
 		display: none;
+	}
+
+	.mbox-text {
+		padding: 1vh 2vw;
+		width: 90vw;
+		flex: 1 1 90vw;
 	}
 }
 
