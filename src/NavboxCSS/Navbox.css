@@ -5,7 +5,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gadget-Navbox.css
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
-/* 本样式表用于[[Module:Navbox]]。 */
+/* 本样式表用于Module:Navbox。 */
 /* 除变量之外的其他部分 */
 .navbox {
 	display: -ms-grid;
@@ -28,7 +28,7 @@
 .navbox-wrapper + .navbox-wrapper > .navbox,
 .navbox-wrapper + .navbox-wrapper > .content-table > .navbox,
 .navbox + .navbox {  /* Single pixel border between adjacent navboxes */
-	margin-top: calc( -1px - 1em );		  /* (doesn't work for IE6, but that's okay)	  */
+	margin-top: calc( -1px - 1em );		/* (doesn't work for IE6, but that's okay)	*/
 	/* 优先级低于 .navbox-list.navbox 的 margin:0 */
 }
 
@@ -189,7 +189,7 @@
  * .navbox-list > .navbox,
  * .navbox-list > span > .navbox,
  * .navbox-list > span > span > .navbox {
- * 	   margin: -0.0875em -1em;
+ * 	 margin: -0.0875em -1em;
  * }
  */
 
@@ -272,7 +272,7 @@
 .navbox td.hlist dl,
 .navbox td.hlist ol,
 .navbox td.hlist ul {
-	padding: 0.125em 0;	   /* Adjust hlist padding in navboxes */
+	padding: 0.125em 0;	 /* Adjust hlist padding in navboxes */
 }
 
 .navbox .hlist dd,
@@ -285,7 +285,7 @@
 .navbox .hlist dt dl,
 .navbox .hlist li ol,
 .navbox .hlist li ul {
-	white-space: normal;	  /* But allow parent list items to be wrapped */
+	white-space: normal;	/* But allow parent list items to be wrapped */
 }
 
 .navbox .hlist ul ul {
