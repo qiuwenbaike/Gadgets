@@ -321,6 +321,11 @@ body.mediawiki .mbox-small-left {
 		max-width: 100%;
 		width: 100%;
 	}
+
+	.mbox.licensetpl .mbox-image,
+	.mbox.licensetpl .mbox-imageright {
+		display: none;
+	}
 }
 
 @media screen and ( max-width: 480px ) {
