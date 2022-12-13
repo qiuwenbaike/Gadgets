@@ -69,6 +69,13 @@
 	padding: 2px 0.9em 2px 0;	/* 0px left, 0.9em right */
 }
 
+.mbox-image img,
+.mbox-imageright img {
+	max-width: 45px;
+	object-fit: contain;
+	text-align: center;
+}
+
 .mbox-empty-cell {			/* An empty narrow cell */
 	border: 0;
 	padding: 0;
@@ -320,6 +327,16 @@ body.mediawiki .mbox-small-left {
 	.mbox-small {
 		max-width: 100%;
 		width: 100%;
+	}
+
+	.mbox-image,
+	.mbox-imageright {
+		flex: 1 0 10vw;
+	}
+
+	.mbox-image img,
+	.mbox-imageright img {
+		max-width: 10vw;
 	}
 
 	.mbox.licensetpl .mbox-image,
