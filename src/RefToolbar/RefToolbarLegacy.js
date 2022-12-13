@@ -73,11 +73,11 @@ function refbuttons() {
 			citeselect.id = 'citeselect';
 			citeselect.style.display = 'none';
 			citeselect.innerHTML = '<input type="button" value="Web" onclick="citeWeb()" /><input type="button" value="News" onclick="citeNews()" /><input type="button" value="Book" onclick="citeBook()" /><input type="button" value="Journal" onclick="citeJournal()" /><input type="button" value="Named references" onclick="citeNamedRef()" /><input type="button" value="Error check" onclick="dispErrors()" /><input type="button" value="More" onclick="showMore()" /><input type="button" value="Cancel" onclick="hideInitial()" /><div id="citemore" style="display:none">\
-	  <input type="button" value="Encyclopedia" onclick="citeEncyclopedia()" />\
-	  <input type="button" value="Press release" onclick="citePressRelease()" />\
-	  <input type="button" value="Map" onclick="citeMap()" />\
-	  <input type="button" value="Ref Section" onclick="showRefSectionOptions()" />\
-	  </div>';
+		<input type="button" value="Encyclopedia" onclick="citeEncyclopedia()" />\
+		<input type="button" value="Press release" onclick="citePressRelease()" />\
+		<input type="button" value="Map" onclick="citeMap()" />\
+		<input type="button" value="Ref Section" onclick="showRefSectionOptions()" />\
+		</div>';
 			document.getElementById('editform').insertBefore(citeselect, document.getElementById('editform').firstChild);
 		}
 		var reftoolformarea = document.createElement('span');

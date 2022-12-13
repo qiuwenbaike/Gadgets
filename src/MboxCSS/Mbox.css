@@ -61,8 +61,8 @@
 	flex: 1 0 40px;
 }
 
-.mbox-image {				  /* The left image cell */
-	padding: 2px 0 2px 0.9em;	  /* 0.9em left, 0px right */
+.mbox-image {					/* The left image cell */
+	padding: 2px 0 2px 0.9em;		/* 0.9em left, 0px right */
 }
 
 .mbox-imageright {			/* The right image cell */
@@ -335,8 +335,8 @@ body.mediawiki .mbox-small-left {
 		max-width: 6vw;
 	}
 
-	.mbox-image {				  /* The left image cell */
-		padding: 2px 0 2px 2vw;	  /* 2vw left, 0px right */
+	.mbox-image {					/* The left image cell */
+		padding: 2px 0 2px 2vw;		/* 2vw left, 0px right */
 	}
 
 	.mbox-imageright {			/* The right image cell */
