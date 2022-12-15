@@ -146,18 +146,6 @@ div.notelist ol.references {
 	/* Enable custom list style types */
 }
 
-/* .references-2column b/c */
-div.references-2column {
-	-moz-column-count: 2;
-	column-count: 2;
-	font-size: 90%;
-}
-
-div.references-2column ol.references,
-div.references-2column div.reflist {
-	font-size: 100%;
-}
-
 /* Reset top margin for lists embedded in columns */
 div.columns {
 	margin-top: 0.3em;
