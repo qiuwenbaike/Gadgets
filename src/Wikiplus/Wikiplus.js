@@ -1050,7 +1050,8 @@ $(function () {
 						return;
 					}
 					// 顶部编辑入口
-					var topBtn = $('<span>').attr({
+					var topBtnSkin = mw.config.get('skin') === 'write' ? $('<span>') : $('<li>');
+					var topBtn = topBtnSkin.attr({
 						id: 'Wikiplus-Edit-TopBtn',
 						class: 'mw-list-item'
 					}).append($('<a>').attr('href', 'javascript:void(0)').text(String(i18n('quickedit_topbtn')))).data({
@@ -1759,8 +1760,10 @@ $(function () {
 						}
 					});
 
-					this.editSettings(); // 编辑设置
-					this.simpleRedirector(); // 快速重定向
+					if (!(mw.config.get('skin') === 'write')) {
+						this.editSettings(); // 编辑设置
+						this.simpleRedirector(); // 快速重定向
+					}
 					this.preloadEventBinding(); // 预读取
 				}
 			}, {
