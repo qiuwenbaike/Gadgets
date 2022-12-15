@@ -1050,8 +1050,7 @@ $(function () {
 						return;
 					}
 					// 顶部编辑入口
-					var topBtnSkin = mw.config.get('skin') === 'write' ? $('<span>') : $('<li>');
-					var topBtn = topBtnSkin.attr({
+					var topBtn = $('<span>').attr({
 						id: 'Wikiplus-Edit-TopBtn',
 						class: 'mw-list-item'
 					}).append($('<a>').attr('href', 'javascript:void(0)').text(String(i18n('quickedit_topbtn')))).data({
