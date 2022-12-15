@@ -146,8 +146,8 @@ var HC = window.HotCat = {
 	// If not, set it to null.
 	uncat_regexp: /\{\{\s*[Uu]ncategorized\s*[^}]*\}\}\s*(<!--.*?-->\s*)?/g,
 	// The images used for the little indication icon. Should not need changing.
-	existsYes: '//upload.qiuwenbaike.cn/images/thumb/b/be/P_yes.svg/20px-P_yes.svg.png',
-	existsNo: '//upload.qiuwenbaike.cn/images/thumb/4/42/P_no.svg/20px-P_no.svg.png',
+	existsYes: '//tu.zhongwen.wiki/images/thumb/b/be/P_yes.svg/20px-P_yes.svg.png',
+	existsNo: '//tu.zhongwen.wiki/images/thumb/4/42/P_no.svg/20px-P_no.svg.png',
 	// a list of categories which can be removed by removing a template
 	// key: the category without namespace
 	// value: A regexp matching the template name, again without namespace

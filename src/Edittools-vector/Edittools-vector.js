@@ -34,7 +34,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				category: {
 					label: '分类',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/0/0c/VisualEditor_-_Icon_-_Tag.svg/24px-VisualEditor_-_Icon_-_Tag.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/0/0c/VisualEditor_-_Icon_-_Tag.svg/24px-VisualEditor_-_Icon_-_Tag.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -52,7 +52,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'bolditalic': {
 					label: '粗斜体',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/b/be/Toolbaricon_bolditalic_A.png',
+					icon: '//tu.zhongwen.wiki/images/b/be/Toolbaricon_bolditalic_A.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -65,7 +65,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'strikethrough': {
 					label: '删除线',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/7/72/VisualEditor_-_Icon_-_Strikethrough-s.svg/24px-VisualEditor_-_Icon_-_Strikethrough-s.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/7/72/VisualEditor_-_Icon_-_Strikethrough-s.svg/24px-VisualEditor_-_Icon_-_Strikethrough-s.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -77,7 +77,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'underline': {
 					label: '下划线',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/a/a9/VisualEditor_-_Icon_-_Underline-u.svg/24px-VisualEditor_-_Icon_-_Underline-u.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/a/a9/VisualEditor_-_Icon_-_Underline-u.svg/24px-VisualEditor_-_Icon_-_Underline-u.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -89,7 +89,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'quote': {
 					label: '块引用',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/d/d8/VisualEditor_-_Icon_-_Block-quote.svg/24px-VisualEditor_-_Icon_-_Block-quote.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/d/d8/VisualEditor_-_Icon_-_Block-quote.svg/24px-VisualEditor_-_Icon_-_Block-quote.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -101,7 +101,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'justify-left': {
 					label: '左对齐',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/7/7f/OOjs_UI_icon_alignLeft.svg/24px-OOjs_UI_icon_alignLeft.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/7/7f/OOjs_UI_icon_alignLeft.svg/24px-OOjs_UI_icon_alignLeft.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -113,7 +113,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'justify-center': {
 					label: '居中',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/b/ba/OOjs_UI_icon_alignCenter.svg/24px-OOjs_UI_icon_alignCenter.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/b/ba/OOjs_UI_icon_alignCenter.svg/24px-OOjs_UI_icon_alignCenter.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -125,7 +125,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'justify-right': {
 					label: '右对齐',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/1/13/OOjs_UI_icon_alignRight.svg/24px-OOjs_UI_icon_alignRight.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/1/13/OOjs_UI_icon_alignRight.svg/24px-OOjs_UI_icon_alignRight.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -137,7 +137,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'source': {
 					label: '源代码',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/2/2c/VisualEditor_-_Icon_-_Source.svg/24px-VisualEditor_-_Icon_-_Source.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/2/2c/VisualEditor_-_Icon_-_Source.svg/24px-VisualEditor_-_Icon_-_Source.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -155,7 +155,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'math': {
 					label: '数学公式',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/3/30/VisualEditor_-_Icon_-_Equation.svg/24px-VisualEditor_-_Icon_-_Equation.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/3/30/VisualEditor_-_Icon_-_Equation.svg/24px-VisualEditor_-_Icon_-_Equation.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -168,7 +168,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'hidden': {
 					label: '注释或隐藏文字',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/d/d1/VisualEditor_-_Icon_-_Comment.svg/24px-VisualEditor_-_Icon_-_Comment.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/d/d1/VisualEditor_-_Icon_-_Comment.svg/24px-VisualEditor_-_Icon_-_Comment.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -180,7 +180,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'hline': {
 					label: '水平线',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/0/0e/VisualEditor_-_Icon_-_Remove-item.svg/24px-VisualEditor_-_Icon_-_Remove-item.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/0/0e/VisualEditor_-_Icon_-_Remove-item.svg/24px-VisualEditor_-_Icon_-_Remove-item.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -192,7 +192,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'hans-hant': {
 					label: '繁简转换',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/6/6a/Chinese_conversion_black.svg/24px-Chinese_conversion_black.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/6/6a/Chinese_conversion_black.svg/24px-Chinese_conversion_black.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {
@@ -205,7 +205,7 @@ if (mw.user.options.get('gadget-Edittools-vector')) {
 				'references': {
 					label: '参考文献区',
 					type: 'button',
-					icon: '//upload.qiuwenbaike.cn/images/thumb/f/f9/VisualEditor_-_Icon_-_References.svg/24px-VisualEditor_-_Icon_-_References.svg.png',
+					icon: '//tu.zhongwen.wiki/images/thumb/f/f9/VisualEditor_-_Icon_-_References.svg/24px-VisualEditor_-_Icon_-_References.svg.png',
 					action: {
 						type: 'encapsulate',
 						options: {

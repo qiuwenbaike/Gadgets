@@ -170,7 +170,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 										type: 'dialog',
 										module: 'cite-toolbar-namedrefs'
 									},
-									icon: '//upload.qiuwenbaike.cn/images/thumb/b/be/Nuvola_clipboard_lined.svg/22px-Nuvola_clipboard_lined.svg.png',
+									icon: '//tu.zhongwen.wiki/images/thumb/b/be/Nuvola_clipboard_lined.svg/22px-Nuvola_clipboard_lined.svg.png',
 									section: 'cites',
 									group: 'namedrefs',
 									labelMsg: 'cite-named-refs-button'
@@ -186,7 +186,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 										type: 'dialog',
 										module: 'cite-toolbar-errorcheck'
 									},
-									icon: '//upload.qiuwenbaike.cn/images/thumb/a/a3/Nuvola_apps_korganizer-NO.png/22px-Nuvola_apps_korganizer-NO.png',
+									icon: '//tu.zhongwen.wiki/images/thumb/a/a3/Nuvola_apps_korganizer-NO.png/22px-Nuvola_apps_korganizer-NO.png',
 									section: 'cites',
 									group: 'errorcheck',
 									labelMsg: 'cite-errorcheck-button'
@@ -203,7 +203,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 				id: 'citetoolbar-errorcheck',
 				resizeme: false,
 				init: function init() {},
-				html: '<div id="cite-namedref-loading"> <img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
+				html: '<div id="cite-namedref-loading"> <img src="//tu.zhongwen.wiki/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
 				dialog: {
 					width: 550,
 					open: function open() {
@@ -229,7 +229,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 				titleMsg: 'cite-named-refs-title',
 				resizeme: false,
 				id: 'citetoolbar-namedrefs',
-				html: '<div id="cite-namedref-loading"> <img src="//upload.qiuwenbaike.cn/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
+				html: '<div id="cite-namedref-loading"> <img src="//tu.zhongwen.wiki/images/d/de/Ajax-loader.gif" /> &nbsp;' + mw.usability.getMsg('cite-loading') + '</div>',
 				init: function init() {},
 				dialog: {
 					width: 550,
@@ -929,7 +929,7 @@ if ([ 'edit', 'submit' ].indexOf(mw.config.get('wgAction')) !== -1 && mw.config.
 		var tr1 = $('<tr>').css('width', '100%');
 		var th1 = $('<th>').attr('style', 'width: 60%; font-size: 110%').html(mw.usability.getMsg('cite-err-report-heading'));
 		var th2 = $('<th>').attr('style', 'text-align: right; width: 40%');
-		var im = $('<img>').attr('src', '//upload.qiuwenbaike.cn/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
+		var im = $('<img>').attr('src', '//tu.zhongwen.wiki/images/thumb/5/55/Gtk-stop.svg/20px-Gtk-stop.svg.png');
 		im.attr('alt', mw.usability.getMsg('cite-err-report-close')).attr('title', mw.usability.getMsg('cite-err-report-close'));
 		var ad = $('<a>').attr({
 			id: 'cite-err-check-close',

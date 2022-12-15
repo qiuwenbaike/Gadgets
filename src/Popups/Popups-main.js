@@ -1497,9 +1497,9 @@ $(function () {
         articles: pg.wiki.articlePath + '/',
         // Only used for Insta previews with images. (not in popups)
         math: '/math/',
-        images: '//upload-mirror.qiuwen.wiki/wikipedia/en/',
+        images: '//wm.zhongwen.wiki/wikipedia/en/',
         // FIXME getImageUrlStart(pg.wiki.hostname),
-        images_fallback: '//upload-mirror.qiuwen.wiki/wikipedia/commons/'
+        images_fallback: '//wm.zhongwen.wiki/wikipedia/commons/'
       },
       locale: {
         user: mw.config.get('wgFormattedNamespaces')[pg.nsUserId],
@@ -1513,7 +1513,7 @@ $(function () {
     // options with default values or backreferences
     Insta.conf.user.name = Insta.conf.user.name || 'Wikipedian';
     Insta.conf.user.signature = '[[' + Insta.conf.locale.user + ':' + Insta.conf.user.name + '|' + Insta.conf.user.name + ']]';
-    // Insta.conf.paths.images = '//upload-mirror.qiuwen.wiki/wikipedia/' + Insta.conf.wiki.lang + '/';
+    // Insta.conf.paths.images = '//wm.zhongwen.wiki/wikipedia/' + Insta.conf.wiki.lang + '/';
 
     // define constants
     Insta.BLOCK_IMAGE = new RegExp('^\\[\\[(?:File|Image|' + Insta.conf.locale.image + '):.*?\\|.*?(?:frame|thumbnail|thumb|none|right|left|center)', 'i');
