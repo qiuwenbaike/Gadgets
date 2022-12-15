@@ -1053,7 +1053,7 @@ $(function () {
 					var topBtn = $('<li>').attr({
 						id: 'Wikiplus-Edit-TopBtn',
 						class: 'mw-list-item'
-					}).append($('<a>').attr('href', 'javascript:void(0)').text(String(i18n('quickedit_topbtn'))))).data({
+					}).append($('<a>').attr('href', 'javascript:void(0)').text(String(i18n('quickedit_topbtn')))).data({
 						number: -1,
 						target: self.kotori.pageName
 					});
