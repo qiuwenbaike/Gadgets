@@ -96,7 +96,7 @@ _TR = {
 			return;
 		} // not setup correctly
 		var self = this,
-			btn = $('<li id="ca-redirect" class="collapsible" style="cursor:pointer"><span><a title="' + this.msg.btndesc + '">' + this.msg.btntitle + '</a></span></li>');
+			btn = $('<li id="ca-redirect" class="mw-list-item collapsible" style="cursor:pointer"><span><a title="' + this.msg.btndesc + '">' + this.msg.btntitle + '</a></span></li>');
 		btn.click(function (evt) {
 			evt.preventDefault();
 			self.dialog();
