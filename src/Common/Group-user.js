@@ -56,9 +56,9 @@ $(function () {
 	}
 	// Import page
 	if (mw.config.get('wgCanonicalSpecialPageName') === 'Import') {
-		$('#ooui-php-3').val('zhwiki');
-		$('#ooui-php-5').val('导入自[[zhwiki:|此网站]]的同名页面［页面文字原许可：[[cc-by-sa:3.0|CC BY-SA 3.0]]］');
-		$('#ooui-php-28').val('［页面文字原许可：[[cc-by-sa:3.0|CC BY-SA 3.0]]］');
+		$('[name=usernamePrefix]').val('zhwiki');
+		$('#mw-import-upload-form [name=log-comment]').val('导入自[[zhwiki:|此网站]]的同名页面［页面文字原许可：[[cc-by-sa:3.0|CC BY-SA 3.0]]］');
+		$('#mw-import-interwiki-form [name=log-comment]').val('［页面文字原许可：[[cc-by-sa:3.0|CC BY-SA 3.0]]］');
 	}
 	// ImportFile page
 	if (mw.config.get('wgCanonicalSpecialPageName') === 'FileImporter-SpecialPage') {
