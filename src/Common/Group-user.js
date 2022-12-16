@@ -32,6 +32,8 @@ $(function () {
 			}
 			if (cats.indexOf('在世人物') !== -1) {
 				addEditIntro('Template:BLP_editintro');
+			} else if (/抗日?[戰战][争爭]?[牺犧]牲|烈士|[戰战][鬥鬦斗]英雄|英雄?模[範范]?|英雄?烈士?|人民(教育家|[藝艺][术術]家|科[學学]家|英雄|楷模)|共和[国國][勳勋]章|[七八]一[勳勋]章[獲获]得者|[特一]等功臣/.test(cats) === true) {
+				addEditIntro('Template:BLP_editintro');
 			}
 			break;
 		case 4:
