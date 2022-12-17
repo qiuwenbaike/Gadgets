@@ -147,19 +147,19 @@ div.notelist ol.references {
 }
 
 /* Reset top margin for lists embedded in columns */
-div.columns {
+.mw-parser-output .columns {
 	margin-top: 0.3em;
 }
 
-div.columns dl,
-div.columns ol,
-div.columns ul {
+.mw-parser-output div.columns dl,
+.mw-parser-output div.columns ol,
+.mw-parser-output div.columns ul {
 	margin-top: 0;
 }
 
 /* Avoid list items from breaking between columns */
-div.columns li,
-div.columns dd dd {
+.mw-parser-output div.columns li,
+.mw-parser-output div.columns dd dd {
 	-webkit-column-break-inside: avoid;
 	page-break-inside: avoid;
 	break-inside: avoid-column;
