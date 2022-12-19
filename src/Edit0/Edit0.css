@@ -21,10 +21,15 @@ body.ltr h1.firstHeading .mw-editsection-bracket:not( :first-of-type ) {
 	color: #555;
 }
 
-.page-heading .mw-editsection a {
+body:not( .skin-citizen ) .page-heading .mw-editsection a {
 	display: inline-block;
 	font-size: 1em;
 	vertical-align: middle;
+}
+
+body.skin-citizen .page-heading .mw-editsection a {
+	/* stylelint-disable-next-line unit-disallowed-list */
+	font-size: 1rem;
 }
 
 #firstHeading span.mw-editsection a:after {
