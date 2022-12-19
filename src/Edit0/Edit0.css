@@ -27,10 +27,6 @@ body:not( .skin-citizen ) .page-heading .mw-editsection a {
 	vertical-align: middle;
 }
 
-body.skin-citizen .page-heading .mw-editsection {
-	display: inline !important;
-}
-
 body.skin-citizen .page-heading .mw-editsection a {
 	/* stylelint-disable-next-line unit-disallowed-list */
 	font-size: 1rem;
