@@ -1169,7 +1169,7 @@ if (!window.easy_archive) {
 				element_for_manipulation,
 				nominal,
 				actual;
-			var pipe_html = '<span style="margin:0 0.2em; opacity:0.7">|</span>';
+			var pipe_html = '<span class="mw-editsection-divider"> | </span>';
 			var section_delete_interface_inhibit = easy.settings.find('sec-del') === '0' || easy.settings.find('data-init') === '0';
 			var section_archive_interface_inhibit = easy.settings.find('sec-arc') === '0' || easy.settings.find('data-init') === '0';
 			var page_top_control_bar_inhibit = easy.settings.find('top-bar') === '0';
