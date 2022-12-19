@@ -24,7 +24,8 @@ mw.loader.using([ 'mediawiki.util' ]).then(function () {
 				return;
 			}
 			var $span0 = $span1.clone();
-			$('#mw_header h1, #content h1').first().append($span0);
+			$('body:not(.skin-citizen) #mw_header h1, #content h1').first().append($span0);
+			$('body.skin-citizen #section-collapsible-0').prepend($span0);
 			$span0.find('a').each(function () {
 				var a = $(this);
 				var href = a.attr('href') || '';
