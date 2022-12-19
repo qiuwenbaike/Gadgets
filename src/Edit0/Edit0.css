@@ -28,7 +28,7 @@ body:not( .skin-citizen ) .page-heading .mw-editsection a {
 }
 
 body.skin-citizen .page-heading .mw-editsection {
-	display: inline;
+	display: inline !important;
 }
 
 body.skin-citizen .page-heading .mw-editsection a {
