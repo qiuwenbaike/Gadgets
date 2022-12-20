@@ -5,6 +5,7 @@
  * @url https://www.qiuwenbaike.cn/wiki/MediaWiki:Gongbi.css
  * @license <https://creativecommons.org/licenses/by-sa/4.0/>
  */
+/* 这里放置的CSS将影响使用Gongbi皮肤的用户 */
 /* 隐去Logo */
 .mw-wiki-logo.fallback {
 	height: 0 !important;

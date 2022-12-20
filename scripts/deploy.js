@@ -576,6 +576,10 @@ const deployTargets = [
 		target: 'MediaWiki:Write.css'
 	},
 	{
+		file: 'src/Common/Citizen.css',
+		target: 'MediaWiki:Citizen.css'
+	},
+	{
 		file: 'src/Common/Print.css',
 		target: 'MediaWiki:Print.css',
 	},
