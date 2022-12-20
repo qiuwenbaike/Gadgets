@@ -11,13 +11,13 @@
  * Variables
  */
 :root {
-	--fonts-sans: 'Noto Sans', 'Source Sans 3', 'Source Sans Pro', 'Noto Sans SC', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti SC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	--fonts-sans: 'Noto Sans', 'Source Sans 3', 'Source Sans Pro', 'Noto Sans SC', 'Source Han Sans SC', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti SC', 'WenQuanYi Micro Hei', -apple-system, system-ui, sans-serif;
 	--fonts-serif: 'Noto Serif', 'Source Serif', 'Noto Serif SC', 'Source Han Serif SC', 'Times New Roman', 'Times', 'STSong', 'SimSun', serif;
 	--fonts-monospace: 'Noto Mono', 'Source Code Pro', 'Source Han Mono SC', 'Consolas', 'Monaco', 'Courier', monospace;
 }
 
 :root:lang( zh-hant ) {
-	--fonts-sans: 'Noto Sans', 'Source Sans 3', 'Source Han Sans TC', 'Noto Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'STHeiti TC', 'WenQuanYi Micro Hei', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	--fonts-sans: 'Noto Sans', 'Source Sans 3', 'Source Han Sans TC', 'Noto Sans TC', 'Source Sans Pro', 'Helvetica', 'Roboto', 'SFProDisplay-Regular', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', 'STHeiti TC', 'WenQuanYi Micro Hei', -apple-system, system-ui, sans-serif;
 	--fonts-serif: 'Noto Serif', 'Source Serif', 'Noto Serif TC', 'Source Han Serif TC', 'Times New Roman', 'Times', 'MingLiU', 'SimSun', serif;
 	--fonts-monospace: 'Noto Mono', 'Source Code Pro', 'Source Han Mono TC', 'Consolas', 'Monaco', 'Courier', monospace;
 }
